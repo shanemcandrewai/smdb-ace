@@ -10,3 +10,5 @@ use fetch api
 ## alternative simplication
 node.js cli app which opens the html file and static assets on local browser
 $ npm install open
+### Notes about [local testing](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server)
+Some browsers (including Chrome) will not run async requests (see Fetching data from the server) if you just run the example from a local file.
