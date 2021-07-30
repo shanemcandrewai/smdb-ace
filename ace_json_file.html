@@ -18,9 +18,10 @@
 
     <script src="../ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
     <script>
+      var ed = document.getElementById('editor')
       fetch('test.json')
         .then(response => response.json())
-        .then(data => console.log(data));
+        .then(data => ed.innerHTML = data);
       var editor = ace.edit("editor");
       editor.session.setMode("ace/mode/json");
       console.log('xxx finished')
