@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>ACE wth JSON in file</title>
+    <title>ACE with JSON in file</title>
     <style type="text/css" media="screen">
       #editor { 
         position: absolute;
@@ -15,16 +15,18 @@
   </head>
   <body>
     <div id="editor">ddd</div>
-
     <script src="../ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
     <script>
-      var ed = document.getElementById('editor')
+      var el_editor = document.getElementById('editor');
       fetch('test.json')
-        .then(response => response.json())
-        .then(data => ed.innerHTML = data);
-      var editor = ace.edit("editor");
-      editor.session.setMode("ace/mode/json");
-      console.log('xxx finished')
+       .then(response => response.text())
+       .then(data => {
+         console.log(data);
+	     el_editor.innerHTML = data;
+	     var editor = ace.edit('editor');	
+         editor.session.setMode("ace/mode/json");
+         console.log('xxx finished');	 
+	     });
     </script>
   </body>
 </html>
