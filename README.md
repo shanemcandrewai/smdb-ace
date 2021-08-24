@@ -29,60 +29,62 @@ Express / Node
     cd ..
     git clone https://github.com/ajaxorg/ace-builds.git
 
-### Express
+### [Install the Node dependencies in the local node_modules folder](https://docs.npmjs.com/cli/v6/commands/npm-install)
 
-#### [Create a package.json file](https://docs.npmjs.com/cli/v6/commands/npm-init)
+    npm install
+
+### Development tools
+
+#### [Express](https://expressjs.com/en/starter/installing.html)
+
+##### [Create a package.json file](https://docs.npmjs.com/cli/v6/commands/npm-init)
 
     npm init -y
 
-#### [Install the package](https://docs.npmjs.com/cli/v6/commands/npm-install)
+##### [Install the package](https://docs.npmjs.com/cli/v6/commands/npm-install)
 
     npm install express
 
-#### [Local test](https://nodejs.org/en/docs/guides/getting-started-guide/)
+##### [Local test](https://nodejs.org/en/docs/guides/getting-started-guide/)
 
     node app.js
 
 [Local URL](http://localhost:3000)
 
-### [ESLint](https://eslint.org/docs/user-guide/getting-started)
+#### [ESLint](https://eslint.org/docs/user-guide/getting-started)
 
     npm install eslint --save-dev
 
-#### Set up a configuration file
+##### Set up a configuration file
 
     npx eslint --init
 
-#### run ESLint on any file or directory
+##### run ESLint on any file or directory
 
     npx eslint app.js
 
-### [Prettier](https://prettier.io/docs/en/install.html)
+#### [Prettier](https://prettier.io/docs/en/install.html)
 
     npm install --save-dev --save-exact prettier
 
-#### create an empty config file
+##### create an empty config file
 
     echo {}> .prettierrc.json
 
-#### format all files
+##### format all files
 
     npx prettier --write .
 
-### Development tools
+##### Local markdown file viewer
 
-#### Local markdown file viewer
-
-##### Firefox
+###### Firefox
 
 [Markdown Viewer Webext](https://addons.mozilla.org/en-US/firefox/addon/markdown-viewer-webext)
 
-[Prettier](https://prettier.io/)
-
-### Notes about [local testing](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server)
+##### Notes about [local testing](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server)
 
 Some browsers (including Chrome) will not run async requests (see Fetching data from the server) if you just run the example from a local file.
 
-#### [solution](https://support.mozilla.org/en-US/questions/1264280) to "CORS request not http" error
+###### [solution](https://support.mozilla.org/en-US/questions/1264280) to "CORS request not http" error
 
 change privacy_file_unique_origin to false in about:config
