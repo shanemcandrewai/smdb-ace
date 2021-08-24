@@ -15,10 +15,14 @@ Express / Node
     cd ..
     git clone https://github.com/ajaxorg/ace-builds.git 
 #### Express
-##### Create a package.json file
-    [npm init -y](https://docs.npmjs.com/cli/v6/commands/npm-init)
-#### Install the package
-    [npm install express](https://docs.npmjs.com/cli/v6/commands/npm-install)
+##### [Create a package.json file](https://docs.npmjs.com/cli/v6/commands/npm-init)
+    npm init -y
+#### [Install the package](https://docs.npmjs.com/cli/v6/commands/npm-install)
+    npm install express
+#### [Local test](https://nodejs.org/en/docs/guides/getting-started-guide/)
+    node app.js
+##### [Local URL](http://localhost:3000)
+    
 #### Code formatter
 ### Development tools
 #### Local markdown file viewer
