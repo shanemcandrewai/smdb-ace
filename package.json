@@ -1,0 +1,23 @@
+{
+  "name": "smdb-ace",
+  "version": "1.0.0",
+  "description": "An editor that saves / loads an encrypted JSON file from the server which has no access to the decrytion key\r ### Components\r #### Server side framework\r Express / Node\r #### Authentication\r [express-session / connect-redis](https://github.com/expressjs/session#compatible-session-stores)\r #### Embedded JSON editor\r [Ace](https://ace.c9.io)\r #### Front end symmetric encryption\r [crypto-js](https://github.com/brix/crypto-js)\r ## Installation\r ### Ace builds\r     cd ..\r     git clone https://github.com/ajaxorg/ace-builds.git \r #### Express\r ##### Create a package.json file\r     [npm init -y](https://docs.npmjs.com/cli/v6/commands/npm-init)\r #### Code formatter\r ### Development tools\r #### Local markdown file viewer\r ##### Firefox\r [Markdown Viewer Webext](https://addons.mozilla.org/en-US/firefox/addon/markdown-viewer-webext)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shanemcandrewai/smdb-ace.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shanemcandrewai/smdb-ace/issues"
+  },
+  "homepage": "https://github.com/shanemcandrewai/smdb-ace#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
