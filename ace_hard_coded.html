@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>ACE with hard-coded JSON</title>
     <style type="text/css" media="screen">
-      #editor { 
+      #editor {
         position: absolute;
         top: 0;
         right: 0;
@@ -15,25 +15,15 @@
   </head>
   <body>
     <div id="editor">
-{
-  "array": [
-    1,
-    2,
-    3
-  ],
-  "boolean": true,
-  "color": "gold",
-  "null": null,
-  "number": 123,
-  "object": {
-      "a": "b",
-      "c": "d"
-  },
-  "string": "Hello World"
-}
+      { "array": [ 1, 2, 3 ], "boolean": true, "color": "gold", "null": null,
+      "number": 123, "object": { "a": "b", "c": "d" }, "string": "Hello World" }
     </div>
 
-    <script src="../ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script
+      src="../ace-builds/src-noconflict/ace.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
     <script>
       var editor = ace.edit("editor");
       //    editor.setTheme("ace/theme/monokai");
