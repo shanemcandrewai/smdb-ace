@@ -75,16 +75,16 @@ Express / Node
 
     npx prettier --write .
 
-##### Local markdown file viewer
+#### Local markdown file viewer
 
-###### Firefox
+##### Firefox
 
 [Markdown Viewer Webext](https://addons.mozilla.org/en-US/firefox/addon/markdown-viewer-webext)
 
-##### Notes about [local testing](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server)
+#### Notes about [local testing](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server)
 
 Some browsers (including Chrome) will not run async requests (see Fetching data from the server) if you just run the example from a local file.
 
-###### [solution](https://support.mozilla.org/en-US/questions/1264280) to "CORS request not http" error
+##### [solution](https://support.mozilla.org/en-US/questions/1264280) to "CORS request not http" error
 
 change privacy_file_unique_origin to false in about:config
