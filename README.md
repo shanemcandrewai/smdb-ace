@@ -1,7 +1,13 @@
-# Ace editor configuration
+# smdb-ace
+
 ## Installation
+### Ace builds
     cd ..
     git clone https://github.com/ajaxorg/ace-builds.git 
+### Development tools
+#### Local markdown file viewer
+##### Firefox
+[Markdown Viewer Webext](https://addons.mozilla.org/en-US/firefox/addon/markdown-viewer-webext)
 ## to do
 ### server HTML / js for local webserver
 node
