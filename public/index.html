@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>smdb-ace</title>
+    <style type="text/css" media="screen">
+      #editor {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="editor">testing</div>
+
+    <script
+      src="ace-builds/src/ace.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+    <script>
+      fetch("test.json")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("editor").innerHTML = data;
+          let editor = ace.edit("editor");
+          editor.session.setMode("ace/mode/json");
+        });
+    </script>
+  </body>
+</html>
