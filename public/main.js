@@ -1,4 +1,6 @@
 "use strict";
+const ace = require("brace");
+require("brace/mode/json");
 fetch("test.json")
   .then((response) => response.text())
   .then((data) => {

@@ -24,11 +24,6 @@ Express / Node
 
 ## Installation
 
-### Ace builds
-
-    cd ..
-    git clone https://github.com/ajaxorg/ace-builds.git
-
 ### [Install the Node dependencies in the local node_modules folder](https://docs.npmjs.com/cli/v6/commands/npm-install)
 
     npm install
@@ -51,6 +46,14 @@ Express / Node
 
 [Local URL](http://localhost:3000)
 
+##### [Ace editor](https://ace.c9.io)
+
+npm install [brace](https://github.com/thlorenz/brace) [browserify](https://github.com/browserify/browserify)
+
+###### [build bundle.js from main.js](https://github.com/browserify/browserify#example)
+
+npx browserify public\main.js > public\bundle.js
+
 #### [ESLint](https://eslint.org/docs/user-guide/getting-started)
 
     npm install eslint --save-dev
@@ -70,6 +73,10 @@ Express / Node
 ##### create an empty config file
 
     echo {}> .prettierrc.json
+
+##### create a .prettierignore file to let the Prettier CLI and editors know which files to not format
+
+    echo public/bundle.js > .prettierignore
 
 ##### format all files
 
