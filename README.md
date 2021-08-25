@@ -2,7 +2,7 @@
 
 ## Design
 
-An editor that saves / loads an encrypted JSON file from the server which has no access to the decrytion key
+An editor that saves / loads an encrypted JSON file from the server which has no access to the decryption key
 
 ### Components
 
@@ -81,6 +81,12 @@ npx browserify public\main.js > public\bundle.js
 ##### format all files
 
     npx prettier --write .
+	
+##### [Publish on GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+
+Copy to public directory to docs
+
+###### Navagate to https://shanemcandrewai.github.io/smdb-ace/
 
 #### Local markdown file viewer
 
