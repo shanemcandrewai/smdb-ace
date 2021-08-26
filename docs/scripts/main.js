@@ -1,11 +1,5 @@
 "use strict";
-require.config({
-  baseUrl: "scripts/ace-builds/src-min-noconflict",
-  // paths: {
-  // foo: 'libs/foo-1.1.3'
-  // }
-});
-requirejs(["ace"], function () {
+requirejs(["../ace/ace"], function() {
   fetch("test.json")
     .then((response) => response.text())
     .then((data) => {
