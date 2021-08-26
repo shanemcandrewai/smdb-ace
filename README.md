@@ -81,7 +81,7 @@ npx browserify public\main.js > public\bundle.js
 ##### format all files
 
     npx prettier --write .
-	
+
 ##### [Publish on GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 
 Copy to public directory to docs
@@ -101,3 +101,11 @@ Some browsers (including Chrome) will not run async requests (see Fetching data 
 ##### [solution](https://support.mozilla.org/en-US/questions/1264280) to "CORS request not http" error
 
 change privacy_file_unique_origin to false in about:config
+
+#### git warning : [warning: LF will be replaced by CRLF in package-lock.json](https://git-scm.com/docs/git-config#Documentation/git-config.txt-coreautocrlf)
+
+    git config --global core.autocrlf false
+
+#### git switch to tagged version (equivalent to https://github.com/ajaxorg/ace/tree/v1.4.12)
+
+    git checkout v1.4.12
