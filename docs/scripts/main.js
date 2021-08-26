@@ -1,6 +1,6 @@
 "use strict";
 require.config({
-  baseUrl: "scripts/src-min-noconflict",
+  baseUrl: "scripts/ace-builds/src-min-noconflict",
   // paths: {
   // foo: 'libs/foo-1.1.3'
   // }
