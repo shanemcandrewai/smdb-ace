@@ -1,3 +1,2 @@
-public/bundle.js 
-scripts/require.js
-scripts/src-min-noconflict
+docs/scripts/require.js
+docs/scripts/src-min-noconflict
