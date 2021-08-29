@@ -1,12 +1,12 @@
 "use strict";
 
 // import ace
-import ace from '../docs/scripts/ace/lib/ace/ace'
+import ace from '../docs/scripts/ace-builds/src-noconflict/ace'
 // import Range from ace (it is also available as ace.Range)
-import {Range, EditSession} from '../docs/scripts/ace/lib/ace/ace'
+import {Range, EditSession} from '../docs/scripts/ace-builds/src-noconflict/ace'
 
 // import modes that you want to include into your main bundle
-import "../docs/scripts/ace/lib/ace/mode/json";
+import "../docs/scripts/ace-builds/src-noconflict/mode-json";
 
 // import webpack resolver to dynamically load modes, you need to install file-loader for this to work!
 import "../docs/scripts/ace-builds/webpack-resolver";
