@@ -9,7 +9,7 @@ import {Range, EditSession} from '../docs/scripts/ace/lib/ace/ace'
 import "../docs/scripts/ace/lib/ace/mode/json";
 
 // import webpack resolver to dynamically load modes, you need to install file-loader for this to work!
-import "../docs/scripts/ace-builds/webpack-resolver";
+//import "../docs/scripts/ace-builds/webpack-resolver";
 // if you want to allow dynamic loading of only a few modules use setModuleUrl for each of them manually
 /*
 import jsWorkerUrl from "file-loader!../../build/src-noconflict/worker-javascript";

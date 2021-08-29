@@ -2,9 +2,9 @@
 
 module.exports = {
     mode: "development",
-    entry: "../src/demo.js",
+    entry: "./src/demo.js",
     output: {
-        path: __dirname + "/dist",
+        path: __dirname + "/docs/dist",
         filename: "bundle.js"
     },
     node: {
@@ -15,7 +15,7 @@ module.exports = {
     resolveLoader: {
         modules: [
             "node_modules", 
-            __dirname + "../node_modules",
+            __dirname + "node_modules",
         ],
     },
     devServer: {
