@@ -3,6 +3,7 @@
 module.exports = {
     mode: "development",
     entry: "./src/demo.js",
+	devtool: "source-map",
     output: {
         path: __dirname + "/docs/dist",
         filename: "bundle.js"
