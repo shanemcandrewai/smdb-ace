@@ -48,11 +48,9 @@ Express / Node
 
 ##### [Ace editor](https://ace.c9.io)
 
-npm install [brace](https://github.com/thlorenz/brace) [browserify](https://github.com/browserify/browserify)
-
 ###### [build docs/scripts/dist/main.js ](https://webpack.js.org/guides/getting-started/#using-a-configuration)
 
-npx webpack
+    npx webpack
 
 #### [ESLint](https://eslint.org/docs/user-guide/getting-started)
 
