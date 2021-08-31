@@ -50,9 +50,9 @@ Express / Node
 
 npm install [brace](https://github.com/thlorenz/brace) [browserify](https://github.com/browserify/browserify)
 
-###### [build bundle.js from main.js](https://github.com/browserify/browserify#example)
+###### [build docs/scripts/dist/main.js ](https://webpack.js.org/guides/getting-started/#using-a-configuration)
 
-npx browserify public\main.js > public\bundle.js
+npx webpack
 
 #### [ESLint](https://eslint.org/docs/user-guide/getting-started)
 
