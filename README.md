@@ -27,6 +27,8 @@ Express / Node
 ### [Install the Node dependencies in the local node_modules folder](https://docs.npmjs.com/cli/v6/commands/npm-install)
 
     npm install
+	
+##### [RequireJS](https://requirejs.org)
 
 ### Development tools
 
@@ -38,21 +40,13 @@ Express / Node
 
 ##### [Install the package](https://docs.npmjs.com/cli/v6/commands/npm-install)
 
-    npm install express
+    npm install express	
 
 ##### [Local test](https://nodejs.org/en/docs/guides/getting-started-guide/)
 
     node app.js
 
 [Local URL](http://localhost:3000)
-
-##### [Ace editor](https://ace.c9.io)
-
-npm install [brace](https://github.com/thlorenz/brace) [browserify](https://github.com/browserify/browserify)
-
-###### [build bundle.js from main.js](https://github.com/browserify/browserify#example)
-
-npx browserify public\main.js > public\bundle.js
 
 #### [ESLint](https://eslint.org/docs/user-guide/getting-started)
 
