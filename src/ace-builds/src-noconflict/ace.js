@@ -3692,7 +3692,7 @@ var options = {
     basePath: "",
     suffix: ".js",
     $moduleUrls: {},
-    loadWorkerFromBlob: true,
+    loadWorkerFromBlob: false,
     sharedPopups: false
 };
 
@@ -19026,7 +19026,7 @@ function createWorker(workerUrl) {
         var blobURL = URL.createObjectURL(blob);
         return new Worker(blobURL);
     }
-    return new Worker(workerUrl);
+    return new Worker('dist/' + workerUrl);
 }
 
 var WorkerClient = function(worker) {
