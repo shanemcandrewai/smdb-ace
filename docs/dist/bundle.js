@@ -4179,14 +4179,14 @@ eval("\nace.config.setModuleUrl('ace/ext/beautify', __webpack_require__(/*! file
 
 /***/ }),
 
-/***/ "./src/demo.js":
-/*!*********************!*\
-  !*** ./src/demo.js ***!
-  \*********************/
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ace_builds_src_noconflict_ace__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ace-builds/src-noconflict/ace */ \"./src/ace-builds/src-noconflict/ace.js\");\n/* harmony import */ var _ace_builds_src_noconflict_ace__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_ace_builds_src_noconflict_ace__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _ace_builds_src_noconflict_mode_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ace-builds/src-noconflict/mode-json */ \"./src/ace-builds/src-noconflict/mode-json.js\");\n/* harmony import */ var _ace_builds_src_noconflict_mode_json__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_ace_builds_src_noconflict_mode_json__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _ace_builds_webpack_resolver__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ace-builds/webpack-resolver */ \"./src/ace-builds/webpack-resolver.js\");\n/* harmony import */ var _ace_builds_webpack_resolver__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_ace_builds_webpack_resolver__WEBPACK_IMPORTED_MODULE_2__);\n\n\n// import ace\n\n// import Range from ace (it is also available as ace.Range)\n\n\n// import modes that you want to include into your main bundle\n\n\n// import webpack resolver to dynamically load modes, you need to install file-loader for this to work!\n\n// if you want to allow dynamic loading of only a few modules use setModuleUrl for each of them manually\n/*\nimport jsWorkerUrl from \"file-loader!../../build/src-noconflict/worker-javascript\";\nace.config.setModuleUrl(\"ace/mode/javascript_worker\", jsWorkerUrl)\n*/\n\nvar editor = _ace_builds_src_noconflict_ace__WEBPACK_IMPORTED_MODULE_0___default().edit(null, {\n    maxLines: 50,\n    minLines: 10,\n    value: \"var hello = 'world'\" + \"\\n\",\n    mode: \"ace/mode/json\",\n    bug: 1\n})\n\neditor.selection.setRange(new _ace_builds_src_noconflict_ace__WEBPACK_IMPORTED_MODULE_0__.Range(0,0,0,3))\n\ndocument.body.appendChild(editor.container)\n\n/*\nimport {Mode as JSMode} from \"../../build/src-noconflict/mode-javascript\"\neditor.setMode( new JSMode())\n*/\n\n\n//# sourceURL=webpack://smdb-ace/./src/demo.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ace_builds_src_noconflict_ace__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ace-builds/src-noconflict/ace */ \"./src/ace-builds/src-noconflict/ace.js\");\n/* harmony import */ var _ace_builds_src_noconflict_ace__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_ace_builds_src_noconflict_ace__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _ace_builds_src_noconflict_mode_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ace-builds/src-noconflict/mode-json */ \"./src/ace-builds/src-noconflict/mode-json.js\");\n/* harmony import */ var _ace_builds_src_noconflict_mode_json__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_ace_builds_src_noconflict_mode_json__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _ace_builds_webpack_resolver__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ace-builds/webpack-resolver */ \"./src/ace-builds/webpack-resolver.js\");\n/* harmony import */ var _ace_builds_webpack_resolver__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_ace_builds_webpack_resolver__WEBPACK_IMPORTED_MODULE_2__);\n\n\n// import ace\n\n// import Range from ace (it is also available as ace.Range)\n\n\n// import modes that you want to include into your main bundle\n\n\n// import webpack resolver to dynamically load modes, you need to install file-loader for this to work!\n\n// if you want to allow dynamic loading of only a few modules use setModuleUrl for each of them manually\n/*\nimport jsWorkerUrl from \"file-loader!../../build/src-noconflict/worker-javascript\";\nace.config.setModuleUrl(\"ace/mode/javascript_worker\", jsWorkerUrl)\n*/\n\nvar editor = _ace_builds_src_noconflict_ace__WEBPACK_IMPORTED_MODULE_0___default().edit(null, {\n    maxLines: 50,\n    minLines: 10,\n    value: \"var hello = 'world'\" + \"\\n\",\n    mode: \"ace/mode/json\",\n    bug: 1\n})\n\neditor.selection.setRange(new _ace_builds_src_noconflict_ace__WEBPACK_IMPORTED_MODULE_0__.Range(0,0,0,3))\n\ndocument.body.appendChild(editor.container)\n\n/*\nimport {Mode as JSMode} from \"../../build/src-noconflict/mode-javascript\"\neditor.setMode( new JSMode())\n*/\n\n\n//# sourceURL=webpack://smdb-ace/./src/index.js?");
 
 /***/ })
 
@@ -4313,7 +4313,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ace
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/demo.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
 /******/ 	
 /******/ })()
 ;
