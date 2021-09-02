@@ -86,6 +86,14 @@ Copy to public directory to docs
 
 ###### Navagate to https://shanemcandrewai.github.io/smdb-ace/
 
+#### Error when deleting folder
+
+    Could not find this item. This is no longer located in [Path]. Verify the item’s location and try again
+	
+##### Solution
+
+    rmdir /s \\?\C:\Users\shane\dev\smdb-ace.
+
 #### Local markdown file viewer
 
 ##### Firefox
