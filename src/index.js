@@ -1,9 +1,9 @@
 "use strict";
 
 // import ace
-import ace from './ace-builds/src-noconflict/ace'
+import ace from "./ace-builds/src-noconflict/ace";
 // import Range from ace (it is also available as ace.Range)
-import {Range, EditSession} from './ace-builds/src-noconflict/ace'
+import { Range, EditSession } from "./ace-builds/src-noconflict/ace";
 
 // import modes that you want to include into your main bundle
 import "./ace-builds/src-noconflict/mode-json";
@@ -17,16 +17,16 @@ ace.config.setModuleUrl("ace/mode/javascript_worker", jsWorkerUrl)
 */
 
 var editor = ace.edit(null, {
-    maxLines: 50,
-    minLines: 10,
-    value: "var hello = 'world'" + "\n",
-    mode: "ace/mode/json",
-    bug: 1
-})
+  maxLines: 50,
+  minLines: 10,
+  value: "var hello = 'world'" + "\n",
+  mode: "ace/mode/json",
+  bug: 1,
+});
 
-editor.selection.setRange(new Range(0,0,0,3))
+editor.selection.setRange(new Range(0, 0, 0, 3));
 
-document.body.appendChild(editor.container)
+document.body.appendChild(editor.container);
 
 /*
 import {Mode as JSMode} from "../../build/src-noconflict/mode-javascript"
