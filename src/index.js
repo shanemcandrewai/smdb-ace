@@ -3,7 +3,7 @@
 // import ace
 import ace from "./ace-builds/src-noconflict/ace";
 // import Range from ace (it is also available as ace.Range)
-import { Range, EditSession } from "./ace-builds/src-noconflict/ace";
+//import { Range, EditSession } from "./ace-builds/src-noconflict/ace";
 
 // import modes that you want to include into your main bundle
 import "./ace-builds/src-noconflict/mode-json";
@@ -24,7 +24,7 @@ var editor = ace.edit(null, {
   bug: 1,
 });
 
-editor.selection.setRange(new Range(0, 0, 0, 3));
+editor.selection.setRange(new ace.Range(0, 0, 0, 3));
 
 document.body.appendChild(editor.container);
 
