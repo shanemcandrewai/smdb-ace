@@ -21,14 +21,13 @@ var editor = ace.edit(null, {
   minLines: 10,
   value: "var hello = 'world'" + "\n",
   mode: "ace/mode/json",
-  bug: 1,
 });
 
 editor.selection.setRange(new ace.Range(0, 0, 0, 3));
 
 document.body.appendChild(editor.container);
 
-/*
-import {Mode as JSMode} from "../../build/src-noconflict/mode-javascript"
-editor.setMode( new JSMode())
-*/
+
+//import "./ace-builds/src-noconflict/mode-javascript"
+//editor.session.setMode("ace/mode/javascript")
+
