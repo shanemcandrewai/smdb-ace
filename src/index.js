@@ -1,5 +1,6 @@
 "use strict";
-requirejs(["ace/ace"], function (ace) {
+const ace = require("./ace").ace;
+
   const editor = ace.edit(null, {
     maxLines: 50,
     minLines: 10,
@@ -9,4 +10,4 @@ requirejs(["ace/ace"], function (ace) {
   });
 
   document.body.appendChild(editor.container);
-});
+
