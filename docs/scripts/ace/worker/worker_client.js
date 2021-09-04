@@ -51,7 +51,6 @@ function $workerBlob(workerUrl) {
 }
 
 function createWorker(workerUrl) {
-	console.log(workerUrl);
     if (typeof Worker == "undefined")
         return { postMessage: function() {}, terminate: function() {} };
     if (config.get("loadWorkerFromBlob")) {
