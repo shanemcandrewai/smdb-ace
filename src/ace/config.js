@@ -130,6 +130,7 @@ exports.loadModule = function(moduleName, onLoad) {
     if (exports.$loading[moduleName].length > 1)
         return;
 
+    console.log('config.js exports.loadModule moduleName: ' + moduleName);
     var afterLoad = function() {
         require([moduleName], function(module) {
             exports._emit("load.module", {name: moduleName, module: module});
