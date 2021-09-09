@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>smdb-ace</title>
+    <title>smdb-ace src-noconflict</title>
     <style type="text/css" media="screen">
       #editor {
         position: absolute;
@@ -13,9 +13,18 @@
         left: 0;
       }
     </style>
-    <script data-main="scripts/main" src="scripts/require.js" async></script>
   </head>
   <body>
     <div id="editor">Loading, please wait</div>
+    <script
+      src="ace-builds/src-noconflict/ace.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+    <script>
+      var editor = ace.edit("editor");
+      //    editor.setTheme("ace/theme/monokai");
+      editor.session.setMode("ace/mode/text");
+    </script>
   </body>
 </html>

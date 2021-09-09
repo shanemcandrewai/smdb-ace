@@ -1,2 +1,3 @@
-docs/scripts/require.js
-docs/scripts/src-min-noconflict
+node_modules
+docs/ace-builds
+www

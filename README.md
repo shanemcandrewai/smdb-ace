@@ -27,7 +27,7 @@ Express / Node
 ### [Install the Node dependencies in the local node_modules folder](https://docs.npmjs.com/cli/v6/commands/npm-install)
 
     npm install
-	
+
 ##### [RequireJS](https://requirejs.org)
 
 ### Development tools
@@ -40,7 +40,7 @@ Express / Node
 
 ##### [Install the package](https://docs.npmjs.com/cli/v6/commands/npm-install)
 
-    npm install express	
+    npm install express
 
 ##### [Local test](https://nodejs.org/en/docs/guides/getting-started-guide/)
 
