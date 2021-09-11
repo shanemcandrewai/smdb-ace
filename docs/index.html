@@ -16,8 +16,18 @@
   </head>
   <body>
     <div id="editor">
-      { "array": [1, 2, 3], "boolean": true, "color": "gold", "null": null,
-      "number": 123, "object": { "a": "b", "c": "d" }, "string": "Hello World" }
+	{
+	  "array": [1, 2, 3],
+	  "boolean": true,
+	  "color":, "gold",
+	  "null": null,
+	  "number": 123,
+	  "object": {
+		"a": "b",
+		"c": "d"
+	  },
+	  "string": "Hello World"
+	}
     </div>
     <script
       src="ace-builds/src-noconflict/ace.js"
@@ -26,8 +36,7 @@
     ></script>
     <script>
       var editor = ace.edit("editor");
-      //    editor.setTheme("ace/theme/monokai");
-      editor.session.setMode("ace/mode/text");
+      editor.session.setMode("ace/mode/json");
     </script>
   </body>
 </html>
