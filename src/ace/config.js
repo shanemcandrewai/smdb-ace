@@ -116,7 +116,11 @@ exports.loadModule = function(moduleName, onLoad) {
     }
 
     try {
-        module = require(moduleName);
+		if (moduleName == './theme/textmate') {
+			module = require('./theme/textmate');
+		} else {
+			console.log('xxx try ' + moduleName);
+		}
     } catch (e) {}
     // require(moduleName) can return empty object if called after require([moduleName], callback)
     if (module && !exports.$loading[moduleName])

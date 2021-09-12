@@ -51,6 +51,10 @@ Express / Node
 ###### [build docs/scripts/dist/main.js ](https://webpack.js.org/guides/getting-started/#using-a-configuration)
 
     npx webpack
+	
+###### [recompile if neccessary and run DevServer ](https://webpack.js.org/guides/development/#using-webpack-dev-server)
+
+    npm start
 
 #### [ESLint](https://eslint.org/docs/user-guide/getting-started)
 
