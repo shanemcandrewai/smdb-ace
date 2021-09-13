@@ -3692,7 +3692,7 @@ var options = {
     basePath: "",
     suffix: ".js",
     $moduleUrls: {},
-    loadWorkerFromBlob: true,
+    loadWorkerFromBlob: false,
     sharedPopups: false
 };
 
