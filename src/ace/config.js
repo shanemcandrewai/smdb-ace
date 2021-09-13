@@ -135,6 +135,7 @@ exports.loadModule = function(moduleName, onLoad) {
         return;
 
     var afterLoad = function() {
+		console.log('xxx afterLoad');
         require([moduleName], function(module) {
             exports._emit("load.module", {name: moduleName, module: module});
             var listeners = exports.$loading[moduleName];
