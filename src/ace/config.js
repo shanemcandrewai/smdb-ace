@@ -135,7 +135,7 @@ exports.loadModule = function(moduleName, onLoad) {
         return;
 
     var afterLoad = function() {
-		console.log('xxx afterLoad');
+		console.log('xxx afterLoad' + moduleName);
         require([moduleName], function(module) {
             exports._emit("load.module", {name: moduleName, module: module});
             var listeners = exports.$loading[moduleName];
@@ -149,6 +149,7 @@ exports.loadModule = function(moduleName, onLoad) {
     if (!exports.get("packaged"))
         return afterLoad();
     
+	console.log('xxx net.loadScript ' + moduleName);
     net.loadScript(exports.moduleUrl(moduleName, moduleType), afterLoad);
     reportErrorIfPathIsNotConfigured();
 };
