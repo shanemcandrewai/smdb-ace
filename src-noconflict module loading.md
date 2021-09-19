@@ -1,15 +1,14 @@
 # src-noconflict module loading
 ## config.loadModule
-generates afterLoad function
+generates afterLoad()
 ### net.loadScript
 #### config.moduleUrl
 Resolves path
 #### net.loadScript
 ##### head.appendChild(s)
 Downloads script
--callback();
+### afterLoad()
 ## What does afterLoad() do?
-## require("ace/mode/json”)
 ## When is mode-json.js executed?
 
 

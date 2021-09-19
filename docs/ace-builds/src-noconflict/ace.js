@@ -21271,7 +21271,7 @@ exports.require = require;
 
 if (typeof define === "function")
     exports.define = define;
-exports.edit = function(el, options) {
+exports.edit = function(el, mode, options) {
     if (typeof el == "string") {
         var _id = el;
         el = document.getElementById(_id);
@@ -21293,7 +21293,7 @@ exports.edit = function(el, options) {
         el.innerHTML = "";
     }
 
-    var doc = exports.createEditSession(value);
+    var doc = exports.createEditSession(value, mode);
 
     var editor = new Editor(new Renderer(el), doc, options);
 
