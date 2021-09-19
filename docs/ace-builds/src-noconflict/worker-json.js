@@ -1,4 +1,5 @@
 "no use strict";
+console.log('xxx worker-json.js invoked');
 !(function(window) {
 if (typeof window.window != "undefined" && window.document)
     return;

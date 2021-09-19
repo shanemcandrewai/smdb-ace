@@ -3386,6 +3386,7 @@ exports.get = function (url, callback) {
 exports.loadScript = function(path, callback) {
     var head = dom.getDocumentHead();
     var s = document.createElement('script');
+	console.log('xxx net.loadScript mode-json.js downloaded')
 
     s.src = path;
     head.appendChild(s);
@@ -3754,7 +3755,6 @@ exports.loadModule = function(moduleName, onLoad) {
     }
 
     try {
-		console.log('xxx try ' + moduleName);
         module = require(moduleName);
     } catch (e) {}
     if (module && !exports.$loading[moduleName])
@@ -3769,8 +3769,9 @@ exports.loadModule = function(moduleName, onLoad) {
         return;
 
     var afterLoad = function() {
-		console.log('xxx afterLoad ' + moduleName);
+		console.log('xxx loadModule afterLoad invoked');
         require([moduleName], function(module) {
+			console.log('xxx loadModule afterLoad require invoked');
             exports._emit("load.module", {name: moduleName, module: module});
             var listeners = exports.$loading[moduleName];
             exports.$loading[moduleName] = null;
@@ -3783,7 +3784,6 @@ exports.loadModule = function(moduleName, onLoad) {
     if (!exports.get("packaged"))
         return afterLoad();
     
-	console.log('xxx net.loadScript ' + moduleName);
     net.loadScript(exports.moduleUrl(moduleName, moduleType), afterLoad);
     reportErrorIfPathIsNotConfigured();
 };
