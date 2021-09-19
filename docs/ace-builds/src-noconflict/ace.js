@@ -3386,10 +3386,10 @@ exports.get = function (url, callback) {
 exports.loadScript = function(path, callback) {
     var head = dom.getDocumentHead();
     var s = document.createElement('script');
-	console.log('xxx net.loadScript mode-json.js downloaded')
 
     s.src = path;
     head.appendChild(s);
+	console.log('xxx net.loadScript mode-json.js downloaded')
 
     s.onload = s.onreadystatechange = function(_, isAbort) {
         if (isAbort || !s.readyState || s.readyState == "loaded" || s.readyState == "complete") {
