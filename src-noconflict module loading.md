@@ -1,4 +1,20 @@
-# src-noconflict module loading
+# src-noconflict-editsetmode module loading
+## Call sequence 
+### setMode
+    mode = "ace/mode/javascript";
+	path = "ace/mode/javascript"
+### loadModule
+    moduleName[1] = "ace/mode/javascript";
+### loadScript
+    path = "http://localhost:3000/ace-builds/src-noconflict/mode-javascript.js";
+### startWorker
+    this.$modeId = "ace/mode/javascript";
+### mode-json.js
+### afterLoad
+    moduleName = "ace/mode/javascript";
+### startWorker
+### createWorker
+### worker-json
 ## config.loadModule
 generates afterLoad()
 ### net.loadScript
@@ -7,10 +23,9 @@ Resolves path
 #### net.loadScript
 ##### head.appendChild(s)
 Downloads script
-### afterLoad()
-## What does afterLoad() do?
-## When is mode-json.js executed?
-
+## Possible import statements
+    import {Mode} from './ace-builds/src-noconflict/json.exp.js';
+    import {Mode} from 'http://localhost:3000/ace-builds/src-noconflict/json.exp.js';
 
 
 
