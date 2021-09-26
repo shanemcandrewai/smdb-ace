@@ -165,6 +165,6 @@ export let AppConfig = function() {
     
 }).call(AppConfig.prototype);
 
-exports.AppConfig = AppConfig;
+// exports.AppConfig = AppConfig;
 
 // });
