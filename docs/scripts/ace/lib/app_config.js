@@ -28,11 +28,14 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+// define(function(require, exports, module) {
 "no use strict";
 
-var oop = require("./oop");
-var EventEmitter = require("./event_emitter").EventEmitter;
+// var oop = require("./oop");
+import * as oop from "./oop.js";
+
+// var EventEmitter = require("./event_emitter").EventEmitter;
+import { EventEmitter } from "./event_emitter.js"
 
 var optionsProvider = {
     setOptions: function(optList) {
@@ -95,7 +98,7 @@ function reportError(msg, data) {
     setTimeout(function() { throw e; });
 }
 
-var AppConfig = function() {
+export let AppConfig = function() {
     this.$defaultOptions = {};
 };
 
@@ -164,4 +167,4 @@ var AppConfig = function() {
 
 exports.AppConfig = AppConfig;
 
-});
+// });

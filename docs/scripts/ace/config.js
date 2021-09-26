@@ -28,13 +28,17 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+// define(function(require, exports, module) {
 "no use strict";
 
-var lang = require("./lib/lang");
-var oop = require("./lib/oop");
-var net = require("./lib/net");
-var AppConfig = require("./lib/app_config").AppConfig;
+// var lang = require("./lib/lang");
+import * as lang from "./lib/lang.js";
+// var oop = require("./lib/oop");
+import * as oop from "./lib/oop.js";
+// var net = require("./lib/net");
+import * as net from "./lib/net.js";
+// var AppConfig = require("./lib/app_config").AppConfig;
+import { AppConfig } from "./lib/app_config.js"
 
 module.exports = exports = new AppConfig();
 
@@ -222,4 +226,4 @@ function deHyphenate(str) {
 
 exports.version = "1.4.12";
 
-});
+// });

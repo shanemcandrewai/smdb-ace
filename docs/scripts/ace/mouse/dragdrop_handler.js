@@ -33,8 +33,10 @@
 
 // var dom = require("../lib/dom");
 import * as dom from "../lib/dom.js";
-var event = require("../lib/event");
-var useragent = require("../lib/useragent");
+// var event = require("../lib/event");
+import * as event from "../lib/event.js";
+// var useragent = require("../lib/useragent");
+import * as useragent from "../lib/useragent.js";
 
 var AUTOSCROLL_DELAY = 200;
 var SCROLL_CURSOR_DELAY = 200;
@@ -420,6 +422,6 @@ function calcDistance(ax, ay, bx, by) {
     return Math.sqrt(Math.pow(bx - ax, 2) + Math.pow(by - ay, 2));
 }
 
-exports.DragdropHandler = DragdropHandler;
+// exports.DragdropHandler = DragdropHandler;
 
 // });

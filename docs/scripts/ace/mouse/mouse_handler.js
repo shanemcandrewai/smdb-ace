@@ -43,8 +43,10 @@ import { GutterHandler } from "./default_gutter_handler.js";
 import { MouseEvent } from "./mouse_event.js";
 // var DragdropHandler = require("./dragdrop_handler").DragdropHandler;
 import { DragdropHandler } from "./dragdrop_handler.js";
-var addTouchListeners = require("./touch_handler").addTouchListeners;
-var config = require("../config");
+// var addTouchListeners = require("./touch_handler").addTouchListeners;
+import { addTouchListeners } from "./touch_handler.js";
+// var config = require("../config");
+import * as config from "../config.js";
 
 export let MouseHandler = function(editor) {
     var _self = this;

@@ -28,10 +28,10 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+// define(function(require, exports, module) {
 "use strict";
 
-var EventEmitter = {};
+export let EventEmitter = {};
 var stopPropagation = function() { this.propagationStopped = true; };
 var preventDefault = function() { this.defaultPrevented = true; };
 
@@ -157,6 +157,6 @@ EventEmitter.removeAllListeners = function(eventName) {
     if (this._defaultHandlers) this._defaultHandlers[eventName] = undefined;
 };
 
-exports.EventEmitter = EventEmitter;
+// exports.EventEmitter = EventEmitter;
 
-});
+// });

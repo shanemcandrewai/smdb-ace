@@ -5,11 +5,12 @@
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/requirejs for details
  */
-define(function(require, exports, module) {
+// define(function(require, exports, module) {
 "use strict";
-var dom = require("./dom");
+// var dom = require("./dom");
+import * as dom from "./dom.js";
 
-exports.get = function (url, callback) {
+export let get = function (url, callback) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.onreadystatechange = function () {
@@ -22,7 +23,7 @@ exports.get = function (url, callback) {
     xhr.send(null);
 };
 
-exports.loadScript = function(path, callback) {
+export let loadScript = function(path, callback) {
     var head = dom.getDocumentHead();
     var s = document.createElement('script');
 
@@ -42,10 +43,10 @@ exports.loadScript = function(path, callback) {
  * Convert a url into a fully qualified absolute URL
  * This function does not work in IE6
  */
-exports.qualifyURL = function(url) {
+export let qualifyURL = function(url) {
     var a = document.createElement('a');
     a.href = url;
     return a.href;
 };
 
-});
+// });
