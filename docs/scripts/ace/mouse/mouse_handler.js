@@ -227,5 +227,5 @@ config.defineOptions(MouseHandler.prototype, "mouseHandler", {
 });
 
 
-exports.MouseHandler = MouseHandler;
+//exports.MouseHandler = MouseHandler;
 // });
