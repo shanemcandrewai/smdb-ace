@@ -50,8 +50,8 @@ export let mixin = function(obj, mixin) {
     return obj;
 };
 
-export let implement = function(proto, mixin) {
-    mixin(proto, mixin);
+export let implement = function(proto, pmixin) {
+    mixin(proto, pmixin);
 };
 
 // });
