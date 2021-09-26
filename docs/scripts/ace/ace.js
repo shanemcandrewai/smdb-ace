@@ -34,13 +34,15 @@
  * @class Ace
  **/
 
-define(function(require, exports, module) {
+// define(function(require, exports, module) {
 "use strict";
 
-require("./lib/fixoldbrowsers");
+// require("./lib/fixoldbrowsers");
 
-var dom = require("./lib/dom");
-var event = require("./lib/event");
+// var dom = require("./lib/dom");
+import * as dom from './lib/dom.js'
+// var event = require("./lib/event");
+import * as event from './lib/event.js'
 
 var Range = require("./range").Range;
 var Editor = require("./editor").Editor;
@@ -133,4 +135,4 @@ exports.EditSession = EditSession;
 exports.UndoManager = UndoManager;
 exports.VirtualRenderer = Renderer;
 exports.version = exports.config.version;
-});
+// });

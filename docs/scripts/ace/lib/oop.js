@@ -28,10 +28,10 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+// define(function(require, exports, module) {
 "use strict";
 
-exports.inherits = function(ctor, superCtor) {
+export let inherits = function(ctor, superCtor) {
     ctor.super_ = superCtor;
     ctor.prototype = Object.create(superCtor.prototype, {
         constructor: {
@@ -43,15 +43,15 @@ exports.inherits = function(ctor, superCtor) {
     });
 };
 
-exports.mixin = function(obj, mixin) {
+export let mixin = function(obj, mixin) {
     for (var key in mixin) {
         obj[key] = mixin[key];
     }
     return obj;
 };
 
-exports.implement = function(proto, mixin) {
-    exports.mixin(proto, mixin);
+export let implement = function(proto, mixin) {
+    mixin(proto, mixin);
 };
 
-});
+// });
