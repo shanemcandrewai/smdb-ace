@@ -28,14 +28,18 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+// define(function(require, exports, module) {
 "use strict";
-var dom = require("../lib/dom");
-var oop = require("../lib/oop");
-var event = require("../lib/event");
-var Tooltip = require("../tooltip").Tooltip;
+// var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
+// var oop = require("../lib/oop");
+import * as oop from "../lib/oop.js";
+// var event = require("../lib/event");
+import * as event from "../lib/event.js";
+// var Tooltip = require("../tooltip").Tooltip;
+import { Tooltip } from "../tooltip.js"
 
-function GutterHandler(mouseHandler) {
+export function GutterHandler(mouseHandler) {
     var editor = mouseHandler.editor;
     var gutter = editor.renderer.$gutterLayer;
     var tooltip = new GutterTooltip(editor.container);
@@ -178,6 +182,6 @@ oop.inherits(GutterTooltip, Tooltip);
 
 
 
-exports.GutterHandler = GutterHandler;
+// exports.GutterHandler = GutterHandler;
 
-});
+// });

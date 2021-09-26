@@ -28,26 +28,32 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+// define(function(require, exports, module) {
 "use strict";
 
-var event = require("../lib/event");
-var useragent = require("../lib/useragent");
-var dom = require("../lib/dom");
-var lang = require("../lib/lang");
-var clipboard = require("../clipboard");
+// var event = require("../lib/event");
+import * as event from "../lib/event.js";
+// var useragent = require("../lib/useragent");
+import * as useragent from "../lib/useragent.js";
+// var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
+// var lang = require("../lib/lang");
+import * as lang from "../lib/lang.js";
+// var clipboard = require("../clipboard");
+import * as clipboard from "../clipboard.js";
 var BROKEN_SETDATA = useragent.isChrome < 18;
 var USE_IE_MIME_TYPE =  useragent.isIE;
 var HAS_FOCUS_ARGS = useragent.isChrome > 63;
 var MAX_LINE_LENGTH = 400;
 
-var KEYS = require("../lib/keys");
+// var KEYS = require("../lib/keys");
+import * as KEYS from "../lib/keys.js";
 var MODS = KEYS.KEY_MODS;
 var isIOS = useragent.isIOS;
 var valueResetRegex = isIOS ? /\s/ : /\n/;
 var isMobile = useragent.isMobile;
 
-var TextInput = function(parentNode, host) {
+export let TextInput = function(parentNode, host) {
     var text = dom.createElement("textarea");
     text.className = "ace_text-input";
 
@@ -750,9 +756,9 @@ var TextInput = function(parentNode, host) {
     }
 };
 
-exports.TextInput = TextInput;
-exports.$setUserAgentForTests = function(_isMobile, _isIOS) {
+// exports.TextInput = TextInput;
+export let $setUserAgentForTests = function(_isMobile, _isIOS) {
     isMobile = _isMobile;
     isIOS = _isIOS;
 };
-});
+// });

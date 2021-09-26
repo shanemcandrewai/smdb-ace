@@ -28,10 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+// define(function(require, exports, module) {
 "use strict";
 
-var dom = require("../lib/dom");
+// var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
 var event = require("../lib/event");
 var useragent = require("../lib/useragent");
 
@@ -39,7 +40,7 @@ var AUTOSCROLL_DELAY = 200;
 var SCROLL_CURSOR_DELAY = 200;
 var SCROLL_CURSOR_HYSTERESIS = 5;
 
-function DragdropHandler(mouseHandler) {
+export function DragdropHandler(mouseHandler) {
 
     var editor = mouseHandler.editor;
 
@@ -421,4 +422,4 @@ function calcDistance(ax, ay, bx, by) {
 
 exports.DragdropHandler = DragdropHandler;
 
-});
+// });

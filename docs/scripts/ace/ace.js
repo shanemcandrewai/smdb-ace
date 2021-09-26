@@ -44,8 +44,10 @@ import * as dom from './lib/dom.js'
 // var event = require("./lib/event");
 import * as event from './lib/event.js'
 
-var Range = require("./range").Range;
-var Editor = require("./editor").Editor;
+// var Range = require("./range").Range;
+import { Range } from './range.js'
+// var Editor = require("./editor").Editor;
+import { Editor } from './editor.js'
 var EditSession = require("./edit_session").EditSession;
 var UndoManager = require("./undomanager").UndoManager;
 var Renderer = require("./virtual_renderer").VirtualRenderer;

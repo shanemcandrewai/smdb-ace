@@ -181,7 +181,7 @@ export let addMultiMouseDownListener = function(elements, timeouts, eventHandler
     };
 
     function onMousedown(e) {
-        if (exports.getButton(e) !== 0) {
+        if (getButton(e) !== 0) {
             clicks = 0;
         } else if (e.detail > 1) {
             clicks++;
@@ -331,6 +331,7 @@ function resetPressedKeys() {
     pressedKeys = Object.create(null);
 }
 
+export let nextTick;
 if (typeof window == "object" && window.postMessage && !useragent.isOldIE) {
     var postMessageId = 1;
     nextTick = function(callback, win) {
@@ -339,7 +340,7 @@ if (typeof window == "object" && window.postMessage && !useragent.isOldIE) {
         
         var listener = function(e) {
             if (e.data == messageName) {
-                exports.stopPropagation(e);
+                stopPropagation(e);
                 removeListener(win, "message", listener);
                 callback();
             }
@@ -353,7 +354,7 @@ if (typeof window == "object" && window.postMessage && !useragent.isOldIE) {
 export let $idleBlocked = false;
 export let onIdle = function(cb, timeout) {
     return setTimeout(function handler() {
-        if (!exports.$idleBlocked) {
+        if (!$idleBlocked) {
             cb();
         } else {
             setTimeout(handler, 100);
@@ -363,12 +364,12 @@ export let onIdle = function(cb, timeout) {
 
 export let $idleBlockId = null;
 export let blockIdle = function(delay) {
-    if (exports.$idleBlockId)
-        clearTimeout(exports.$idleBlockId);
+    if ($idleBlockId)
+        clearTimeout($idleBlockId);
         
-    exports.$idleBlocked = true;
-    exports.$idleBlockId = setTimeout(function() {
-        exports.$idleBlocked = false;
+    $idleBlocked = true;
+    $idleBlockId = setTimeout(function() {
+        $idleBlocked = false;
     }, delay || 100);
 };
 
@@ -378,10 +379,10 @@ export let nextFrame = typeof window == "object" && (window.requestAnimationFram
     || window.msRequestAnimationFrame
     || window.oRequestAnimationFrame);
 
-if (exports.nextFrame)
-    exports.nextFrame = exports.nextFrame.bind(window);
+if (nextFrame)
+    nextFrame = nextFrame.bind(window);
 else
-    exports.nextFrame = function(callback) {
+    nextFrame = function(callback) {
         setTimeout(callback, 17);
     };
 // });

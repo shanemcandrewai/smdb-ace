@@ -28,16 +28,18 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+// define(function(require, exports, module) {
 "use strict";
 
-var event = require("../lib/event");
-var useragent = require("../lib/useragent");
+// var event = require("../lib/event");
+import * as event from "../lib/event.js";
+// var useragent = require("../lib/useragent");
+import * as useragent from "../lib/useragent.js";
 
 /*
  * Custom Ace mouse event
  */
-var MouseEvent = exports.MouseEvent = function(domEvent, editor) {
+export let MouseEvent = function(domEvent, editor) {
     this.domEvent = domEvent;
     this.editor = editor;
     
@@ -126,4 +128,4 @@ var MouseEvent = exports.MouseEvent = function(domEvent, editor) {
     
 }).call(MouseEvent.prototype);
 
-});
+// });
