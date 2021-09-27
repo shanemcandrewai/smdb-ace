@@ -28,7 +28,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+// define(function(require, exports, module) {
 
 var oop = require("../lib/oop");
 var dom = require("../lib/dom");
@@ -41,7 +41,7 @@ var CHAR_COUNT = 256;
 var USE_OBSERVER = typeof ResizeObserver == "function";
 var L = 200;
 
-var FontMetrics = exports.FontMetrics = function(parentEl) {
+export let FontMetrics = function(parentEl) {
     this.el = dom.createElement("div");
     this.$setMeasureNodeStyles(this.el.style, true);
     
@@ -232,4 +232,4 @@ var FontMetrics = exports.FontMetrics = function(parentEl) {
     
 }).call(FontMetrics.prototype);
 
-});
+// });

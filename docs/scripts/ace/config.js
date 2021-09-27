@@ -40,6 +40,7 @@ import * as net from "./lib/net.js";
 // var AppConfig = require("./lib/app_config").AppConfig;
 import { AppConfig } from "./lib/app_config.js"
 
+// module.exports = exports = new AppConfig();
 export default new AppConfig();
 
 var global = (function() {
@@ -168,7 +169,7 @@ var reportErrorIfPathIsNotConfigured = function() {
 };
 
 // initialization
-function init(packaged) {
+export function init(packaged) {
     if (!global || !global.document)
         return;
     

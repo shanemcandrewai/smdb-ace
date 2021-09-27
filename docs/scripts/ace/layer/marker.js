@@ -28,13 +28,13 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+// define(function(require, exports, module) {
 "use strict";
 
 var Range = require("../range").Range;
 var dom = require("../lib/dom");
 
-var Marker = function(parentEl) {
+export let Marker = function(parentEl) {
     this.element = dom.createElement("div");
     this.element.className = "ace_layer ace_marker-layer";
     parentEl.appendChild(this.element);
@@ -259,6 +259,6 @@ var Marker = function(parentEl) {
 
 }).call(Marker.prototype);
 
-exports.Marker = Marker;
+// exports.Marker = Marker;
 
-});
+// });
