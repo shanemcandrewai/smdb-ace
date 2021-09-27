@@ -28,7 +28,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+// define(function(require, exports, module) {
 "use strict";
 
 var oop = require("./lib/oop");
@@ -64,7 +64,7 @@ dom.importCssString(editorCss, "ace_editor.css");
  * @constructor
  **/
 
-var VirtualRenderer = function(container, theme) {
+export let VirtualRenderer = function(container, theme) {
     var _self = this;
 
     this.container = container || dom.createElement("div");
@@ -1879,5 +1879,5 @@ config.defineOptions(VirtualRenderer.prototype, "renderer", {
     }
 });
 
-exports.VirtualRenderer = VirtualRenderer;
-});
+// exports.VirtualRenderer = VirtualRenderer;
+// });

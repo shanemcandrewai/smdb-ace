@@ -28,7 +28,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+// define(function(require, exports, module) {
 "use strict";
 
 var oop = require("./lib/oop");
@@ -140,7 +140,7 @@ var SearchHighlight = require("./search_highlight").SearchHighlight;
  * @constructor
  **/
 
-var EditSession = function(text, mode) {
+export let EditSession = function(text, mode) {
     this.$breakpoints = [];
     this.$decorations = [];
     this.$frontMarkers = {};
@@ -2563,5 +2563,5 @@ config.defineOptions(EditSession.prototype, "session", {
     }
 });
 
-exports.EditSession = EditSession;
-});
+// exports.EditSession = EditSession;
+// });

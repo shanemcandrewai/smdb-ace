@@ -43,14 +43,16 @@
 import * as dom from './lib/dom.js'
 // var event = require("./lib/event");
 import * as event from './lib/event.js'
-
 // var Range = require("./range").Range;
 import { Range } from './range.js'
 // var Editor = require("./editor").Editor;
 import { Editor } from './editor.js'
-var EditSession = require("./edit_session").EditSession;
-var UndoManager = require("./undomanager").UndoManager;
-var Renderer = require("./virtual_renderer").VirtualRenderer;
+// var EditSession = require("./edit_session").EditSession;
+import { EditSession } from './edit_session.js'
+// var UndoManager = require("./undomanager").UndoManager;
+import { UndoManager } from './undomanager.js'
+// var Renderer = require("./virtual_renderer").VirtualRenderer;
+import { VirtualRenderer } from './virtual_renderer.js'
 
 // The following require()s are for inclusion in the built ace file
 require("./worker/worker_client");

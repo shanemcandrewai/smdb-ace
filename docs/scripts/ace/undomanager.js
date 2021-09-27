@@ -28,7 +28,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+// define(function(require, exports, module) {
 "use strict";
 
 /**
@@ -41,7 +41,7 @@ define(function(require, exports, module) {
  * 
  * @constructor
  **/
-var UndoManager = function() {
+export let UndoManager = function() {
     this.$maxRev = 0;
     this.$fromUndo = false;
     this.reset();
@@ -592,6 +592,6 @@ function rebaseRedoStack(redoStack, deltaSets) {
     }
 }
 
-exports.UndoManager = UndoManager;
+// exports.UndoManager = UndoManager;
 
-});
+// });
