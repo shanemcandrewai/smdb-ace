@@ -46,7 +46,7 @@ import { DragdropHandler } from "./dragdrop_handler.js";
 // var addTouchListeners = require("./touch_handler").addTouchListeners;
 import { addTouchListeners } from "./touch_handler.js";
 // var config = require("../config");
-import * as config from "../config.js";
+import config from "../config.js";
 
 export let MouseHandler = function(editor) {
     var _self = this;
