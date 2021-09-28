@@ -28,19 +28,23 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+// define(function(require, exports, module) {
 "use strict";
-var config = require("../config");
+// var config = require("../config");
+import * as config from '../config.js';
 
-var Tokenizer = require("../tokenizer").Tokenizer;
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
-var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
+// var Tokenizer = require("../tokenizer").Tokenizer;
+import { Tokenizer } from "../tokenizer.js";
+// var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import { TextHighlightRules } from "./text_highlight_rules.js";
+// var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
+import { CstyleBehaviour } from "./behaviour/cstyle.js";
 var unicode = require("../unicode");
 var lang = require("../lib/lang");
 var TokenIterator = require("../token_iterator").TokenIterator;
 var Range = require("../range").Range;
 
-var Mode = function() {
+export let Mode = function() {
     this.HighlightRules = TextHighlightRules;
 };
 
@@ -387,5 +391,5 @@ var Mode = function() {
     this.$id = "ace/mode/text";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+// exports.Mode = Mode;
+// });

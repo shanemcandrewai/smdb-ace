@@ -28,13 +28,16 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+// define(function(require, exports, module) {
 "use strict";
 
-var keyUtil  = require("../lib/keys");
-var event = require("../lib/event");
+// var keyUtil  = require("../lib/keys");
+import * as keyUtil from "../lib/keys.js";
 
-var KeyBinding = function(editor) {
+// var event = require("../lib/event");
+import * as event from "../lib/event.js";
+
+export let KeyBinding = function(editor) {
     this.$editor = editor;
     this.$data = {editor: editor};
     this.$handlers = [];
@@ -148,5 +151,5 @@ var KeyBinding = function(editor) {
 
 }).call(KeyBinding.prototype);
 
-exports.KeyBinding = KeyBinding;
-});
+// exports.KeyBinding = KeyBinding;
+// });

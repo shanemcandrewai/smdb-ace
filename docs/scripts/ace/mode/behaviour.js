@@ -28,10 +28,10 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+// define(function(require, exports, module) {
 "use strict";
 
-var Behaviour = function() {
+export let Behaviour = function() {
    this.$behaviours = {};
 };
 
@@ -86,5 +86,5 @@ var Behaviour = function() {
 
 }).call(Behaviour.prototype);
 
-exports.Behaviour = Behaviour;
-});
+// exports.Behaviour = Behaviour;
+// });

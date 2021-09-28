@@ -28,10 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+// define(function(require, exports, module) {
 "use strict";
 
-var config = require("./config");
+// var config = require("./config");
+import * as config from './config.js';
 // tokenizing lines longer than this makes editor very slow
 var MAX_TOKEN_COUNT = 2000;
 /**
@@ -45,7 +46,7 @@ var MAX_TOKEN_COUNT = 2000;
  *
  * @constructor
  **/
-var Tokenizer = function(rules) {
+export let Tokenizer = function(rules) {
     this.states = rules;
 
     this.regExps = {};
@@ -365,5 +366,5 @@ var Tokenizer = function(rules) {
     
 }).call(Tokenizer.prototype);
 
-exports.Tokenizer = Tokenizer;
-});
+// exports.Tokenizer = Tokenizer;
+// });

@@ -28,12 +28,13 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+// define(function(require, exports, module) {
 "use strict";
 
-var lang = require("../lib/lang");
+// var lang = require("../lib/lang");
+import * as lang from "../lib/lang.js";
 
-var TextHighlightRules = function() {
+export let TextHighlightRules = function() {
 
     // regexp must not have capturing parentheses
     // regexps are ordered -> the first match is used
@@ -233,5 +234,5 @@ var TextHighlightRules = function() {
 
 }).call(TextHighlightRules.prototype);
 
-exports.TextHighlightRules = TextHighlightRules;
-});
+// exports.TextHighlightRules = TextHighlightRules;
+// });
