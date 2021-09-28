@@ -28,38 +28,24 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
-// var oop = require("./lib/oop");
-import * as oop from "./lib/oop.js";
-// var dom = require("./lib/dom");
-import * as dom from "./lib/dom.js";
-// var config = require("./config");
-import * as config from "./config.js";
-// var GutterLayer = require("./layer/gutter").Gutter;
-import { Gutter as GutterLayer } from "./layer/gutter.js";
-// var MarkerLayer = require("./layer/marker").Marker;
-import { Marker as MarkerLayer } from "./layer/marker.js";
-// var TextLayer = require("./layer/text").Text;
-import { Text as TextLayer } from "./layer/text.js";
-// var CursorLayer = require("./layer/cursor").Cursor;
-import { Cursor as CursorLayer } from "./layer/cursor.js";
-// var HScrollBar = require("./scrollbar").HScrollBar;
-import { HScrollBar } from "./scrollbar.js";
-// var VScrollBar = require("./scrollbar").VScrollBar;
-import { VScrollBar } from "./scrollbar.js";
-// var RenderLoop = require("./renderloop").RenderLoop;
-import { RenderLoop } from "./renderloop.js";
-// var FontMetrics = require("./layer/font_metrics").FontMetrics;
-import { FontMetrics } from "./layer/font_metrics.js";
-// var EventEmitter = require("./lib/event_emitter").EventEmitter;
-import { EventEmitter } from "./lib/event_emitter.js";
-// var editorCss = require("./requirejs/text!./css/editor.css");
-// import { editor } from "./layer/marker.js"
+var oop = require("./lib/oop");
+var dom = require("./lib/dom");
+var config = require("./config");
+var GutterLayer = require("./layer/gutter").Gutter;
+var MarkerLayer = require("./layer/marker").Marker;
+var TextLayer = require("./layer/text").Text;
+var CursorLayer = require("./layer/cursor").Cursor;
+var HScrollBar = require("./scrollbar").HScrollBar;
+var VScrollBar = require("./scrollbar").VScrollBar;
+var RenderLoop = require("./renderloop").RenderLoop;
+var FontMetrics = require("./layer/font_metrics").FontMetrics;
+var EventEmitter = require("./lib/event_emitter").EventEmitter;
+var editorCss = require("./requirejs/text!./css/editor.css");
 
-// var useragent = require("./lib/useragent");
-import * as useragent from "./lib/useragent.js"
+var useragent = require("./lib/useragent");
 var HIDE_TEXTAREA = useragent.isIE;
 
 dom.importCssString(editorCss, "ace_editor.css");
@@ -78,7 +64,7 @@ dom.importCssString(editorCss, "ace_editor.css");
  * @constructor
  **/
 
-export let VirtualRenderer = function(container, theme) {
+var VirtualRenderer = function(container, theme) {
     var _self = this;
 
     this.container = container || dom.createElement("div");
@@ -1893,5 +1879,5 @@ config.defineOptions(VirtualRenderer.prototype, "renderer", {
     }
 });
 
-// exports.VirtualRenderer = VirtualRenderer;
-// });
+exports.VirtualRenderer = VirtualRenderer;
+});

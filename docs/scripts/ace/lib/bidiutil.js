@@ -28,7 +28,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
 var ArabicAlefBetIntervalsBegine = ['\u0621', '\u0641'];
@@ -56,12 +56,12 @@ var impTab_RTL = [
 
 var LTR = 0, RTL = 1;
 
-export let L = 0; /* left to right */
-export let R = 1; /* right to left */
-export let EN = 2; /* European digit */
-export let AN = 3; /* Arabic-Indic digit */
+var L = 0; /* left to right */
+var R = 1; /* right to left */
+var EN = 2; /* European digit */
+var AN = 3; /* Arabic-Indic digit */
 var ON = 4; /* neutral */
-export let B = 5; /* block separator */
+var B = 5; /* block separator */
 var S = 6; /* segment separator */
 var AL = 7; /* Arabic Letter */
 var WS = 8; /* white space */
@@ -70,7 +70,7 @@ var ES = 10; /* European digit separator */
 var ET = 11; /* European digit terminator */
 var NSM = 12; /* Non Spacing Mark */
 var LRE = 13; /* LRE */
-export let RLE = 14; /* RLE */
+var RLE = 14; /* RLE */
 var PDF = 15; /* PDF */
 var LRO = 16; /* LRO */
 var RLO = 17; /* RLO */
@@ -307,23 +307,23 @@ function _isArabicDiacritics( ch ) {
 }
 
 /* Strong LTR character (0 - even), regular width */
-// exports.L = L;
+exports.L = L;
 /* Strong RTL character (1 - odd), Bidi width */
-// exports.R = R;
+exports.R = R;
 /* European digit (2 - even), regular width */
-// exports.EN = EN;
+exports.EN = EN;
 /* Neutral RTL-by-context character (3 - odd), regular width */
-export let ON_R = 3;
+exports.ON_R = 3;
 /* Hindi (Arabic) digit (4 - even), Bidi width */
-AN = 4;
+exports.AN = 4;
 /* Arabic LamAlef (5 - odd), Half Bidi width */
-export let R_H = 5;
+exports.R_H = 5;
 /* invisible EOL (6 - even), zero width */
-B = 6;
+exports.B = 6;
 /* invisible RLE (7 - odd), zero width */
-RLE = 7;
+exports.RLE = 7;
 
-export let DOT = "\xB7";
+exports.DOT = "\xB7";
 
 /**
  * Performs text reordering by implementing Unicode Bidi algorithm
@@ -334,7 +334,7 @@ export let DOT = "\xB7";
  *
  * @return {Object} An object containing logicalFromVisual map and Bidi levels
  **/
-export let doBidiReorder = function(text, textCharTypes, isRtl) {
+exports.doBidiReorder = function(text, textCharTypes, isRtl) {
 	if (text.length < 2)
 		return {};
 		
@@ -352,21 +352,21 @@ export let doBidiReorder = function(text, textCharTypes, isRtl) {
 
 	for (var i = 0; i < logicalFromVisual.length - 1; i++) { //fix levels to reflect character width
 		if (textCharTypes[i] === AN) {
-			levels[i] = AN;
+			levels[i] = exports.AN;
 		} else if (levels[i] === R && ((textCharTypes[i] > AL && textCharTypes[i] < LRE) 
 			|| textCharTypes[i] === ON || textCharTypes[i] === BN)) {
-			levels[i] = ON_R;
+			levels[i] = exports.ON_R;
 		} else if ((i > 0 && chars[i - 1] === '\u0644') && /\u0622|\u0623|\u0625|\u0627/.test(chars[i])) {
-			levels[i - 1] = levels[i] = R_H;
+			levels[i - 1] = levels[i] = exports.R_H;
 			i++;
 		}
 	}
 	/* fix level to mark zero length EOL */
-	if (chars[chars.length - 1] === DOT)
-		levels[chars.length - 1] = B;
+	if (chars[chars.length - 1] === exports.DOT)
+		levels[chars.length - 1] = exports.B;
 				
 	if (chars[0] === '\u202B')
-		levels[0] = RLE;
+		levels[0] = exports.RLE;
 				
 	for (var i = 0; i < logicalFromVisual.length; i++) {
 		bidiLevels[i] = levels[logicalFromVisual[i]];
@@ -382,7 +382,7 @@ export let doBidiReorder = function(text, textCharTypes, isRtl) {
  *
  * @return {Boolean} 'true' if text contains Bidi characters, otherwise 'false' 
  **/
-export let hasBidiCharacters = function(text, textCharTypes){
+exports.hasBidiCharacters = function(text, textCharTypes){
 	var ret = false;
 	for (var i = 0; i < text.length; i++){
 		textCharTypes[i] = _getCharacterType(text.charAt(i));
@@ -400,7 +400,7 @@ export let hasBidiCharacters = function(text, textCharTypes){
  *
  * @return {int} visual index (on display) corresponding to logical index
  **/	
-export let getVisualFromLogicalIdx = function(logIdx, rowMap) {
+exports.getVisualFromLogicalIdx = function(logIdx, rowMap) {
 	for (var i = 0; i < rowMap.logicalFromVisual.length; i++) {
 		if (rowMap.logicalFromVisual[i] == logIdx)
 			return i;
@@ -408,4 +408,4 @@ export let getVisualFromLogicalIdx = function(logIdx, rowMap) {
 	return 0;
 };
 
-// });
+});

@@ -28,17 +28,14 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
-// var MouseEvent = require("./mouse_event").MouseEvent;
-import { MouseEvent } from "./mouse_event.js"
-// var event = require("../lib/event");
-import * as event from "../lib/event.js"
-// var dom = require("../lib/dom");
-import * as dom from "../lib/dom.js"
+var MouseEvent = require("./mouse_event").MouseEvent;
+var event = require("../lib/event");
+var dom = require("../lib/dom");
 
-export let addTouchListeners = function(el, editor) {
+exports.addTouchListeners = function(el, editor) {
     var mode = "scroll";
     var startX;
     var startY;
@@ -347,4 +344,4 @@ export let addTouchListeners = function(el, editor) {
     }
 };
 
-// });
+});

@@ -28,27 +28,19 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
-// var event = require("../lib/event");
-import * as event from "../lib/event.js";
-// var useragent = require("../lib/useragent");
-import * as useragent from "../lib/useragent.js";
-// var DefaultHandlers = require("./default_handlers").DefaultHandlers;
-import { DefaultHandlers } from "./default_handlers.js";
-// var DefaultGutterHandler = require("./default_gutter_handler").GutterHandler;
-import { GutterHandler } from "./default_gutter_handler.js";
-// var MouseEvent = require("./mouse_event").MouseEvent;
-import { MouseEvent } from "./mouse_event.js";
-// var DragdropHandler = require("./dragdrop_handler").DragdropHandler;
-import { DragdropHandler } from "./dragdrop_handler.js";
-// var addTouchListeners = require("./touch_handler").addTouchListeners;
-import { addTouchListeners } from "./touch_handler.js";
-// var config = require("../config");
-import config from "../config.js";
+var event = require("../lib/event");
+var useragent = require("../lib/useragent");
+var DefaultHandlers = require("./default_handlers").DefaultHandlers;
+var DefaultGutterHandler = require("./default_gutter_handler").GutterHandler;
+var MouseEvent = require("./mouse_event").MouseEvent;
+var DragdropHandler = require("./dragdrop_handler").DragdropHandler;
+var addTouchListeners = require("./touch_handler").addTouchListeners;
+var config = require("../config");
 
-export let MouseHandler = function(editor) {
+var MouseHandler = function(editor) {
     var _self = this;
     this.editor = editor;
 
@@ -227,5 +219,5 @@ config.defineOptions(MouseHandler.prototype, "mouseHandler", {
 });
 
 
-//exports.MouseHandler = MouseHandler;
-// });
+exports.MouseHandler = MouseHandler;
+});

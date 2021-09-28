@@ -28,7 +28,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
 var oop = require("../lib/oop");
@@ -37,7 +37,7 @@ var lang = require("../lib/lang");
 var Lines = require("./lines").Lines;
 var EventEmitter = require("../lib/event_emitter").EventEmitter;
 
-export let Text = function(parentEl) {
+var Text = function(parentEl) {
     this.dom = dom; 
     this.element = this.dom.createElement("div");
     this.element.className = "ace_layer ace_text-layer";
@@ -649,6 +649,6 @@ export let Text = function(parentEl) {
     this.destroy = function() {};
 }).call(Text.prototype);
 
-// exports.Text = Text;
+exports.Text = Text;
 
-// });
+});

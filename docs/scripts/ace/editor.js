@@ -28,29 +28,20 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
-// require("./lib/fixoldbrowsers");
+require("./lib/fixoldbrowsers");
 
-// var oop = require("./lib/oop");
-import * as oop from "./lib/oop.js";
-// var dom = require("./lib/dom");
-import * as dom from "./lib/dom.js";
-// var lang = require("./lib/lang");
-import * as lang from "./lib/lang.js";
-// var useragent = require("./lib/useragent");
-import * as useragent from "./lib/useragent.js";
-// var TextInput = require("./keyboard/textinput").TextInput;
-import { TextInput } from "./keyboard/textinput.js";
-// var MouseHandler = require("./mouse/mouse_handler").MouseHandler;
-import { MouseHandler } from "./mouse/mouse_handler.js";
-// var FoldHandler = require("./mouse/fold_handler").FoldHandler;
-import { FoldHandler } from "./mouse/fold_handler.js";
-// var KeyBinding = require("./keyboard/keybinding").KeyBinding;
-import { KeyBinding } from "./keyboard/keybinding.js";
-// var EditSession = require("./edit_session").EditSession;
-import { EditSession } from "./edit_session.js";
+var oop = require("./lib/oop");
+var dom = require("./lib/dom");
+var lang = require("./lib/lang");
+var useragent = require("./lib/useragent");
+var TextInput = require("./keyboard/textinput").TextInput;
+var MouseHandler = require("./mouse/mouse_handler").MouseHandler;
+var FoldHandler = require("./mouse/fold_handler").FoldHandler;
+var KeyBinding = require("./keyboard/keybinding").KeyBinding;
+var EditSession = require("./edit_session").EditSession;
 var Search = require("./search").Search;
 var Range = require("./range").Range;
 var EventEmitter = require("./lib/event_emitter").EventEmitter;
@@ -79,7 +70,7 @@ var clipboard = require("./clipboard");
  *
  * @constructor
  **/
-export let Editor = function(renderer, session, options) {
+var Editor = function(renderer, session, options) {
     this.$toDestroy = [];
     var container = renderer.getContainerElement();
     this.container = container;
@@ -3047,4 +3038,4 @@ var relativeNumberRenderer = {
 };
 
 exports.Editor = Editor;
-// });
+});

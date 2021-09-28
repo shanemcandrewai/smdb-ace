@@ -28,23 +28,16 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
-// var oop = require("./lib/oop");
-import * as oop from "./lib/oop.js";
-// var lang = require("./lib/lang");
-import * as lang from "./lib/lang.js";
-// var BidiHandler = require("./bidihandler").BidiHandler;
-import { BidiHandler } from "./bidihandler.js";
-// var config = require("./config");
-import * as config from "./config.js";
-// var EventEmitter = require("./lib/event_emitter").EventEmitter;
-import { EventEmitter } from "./lib/event_emitter.js";
-// var Selection = require("./selection").Selection;
-import { Selection } from "./selection.js";
-// var TextMode = require("./mode/text").Mode;
-import { Mode as TextMode } from "./mode/text.js";
+var oop = require("./lib/oop");
+var lang = require("./lib/lang");
+var BidiHandler = require("./bidihandler").BidiHandler;
+var config = require("./config");
+var EventEmitter = require("./lib/event_emitter").EventEmitter;
+var Selection = require("./selection").Selection;
+var TextMode = require("./mode/text").Mode;
 var Range = require("./range").Range;
 var Document = require("./document").Document;
 var BackgroundTokenizer = require("./background_tokenizer").BackgroundTokenizer;
@@ -147,7 +140,7 @@ var SearchHighlight = require("./search_highlight").SearchHighlight;
  * @constructor
  **/
 
-export let EditSession = function(text, mode) {
+var EditSession = function(text, mode) {
     this.$breakpoints = [];
     this.$decorations = [];
     this.$frontMarkers = {};
@@ -2570,5 +2563,5 @@ config.defineOptions(EditSession.prototype, "session", {
     }
 });
 
-// exports.EditSession = EditSession;
-// });
+exports.EditSession = EditSession;
+});

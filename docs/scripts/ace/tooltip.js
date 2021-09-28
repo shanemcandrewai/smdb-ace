@@ -28,13 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
-// var oop = require("./lib/oop");
-import * as oop from "./lib/oop.js"
-// var dom = require("./lib/dom");
-import * as dom from "./lib/dom.js"
+var oop = require("./lib/oop");
+var dom = require("./lib/dom");
 
 /**
  * @class Tooltip
@@ -45,7 +43,7 @@ import * as dom from "./lib/dom.js"
  *
  * @constructor
  **/
-export function Tooltip (parentNode) {
+function Tooltip (parentNode) {
     this.isOpen = false;
     this.$element = null;
     this.$parentNode = parentNode;
@@ -143,5 +141,5 @@ export function Tooltip (parentNode) {
 
 }).call(Tooltip.prototype);
 
-// exports.Tooltip = Tooltip;
-// });
+exports.Tooltip = Tooltip;
+});

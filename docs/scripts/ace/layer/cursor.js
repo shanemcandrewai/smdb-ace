@@ -28,13 +28,12 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
-// var dom = require("../lib/dom");
-import * as dom from  "../lib/dom.js"
+var dom = require("../lib/dom");
 
-export let Cursor = function(parentEl) {
+var Cursor = function(parentEl) {
     this.element = dom.createElement("div");
     this.element.className = "ace_layer ace_cursor-layer";
     parentEl.appendChild(this.element);
@@ -256,6 +255,6 @@ export let Cursor = function(parentEl) {
 
 }).call(Cursor.prototype);
 
-// exports.Cursor = Cursor;
+exports.Cursor = Cursor;
 
-// });
+});

@@ -28,7 +28,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
 /*
@@ -38,7 +38,7 @@
  * Take copy as an example, Mac people expect to use CMD or APPLE + C
  * Windows folks expect to use CTRL + C
  */
-export const OS = {
+exports.OS = {
     LINUX: "LINUX",
     MAC: "MAC",
     WINDOWS: "WINDOWS"
@@ -47,7 +47,7 @@ export const OS = {
 /*
  * Return an exports.OS constant
  */
-export let getOS = function() {
+exports.getOS = function() {
     if (exports.isMac) {
         return exports.OS.MAC;
     } else if (exports.isLinux) {
@@ -65,47 +65,45 @@ var ua = _navigator.userAgent || "";
 var appName = _navigator.appName || "";
 
 // Is the user using a browser that identifies itself as Windows
-export let isWin = (os == "win");
+exports.isWin = (os == "win");
 
 // Is the user using a browser that identifies itself as Mac OS
-export let isMac = (os == "mac");
+exports.isMac = (os == "mac");
 
 // Is the user using a browser that identifies itself as Linux
-export let isLinux = (os == "linux");
+exports.isLinux = (os == "linux");
 
 // Windows Store JavaScript apps (aka Metro apps written in HTML5 and JavaScript) do not use the "Microsoft Internet Explorer" string in their user agent, but "MSAppHost" instead.
-export let isIE = 
+exports.isIE = 
     (appName == "Microsoft Internet Explorer" || appName.indexOf("MSAppHost") >= 0)
     ? parseFloat((ua.match(/(?:MSIE |Trident\/[0-9]+[\.0-9]+;.*rv:)([0-9]+[\.0-9]+)/)||[])[1])
     : parseFloat((ua.match(/(?:Trident\/[0-9]+[\.0-9]+;.*rv:)([0-9]+[\.0-9]+)/)||[])[1]); // for ie
     
-export let isOldIE = isIE && isIE < 9;
+exports.isOldIE = exports.isIE && exports.isIE < 9;
 
 // Is this Firefox or related?
-// exports.isGecko = exports.isMozilla = ua.match(/ Gecko\/\d+/);
-export let isGecko = ua.match(/ Gecko\/\d+/);
-export let isMozilla = isGecko;
+exports.isGecko = exports.isMozilla = ua.match(/ Gecko\/\d+/);
 
 // Is this Opera 
-export let isOpera = typeof opera == "object" && Object.prototype.toString.call(window.opera) == "[object Opera]";
+exports.isOpera = typeof opera == "object" && Object.prototype.toString.call(window.opera) == "[object Opera]";
 
 // Is the user using a browser that identifies itself as WebKit 
-export let isWebKit = parseFloat(ua.split("WebKit/")[1]) || undefined;
+exports.isWebKit = parseFloat(ua.split("WebKit/")[1]) || undefined;
 
-export let isChrome = parseFloat(ua.split(" Chrome/")[1]) || undefined;
+exports.isChrome = parseFloat(ua.split(" Chrome/")[1]) || undefined;
 
-export let isEdge = parseFloat(ua.split(" Edge/")[1]) || undefined;
+exports.isEdge = parseFloat(ua.split(" Edge/")[1]) || undefined;
 
-export let isAIR = ua.indexOf("AdobeAIR") >= 0;
+exports.isAIR = ua.indexOf("AdobeAIR") >= 0;
 
-export let isAndroid = ua.indexOf("Android") >= 0;
+exports.isAndroid = ua.indexOf("Android") >= 0;
 
-export let isChromeOS = ua.indexOf(" CrOS ") >= 0;
+exports.isChromeOS = ua.indexOf(" CrOS ") >= 0;
 
-export let isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+exports.isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
 
-if (isIOS) isMac = true;
+if (exports.isIOS) exports.isMac = true;
 
-export let isMobile = isIOS || isAndroid;
+exports.isMobile = exports.isIOS || exports.isAndroid;
 
-// });
+});

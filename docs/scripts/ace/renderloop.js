@@ -28,11 +28,10 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
-// var event = require("./lib/event");
-import * as event from "./lib/event.js"
+var event = require("./lib/event");
 
 /** 
  *
@@ -42,7 +41,7 @@ import * as event from "./lib/event.js"
  **/
 
 
-export let RenderLoop = function(onRender, win) {
+var RenderLoop = function(onRender, win) {
     this.onRender = onRender;
     this.pending = false;
     this.changes = 0;
@@ -86,5 +85,5 @@ export let RenderLoop = function(onRender, win) {
 
 }).call(RenderLoop.prototype);
 
-// exports.RenderLoop = RenderLoop;
-// });
+exports.RenderLoop = RenderLoop;
+});
