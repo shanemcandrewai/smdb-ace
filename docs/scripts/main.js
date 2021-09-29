@@ -1,5 +1,5 @@
 "use strict";
-import * as ace from './ace/ace.js'
+import * as ace from "./ace/ace.js";
 const editor = ace.edit(null, {
   maxLines: 50,
   minLines: 10,
@@ -8,4 +8,3 @@ const editor = ace.edit(null, {
   mode: "ace/mode/json",
 });
 document.body.appendChild(editor.container);
-

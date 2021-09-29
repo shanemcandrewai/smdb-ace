@@ -1,14 +1,18 @@
 "use strict";
-const express = require("express");
-const app = express();
-const port = 3000;
+import { argv } from "process";
+import fs from "fs";
+import path from "path";
 
-app.use(express.static("docs"));
+async function* walk(dir) {
+  for await (const d of await fs.promises.opendir(dir)) {
+    const entry = path.join(dir, d.name);
+    if (d.isDirectory()) yield* walk(entry);
+    else if (d.isFile()) yield entry;
+  }
+}
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
+if (argv[2] == "convert") {
+  (async function () {
+    for await (const p of walk("docs/scripts/ace/test")) console.log(p);
+  })();
+}

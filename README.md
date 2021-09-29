@@ -48,6 +48,10 @@ Express / Node
 
 ##### [Ace editor](https://ace.c9.io)
 
+###### Convert library to ES6 modules
+
+    node app.js convert
+
 ###### [build docs/scripts/dist/main.js ](https://webpack.js.org/guides/getting-started/#using-a-configuration)
 
     npx webpack
