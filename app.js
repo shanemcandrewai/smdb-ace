@@ -10,33 +10,39 @@ async function* walk(dir) {
   }
 }
 async function main() {
-  const regex_define = /^\s*define/i;
-  const regex_define_end = /^\s*}\)/;
+  const regex_define = /\n*\s*define.*\n/i;
+  const regex_define_end = /\n\s*}\)\s*\n/g;
   const root_dir = "docs/scripts/ace/test/";
   for await (const file_path of walk(root_dir)) {
     fs.promises
       .readFile(file_path)
-      .then((result) => {
+      .then((results) => {
+        let file_contents = results.toString();
         let define_deleted = false;
-        const lines = result.toString().split("\n");
-        lines.forEach((line, line_no, arr) => {
-          if (line.match(regex_define)) {
-            console.log(file_path, line_no, lines[line_no]);
-            arr.splice(line_no, 1);
-            define_deleted = true;
-          }
-        });
-        if (define_deleted) {
-          lines.forEach((line, line_no, arr) => {
-            if (line.match(regex_define_end)) {
-              console.log(file_path, line_no, lines[line_no]);
-              arr.splice(line_no, 1);
-            }
-          });
+        // Delete define
+        const ret_define = file_contents.match(regex_define);
+        if (ret_define) {
+          console.log("regex_define", file_path, ret_define[0]);
+          define_deleted = true;
+        } else {
+          console.log("regex_define not found", file_path);
         }
-        const out_text = lines.join("\n");
+        // });
+        if (define_deleted) {
+          const ret_define_end = file_contents.matchAll(regex_define_end);
+          for (const match of ret_define_end) {
+            console.log(
+              `Found ${match[0]} start=${match.index} end=${
+                match.index + match[0].length
+              }.`
+            );
+          }
+          if (ret_define) {
+            console.log("regex_define_end", file_path, ret_define[0]);
+          }
+        }
         fs.promises
-          .writeFile(file_path, out_text)
+          .writeFile(file_path, file_contents)
           .then(() => {
             console.log("file written:", file_path);
           })
