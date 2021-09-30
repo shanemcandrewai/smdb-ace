@@ -11,7 +11,7 @@ async function* walk(dir) {
 }
 async function main() {
   const regex_define = /(^|\s)define.*\n/;
-  const regex_define_end = /}\);?\s*$/;
+  const regex_define_end = /}\);?\s*(?=if\s\(ty|$)/;
   const root_dir = "docs/scripts/ace/test/";
   for await (const file_path of walk(root_dir)) {
     fs.promises
@@ -22,7 +22,7 @@ async function main() {
           // Delete define
           file_contents = file_contents.replace(regex_define, "");
           console.log("regex_define found", file_path);
-          // Delete last });
+          // Delete last }) or });
           file_contents = file_contents.replace(regex_define_end, "");
           console.log("regex_define_end executed", file_path);
           fs.promises
