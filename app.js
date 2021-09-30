@@ -17,14 +17,20 @@ async function main() {
     fs.promises
       .readFile(file_path)
       .then((results) => {
+        let file_changed = false;
         let file_contents = results.toString();
         if (regex_define.test(file_contents)) {
           // Delete define
           file_contents = file_contents.replace(regex_define, "");
+          file_changed = true;
           console.log("regex_define found", file_path);
           // Delete last }) or });
           file_contents = file_contents.replace(regex_define_end, "");
           console.log("regex_define_end executed", file_path);
+        } else {
+          console.log("regex_define not found", file_path);
+        }
+        if (file_changed) {
           fs.promises
             .writeFile(file_path, file_contents)
             .then(() => {
@@ -33,8 +39,6 @@ async function main() {
             .catch((error) => {
               console.log(error);
             });
-        } else {
-          console.log("regex_define not found", file_path);
         }
       })
       .catch((error) => {
