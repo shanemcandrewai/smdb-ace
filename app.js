@@ -12,6 +12,10 @@ async function* walk(dir) {
 async function main() {
   const regex_define = /(^|\s)define.*\n/;
   const regex_define_end = /}\);?\s*(?=if\s\(ty|$)/;
+  const regex_var =
+    /\nvar\s+(?<var_name>\w+)\s*=\s*require\("(?<mode_name>.*)"/;
+  // const regex_var = /\nvar\s+(?<var_name>\w+)/
+  // const regex_var = /\nvar.*\n/;
   const root_dir = "docs/scripts/ace/test/";
   for await (const file_path of walk(root_dir)) {
     fs.promises
@@ -29,6 +33,15 @@ async function main() {
           console.log("regex_define_end executed", file_path);
         } else {
           console.log("regex_define not found", file_path);
+        }
+        // var xxx = require
+        let mat = file_contents.match(regex_var);
+        if (mat) {
+          // console.log('xxx', match.groups.var_name, match.groups.mode_name);
+          console.log("yyy", mat.groups.var_name, mat.groups.mode_name);
+        } else {
+          console.log("yyy2", mat);
+          console.log("xxx", file_path, "no match");
         }
         if (file_changed) {
           fs.promises
