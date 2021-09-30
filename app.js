@@ -10,7 +10,7 @@ async function* walk(dir) {
   }
 }
 async function main() {
-  const regex_define = /\n*\s*define.*\n/i;
+  const regex_define = /\n\s*define.*\n/i;
   const regex_define_end = /\n*\s*}\).$/;
   const root_dir = "docs/scripts/ace/test/";
   for await (const file_path of walk(root_dir)) {
@@ -20,23 +20,22 @@ async function main() {
         let file_contents = results.toString();
         if (regex_define.test(file_contents)) {
           // Delete define
-          file_contents = file_contents.replace(regex_define, "");
+          file_contents = file_contents.replace(regex_define, "\n\n");
           console.log("regex_define found", file_path);
           // Delete last });
           file_contents = file_contents.replace(regex_define_end, "");
-          console.log("regex_define_end found", file_path);
+          console.log("regex_define_end executed", file_path);
+          fs.promises
+            .writeFile(file_path, file_contents)
+            .then(() => {
+              console.log("file written:", file_path);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
         } else {
           console.log("regex_define not found", file_path);
         }
-
-        fs.promises
-          .writeFile(file_path, file_contents)
-          .then(() => {
-            console.log("file written:", file_path);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
       })
       .catch((error) => {
         console.log(error);
