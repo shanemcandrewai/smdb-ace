@@ -13,13 +13,14 @@ async function main() {
   const regex_define = /(^|\s)define.*\n/;
   const regex_define_end = /}\);?\s*(?=if\s\(ty|$)/;
   const regex_require = /\nrequire\("(?<req_name>.*)"\)"*.\n/g;
-  // const regex_var =
-  // /\nvar\s+(?<var_name>\w+)\s*=\s*require\("(?<module_name>.*)"\)"*.\n/g;
   const regex_var =
     /\nvar\s+(?<var_name>\w+)\s*=\s*require\("(?<module_name>.*)"\)*.\n/g;
   const regex_var_member =
     /\nvar\s+(?<var_name>\w+)\s*=\s*require\("(?<module_name>.*)"\)\.(?<member_name>\w+);\s*\n/g;
-  const root_dir = "docs/scripts/ace/test/";
+  const root_dir = "docs/scripts/ace/";
+  const regex_mod_exports = /\nmodule\.exports\s*=\s*(?<var_name>\w+);\s*\n/g;
+  const regex_mod_exports_br = /\nmodule\.exports\s*=\s*{\n/g;
+  const regex_exports_var = /\nexports\.(?<var_name>\w+)\s*/g;
   for await (const file_path of walk(root_dir)) {
     fs.promises
       .readFile(file_path)
@@ -52,6 +53,24 @@ async function main() {
         // var var_name = require("module_name').member
         for (const found of [...file_contents.matchAll(regex_var_member)]) {
           const import_statement = `\nimport { ${found.groups.member_name} } as ${found.groups.var_name} from "${found.groups.module_name}.js";\n`;
+          file_contents = file_contents.replace(found[0], import_statement);
+          file_changed = true;
+        }
+        // module.exports = var_name
+        for (const found of [...file_contents.matchAll(regex_mod_exports)]) {
+          const import_statement = `\nexport { ${found.groups.var_name} };\n`;
+          file_contents = file_contents.replace(found[0], import_statement);
+          file_changed = true;
+        }
+        // module.exports = {
+        for (const found of [...file_contents.matchAll(regex_mod_exports_br)]) {
+          const import_statement = "\nexport {";
+          file_contents = file_contents.replace(found[0], import_statement);
+          file_changed = true;
+        }
+        //exports.var_nam =
+        for (const found of [...file_contents.matchAll(regex_exports_var)]) {
+          const import_statement = `\nexport ${found.groups.var_name} `;
           file_contents = file_contents.replace(found[0], import_statement);
           file_changed = true;
         }
