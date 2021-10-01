@@ -12,8 +12,13 @@ async function* walk(dir) {
 async function main() {
   const regex_define = /(^|\s)define.*\n/;
   const regex_define_end = /}\);?\s*(?=if\s\(ty|$)/;
+  const regex_require = /\nrequire\("(?<req_name>.*)"\)"*.\n/g;
+  // const regex_var =
+  // /\nvar\s+(?<var_name>\w+)\s*=\s*require\("(?<module_name>.*)"\)"*.\n/g;
   const regex_var =
-    /\nvar\s+(?<var_name>\w+)\s*=\s*require\("(?<mode_name>.*)"/g;
+    /\nvar\s+(?<var_name>\w+)\s*=\s*require\("(?<module_name>.*)"\)*.\n/g;
+  const regex_var_member =
+    /\nvar\s+(?<var_name>\w+)\s*=\s*require\("(?<module_name>.*)"\)\.(?<member_name>\w+);\s*\n/g;
   const root_dir = "docs/scripts/ace/test/";
   for await (const file_path of walk(root_dir)) {
     fs.promises
@@ -32,9 +37,23 @@ async function main() {
         } else {
           console.log("regex_define not found", file_path);
         }
-        // var xxx = require
+        // require("req_name")
+        for (const found of [...file_contents.matchAll(regex_require)]) {
+          const import_statement = `\nimport * from "${found.groups.req_name}.js";\n`;
+          file_contents = file_contents.replace(found[0], import_statement);
+          file_changed = true;
+        }
+        // var var_name = require("module_name")
         for (const found of [...file_contents.matchAll(regex_var)]) {
-          console.log("xxx", found.groups);
+          const import_statement = `\nimport * as ${found.groups.var_name} from "${found.groups.module_name}.js";\n`;
+          file_contents = file_contents.replace(found[0], import_statement);
+          file_changed = true;
+        }
+        // var var_name = require("module_name').member
+        for (const found of [...file_contents.matchAll(regex_var_member)]) {
+          const import_statement = `\nimport { ${found.groups.member_name} } as ${found.groups.var_name} from "${found.groups.module_name}.js";\n`;
+          file_contents = file_contents.replace(found[0], import_statement);
+          file_changed = true;
         }
         if (file_changed) {
           fs.promises
