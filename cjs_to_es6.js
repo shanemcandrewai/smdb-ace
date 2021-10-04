@@ -58,7 +58,7 @@ function get_rules() {
       "module.exports = var_name"
     ),
     new Rule(
-      new RegExp(/\nmodule\.exports\s*=\s*{\n/, "g"),
+      new RegExp(/\nmodule\.exports\s*=\s*{/, "g"),
       "\nexport {",
       "",
       "module.exports = {"
