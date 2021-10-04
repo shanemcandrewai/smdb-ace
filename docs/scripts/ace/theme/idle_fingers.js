@@ -28,12 +28,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+export { true as isDark };
+export { "ace-idle-fingers" as cssClass };
+export { cssText } from "../requirejs/text!./idle_fingers.css.js"
 
-exports.isDark = true;
-exports.cssClass = "ace-idle-fingers";
-exports.cssText = require("../requirejs/text!./idle_fingers.css");
-
-var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
 dom.importCssString(exports.cssText, exports.cssClass);
-});

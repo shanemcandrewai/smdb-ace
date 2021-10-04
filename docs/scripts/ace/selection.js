@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("./lib/oop");
-var lang = require("./lib/lang");
-var EventEmitter = require("./lib/event_emitter").EventEmitter;
-var Range = require("./range").Range;
+import * as oop from "./lib/oop.js";
+import * as lang from "./lib/lang.js";
+import { EventEmitter as EventEmitter } from "./lib/event_emitter.js";
+import { Range as Range } from "./range.js";
 
 /**
  * Contains the cursor position and the text selection of an edit session.
@@ -934,5 +932,4 @@ var Selection = function(session) {
 
 }).call(Selection.prototype);
 
-exports.Selection = Selection;
-});
+export { Selection as Selection };

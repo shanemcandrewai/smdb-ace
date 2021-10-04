@@ -26,13 +26,11 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * ***** END LICENSE BLOCK ***** */
-define(function(require, exports, module) {
-"use strict";
+ * ***** END LICENSE BLOCK ***** */"use strict";
 
-var Range = require("./range").Range;
-var EventEmitter = require("./lib/event_emitter").EventEmitter;
-var oop = require("./lib/oop");
+import { Range as Range } from "./range.js";
+import { EventEmitter as EventEmitter } from "./lib/event_emitter.js";
+import * as oop from "./lib/oop.js";
 
 /**
  * @class PlaceHolder
@@ -258,5 +256,4 @@ var PlaceHolder = function(session, length, pos, others, mainClass, othersClass)
 }).call(PlaceHolder.prototype);
 
 
-exports.PlaceHolder = PlaceHolder;
-});
+export { PlaceHolder as PlaceHolder };

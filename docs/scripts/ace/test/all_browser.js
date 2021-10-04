@@ -1,10 +1,9 @@
-define(function(require, exports, module) {
 "use strict";
 
-require("ace/lib/fixoldbrowsers");
-var mockdom = require("../test/mockdom");
-var AsyncTest = require("asyncjs").test;
-var async = require("asyncjs");
+import * as fixoldbrowsers from "ace/lib/fixoldbrowsers.js";
+import * as mockdom from "../test/mockdom.js";
+import { test as AsyncTest } from "asyncjs.js";
+import * as async from "asyncjs.js";
 
 var passed = 0;
 var failed = 0;
@@ -184,6 +183,4 @@ require(testNames, function() {
             console.log("Passed tests: " + passed);
             console.log("Failed tests: " + failed);
         });
-});
-
 });

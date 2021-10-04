@@ -28,14 +28,12 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-
-var oop = require("../lib/oop");
-var lang = require("../lib/lang");
-var DocCommentHighlightRules = require("./doc_comment_highlight_rules").DocCommentHighlightRules;
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import * as lang from "../lib/lang.js";
+import { DocCommentHighlightRules as DocCommentHighlightRules } from "./doc_comment_highlight_rules.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 // Syntax highlighting for json.
-var JsonHighlightRules = require("./json_highlight_rules").JsonHighlightRules;
+import { JsonHighlightRules as JsonHighlightRules } from "./json_highlight_rules.js";
 
 var RedshiftHighlightRules = function() {
 
@@ -226,5 +224,4 @@ var RedshiftHighlightRules = function() {
 
 oop.inherits(RedshiftHighlightRules, TextHighlightRules);
 
-exports.RedshiftHighlightRules = RedshiftHighlightRules;
-});
+export { RedshiftHighlightRules as RedshiftHighlightRules };

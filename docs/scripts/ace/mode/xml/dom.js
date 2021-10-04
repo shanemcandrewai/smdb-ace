@@ -1,4 +1,3 @@
-define(function(require, exports, module) {
 
 /*
  * DOM Level 2
@@ -1134,4 +1133,3 @@ try{
 }
 
 return DOMImplementation;
-});

@@ -34,9 +34,7 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  *
- */
-define(function(require, exports, module)
-{
+ */{
 
    var oop = require("../lib/oop");
    var lang = require("../lib/lang");
@@ -205,4 +203,3 @@ define(function(require, exports, module)
    oop.inherits(RHighlightRules, TextHighlightRules);
 
    exports.RHighlightRules = RHighlightRules;
-});

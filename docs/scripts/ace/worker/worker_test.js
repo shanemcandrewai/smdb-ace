@@ -33,14 +33,12 @@
 // When using the AMD-loader it's just works, so we just it load the file now
 
 require("amd-loader");
-
-define(function(require, exports, module) {
 "use strict";
 
-var assert = require("../test/assertions");
-var worker = require("./worker");
+import * as assert from "../test/assertions.js";
+import * as worker from "./worker.js";
 
-module.exports = {
+export default {
     setUp : function() {
         // And define a few mock dependency modules
         worker.define("depA", [], function(require, exports, module) {

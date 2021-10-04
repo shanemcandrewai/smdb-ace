@@ -28,10 +28,8 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-
-var event = require("../lib/event");
-var useragent = require("../lib/useragent");
+import * as event from "../lib/event.js";
+import * as useragent from "../lib/useragent.js";
 
 // mouse
 function isSamePoint(p1, p2) {
@@ -198,6 +196,4 @@ function onMouseDown(e) {
 }
 
 
-exports.onMouseDown = onMouseDown;
-
-});
+export { onMouseDown as onMouseDown };

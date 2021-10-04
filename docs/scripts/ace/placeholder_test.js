@@ -32,20 +32,18 @@ if (typeof process !== "undefined") {
     require("amd-loader");
     require("./test/mockdom");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var EditSession = require("./edit_session").EditSession;
-var Editor = require("./editor").Editor;
-var MockRenderer = require("./test/mockrenderer").MockRenderer;
-var assert = require("./test/assertions");
-var JavaScriptMode = require("./mode/javascript").Mode;
-var PlaceHolder = require("./placeholder").PlaceHolder;
-var UndoManager = require("./undomanager").UndoManager;
-require("./multi_select");
+import { EditSession as EditSession } from "./edit_session.js";
+import { Editor as Editor } from "./editor.js";
+import { MockRenderer as MockRenderer } from "./test/mockrenderer.js";
+import * as assert from "./test/assertions.js";
+import { Mode as JavaScriptMode } from "./mode/javascript.js";
+import { PlaceHolder as PlaceHolder } from "./placeholder.js";
+import { UndoManager as UndoManager } from "./undomanager.js";
+import * as multi_select from "./multi_select.js";
 
-module.exports = {
+export default {
 
    "test: simple at the end appending of text" : function() {
         var session = new EditSession("var a = 10;\nconsole.log(a, a);", new JavaScriptMode());

@@ -31,17 +31,15 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var EditSession = require("./edit_session").EditSession;
-var MockRenderer = require("./test/mockrenderer").MockRenderer;
-var Editor = require("./editor").Editor;
-var Search = require("./search").Search;
-var assert = require("./test/assertions");
+import { EditSession as EditSession } from "./edit_session.js";
+import { MockRenderer as MockRenderer } from "./test/mockrenderer.js";
+import { Editor as Editor } from "./editor.js";
+import { Search as Search } from "./search.js";
+import * as assert from "./test/assertions.js";
 
-module.exports = {
+export default {
     "test: configure the search object" : function() {
         var search = new Search();
         search.set({

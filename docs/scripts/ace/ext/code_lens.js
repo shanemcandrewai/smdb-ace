@@ -27,13 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
-var LineWidgets = require("../line_widgets").LineWidgets;
-var event = require("../lib/event");
-var lang = require("../lib/lang");
-var dom = require("../lib/dom");
+import { LineWidgets as LineWidgets } from "../line_widgets.js";
+import * as event from "../lib/event.js";
+import * as lang from "../lib/lang.js";
+import * as dom from "../lib/dom.js";
 
 function clearLensElements(renderer) {
     var textLayer = renderer.$textLayer;
@@ -124,7 +122,7 @@ function clearCodeLensWidgets(session) {
     });
 }
 
-exports.setLenses = function(session, lenses) {
+export let setLenses = function(session, lenses) {
     var firstRow = Number.MAX_VALUE;
 
     clearCodeLensWidgets(session);
@@ -211,18 +209,19 @@ function detachFromEditor(editor) {
         editor.container.removeEventListener("click", editor.$codeLensClickHandler);
 }
 
-exports.registerCodeLensProvider = function(editor, codeLensProvider) {
+export let registerCodeLensProvider = function(editor, codeLensProvider) {
     editor.setOption("enableCodeLens", true);
     editor.codeLensProviders.push(codeLensProvider);
     editor.$updateLensesOnInput();
 };
 
-exports.clear = function(session) {
+export let clear = function(session) {
     exports.setLenses(session, null);
 };
 
-var Editor = require("../editor").Editor;
-require("../config").defineOptions(Editor.prototype, "editor", {
+import { Editor as Editor } from "../editor.js";
+import * as config from "../config.js"
+config.defineOptions(Editor.prototype, "editor", {
     enableCodeLens: {
         set: function(val) {
             if (val) {
@@ -257,5 +256,3 @@ dom.importCssString("\
     color: #4e94ce;\
 }\
 ", "");
-
-});

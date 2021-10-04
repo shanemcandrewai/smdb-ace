@@ -32,18 +32,16 @@ if (typeof process !== "undefined") {
     require("amd-loader");
     require("./test/mockdom");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var lang = require("./lib/lang");
-var EditSession = require("./edit_session").EditSession;
-var Editor = require("./editor").Editor;
-var UndoManager = require("./undomanager").UndoManager;
-var MockRenderer = require("./test/mockrenderer").MockRenderer;
-var Range = require("./range").Range;
-var assert = require("./test/assertions");
-var JavaScriptMode = require("./mode/javascript").Mode;
+import * as lang from "./lib/lang.js";
+import { EditSession as EditSession } from "./edit_session.js";
+import { Editor as Editor } from "./editor.js";
+import { UndoManager as UndoManager } from "./undomanager.js";
+import { MockRenderer as MockRenderer } from "./test/mockrenderer.js";
+import { Range as Range } from "./range.js";
+import * as assert from "./test/assertions.js";
+import { Mode as JavaScriptMode } from "./mode/javascript.js";
 
 function createFoldTestSession() {
     var lines = [
@@ -69,7 +67,7 @@ function assertArray(a, b) {
     }
 }
 
-module.exports = {
+export default {
 
    "test: find matching opening bracket in Text mode" : function() {
         var session = new EditSession(["(()(", "())))"]);

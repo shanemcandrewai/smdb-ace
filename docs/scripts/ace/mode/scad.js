@@ -27,16 +27,14 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var scadHighlightRules = require("./scad_highlight_rules").scadHighlightRules;
-var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
-var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
-var CStyleFoldMode = require("./folding/cstyle").FoldMode;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { scadHighlightRules as scadHighlightRules } from "./scad_highlight_rules.js";
+import { MatchingBraceOutdent as MatchingBraceOutdent } from "./matching_brace_outdent.js";
+import { CstyleBehaviour as CstyleBehaviour } from "./behaviour/cstyle.js";
+import { FoldMode as CStyleFoldMode } from "./folding/cstyle.js";
 
 var Mode = function() {
     this.HighlightRules = scadHighlightRules;
@@ -94,5 +92,4 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/scad";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

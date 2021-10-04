@@ -1,11 +1,10 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var lang = require("../lib/lang");
-var DocCommentHighlightRules = require("./doc_comment_highlight_rules").DocCommentHighlightRules;
-var HtmlHighlightRules = require("./html_highlight_rules").HtmlHighlightRules;
-var CSharpHighlightRules = require("./csharp_highlight_rules").CSharpHighlightRules;
+import * as oop from "../lib/oop.js";
+import * as lang from "../lib/lang.js";
+import { DocCommentHighlightRules as DocCommentHighlightRules } from "./doc_comment_highlight_rules.js";
+import { HtmlHighlightRules as HtmlHighlightRules } from "./html_highlight_rules.js";
+import { CSharpHighlightRules as CSharpHighlightRules } from "./csharp_highlight_rules.js";
 
 var blockPrefix = 'razor-block-';
 var RazorLangHighlightRules = function() {
@@ -155,6 +154,5 @@ var RazorHighlightRules = function() {
 
 oop.inherits(RazorHighlightRules, HtmlHighlightRules);
 
-exports.RazorHighlightRules = RazorHighlightRules;
-exports.RazorLangHighlightRules = RazorLangHighlightRules;
-});
+export { RazorHighlightRules as RazorHighlightRules };
+export { RazorLangHighlightRules as RazorLangHighlightRules };

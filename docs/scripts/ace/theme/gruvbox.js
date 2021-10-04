@@ -21,13 +21,9 @@
  * IN THE SOFTWARE.
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+export { true as isDark };
+export { "ace-gruvbox" as cssClass };
+export { cssText } from "../requirejs/text!./gruvbox.css.js"
 
-exports.isDark = true;
-exports.cssClass = "ace-gruvbox";
-exports.cssText = require("../requirejs/text!./gruvbox.css");
-
-var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
 dom.importCssString(exports.cssText, exports.cssClass);
-
-});

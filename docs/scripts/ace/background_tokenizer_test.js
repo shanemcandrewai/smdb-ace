@@ -31,15 +31,13 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var EditSession = require("./edit_session").EditSession;
-var JavaScriptMode = require("./mode/javascript").Mode;
-var LuaMode = require("./mode/lua").Mode;
-var Range = require("./range").Range;
-var assert = require("./test/assertions");
+import { EditSession as EditSession } from "./edit_session.js";
+import { Mode as JavaScriptMode } from "./mode/javascript.js";
+import { Mode as LuaMode } from "./mode/lua.js";
+import { Range as Range } from "./range.js";
+import * as assert from "./test/assertions.js";
 
 function forceTokenize(session, startLine) {
     for (var i = startLine || 0, l = session.getLength(); i < l; i++)
@@ -52,7 +50,7 @@ function testStates(session, states) {
     assert.ok(l == states.length);
 }
 
-module.exports = {
+export default {
 
     "test background tokenizer update on session change" : function() {
         var doc = new EditSession([

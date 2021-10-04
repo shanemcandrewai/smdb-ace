@@ -1,8 +1,7 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var MediaWikiHighlightRules = function() {
     this.$rules = {
@@ -560,5 +559,4 @@ MediaWikiHighlightRules.metaData = {
 
 oop.inherits(MediaWikiHighlightRules, TextHighlightRules);
 
-exports.MediaWikiHighlightRules = MediaWikiHighlightRules;
-});
+export { MediaWikiHighlightRules as MediaWikiHighlightRules };

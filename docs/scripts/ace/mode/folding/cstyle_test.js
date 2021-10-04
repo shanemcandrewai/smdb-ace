@@ -30,15 +30,13 @@
 
 if (typeof process !== "undefined")
     require("amd-loader");
-
-define(function(require, exports, module) {
 "use strict";
 
-var JavaScriptMode = require("../javascript").Mode;
-var EditSession = require("../../edit_session").EditSession;
-var assert = require("../../test/assertions");
+import { Mode as JavaScriptMode } from "../javascript.js";
+import { EditSession as EditSession } from "../../edit_session.js";
+import * as assert from "../../test/assertions.js";
 
-module.exports = {
+export default {
 
     "test: fold comments": function() {
         var session = new EditSession([

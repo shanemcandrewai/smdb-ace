@@ -28,19 +28,17 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-
-var RangeList = require("./range_list").RangeList;
-var Range = require("./range").Range;
-var Selection = require("./selection").Selection;
-var onMouseDown = require("./mouse/multi_select_handler").onMouseDown;
-var event = require("./lib/event");
-var lang = require("./lib/lang");
-var commands = require("./commands/multi_select_commands");
-exports.commands = commands.defaultCommands.concat(commands.multiSelectCommands);
+import { RangeList as RangeList } from "./range_list.js";
+import { Range as Range } from "./range.js";
+import { Selection as Selection } from "./selection.js";
+import { onMouseDown as onMouseDown } from "./mouse/multi_select_handler.js";
+import * as event from "./lib/event.js";
+import * as lang from "./lib/lang.js";
+import * as commands from "./commands/multi_select_commands.js";
+export { commands.defaultCommands.concat(commands.multiSelectCommands) as commands };
 
 // Todo: session.find or editor.findVolatile that returns range
-var Search = require("./search").Search;
+import { Search as Search } from "./search.js";
 var search = new Search();
 
 function find(session, needle, dir) {
@@ -51,7 +49,7 @@ function find(session, needle, dir) {
 }
 
 // extend EditSession
-var EditSession = require("./edit_session").EditSession;
+import { EditSession as EditSession } from "./edit_session.js";
 (function() {
     this.getSelectionMarkers = function() {
         return this.$selectionMarkers;
@@ -333,7 +331,7 @@ var EditSession = require("./edit_session").EditSession;
 }).call(Selection.prototype);
 
 // extend Editor
-var Editor = require("./editor").Editor;
+import { Editor as Editor } from "./editor.js";
 (function() {
 
     /** 
@@ -855,7 +853,7 @@ function isSamePoint(p1, p2) {
 
 // patch
 // adds multicursor support to a session
-exports.onSessionChange = function(e) {
+export let onSessionChange = function(e) {
     var session = e.session;
     if (session && !session.multiSelect) {
         session.$selectionMarkers = [];
@@ -941,10 +939,11 @@ function addAltCursorListeners(editor){
     }
 }
 
-exports.MultiSelect = MultiSelect;
+export { MultiSelect as MultiSelect };
 
 
-require("./config").defineOptions(Editor.prototype, "editor", {
+import * as config from "./config.js"
+config.defineOptions(Editor.prototype, "editor", {
     enableMultiselect: {
         set: function(val) {
             MultiSelect(this);
@@ -967,5 +966,3 @@ require("./config").defineOptions(Editor.prototype, "editor", {
 });
 
 
-
-});

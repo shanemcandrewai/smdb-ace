@@ -1,10 +1,8 @@
 /* global define */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var HtmlHighlightRules = require("./html_highlight_rules").HtmlHighlightRules;
+import * as oop from "../lib/oop.js";
+import { HtmlHighlightRules as HtmlHighlightRules } from "./html_highlight_rules.js";
 
 function pop2(currentState, stack) {
     stack.splice(0, 3);
@@ -68,5 +66,4 @@ var HandlebarsHighlightRules = function() {
 
 oop.inherits(HandlebarsHighlightRules, HtmlHighlightRules);
 
-exports.HandlebarsHighlightRules = HandlebarsHighlightRules;
-});
+export { HandlebarsHighlightRules as HandlebarsHighlightRules };

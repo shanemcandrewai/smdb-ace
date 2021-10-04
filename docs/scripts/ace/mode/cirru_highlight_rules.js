@@ -27,12 +27,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
- 
-define(function(require, exports, module) {
-"use strict";
+ "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 // see http://cirru.org for more about this language
 var CirruHighlightRules = function() {
@@ -121,5 +119,4 @@ var CirruHighlightRules = function() {
 
 oop.inherits(CirruHighlightRules, TextHighlightRules);
 
-exports.CirruHighlightRules = CirruHighlightRules;
-});
+export { CirruHighlightRules as CirruHighlightRules };

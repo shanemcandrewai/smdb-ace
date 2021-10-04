@@ -27,12 +27,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("./lib/oop");
-var EventEmitter = require("./lib/event_emitter").EventEmitter;
+import * as oop from "./lib/oop.js";
+import { EventEmitter as EventEmitter } from "./lib/event_emitter.js";
 
 
 /**
@@ -247,5 +245,4 @@ var BackgroundTokenizer = function(tokenizer, editor) {
 
 }).call(BackgroundTokenizer.prototype);
 
-exports.BackgroundTokenizer = BackgroundTokenizer;
-});
+export { BackgroundTokenizer as BackgroundTokenizer };

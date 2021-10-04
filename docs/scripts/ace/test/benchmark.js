@@ -31,13 +31,11 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var EditSession = require("../edit_session").EditSession;
+import { EditSession as EditSession } from "../edit_session.js";
 
-module.exports = {
+export default {
     setUp : function() {
         this.start = Date.now();
     },

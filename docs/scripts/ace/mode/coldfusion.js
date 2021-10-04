@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var lang = require("../lib/lang");
-var HtmlMode = require("./html").Mode;
-var ColdfusionHighlightRules = require("./coldfusion_highlight_rules").ColdfusionHighlightRules;
+import * as oop from "../lib/oop.js";
+import * as lang from "../lib/lang.js";
+import { Mode as HtmlMode } from "./html.js";
+import { ColdfusionHighlightRules as ColdfusionHighlightRules } from "./coldfusion_highlight_rules.js";
 
 var voidElements = "cfabort|cfapplication|cfargument|cfassociate|cfbreak|cfcache|cfcollection|cfcookie|cfdbinfo|cfdirectory|cfdump|cfelse|cfelseif|cferror|cfexchangecalendar|cfexchangeconnection|cfexchangecontact|cfexchangefilter|cfexchangetask|cfexit|cffeed|cffile|cfflush|cfftp|cfheader|cfhtmlhead|cfhttpparam|cfimage|cfimport|cfinclude|cfindex|cfinsert|cfinvokeargument|cflocation|cflog|cfmailparam|cfNTauthenticate|cfobject|cfobjectcache|cfparam|cfpdfformparam|cfprint|cfprocparam|cfprocresult|cfproperty|cfqueryparam|cfregistry|cfreportparam|cfrethrow|cfreturn|cfschedule|cfsearch|cfset|cfsetting|cfthrow|cfzipparam)".split("|");
 
@@ -57,5 +55,4 @@ oop.inherits(Mode, HtmlMode);
     this.$id = "ace/mode/coldfusion";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

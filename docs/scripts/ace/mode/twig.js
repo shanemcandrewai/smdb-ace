@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var HtmlMode = require("./html").Mode;
-var TwigHighlightRules = require("./twig_highlight_rules").TwigHighlightRules;
-var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
+import * as oop from "../lib/oop.js";
+import { Mode as HtmlMode } from "./html.js";
+import { TwigHighlightRules as TwigHighlightRules } from "./twig_highlight_rules.js";
+import { MatchingBraceOutdent as MatchingBraceOutdent } from "./matching_brace_outdent.js";
 
 var Mode = function() {
     HtmlMode.call(this);
@@ -77,5 +75,4 @@ oop.inherits(Mode, HtmlMode);
     this.$id = "ace/mode/twig";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

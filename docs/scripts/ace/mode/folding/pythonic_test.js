@@ -30,15 +30,13 @@
 
 if (typeof process !== "undefined")
     require("amd-loader");
-
-define(function(require, exports, module) {
 "use strict";
 
-var PythonMode = require("../python").Mode;
-var EditSession = require("../../edit_session").EditSession;
-var assert = require("../../test/assertions");
+import { Mode as PythonMode } from "../python.js";
+import { EditSession as EditSession } from "../../edit_session.js";
+import * as assert from "../../test/assertions.js";
 
-module.exports = {
+export default {
 
     "test: bracket folding": function() {
         var session = new EditSession([

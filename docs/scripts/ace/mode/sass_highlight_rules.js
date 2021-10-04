@@ -27,13 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var lang = require("../lib/lang");
-var ScssHighlightRules = require("./scss_highlight_rules").ScssHighlightRules;
+import * as oop from "../lib/oop.js";
+import * as lang from "../lib/lang.js";
+import { ScssHighlightRules as ScssHighlightRules } from "./scss_highlight_rules.js";
 
 var SassHighlightRules = function() {
     ScssHighlightRules.call(this);
@@ -74,6 +72,4 @@ var SassHighlightRules = function() {
 
 oop.inherits(SassHighlightRules, ScssHighlightRules);
 
-exports.SassHighlightRules = SassHighlightRules;
-
-});
+export { SassHighlightRules as SassHighlightRules };

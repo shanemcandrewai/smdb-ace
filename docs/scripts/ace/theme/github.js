@@ -28,12 +28,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-
-exports.isDark = false;
-exports.cssClass = "ace-github";
-exports.cssText = require("../requirejs/text!./github.css");
+export let isDark = false;
+export { "ace-github" as cssClass };
+export { cssText } from "../requirejs/text!./github.css.js"
 
     var dom = require("../lib/dom");
     dom.importCssString(exports.cssText, exports.cssClass);
-});

@@ -29,12 +29,10 @@
  * ***** END LICENSE BLOCK ***** */
 
 // TODO check with https://github.com/deadfoxygrandpa/Elm.tmLanguage
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var ElmHighlightRules = function() {
     var keywordMapper = this.createKeywordMapper({
@@ -163,5 +161,4 @@ var ElmHighlightRules = function() {
 
 oop.inherits(ElmHighlightRules, TextHighlightRules);
 
-exports.ElmHighlightRules = ElmHighlightRules;
-});
+export { ElmHighlightRules as ElmHighlightRules };

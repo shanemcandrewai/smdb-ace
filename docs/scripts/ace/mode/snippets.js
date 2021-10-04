@@ -1,9 +1,8 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var SnippetHighlightRules = function() {
 
@@ -63,7 +62,7 @@ var SnippetHighlightRules = function() {
 };
 oop.inherits(SnippetHighlightRules, TextHighlightRules);
 
-exports.SnippetHighlightRules = SnippetHighlightRules;
+export { SnippetHighlightRules as SnippetHighlightRules };
 
 var SnippetGroupHighlightRules = function() {
     this.$rules = {
@@ -92,9 +91,9 @@ var SnippetGroupHighlightRules = function() {
 
 oop.inherits(SnippetGroupHighlightRules, TextHighlightRules);
 
-exports.SnippetGroupHighlightRules = SnippetGroupHighlightRules;
+export { SnippetGroupHighlightRules as SnippetGroupHighlightRules };
 
-var FoldMode = require("./folding/coffee").FoldMode;
+import { FoldMode as FoldMode } from "./folding/coffee.js";
 
 var Mode = function() {
     this.HighlightRules = SnippetGroupHighlightRules;
@@ -109,7 +108,5 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/snippets";
     this.snippetFileId = "ace/snippets/snippets";
 }).call(Mode.prototype);
-exports.Mode = Mode;
+export { Mode as Mode };
 
-
-});

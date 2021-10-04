@@ -31,5 +31,5 @@
 "use strict";
 
 require("amd-loader");
-var test = require("asyncjs").test;
+import { test as test } from "asyncjs.js";
 test.walkTestCases(__dirname + "/..").exec();

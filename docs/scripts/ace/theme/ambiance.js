@@ -21,13 +21,9 @@
  * IN THE SOFTWARE.
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+export { true as isDark };
+export { "ace-ambiance" as cssClass };
+export { cssText } from "../requirejs/text!./ambiance.css.js"
 
-exports.isDark = true;
-exports.cssClass = "ace-ambiance";
-exports.cssText = require("../requirejs/text!./ambiance.css");
-
-var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
 dom.importCssString(exports.cssText, exports.cssClass);
-
-});

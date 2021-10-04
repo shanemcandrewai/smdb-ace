@@ -27,13 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
- 
-define(function(require, exports, module) {
-"use strict";
+ "use strict";
     
-var oop = require("../lib/oop");
-var Mirror = require("../worker/mirror").Mirror;
-var XQLintLib = require("./xquery/xqlint");
+import * as oop from "../lib/oop.js";
+import { Mirror as Mirror } from "../worker/mirror.js";
+import * as XQLintLib from "./xquery/xqlint.js";
 var XQLint =  XQLintLib.XQLint;
 
 var getModuleResolverFromModules = function(modules){
@@ -112,5 +110,3 @@ oop.inherits(XQueryWorker, Mirror);
         this.sender.emit("markers", this.xqlint.getMarkers());
     };
 }).call(XQueryWorker.prototype);
-
-});

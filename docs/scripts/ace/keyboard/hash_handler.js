@@ -27,12 +27,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var keyUtil = require("../lib/keys");
-var useragent = require("../lib/useragent");
+import * as keyUtil from "../lib/keys.js";
+import * as useragent from "../lib/useragent.js";
 var KEY_MODS = keyUtil.KEY_MODS;
 
 function HashHandler(config, platform) {
@@ -251,6 +249,5 @@ MultiHashHandler.prototype = HashHandler.prototype;
 
 }).call(HashHandler.prototype);
 
-exports.HashHandler = HashHandler;
-exports.MultiHashHandler = MultiHashHandler;
-});
+export { HashHandler as HashHandler };
+export { MultiHashHandler as MultiHashHandler };

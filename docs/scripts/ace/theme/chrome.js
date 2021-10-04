@@ -28,12 +28,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+export let isDark = false;
+export { "ace-chrome" as cssClass };
+export { cssText } from "../requirejs/text!./chrome.css.js"
 
-exports.isDark = false;
-exports.cssClass = "ace-chrome";
-exports.cssText = require("../requirejs/text!./chrome.css");
-
-var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
 dom.importCssString(exports.cssText, exports.cssClass);
-});

@@ -32,17 +32,15 @@ if (typeof process !== "undefined") {
     require("amd-loader");
     require("../test/mockdom");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var assert = require("../test/assertions");
-var EditSession = require("../edit_session").EditSession;
-var TextLayer = require("./text").Text;
-var JavaScriptMode = require("../mode/javascript").Mode;
-var dom = require("../lib/dom");
+import * as assert from "../test/assertions.js";
+import { EditSession as EditSession } from "../edit_session.js";
+import { Text as TextLayer } from "./text.js";
+import { Mode as JavaScriptMode } from "../mode/javascript.js";
+import * as dom from "../lib/dom.js";
 
-module.exports = {
+export default {
 
     setUp: function(next) {
         this.session = new EditSession("");

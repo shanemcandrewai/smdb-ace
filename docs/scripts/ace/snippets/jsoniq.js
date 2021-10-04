@@ -1,7 +1,4 @@
-define(function(require, exports, module) {
 "use strict";
 
-exports.snippetText = require("../requirejs/text!./jsoniq.snippets");
-exports.scope = "jsoniq";
-
-});
+export { snippetText } from "../requirejs/text!./jsoniq.snippets.js"
+export { "jsoniq" as scope };

@@ -27,17 +27,15 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var Rules = require("./coffee_highlight_rules").CoffeeHighlightRules;
-var Outdent = require("./matching_brace_outdent").MatchingBraceOutdent;
-var FoldMode = require("./folding/coffee").FoldMode;
-var Range = require("../range").Range;
-var TextMode = require("./text").Mode;
-var WorkerClient = require("../worker/worker_client").WorkerClient;
-var oop = require("../lib/oop");
+import { CoffeeHighlightRules as Rules } from "./coffee_highlight_rules.js";
+import { MatchingBraceOutdent as Outdent } from "./matching_brace_outdent.js";
+import { FoldMode as FoldMode } from "./folding/coffee.js";
+import { Range as Range } from "../range.js";
+import { Mode as TextMode } from "./text.js";
+import { WorkerClient as WorkerClient } from "../worker/worker_client.js";
+import * as oop from "../lib/oop.js";
 
 function Mode() {
     this.HighlightRules = Rules;
@@ -112,6 +110,4 @@ oop.inherits(Mode, TextMode);
     this.snippetFileId = "ace/snippets/coffee";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-
-});
+export { Mode as Mode };

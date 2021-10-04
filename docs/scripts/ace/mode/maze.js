@@ -28,14 +28,12 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var MazeHighlightRules = require("./maze_highlight_rules").MazeHighlightRules;
-var FoldMode = require("./folding/cstyle").FoldMode;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { MazeHighlightRules as MazeHighlightRules } from "./maze_highlight_rules.js";
+import { FoldMode as FoldMode } from "./folding/cstyle.js";
 
 var Mode = function() {
     this.HighlightRules = MazeHighlightRules;
@@ -50,5 +48,4 @@ oop.inherits(Mode, TextMode);
     this.snippetFileId = "ace/snippets/maze";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

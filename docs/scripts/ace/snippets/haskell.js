@@ -1,7 +1,4 @@
-define(function(require, exports, module) {
 "use strict";
 
-exports.snippetText = require("../requirejs/text!./haskell.snippets");
-exports.scope = "haskell";
-
-});
+export { snippetText } from "../requirejs/text!./haskell.snippets.js"
+export { "haskell" as scope };

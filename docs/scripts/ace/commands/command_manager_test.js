@@ -31,15 +31,13 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var CommandManager = require("./command_manager").CommandManager;
-var keys = require("../lib/keys");
-var assert = require("../test/assertions");
+import { CommandManager as CommandManager } from "./command_manager.js";
+import * as keys from "../lib/keys.js";
+import * as assert from "../test/assertions.js";
 
-module.exports = {
+export default {
 
     setUp: function() {
         this.command = {

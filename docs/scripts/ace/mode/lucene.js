@@ -1,9 +1,8 @@
-define(function(require, exports, module) {
 'use strict';
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var LuceneHighlightRules = require("./lucene_highlight_rules").LuceneHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { LuceneHighlightRules as LuceneHighlightRules } from "./lucene_highlight_rules.js";
 
 var Mode = function() {
     this.HighlightRules = LuceneHighlightRules;
@@ -16,5 +15,4 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/lucene";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

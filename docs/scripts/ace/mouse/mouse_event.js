@@ -27,12 +27,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var event = require("../lib/event");
-var useragent = require("../lib/useragent");
+import * as event from "../lib/event.js";
+import * as useragent from "../lib/useragent.js";
 
 /*
  * Custom Ace mouse event
@@ -125,5 +123,3 @@ var MouseEvent = exports.MouseEvent = function(domEvent, editor) {
         : function() { return this.domEvent.ctrlKey; };
     
 }).call(MouseEvent.prototype);
-
-});

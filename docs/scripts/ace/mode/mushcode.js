@@ -27,15 +27,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var MushCodeRules = require("./mushcode_highlight_rules").MushCodeRules;
-var PythonFoldMode = require("./folding/pythonic").FoldMode;
-var Range = require("../range").Range;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { MushCodeRules as MushCodeRules } from "./mushcode_highlight_rules.js";
+import { FoldMode as PythonFoldMode } from "./folding/pythonic.js";
+import { Range as Range } from "../range.js";
 
 var Mode = function() {
     this.HighlightRules = MushCodeRules;
@@ -109,8 +107,4 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/mushcode";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
-
-
-
+export { Mode as Mode };

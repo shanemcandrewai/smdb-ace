@@ -1,8 +1,7 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var GitignoreHighlightRules = function() {
     this.$rules = {
@@ -27,5 +26,4 @@ GitignoreHighlightRules.metaData = {
 
 oop.inherits(GitignoreHighlightRules, TextHighlightRules);
 
-exports.GitignoreHighlightRules = GitignoreHighlightRules;
-});
+export { GitignoreHighlightRules as GitignoreHighlightRules };

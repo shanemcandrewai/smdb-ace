@@ -32,16 +32,14 @@ if (typeof process !== "undefined") {
     require("amd-loader");
     require("./test/mockdom");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var Range = require("./range").Range;
-var Editor = require("./editor").Editor;
-var EditSession = require("./edit_session").EditSession;
-var VirtualRenderer = require("./virtual_renderer").VirtualRenderer;
-var assert = require("./test/assertions");
-require("./ext/error_marker");
+import { Range as Range } from "./range.js";
+import { Editor as Editor } from "./editor.js";
+import { EditSession as EditSession } from "./edit_session.js";
+import { VirtualRenderer as VirtualRenderer } from "./virtual_renderer.js";
+import * as assert from "./test/assertions.js";
+import * as error_marker from "./ext/error_marker.js";
 
 function setScreenPosition(node, rect) {
     node.style.left = rect[0] + "px";
@@ -51,7 +49,7 @@ function setScreenPosition(node, rect) {
 }
 
 var editor = null;
-module.exports = {
+export default {
     setUp: function() {
         if (editor)
             editor.destroy();

@@ -28,15 +28,13 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-/* Derived from Python rules */
-define(function(require, exports, module) {
-"use strict";
+/* Derived from Python rules */"use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var FortranHighlightRules = require("./fortran_highlight_rules").FortranHighlightRules;
-var CStyleFoldMode = require("./folding/cstyle").FoldMode;
-var Range = require("../range").Range;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { FortranHighlightRules as FortranHighlightRules } from "./fortran_highlight_rules.js";
+import { FoldMode as CStyleFoldMode } from "./folding/cstyle.js";
+import { Range as Range } from "../range.js";
 
 var Mode = function() {
     this.HighlightRules = FortranHighlightRules;
@@ -108,6 +106,4 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/fortran";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
-
+export { Mode as Mode };

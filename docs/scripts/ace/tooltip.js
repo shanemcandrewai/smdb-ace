@@ -27,12 +27,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("./lib/oop");
-var dom = require("./lib/dom");
+import * as oop from "./lib/oop.js";
+import * as dom from "./lib/dom.js";
 
 /**
  * @class Tooltip
@@ -141,5 +139,4 @@ function Tooltip (parentNode) {
 
 }).call(Tooltip.prototype);
 
-exports.Tooltip = Tooltip;
-});
+export { Tooltip as Tooltip };

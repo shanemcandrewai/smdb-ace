@@ -33,18 +33,16 @@
  *
  *
  *
- * ***** END LICENSE BLOCK ***** */
-define(function(require, exports, module) {
-"use strict";
+ * ***** END LICENSE BLOCK ***** */"use strict";
 
-var oop = require("../lib/oop");
+import * as oop from "../lib/oop.js";
 // defines the parent mode
-var HtmlMode = require("./html").Mode;
-var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
-var HtmlFoldMode = require("./folding/html").FoldMode;
+import { Mode as HtmlMode } from "./html.js";
+import { MatchingBraceOutdent as MatchingBraceOutdent } from "./matching_brace_outdent.js";
+import { FoldMode as HtmlFoldMode } from "./folding/html.js";
 
 // defines the language specific highlighters and folding rules
-var CurlyHighlightRules = require("./curly_highlight_rules").CurlyHighlightRules;
+import { CurlyHighlightRules as CurlyHighlightRules } from "./curly_highlight_rules.js";
 
 var Mode = function() {
     HtmlMode.call(this);
@@ -58,5 +56,4 @@ oop.inherits(Mode, HtmlMode);
     this.$id = "ace/mode/curly";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

@@ -1,10 +1,9 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../../lib/oop");
-var Range = require("../../range").Range;
-var BaseFoldMode = require("./fold_mode").FoldMode;
-var TokenIterator = require("../../token_iterator").TokenIterator;
+import * as oop from "../../lib/oop.js";
+import { Range as Range } from "../../range.js";
+import { FoldMode as BaseFoldMode } from "./fold_mode.js";
+import { TokenIterator as TokenIterator } from "../../token_iterator.js";
 
 var FoldMode = exports.FoldMode = function() {};
 oop.inherits(FoldMode, BaseFoldMode);
@@ -45,5 +44,3 @@ oop.inherits(FoldMode, BaseFoldMode);
     };
 
 }).call(FoldMode.prototype);
-
-});

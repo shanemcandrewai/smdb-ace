@@ -27,17 +27,15 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var lang = require("../lib/lang");
-var TextMode = require("./text").Mode;
-var XmlHighlightRules = require("./xml_highlight_rules").XmlHighlightRules;
-var XmlBehaviour = require("./behaviour/xml").XmlBehaviour;
-var XmlFoldMode = require("./folding/xml").FoldMode;
-var WorkerClient = require("../worker/worker_client").WorkerClient;
+import * as oop from "../lib/oop.js";
+import * as lang from "../lib/lang.js";
+import { Mode as TextMode } from "./text.js";
+import { XmlHighlightRules as XmlHighlightRules } from "./xml_highlight_rules.js";
+import { XmlBehaviour as XmlBehaviour } from "./behaviour/xml.js";
+import { FoldMode as XmlFoldMode } from "./folding/xml.js";
+import { WorkerClient as WorkerClient } from "../worker/worker_client.js";
 
 var Mode = function() {
    this.HighlightRules = XmlHighlightRules;
@@ -71,5 +69,4 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/xml";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

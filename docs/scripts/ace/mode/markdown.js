@@ -27,17 +27,15 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var JavaScriptMode = require("./javascript").Mode;
-var XmlMode = require("./xml").Mode;
-var HtmlMode = require("./html").Mode;
-var MarkdownHighlightRules = require("./markdown_highlight_rules").MarkdownHighlightRules;
-var MarkdownFoldMode = require("./folding/markdown").FoldMode;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { Mode as JavaScriptMode } from "./javascript.js";
+import { Mode as XmlMode } from "./xml.js";
+import { Mode as HtmlMode } from "./html.js";
+import { MarkdownHighlightRules as MarkdownHighlightRules } from "./markdown_highlight_rules.js";
+import { FoldMode as MarkdownFoldMode } from "./folding/markdown.js";
 
 var Mode = function() {
     this.HighlightRules = MarkdownHighlightRules;
@@ -78,5 +76,4 @@ oop.inherits(Mode, TextMode);
     this.snippetFileId = "ace/snippets/markdown";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

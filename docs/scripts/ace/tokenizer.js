@@ -27,11 +27,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var config = require("./config");
+import * as config from "./config.js";
 // tokenizing lines longer than this makes editor very slow
 var MAX_TOKEN_COUNT = 2000;
 /**
@@ -365,5 +363,4 @@ var Tokenizer = function(rules) {
     
 }).call(Tokenizer.prototype);
 
-exports.Tokenizer = Tokenizer;
-});
+export { Tokenizer as Tokenizer };

@@ -27,12 +27,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
-var LineWidgets = require("../line_widgets").LineWidgets;
-var dom = require("../lib/dom");
-var Range = require("../range").Range;
+import { LineWidgets as LineWidgets } from "../line_widgets.js";
+import * as dom from "../lib/dom.js";
+import { Range as Range } from "../range.js";
 
 function binarySearch(array, needle, comparator) {
     var first = 0;
@@ -89,7 +87,7 @@ function findAnnotations(session, row, dir) {
     return matched.length && matched;
 }
 
-exports.showErrorMarker = function(editor, dir) {
+export let showErrorMarker = function(editor, dir) {
     var session = editor.session;
     if (!session.widgetManager) {
         session.widgetManager = new LineWidgets(session);
@@ -213,5 +211,3 @@ dom.importCssString("\
         top: -5px;\
     }\
 ", "");
-
-});

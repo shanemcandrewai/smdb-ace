@@ -28,12 +28,10 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var MazeHighlightRules = function() {
     // regexp must not have capturing parentheses. Use (?:) instead.
@@ -150,5 +148,4 @@ MazeHighlightRules.metaData = {
 
 oop.inherits(MazeHighlightRules, TextHighlightRules);
 
-exports.MazeHighlightRules = MazeHighlightRules;
-});
+export { MazeHighlightRules as MazeHighlightRules };

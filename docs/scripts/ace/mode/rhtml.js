@@ -34,17 +34,15 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var HtmlMode = require("./html").Mode;
+import * as oop from "../lib/oop.js";
+import { Mode as HtmlMode } from "./html.js";
 
-var RHtmlHighlightRules = require("./rhtml_highlight_rules").RHtmlHighlightRules;
+import { RHtmlHighlightRules as RHtmlHighlightRules } from "./rhtml_highlight_rules.js";
 /* Make life easier, don't do these right now 
-var SweaveBackgroundHighlighter = require("mode/sweave_background_highlighter").SweaveBackgroundHighlighter;
-var RCodeModel = require("mode/r_code_model").RCodeModel;
+import { SweaveBackgroundHighlighter as SweaveBackgroundHighlighter } from "mode/sweave_background_highlighter.js";
+import { RCodeModel as RCodeModel } from "mode/r_code_model.js";
 */
 
 var Mode = function(doc, session) {
@@ -83,5 +81,4 @@ oop.inherits(Mode, HtmlMode);
     this.$id = "ace/mode/rhtml";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

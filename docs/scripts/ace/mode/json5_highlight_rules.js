@@ -27,12 +27,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var JsonHighlightRules = require("./json_highlight_rules").JsonHighlightRules;
+import * as oop from "../lib/oop.js";
+import { JsonHighlightRules as JsonHighlightRules } from "./json_highlight_rules.js";
 
 var Json5HighlightRules = function() {
     JsonHighlightRules.call(this);
@@ -87,5 +85,4 @@ var Json5HighlightRules = function() {
 
 oop.inherits(Json5HighlightRules, JsonHighlightRules);
 
-exports.Json5HighlightRules = Json5HighlightRules;
-});
+export { Json5HighlightRules as Json5HighlightRules };

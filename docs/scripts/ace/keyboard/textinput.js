@@ -27,21 +27,19 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var event = require("../lib/event");
-var useragent = require("../lib/useragent");
-var dom = require("../lib/dom");
-var lang = require("../lib/lang");
-var clipboard = require("../clipboard");
+import * as event from "../lib/event.js";
+import * as useragent from "../lib/useragent.js";
+import * as dom from "../lib/dom.js";
+import * as lang from "../lib/lang.js";
+import * as clipboard from "../clipboard.js";
 var BROKEN_SETDATA = useragent.isChrome < 18;
 var USE_IE_MIME_TYPE =  useragent.isIE;
 var HAS_FOCUS_ARGS = useragent.isChrome > 63;
 var MAX_LINE_LENGTH = 400;
 
-var KEYS = require("../lib/keys");
+import * as KEYS from "../lib/keys.js";
 var MODS = KEYS.KEY_MODS;
 var isIOS = useragent.isIOS;
 var valueResetRegex = isIOS ? /\s/ : /\n/;
@@ -750,9 +748,8 @@ var TextInput = function(parentNode, host) {
     }
 };
 
-exports.TextInput = TextInput;
+export { TextInput as TextInput };
 exports.$setUserAgentForTests = function(_isMobile, _isIOS) {
     isMobile = _isMobile;
     isIOS = _isIOS;
 };
-});

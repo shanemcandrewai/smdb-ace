@@ -27,15 +27,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("./lib/oop");
-var Range = require("./range").Range;
-var Search = require("./search").Search;
-var SearchHighlight = require("./search_highlight").SearchHighlight;
-var iSearchCommandModule = require("./commands/incremental_search_commands");
+import * as oop from "./lib/oop.js";
+import { Range as Range } from "./range.js";
+import { Search as Search } from "./search.js";
+import { SearchHighlight as SearchHighlight } from "./search_highlight.js";
+import * as iSearchCommandModule from "./commands/incremental_search_commands.js";
 var ISearchKbd = iSearchCommandModule.IncrementalSearchKeyboardHandler;
 
 /**
@@ -258,7 +256,7 @@ function objectToRegExp(obj) {
 }).call(IncrementalSearch.prototype);
 
 
-exports.IncrementalSearch = IncrementalSearch;
+export { IncrementalSearch as IncrementalSearch };
 
 
 /**
@@ -285,7 +283,7 @@ div.ace_isearch-result {\
 }", "incremental-search-highlighting");
 
 // support for default keyboard handler
-var commands = require("./commands/command_manager");
+import * as commands from "./commands/command_manager.js";
 (function() {
     this.setupIncrementalSearch = function(editor, val) {
         if (this.usesIncrementalSearch == val) return;
@@ -297,8 +295,9 @@ var commands = require("./commands/command_manager");
 }).call(commands.CommandManager.prototype);
 
 // incremental search config option
-var Editor = require("./editor").Editor;
-require("./config").defineOptions(Editor.prototype, "editor", {
+import { Editor as Editor } from "./editor.js";
+import * as config from "./config.js"
+config.defineOptions(Editor.prototype, "editor", {
     useIncrementalSearch: {
         set: function(val) {
             this.keyBinding.$handlers.forEach(function(handler) {
@@ -309,6 +308,4 @@ require("./config").defineOptions(Editor.prototype, "editor", {
             this._emit('incrementalSearchSettingChanged', {isEnabled: val});
         }
     }
-});
-
 });

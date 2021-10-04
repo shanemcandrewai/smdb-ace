@@ -1,17 +1,15 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-require("../test/mockdom");
-var Mode = require("../mode/html").Mode;
-var ace = require("../ace");
-var assert = require("assert");
-require("./emmet");
+import * as mockdom from "../test/mockdom.js";
+import { Mode as Mode } from "../mode/html.js";
+import * as ace from "../ace.js";
+import * as assert from "assert.js";
+import * as emmet from "./emmet.js";
 
-module.exports = {
+export default {
     "test doesn't break tab when emmet is not loaded": function() {
         var editor = ace.edit(null, {
             mode: new Mode(),

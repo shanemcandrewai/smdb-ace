@@ -27,16 +27,14 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var EditSession = require("../edit_session").EditSession;
-var TextLayer = require("../layer/text").Text;
-var baseStyles = require("../requirejs/text!./static.css");
-var config = require("../config");
-var dom = require("../lib/dom");
-var escapeHTML = require("../lib/lang").escapeHTML;
+import { EditSession as EditSession } from "../edit_session.js";
+import { Text as TextLayer } from "../layer/text.js";
+import * as baseStyles from "../requirejs/text!./static.css.js";
+import * as config from "../config.js";
+import * as dom from "../lib/dom.js";
+import { escapeHTML as escapeHTML } from "../lib/lang.js";
 
 function Element(type) {
     this.type = type;
@@ -251,6 +249,5 @@ highlight.renderSync = function(input, mode, theme, lineStart, disableGutter) {
     };
 };
 
-module.exports = highlight;
-module.exports.highlight = highlight;
-});
+export default highlight;
+export { highlight } = highlight;

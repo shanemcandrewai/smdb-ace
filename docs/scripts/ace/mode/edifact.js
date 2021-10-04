@@ -27,13 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var EdifactHighlightRules = require("./edifact_highlight_rules").EdifactHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { EdifactHighlightRules as EdifactHighlightRules } from "./edifact_highlight_rules.js";
 
 var Mode = function() {
    
@@ -46,5 +44,4 @@ oop.inherits(Mode, TextMode);
     this.snippetFileId = "ace/snippets/edifact";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

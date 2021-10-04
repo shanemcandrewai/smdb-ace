@@ -27,11 +27,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var Range = require("../../range").Range;
+import { Range as Range } from "../../range.js";
 
 var FoldMode = exports.FoldMode = function() {};
 
@@ -119,5 +117,3 @@ var FoldMode = exports.FoldMode = function() {};
         return  Range.fromPoints(start, end);
     };
 }).call(FoldMode.prototype);
-
-});

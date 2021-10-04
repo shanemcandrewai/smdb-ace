@@ -32,16 +32,14 @@ if (typeof process !== "undefined") {
     require("amd-loader");
     require("../test/mockdom");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-require("../multi_select");
-require("../theme/textmate");
-var Editor = require("../editor").Editor;
-var Mode = require("../mode/java").Mode;
-var VirtualRenderer = require("../virtual_renderer").VirtualRenderer;
-var assert = require("../test/assertions");
+import * as multi_select from "../multi_select.js";
+import * as textmate from "../theme/textmate.js";
+import { Editor as Editor } from "../editor.js";
+import { Mode as Mode } from "../mode/java.js";
+import { VirtualRenderer as VirtualRenderer } from "../virtual_renderer.js";
+import * as assert from "../test/assertions.js";
 var MouseEvent = function(type, opts){
     var e = document.createEvent("MouseEvents");
     e.initMouseEvent(/click|DOM/.test(type) ? type : "mouse" + type,
@@ -66,7 +64,7 @@ function touchPos(row, column) {
 
 var editor;
 
-module.exports = {
+export default {
 
     setUp : function(next) {
         this.editor = new Editor(new VirtualRenderer());

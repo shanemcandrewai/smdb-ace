@@ -1,19 +1,17 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-require("../test/mockdom");
-var ace = require("../ace");
-var assert = require("assert");
-var EditSession = require("../edit_session").EditSession;
-var UndoManager = require("../undomanager").UndoManager;
-var whitespace = require("./whitespace");
+import * as mockdom from "../test/mockdom.js";
+import * as ace from "../ace.js";
+import * as assert from "assert.js";
+import { EditSession as EditSession } from "../edit_session.js";
+import { UndoManager as UndoManager } from "../undomanager.js";
+import * as whitespace from "./whitespace.js";
 
 // Execution ORDER: test.setUpSuite, setUp, testFn, tearDown, test.tearDownSuite
-module.exports = {
+export default {
     timeout: 10000,
 
     "test tab detection": function(next) {

@@ -27,21 +27,19 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("./lib/oop");
-var lang = require("./lib/lang");
-var BidiHandler = require("./bidihandler").BidiHandler;
-var config = require("./config");
-var EventEmitter = require("./lib/event_emitter").EventEmitter;
-var Selection = require("./selection").Selection;
-var TextMode = require("./mode/text").Mode;
-var Range = require("./range").Range;
-var Document = require("./document").Document;
-var BackgroundTokenizer = require("./background_tokenizer").BackgroundTokenizer;
-var SearchHighlight = require("./search_highlight").SearchHighlight;
+import * as oop from "./lib/oop.js";
+import * as lang from "./lib/lang.js";
+import { BidiHandler as BidiHandler } from "./bidihandler.js";
+import * as config from "./config.js";
+import { EventEmitter as EventEmitter } from "./lib/event_emitter.js";
+import { Selection as Selection } from "./selection.js";
+import { Mode as TextMode } from "./mode/text.js";
+import { Range as Range } from "./range.js";
+import { Document as Document } from "./document.js";
+import { BackgroundTokenizer as BackgroundTokenizer } from "./background_tokenizer.js";
+import { SearchHighlight as SearchHighlight } from "./search_highlight.js";
 
 /**
  * Stores all the data about [[Editor `Editor`]] state providing easy way to change editors state.
@@ -2450,8 +2448,10 @@ EditSession.$uid = 0;
 
 }).call(EditSession.prototype);
 
-require("./edit_session/folding").Folding.call(EditSession.prototype);
-require("./edit_session/bracket_match").BracketMatch.call(EditSession.prototype);
+import * as folding from "./edit_session/folding.js"
+folding.Folding.call(EditSession.prototype);
+import * as bracket_match from "./edit_session/bracket_match.js"
+bracket_match.BracketMatch.call(EditSession.prototype);
 
 
 config.defineOptions(EditSession.prototype, "session", {
@@ -2563,5 +2563,4 @@ config.defineOptions(EditSession.prototype, "session", {
     }
 });
 
-exports.EditSession = EditSession;
-});
+export { EditSession as EditSession };

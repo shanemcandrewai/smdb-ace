@@ -27,24 +27,22 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var PhpHighlightRules = require("./php_highlight_rules").PhpHighlightRules;
-var PhpLangHighlightRules = require("./php_highlight_rules").PhpLangHighlightRules;
-var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
-var Range = require("../range").Range;
-var WorkerClient = require("../worker/worker_client").WorkerClient;
-var PhpCompletions = require("./php_completions").PhpCompletions;
-var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
-var CStyleFoldMode = require("./folding/cstyle").FoldMode;
-var unicode = require("../unicode");
-var HtmlMode = require("./html").Mode;
-var JavaScriptMode = require("./javascript").Mode;
-var CssMode = require("./css").Mode;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { PhpHighlightRules as PhpHighlightRules } from "./php_highlight_rules.js";
+import { PhpLangHighlightRules as PhpLangHighlightRules } from "./php_highlight_rules.js";
+import { MatchingBraceOutdent as MatchingBraceOutdent } from "./matching_brace_outdent.js";
+import { Range as Range } from "../range.js";
+import { WorkerClient as WorkerClient } from "../worker/worker_client.js";
+import { PhpCompletions as PhpCompletions } from "./php_completions.js";
+import { CstyleBehaviour as CstyleBehaviour } from "./behaviour/cstyle.js";
+import { FoldMode as CStyleFoldMode } from "./folding/cstyle.js";
+import * as unicode from "../unicode.js";
+import { Mode as HtmlMode } from "./html.js";
+import { Mode as JavaScriptMode } from "./javascript.js";
+import { Mode as CssMode } from "./css.js";
 
 var PhpMode = function(opts) {
     this.HighlightRules = PhpLangHighlightRules;
@@ -152,5 +150,4 @@ oop.inherits(Mode, HtmlMode);
     this.snippetFileId = "ace/snippets/php";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

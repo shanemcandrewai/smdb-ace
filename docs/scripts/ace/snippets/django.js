@@ -1,7 +1,4 @@
-define(function(require, exports, module) {
 "use strict";
 
-exports.snippetText = require("../requirejs/text!./django.snippets");
-exports.scope = "django";
-
-});
+export { snippetText } from "../requirejs/text!./django.snippets.js"
+export { "django" as scope };

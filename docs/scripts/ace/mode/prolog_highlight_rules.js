@@ -33,12 +33,10 @@
  * IT MIGHT NOT BE PERFECT ...But it's a good start from an existing *.tmlanguage file. *
  * fileTypes                                                                            *
  ****************************************************************************************/
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var PrologHighlightRules = function() {
     // regexp must not have capturing parentheses. Use (?:) instead.
@@ -234,5 +232,4 @@ PrologHighlightRules.metaData = { fileTypes: [ 'plg', 'prolog' ],
 
 oop.inherits(PrologHighlightRules, TextHighlightRules);
 
-exports.PrologHighlightRules = PrologHighlightRules;
-});
+export { PrologHighlightRules as PrologHighlightRules };

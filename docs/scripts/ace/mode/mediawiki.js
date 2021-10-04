@@ -1,9 +1,8 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var MediaWikiHighlightRules = require("./mediawiki_highlight_rules").MediaWikiHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { MediaWikiHighlightRules as MediaWikiHighlightRules } from "./mediawiki_highlight_rules.js";
 
 var Mode = function() {
     this.HighlightRules = MediaWikiHighlightRules;
@@ -16,5 +15,4 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/mediawiki";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

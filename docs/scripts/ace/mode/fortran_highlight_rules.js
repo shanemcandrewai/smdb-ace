@@ -29,12 +29,10 @@
  * ***** END LICENSE BLOCK ***** */
 
 /* Derived from Python highlighing rules */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var FortranHighlightRules = function() {
 
@@ -229,5 +227,4 @@ var FortranHighlightRules = function() {
 
 oop.inherits(FortranHighlightRules, TextHighlightRules);
 
-exports.FortranHighlightRules = FortranHighlightRules;
-});
+export { FortranHighlightRules as FortranHighlightRules };

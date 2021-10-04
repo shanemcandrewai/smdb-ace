@@ -28,11 +28,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-
-var oop = require("../lib/oop");
-var TextMode = require("../mode/text").Mode;
-var MysqlHighlightRules = require("./mysql_highlight_rules").MysqlHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "../mode/text.js";
+import { MysqlHighlightRules as MysqlHighlightRules } from "./mysql_highlight_rules.js";
 
 var Mode = function() {
     this.HighlightRules = MysqlHighlightRules;
@@ -47,5 +45,4 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/mysql";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

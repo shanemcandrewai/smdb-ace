@@ -29,12 +29,10 @@
  * ***** END LICENSE BLOCK ***** */
  /**
  * Haskell Cabal files highlighter (https://www.haskell.org/cabal/users-guide/developing-packages.html)
- **/
-define(function(require, exports, module) {
-"use strict";
+ **/"use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var CabalHighlightRules = function() {
 
@@ -64,5 +62,4 @@ var CabalHighlightRules = function() {
 
 oop.inherits(CabalHighlightRules, TextHighlightRules);
 
-exports.CabalHighlightRules = CabalHighlightRules;
-});
+export { CabalHighlightRules as CabalHighlightRules };

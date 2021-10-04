@@ -1,8 +1,7 @@
-define(function(require, exports, module) {
 "use strict";
 
-var escapeHTML = require("../lib/lang").escapeHTML;
-var dom = require("../lib/dom");
+import { escapeHTML as escapeHTML } from "../lib/lang.js";
+import * as dom from "../lib/dom.js";
 
 var CHAR_HEIGHT = 10;
 var CHAR_WIDTH = 6;
@@ -719,7 +718,7 @@ if (typeof Buffer != undefined) {
 }
 
 var addedProperties = [];
-exports.load = function() {
+export let load = function() {
     if (typeof global == "undefined") return;
     window.window = global;
     Object.keys(window).forEach(function(i) {
@@ -734,7 +733,7 @@ exports.load = function() {
     });
 };
 
-exports.loadInBrowser = function(global) {
+export let loadInBrowser = function(global) {
     delete global.ResizeObserver;
     global.__origRoot__ = global.document.documentElement;
     global.__origBody__ = global.document.body;
@@ -769,7 +768,7 @@ exports.loadInBrowser = function(global) {
     }
 };
 
-exports.unload = function() {
+export let unload = function() {
     if (typeof global == "undefined") return;
     var req = require;
     var cache = req("module")._cache;
@@ -780,5 +779,3 @@ exports.unload = function() {
 };
 
 exports.load();
-
-});

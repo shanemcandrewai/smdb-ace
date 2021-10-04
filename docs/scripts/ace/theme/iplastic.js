@@ -29,12 +29,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+export let isDark = false;
+export { "ace-iplastic" as cssClass };
+export { cssText } from "../requirejs/text!./iplastic.css.js"
 
-exports.isDark = false;
-exports.cssClass = "ace-iplastic";
-exports.cssText = require("../requirejs/text!./iplastic.css");
-
-var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
 dom.importCssString(exports.cssText, exports.cssClass);
-});

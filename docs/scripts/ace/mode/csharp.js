@@ -1,12 +1,11 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var CSharpHighlightRules = require("./csharp_highlight_rules").CSharpHighlightRules;
-var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
-var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
-var CStyleFoldMode = require("./folding/csharp").FoldMode;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { CSharpHighlightRules as CSharpHighlightRules } from "./csharp_highlight_rules.js";
+import { MatchingBraceOutdent as MatchingBraceOutdent } from "./matching_brace_outdent.js";
+import { CstyleBehaviour as CstyleBehaviour } from "./behaviour/cstyle.js";
+import { FoldMode as CStyleFoldMode } from "./folding/csharp.js";
 
 var Mode = function() {
     this.HighlightRules = CSharpHighlightRules;
@@ -57,5 +56,4 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/csharp";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

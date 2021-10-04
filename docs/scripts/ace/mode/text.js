@@ -27,18 +27,16 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
-var config = require("../config");
+import * as config from "../config.js";
 
-var Tokenizer = require("../tokenizer").Tokenizer;
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
-var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
-var unicode = require("../unicode");
-var lang = require("../lib/lang");
-var TokenIterator = require("../token_iterator").TokenIterator;
-var Range = require("../range").Range;
+import { Tokenizer as Tokenizer } from "../tokenizer.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
+import { CstyleBehaviour as CstyleBehaviour } from "./behaviour/cstyle.js";
+import * as unicode from "../unicode.js";
+import * as lang from "../lib/lang.js";
+import { TokenIterator as TokenIterator } from "../token_iterator.js";
+import { Range as Range } from "../range.js";
 
 var Mode = function() {
     this.HighlightRules = TextHighlightRules;
@@ -387,5 +385,4 @@ var Mode = function() {
     this.$id = "ace/mode/text";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

@@ -27,12 +27,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var ShHighlightRules = require("./sh_highlight_rules").ShHighlightRules;
+import * as oop from "../lib/oop.js";
+import { ShHighlightRules as ShHighlightRules } from "./sh_highlight_rules.js";
 
 var DockerfileHighlightRules = function() {
     ShHighlightRules.call(this);
@@ -53,5 +51,4 @@ var DockerfileHighlightRules = function() {
 
 oop.inherits(DockerfileHighlightRules, ShHighlightRules);
 
-exports.DockerfileHighlightRules = DockerfileHighlightRules;
-});
+export { DockerfileHighlightRules as DockerfileHighlightRules };

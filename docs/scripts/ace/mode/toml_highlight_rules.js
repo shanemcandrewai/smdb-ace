@@ -32,12 +32,10 @@
  * Garen J. Torikian
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var TomlHighlightRules = function() {
     var keywordMapper = this.createKeywordMapper({
@@ -103,5 +101,4 @@ var TomlHighlightRules = function() {
 
 oop.inherits(TomlHighlightRules, TextHighlightRules);
 
-exports.TomlHighlightRules = TomlHighlightRules;
-});
+export { TomlHighlightRules as TomlHighlightRules };

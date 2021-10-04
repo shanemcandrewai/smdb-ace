@@ -26,19 +26,17 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * ***** END LICENSE BLOCK ***** */
-define(function(require, exports, module) {
-"use strict";
+ * ***** END LICENSE BLOCK ***** */"use strict";
 
-var WorkerClient = require("../worker/worker_client").WorkerClient;
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
-var XQueryLexer = require("./xquery/xquery_lexer").XQueryLexer;
-var Range = require("../range").Range;
-var XQueryBehaviour = require("./behaviour/xquery").XQueryBehaviour;
-var CStyleFoldMode = require("./folding/cstyle").FoldMode;
-var Anchor = require("../anchor").Anchor;
+import { WorkerClient as WorkerClient } from "../worker/worker_client.js";
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
+import { XQueryLexer as XQueryLexer } from "./xquery/xquery_lexer.js";
+import { Range as Range } from "../range.js";
+import { XQueryBehaviour as XQueryBehaviour } from "./behaviour/xquery.js";
+import { FoldMode as CStyleFoldMode } from "./folding/cstyle.js";
+import { Anchor as Anchor } from "../anchor.js";
 
 var Mode = function() {
     this.$tokenizer   = new XQueryLexer();
@@ -213,5 +211,4 @@ oop.inherits(Mode, TextMode);
     this.snippetFileId = "ace/snippets/xquery";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

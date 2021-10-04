@@ -27,12 +27,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var keyUtil  = require("../lib/keys");
-var event = require("../lib/event");
+import * as keyUtil from "../lib/keys.js";
+import * as event from "../lib/event.js";
 
 var KeyBinding = function(editor) {
     this.$editor = editor;
@@ -148,5 +146,4 @@ var KeyBinding = function(editor) {
 
 }).call(KeyBinding.prototype);
 
-exports.KeyBinding = KeyBinding;
-});
+export { KeyBinding as KeyBinding };

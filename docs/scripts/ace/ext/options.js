@@ -1,16 +1,15 @@
-define(function(require, exports, module) {
 "use strict";
 
-require("./menu_tools/overlay_page");
+import * as overlay_page from "./menu_tools/overlay_page.js";
 
-var dom = require("../lib/dom");
-var oop = require("../lib/oop");
-var config = require("../config");
-var EventEmitter = require("../lib/event_emitter").EventEmitter;
+import * as dom from "../lib/dom.js";
+import * as oop from "../lib/oop.js";
+import * as config from "../config.js";
+import { EventEmitter as EventEmitter } from "../lib/event_emitter.js";
 var buildDom = dom.buildDom;
 
-var modelist = require("./modelist");
-var themelist = require("./themelist");
+import * as modelist from "./modelist.js";
+import * as themelist from "./themelist.js";
 
 var themes = { Bright: [], Dark: [] };
 themelist.themes.forEach(function(x) {
@@ -363,6 +362,4 @@ var OptionPanel = function(editor, element) {
     
 }).call(OptionPanel.prototype);
 
-exports.OptionPanel = OptionPanel;
-
-});
+export { OptionPanel as OptionPanel };

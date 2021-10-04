@@ -27,10 +27,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
-var Range = require("./range").Range;
+import { Range as Range } from "./range.js";
 var comparePoints = Range.comparePoints;
 
 var RangeList = function() {
@@ -294,5 +292,4 @@ var RangeList = function() {
 
 }).call(RangeList.prototype);
 
-exports.RangeList = RangeList;
-});
+export { RangeList as RangeList };

@@ -33,12 +33,10 @@
  *
  *
  *
- * ***** END LICENSE BLOCK ***** */
-define(function(require, exports, module) {
-"use strict";
+ * ***** END LICENSE BLOCK ***** */"use strict";
 
-var oop = require("../lib/oop");
-var HtmlHighlightRules = require("./html_highlight_rules").HtmlHighlightRules;
+import * as oop from "../lib/oop.js";
+import { HtmlHighlightRules as HtmlHighlightRules } from "./html_highlight_rules.js";
 
 
 var CurlyHighlightRules = function() {
@@ -61,6 +59,4 @@ var CurlyHighlightRules = function() {
 
 oop.inherits(CurlyHighlightRules, HtmlHighlightRules);
 
-exports.CurlyHighlightRules = CurlyHighlightRules;
-
-});
+export { CurlyHighlightRules as CurlyHighlightRules };

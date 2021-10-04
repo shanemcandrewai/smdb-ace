@@ -27,13 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var Mirror = require("../worker/mirror").Mirror;
-var PHP = require("./php/php").PHP;
+import * as oop from "../lib/oop.js";
+import { Mirror as Mirror } from "../worker/mirror.js";
+import { PHP as PHP } from "./php/php.js";
 
 var PhpWorker = exports.PhpWorker = function(sender) {
     Mirror.call(this, sender);
@@ -73,5 +71,3 @@ oop.inherits(PhpWorker, Mirror);
     };
 
 }).call(PhpWorker.prototype);
-
-});

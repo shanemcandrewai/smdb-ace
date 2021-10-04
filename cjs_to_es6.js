@@ -14,15 +14,24 @@ function get_rules() {
     // new Rule(
     // new RegExp(/(?<=(^|\n)define\(.*\n([\s\S]*))\n}\);?\s*$/, "g"),
     // "",
-    // "delete matching }) for define;"
+    // "",    // "delete matching }) for define;"
     // ),
     new Rule(new RegExp(/(^|\n)define\(.*\n/, "g"), "", "", "delete define"),
     new Rule(new RegExp(/\n}\);?\s*$/, "g"), "", true, "delete matching });"),
     new Rule(
+      new RegExp(
+        /\nrequire\("(?<req_path>.*\/)(?<req_name>.*)"\)\.(?<call_name>.*)/,
+        "g"
+      ),
+      '\nimport * as $<req_name> from "$<req_path>$<req_name>.js"\n$<req_name>.$<call_name>',
+      "",
+      "require('req_path/req_name').call_name"
+    ),
+    new Rule(
       new RegExp(/\nrequire\("(?<req_path>.*\/)(?<req_name>.*)"\)/, "g"),
       '\nimport * as $<req_name> from "$<req_path>$<req_name>.js"',
       "",
-      "require('req_name')"
+      "require('req_path/req_name')"
     ),
     new Rule(
       new RegExp(
@@ -31,7 +40,7 @@ function get_rules() {
       ),
       '\nimport { $<member_name> as $<var_name> } from "$<module_name>.js"',
       "",
-      "var var_name = require('module_name').member"
+      "var var_name = require('module_name').member_name"
     ),
     new Rule(
       new RegExp(
@@ -52,22 +61,41 @@ function get_rules() {
       "exports.var_nam = require('module_name')"
     ),
     new Rule(
-      new RegExp(/\nmodule\.exports\.(?<var_name>\w+)/, "g"),
-      "\nexport { $<var_name> }",
-      "",
-      "module.exports = var_name"
-    ),
-    new Rule(
-      new RegExp(/\nmodule\.exports\s*=\s*{/, "g"),
-      "\nexport {",
-      "",
-      "module.exports = {"
-    ),
-    new Rule(
       new RegExp(/\nexports\.(?<var_name>\w+)\s=\sfunction/, "g"),
       "\nexport let $<var_name> = function",
       "",
-      "exports = var_name"
+      "exports.var_name = function"
+    ),
+    new Rule(
+      new RegExp(/\nexports\.(?<var_name>\w+)\s=\sfalse/, "g"),
+      "\nexport let $<var_name> = false",
+      "",
+      "exports.var_name = false"
+    ),
+    new Rule(
+      new RegExp(/\nexports\.(?<var_name>\w+)\s=\s(?<number>\d+)/, "g"),
+      "\nexport let $<var_name> = $<number>",
+      "",
+      "exports.var_name = number"
+    ),
+    new Rule(
+      new RegExp(/\nexports\.(?<var_name>\w+)\s=\s(?<local_name>.*);/, "g"),
+      "\nexport { $<local_name> as $<var_name> };",
+      "",
+      "exports.var_name = local_name"
+    ),
+    new Rule(
+      new RegExp(/\nmodule\.exports\.(?<var_name>\w+)/, "g"),
+      "\nexport { $<var_name> }",
+      "",
+      "module.exports.var_name"
+    ),
+
+    new Rule(
+      new RegExp(/\nmodule\.exports\s*=\s*/, "g"),
+      "\nexport default ",
+      "",
+      "module.exports = "
     ),
   ];
 }

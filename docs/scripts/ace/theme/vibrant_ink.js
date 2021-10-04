@@ -28,12 +28,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+export { true as isDark };
+export { "ace-vibrant-ink" as cssClass };
+export { cssText } from "../requirejs/text!./vibrant_ink.css.js"
 
-exports.isDark = true;
-exports.cssClass = "ace-vibrant-ink";
-exports.cssText = require("../requirejs/text!./vibrant_ink.css");
-
-var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
 dom.importCssString(exports.cssText, exports.cssClass);
-});

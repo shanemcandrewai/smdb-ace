@@ -27,8 +27,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
 var EventEmitter = {};
@@ -157,6 +155,4 @@ EventEmitter.removeAllListeners = function(eventName) {
     if (this._defaultHandlers) this._defaultHandlers[eventName] = undefined;
 };
 
-exports.EventEmitter = EventEmitter;
-
-});
+export { EventEmitter as EventEmitter };

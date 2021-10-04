@@ -28,11 +28,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var GherkinHighlightRules = require("./gherkin_highlight_rules").GherkinHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { GherkinHighlightRules as GherkinHighlightRules } from "./gherkin_highlight_rules.js";
 
 var Mode = function() {
     this.HighlightRules = GherkinHighlightRules;
@@ -75,5 +73,4 @@ oop.inherits(Mode, TextMode);
     };
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

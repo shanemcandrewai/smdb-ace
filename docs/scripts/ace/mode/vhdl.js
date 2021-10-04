@@ -26,13 +26,11 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * ***** END LICENSE BLOCK ***** */
-define(function(require, exports, module) {
-"use strict";
+ * ***** END LICENSE BLOCK ***** */"use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var VHDLHighlightRules = require("./vhdl_highlight_rules").VHDLHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { VHDLHighlightRules as VHDLHighlightRules } from "./vhdl_highlight_rules.js";
 
 var Mode = function() {
     this.HighlightRules = VHDLHighlightRules;
@@ -47,6 +45,4 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/vhdl";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-
-});
+export { Mode as Mode };

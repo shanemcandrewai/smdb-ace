@@ -33,12 +33,10 @@
  * IT MIGHT NOT BE PERFECT ...But it's a good start from an existing *.tmlanguage file. *
  * fileTypes                                                                            *
  ****************************************************************************************/
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var HtmlHighlightRules = require("./html_highlight_rules").HtmlHighlightRules;
+import * as oop from "../lib/oop.js";
+import { HtmlHighlightRules as HtmlHighlightRules } from "./html_highlight_rules.js";
 
 var SoyTemplateHighlightRules = function() {
     HtmlHighlightRules.call(this);
@@ -351,5 +349,4 @@ SoyTemplateHighlightRules.metaData = { comment: 'SoyTemplate',
 
 oop.inherits(SoyTemplateHighlightRules, HtmlHighlightRules);
 
-exports.SoyTemplateHighlightRules = SoyTemplateHighlightRules;
-});
+export { SoyTemplateHighlightRules as SoyTemplateHighlightRules };

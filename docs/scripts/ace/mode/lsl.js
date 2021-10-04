@@ -27,17 +27,15 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var Rules = require("./lsl_highlight_rules").LSLHighlightRules;
-var Outdent = require("./matching_brace_outdent").MatchingBraceOutdent;
-var Range = require("../range").Range;
-var TextMode = require("./text").Mode;
-var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
-var CStyleFoldMode = require("./folding/cstyle").FoldMode;
-var oop = require("../lib/oop");
+import { LSLHighlightRules as Rules } from "./lsl_highlight_rules.js";
+import { MatchingBraceOutdent as Outdent } from "./matching_brace_outdent.js";
+import { Range as Range } from "../range.js";
+import { Mode as TextMode } from "./text.js";
+import { CstyleBehaviour as CstyleBehaviour } from "./behaviour/cstyle.js";
+import { FoldMode as CStyleFoldMode } from "./folding/cstyle.js";
+import * as oop from "../lib/oop.js";
 
 var Mode = function() {
     this.HighlightRules = Rules;
@@ -89,5 +87,4 @@ oop.inherits(Mode, TextMode);
     this.snippetFileId = "ace/snippets/lsl";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

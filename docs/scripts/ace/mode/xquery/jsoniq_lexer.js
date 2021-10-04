@@ -1,4 +1,3 @@
-define(function(require, exports, module) {
 module.exports = (function outer (modules, cache, entry) {
     var previousRequire = typeof require == "function" && require;
     function newRequire(name, jumped){
@@ -4362,7 +4361,7 @@ var Rules = {
     ]
 };
     
-exports.JSONiqLexer = function(){ return new Lexer(JSONiqTokenizer, Rules); };
+export let JSONiqLexer = function(){ return new Lexer(JSONiqTokenizer, Rules); };
 },{"./JSONiqTokenizer":"/node_modules/xqlint/lib/lexers/JSONiqTokenizer.js","./lexer":"/node_modules/xqlint/lib/lexers/lexer.js"}],"/node_modules/xqlint/lib/lexers/lexer.js":[function(_dereq_,module,exports){
 'use strict';
 
@@ -4393,7 +4392,7 @@ var TokenHandler = function(code) {
     };
 };
 
-exports.Lexer = function(Tokenizer, Rules) {
+export let Lexer = function(Tokenizer, Rules) {
 
     this.tokens = [];
   
@@ -4465,5 +4464,3 @@ exports.Lexer = function(Tokenizer, Rules) {
     };
 };
 },{}]},{},["/node_modules/xqlint/lib/lexers/jsoniq_lexer.js"]);
-
-});

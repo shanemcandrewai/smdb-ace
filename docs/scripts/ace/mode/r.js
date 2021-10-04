@@ -34,9 +34,7 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  *
- */
-define(function(require, exports, module) {
-   "use strict";
+ */   "use strict";
 
    var unicode = require("../unicode");
    var Range = require("../range").Range;
@@ -141,4 +139,3 @@ define(function(require, exports, module) {
        this.snippetFileId = "ace/snippets/r";
    }).call(Mode.prototype);
    exports.Mode = Mode;
-});

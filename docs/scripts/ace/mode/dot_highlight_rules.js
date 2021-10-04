@@ -1,10 +1,9 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var lang = require("../lib/lang");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
-var DocCommentHighlightRules = require("./doc_comment_highlight_rules").DocCommentHighlightRules;
+import * as oop from "../lib/oop.js";
+import * as lang from "../lib/lang.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
+import { DocCommentHighlightRules as DocCommentHighlightRules } from "./doc_comment_highlight_rules.js";
 
 var DotHighlightRules = function() {
 
@@ -118,6 +117,4 @@ var DotHighlightRules = function() {
 
 oop.inherits(DotHighlightRules, TextHighlightRules);
 
-exports.DotHighlightRules = DotHighlightRules;
-
-});
+export { DotHighlightRules as DotHighlightRules };

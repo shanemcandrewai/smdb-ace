@@ -27,15 +27,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var Perl6HighlightRules = require("./perl6_highlight_rules").Perl6HighlightRules;
-var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
-var CStyleFoldMode = require("./folding/cstyle").FoldMode;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { Perl6HighlightRules as Perl6HighlightRules } from "./perl6_highlight_rules.js";
+import { MatchingBraceOutdent as MatchingBraceOutdent } from "./matching_brace_outdent.js";
+import { FoldMode as CStyleFoldMode } from "./folding/cstyle.js";
 
 var Mode = function() {
     this.HighlightRules = Perl6HighlightRules;
@@ -86,5 +84,4 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/perl6";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

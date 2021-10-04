@@ -42,11 +42,9 @@
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  */
-
-define(function(require, exports, module) {
 'use strict';
-var dom = require("../../lib/dom");
-var cssText = require("../../requirejs/text!./settings_menu.css");
+import * as dom from "../../lib/dom.js";
+import * as cssText from "../../requirejs/text!./settings_menu.css.js";
 dom.importCssString(cssText);
 
 /**
@@ -59,7 +57,7 @@ dom.importCssString(cssText);
  *  a div.
  */
 
-module.exports.overlayPage = function overlayPage(editor, contentElement, callback) {
+export { overlayPage } = function overlayPage(editor, contentElement, callback) {
     var closer = document.createElement('div');
     var ignoreFocusOut = false;
 
@@ -119,5 +117,3 @@ module.exports.overlayPage = function overlayPage(editor, contentElement, callba
         setIgnoreFocusOut: setIgnoreFocusOut
     };
 };
-
-});

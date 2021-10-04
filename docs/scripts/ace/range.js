@@ -27,8 +27,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 var comparePoints = function(p1, p2) {
     return p1.row - p2.row || p1.column - p2.column;
@@ -545,5 +543,4 @@ Range.comparePoints = function(p1, p2) {
 };
 
 
-exports.Range = Range;
-});
+export { Range as Range };

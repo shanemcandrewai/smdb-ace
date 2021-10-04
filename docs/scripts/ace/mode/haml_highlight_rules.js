@@ -1,9 +1,8 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var HtmlHighlightRules = require("./html_highlight_rules").HtmlHighlightRules;
-var RubyExports = require("./ruby_highlight_rules");
+import * as oop from "../lib/oop.js";
+import { HtmlHighlightRules as HtmlHighlightRules } from "./html_highlight_rules.js";
+import * as RubyExports from "./ruby_highlight_rules.js";
 var RubyHighlightRules = RubyExports.RubyHighlightRules;
 
 var HamlHighlightRules = function() {
@@ -141,5 +140,4 @@ var HamlHighlightRules = function() {
 
 oop.inherits(HamlHighlightRules, HtmlHighlightRules);
 
-exports.HamlHighlightRules = HamlHighlightRules;
-});
+export { HamlHighlightRules as HamlHighlightRules };

@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function (require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var NginxHighlightRules = require("./nginx_highlight_rules").NginxHighlightRules;
-var CStyleFoldMode = require("./folding/cstyle").FoldMode;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { NginxHighlightRules as NginxHighlightRules } from "./nginx_highlight_rules.js";
+import { FoldMode as CStyleFoldMode } from "./folding/cstyle.js";
 
 var Mode = function () {
     TextMode.call(this);
@@ -52,5 +50,4 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/nginx";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

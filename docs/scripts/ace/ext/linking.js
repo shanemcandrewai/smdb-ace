@@ -28,11 +28,10 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+import { Editor as Editor } from "../editor.js";
 
-var Editor = require("../editor").Editor;
-
-require("../config").defineOptions(Editor.prototype, "editor", {
+import * as config from "../config.js"
+config.defineOptions(Editor.prototype, "editor", {
     enableLinking: {
         set: function(val) {
             if (val) {
@@ -47,7 +46,7 @@ require("../config").defineOptions(Editor.prototype, "editor", {
     }
 });
 
-exports.previousLinkingHover = false;
+export let previousLinkingHover = false;
 
 function onMouseMove(e) {
     var editor = e.editor;
@@ -83,5 +82,3 @@ function onClick(e) {
         editor._emit("linkClick", {position: docPos, token: token});
     }
 }
-
-});

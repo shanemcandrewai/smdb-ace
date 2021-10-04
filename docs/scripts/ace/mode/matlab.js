@@ -27,13 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var MatlabHighlightRules = require("./matlab_highlight_rules").MatlabHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { MatlabHighlightRules as MatlabHighlightRules } from "./matlab_highlight_rules.js";
 
 var Mode = function() {
     this.HighlightRules = MatlabHighlightRules;
@@ -49,7 +47,4 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/matlab";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-
-});
-
+export { Mode as Mode };

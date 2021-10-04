@@ -27,10 +27,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
-var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
 
 function FoldHandler(editor) {
 
@@ -97,6 +95,4 @@ function FoldHandler(editor) {
     });
 }
 
-exports.FoldHandler = FoldHandler;
-
-});
+export { FoldHandler as FoldHandler };

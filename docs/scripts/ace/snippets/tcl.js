@@ -1,7 +1,4 @@
-define(function(require, exports, module) {
 "use strict";
 
-exports.snippetText = require("../requirejs/text!./tcl.snippets");
-exports.scope = "tcl";
-
-});
+export { snippetText } from "../requirejs/text!./tcl.snippets.js"
+export { "tcl" as scope };

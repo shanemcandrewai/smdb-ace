@@ -37,9 +37,7 @@
 var globalRequire = typeof require != "undefined" && require;
 if (typeof define !== "function" || (!define.amd && typeof XMLHttpRequest == "undefined")) { // running in webpack
     return module.exports = globalRequire("./text_loader_webpack");
-}
-define(function (require, exports, module) {
-    "use strict";
+}    "use strict";
     if (globalRequire && globalRequire.nodeRequire) {
         module.exports = globalRequire.nodeRequire(require.toUrl("./text_build"));
     } else {

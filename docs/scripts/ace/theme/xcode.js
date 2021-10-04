@@ -28,12 +28,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+export let isDark = false;
+export { "ace-xcode" as cssClass };
+export { cssText } from "../requirejs/text!./xcode.css.js"
 
-exports.isDark = false;
-exports.cssClass = "ace-xcode";
-exports.cssText = require("../requirejs/text!./xcode.css");
-
-var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
 dom.importCssString(exports.cssText, exports.cssClass);
-});

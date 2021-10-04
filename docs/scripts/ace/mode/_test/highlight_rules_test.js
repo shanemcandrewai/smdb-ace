@@ -1,10 +1,11 @@
 var fs = require("fs");
-var path = require("path");
-var regexpTokenizer = require("../../../../tool/regexp_tokenizer");
-var EditSession = require("../../edit_session").EditSession;
-var Editor = require("../../editor").Editor;
-var MockRenderer = require("../../test/mockrenderer").MockRenderer;
-require("../../multi_select").MultiSelect;
+import * as path from "path.js";
+import * as regexpTokenizer from "../../../../tool/regexp_tokenizer.js";
+import { EditSession as EditSession } from "../../edit_session.js";
+import { Editor as Editor } from "../../editor.js";
+import { MockRenderer as MockRenderer } from "../../test/mockrenderer.js";
+import * as multi_select from "../../multi_select.js"
+multi_select.MultiSelect;
 var editor = new Editor(new MockRenderer());
 
 if (!fs.existsSync)

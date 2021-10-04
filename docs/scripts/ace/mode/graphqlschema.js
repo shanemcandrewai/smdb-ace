@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var GraphQLSchemaHighlightRules = require("./graphqlschema_highlight_rules").GraphQLSchemaHighlightRules;
-var FoldMode = require("./folding/cstyle").FoldMode;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { GraphQLSchemaHighlightRules as GraphQLSchemaHighlightRules } from "./graphqlschema_highlight_rules.js";
+import { FoldMode as FoldMode } from "./folding/cstyle.js";
 
 var Mode = function() {
     this.HighlightRules = GraphQLSchemaHighlightRules;
@@ -48,5 +46,4 @@ oop.inherits(Mode, TextMode);
     this.snippetFileId = "ace/snippets/graphqlschema";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

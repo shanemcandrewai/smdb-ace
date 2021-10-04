@@ -1,12 +1,10 @@
 /*
  * MUSHCodeMode
  */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var MushCodeRules = function() {
 
@@ -565,5 +563,4 @@ var MushCodeRules = function() {
 
 oop.inherits(MushCodeRules, TextHighlightRules);
 
-exports.MushCodeRules = MushCodeRules;
-});
+export { MushCodeRules as MushCodeRules };

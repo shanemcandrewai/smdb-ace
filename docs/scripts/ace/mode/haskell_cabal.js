@@ -35,14 +35,12 @@
 /**
 * Haskell Cabal files mode (https://www.haskell.org/cabal/users-guide/developing-packages.html)
 **/
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var CabalHighlightRules = require("./haskell_cabal_highlight_rules").CabalHighlightRules;
-var FoldMode = require("./folding/haskell_cabal").FoldMode;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { CabalHighlightRules as CabalHighlightRules } from "./haskell_cabal_highlight_rules.js";
+import { FoldMode as FoldMode } from "./folding/haskell_cabal.js";
 
 var Mode = function() {
     this.HighlightRules = CabalHighlightRules;
@@ -57,5 +55,4 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/haskell_cabal";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

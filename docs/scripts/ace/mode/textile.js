@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var TextileHighlightRules = require("./textile_highlight_rules").TextileHighlightRules;
-var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { TextileHighlightRules as TextileHighlightRules } from "./textile_highlight_rules.js";
+import { MatchingBraceOutdent as MatchingBraceOutdent } from "./matching_brace_outdent.js";
 
 var Mode = function() {
     this.HighlightRules = TextileHighlightRules;
@@ -64,6 +62,4 @@ oop.inherits(Mode, TextMode);
     this.snippetFileId = "ace/snippets/textile";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-
-});
+export { Mode as Mode };

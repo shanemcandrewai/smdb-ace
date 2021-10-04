@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("./lib/oop");
-var dom = require("./lib/dom");
-var event = require("./lib/event");
-var EventEmitter = require("./lib/event_emitter").EventEmitter;
+import * as oop from "./lib/oop.js";
+import * as dom from "./lib/dom.js";
+import * as event from "./lib/event.js";
+import { EventEmitter as EventEmitter } from "./lib/event_emitter.js";
 // on ie maximal element height is smaller than what we get from 4-5K line document
 // so scrollbar doesn't work, as a workaround we do not set height higher than MAX_SCROLL_H
 // and rescale scrolltop
@@ -279,10 +277,9 @@ oop.inherits(HScrollBar, ScrollBar);
 }).call(HScrollBar.prototype);
 
 
-exports.ScrollBar = VScrollBar; // backward compatibility
-exports.ScrollBarV = VScrollBar; // backward compatibility
-exports.ScrollBarH = HScrollBar; // backward compatibility
+export { VScrollBar as ScrollBar }; // backward compatibility
+export { VScrollBar as ScrollBarV }; // backward compatibility
+export { HScrollBar as ScrollBarH }; // backward compatibility
 
-exports.VScrollBar = VScrollBar;
-exports.HScrollBar = HScrollBar;
-});
+export { VScrollBar as VScrollBar };
+export { HScrollBar as HScrollBar };

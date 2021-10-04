@@ -27,15 +27,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var IniHighlightRules = require("./ini_highlight_rules").IniHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { IniHighlightRules as IniHighlightRules } from "./ini_highlight_rules.js";
 // TODO: pick appropriate fold mode
-var FoldMode = require("./folding/ini").FoldMode;
+import { FoldMode as FoldMode } from "./folding/ini.js";
 
 var Mode = function() {
     this.HighlightRules = IniHighlightRules;
@@ -50,5 +48,4 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/ini";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

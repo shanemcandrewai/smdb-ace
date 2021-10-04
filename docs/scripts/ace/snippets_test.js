@@ -32,21 +32,19 @@ if (typeof process !== "undefined") {
     require("amd-loader");
     require("./test/mockdom");
 }
-
-define(function(require, exports, module) {
 "use strict";
-var Editor = require("./editor").Editor;
-var MockRenderer = require("./test/mockrenderer").MockRenderer;
-var JavascriptMode = require("./mode/javascript").Mode;
-require("./multi_select");
-require("./ext/language_tools");
+import { Editor as Editor } from "./editor.js";
+import { MockRenderer as MockRenderer } from "./test/mockrenderer.js";
+import { Mode as JavascriptMode } from "./mode/javascript.js";
+import * as multi_select from "./multi_select.js";
+import * as language_tools from "./ext/language_tools.js";
 
-var snippetManager = require("./snippets").snippetManager;
-var assert = require("./test/assertions");
-var config = require("./config");
+import { snippetManager as snippetManager } from "./snippets.js";
+import * as assert from "./test/assertions.js";
+import * as config from "./config.js";
 var loadModule = config.loadModule;
 
-module.exports = {
+export default {
     setUp : function(next) {
         this.editor = new Editor(new MockRenderer());
         next();

@@ -30,15 +30,13 @@
 
 if (typeof process !== "undefined")
     require("amd-loader");
-
-define(function(require, exports, module) {
 "use strict";
 
-var XmlMode = require("../xml").Mode;
-var EditSession = require("../../edit_session").EditSession;
-var assert = require("../../test/assertions");
+import { Mode as XmlMode } from "../xml.js";
+import { EditSession as EditSession } from "../../edit_session.js";
+import * as assert from "../../test/assertions.js";
 
-module.exports = {
+export default {
 
     "test: fold multi line self closing element": function() {
         var session = new EditSession([

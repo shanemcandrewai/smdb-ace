@@ -27,8 +27,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
     "use strict";
 
     var oop = require("../lib/oop");
@@ -91,4 +89,3 @@ define(function(require, exports, module) {
     oop.inherits(GcodeHighlightRules, TextHighlightRules);
 
     exports.GcodeHighlightRules = GcodeHighlightRules;
-});

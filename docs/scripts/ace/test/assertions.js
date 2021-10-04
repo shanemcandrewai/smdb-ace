@@ -27,11 +27,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var assert = require("assert");
+import * as assert from "assert.js";
     
 assert.position = function(cursor, row, column) {
     assert.equal(cursor.row, row);
@@ -75,6 +73,4 @@ function serializeDom(node) {
     return result;
 }
 
-module.exports = assert;
-
-});
+export default assert;

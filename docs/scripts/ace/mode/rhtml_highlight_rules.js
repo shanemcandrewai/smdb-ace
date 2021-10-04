@@ -34,14 +34,12 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  *
- */
-define(function(require, exports, module) {
-"use strict";
+ */"use strict";
 
-var oop = require("../lib/oop");
-var RHighlightRules = require("./r_highlight_rules").RHighlightRules;
-var HtmlHighlightRules = require("./html_highlight_rules").HtmlHighlightRules;
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { RHighlightRules as RHighlightRules } from "./r_highlight_rules.js";
+import { HtmlHighlightRules as HtmlHighlightRules } from "./html_highlight_rules.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var RHtmlHighlightRules = function() {
     HtmlHighlightRules.call(this);
@@ -62,5 +60,4 @@ var RHtmlHighlightRules = function() {
 };
 oop.inherits(RHtmlHighlightRules, TextHighlightRules);
 
-exports.RHtmlHighlightRules = RHtmlHighlightRules;
-});
+export { RHtmlHighlightRules as RHtmlHighlightRules };

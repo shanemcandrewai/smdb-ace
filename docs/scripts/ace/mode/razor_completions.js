@@ -27,11 +27,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var TokenIterator = require("../token_iterator").TokenIterator;
+import { TokenIterator as TokenIterator } from "../token_iterator.js";
 
 var keywords = [
     "abstract", "as", "base", "bool",
@@ -107,6 +105,4 @@ var RazorCompletions = function() {
 
 }).call(RazorCompletions.prototype);
 
-exports.RazorCompletions = RazorCompletions;
-
-});
+export { RazorCompletions as RazorCompletions };

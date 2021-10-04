@@ -27,13 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var lang = require("./lib/lang");
-var oop = require("./lib/oop");
-var Range = require("./range").Range;
+import * as lang from "./lib/lang.js";
+import * as oop from "./lib/oop.js";
+import { Range as Range } from "./range.js";
 
 var SearchHighlight = function(regExp, clazz, type) {
     this.setRegexp(regExp);
@@ -78,5 +76,4 @@ var SearchHighlight = function(regExp, clazz, type) {
 
 }).call(SearchHighlight.prototype);
 
-exports.SearchHighlight = SearchHighlight;
-});
+export { SearchHighlight as SearchHighlight };

@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var lang = require("../lib/lang");
-var Mirror = require("../worker/mirror").Mirror;
-var SAXParser = require("./html/saxparser").SAXParser;
+import * as oop from "../lib/oop.js";
+import * as lang from "../lib/lang.js";
+import { Mirror as Mirror } from "../worker/mirror.js";
+import { SAXParser as SAXParser } from "./html/saxparser.js";
 
 var errorTypes = {
     "expected-doctype-but-got-start-tag": "info",
@@ -88,5 +86,3 @@ oop.inherits(Worker, Mirror);
     };
 
 }).call(Worker.prototype);
-
-});

@@ -27,15 +27,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("./lib/oop");
-var applyDelta = require("./apply_delta").applyDelta;
-var EventEmitter = require("./lib/event_emitter").EventEmitter;
-var Range = require("./range").Range;
-var Anchor = require("./anchor").Anchor;
+import * as oop from "./lib/oop.js";
+import { applyDelta as applyDelta } from "./apply_delta.js";
+import { EventEmitter as EventEmitter } from "./lib/event_emitter.js";
+import { Range as Range } from "./range.js";
+import { Anchor as Anchor } from "./anchor.js";
 
 /**
  * Contains the text of the document. Document can be attached to several [[EditSession `EditSession`]]s. 
@@ -696,5 +694,4 @@ var Document = function(textOrLines) {
 
 }).call(Document.prototype);
 
-exports.Document = Document;
-});
+export { Document as Document };

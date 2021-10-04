@@ -31,15 +31,13 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var Range = require("./range").Range;
-var EditSession = require("./edit_session").EditSession;
-var assert = require("./test/assertions");
+import { Range as Range } from "./range.js";
+import { EditSession as EditSession } from "./edit_session.js";
+import * as assert from "./test/assertions.js";
 
-module.exports = {
+export default {
     
     name: "ACE range.js",
     

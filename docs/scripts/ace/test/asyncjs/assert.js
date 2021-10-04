@@ -1,4 +1,3 @@
-define(function(require, exports, module) {
 
 // http://wiki.commonjs.org/wiki/Unit_Testing/1.0
 //
@@ -25,7 +24,7 @@ define(function(require, exports, module) {
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 // UTILITY
-var oop = require("ace/lib/oop");
+import * as oop from "ace/lib/oop.js";
 var pSlice = Array.prototype.slice;
 
 // 1. The assert module provides functions that throw
@@ -309,5 +308,3 @@ assert.doesNotThrow = function(block, /*optional*/error, /*optional*/message) {
 };
 
 assert.ifError = function(err) { if (err) {throw err;}};
-
-});

@@ -35,8 +35,6 @@
     with Content-Security-Policy (CSP). See:
     https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/
  */
-
-define(function(require, exports, module) {
     "use strict";
 
     var oop = require("../lib/oop");
@@ -67,4 +65,3 @@ define(function(require, exports, module) {
     oop.inherits(CspHighlightRules, TextHighlightRules);
 
     exports.CspHighlightRules = CspHighlightRules;
-});

@@ -27,13 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var dom = require("../lib/dom");
-var event = require("../lib/event");
-var useragent = require("../lib/useragent");
+import * as dom from "../lib/dom.js";
+import * as event from "../lib/event.js";
+import * as useragent from "../lib/useragent.js";
 
 var AUTOSCROLL_DELAY = 200;
 var SCROLL_CURSOR_DELAY = 200;
@@ -419,6 +417,4 @@ function calcDistance(ax, ay, bx, by) {
     return Math.sqrt(Math.pow(bx - ax, 2) + Math.pow(by - ay, 2));
 }
 
-exports.DragdropHandler = DragdropHandler;
-
-});
+export { DragdropHandler as DragdropHandler };

@@ -39,12 +39,10 @@
  * DECIDING WHEN TO USE PUSH.                                   *
  * ...But it's a good start from an existing *.tmlanguage file. *
  ****************************************************************/
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var MELHighlightRules = function() {
     // regexp must not have capturing parentheses. Use (?:) instead.
@@ -129,5 +127,4 @@ var MELHighlightRules = function() {
 
 oop.inherits(MELHighlightRules, TextHighlightRules);
 
-exports.MELHighlightRules = MELHighlightRules;
-});
+export { MELHighlightRules as MELHighlightRules };

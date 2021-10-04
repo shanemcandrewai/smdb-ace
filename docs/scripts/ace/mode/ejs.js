@@ -28,13 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var HtmlHighlightRules = require("./html_highlight_rules").HtmlHighlightRules;
-var JavaScriptHighlightRules = require("./javascript_highlight_rules").JavaScriptHighlightRules;
+import * as oop from "../lib/oop.js";
+import { HtmlHighlightRules as HtmlHighlightRules } from "./html_highlight_rules.js";
+import { JavaScriptHighlightRules as JavaScriptHighlightRules } from "./javascript_highlight_rules.js";
 
 var EjsHighlightRules = function(start, end) {
     HtmlHighlightRules.call(this);
@@ -68,14 +66,14 @@ var EjsHighlightRules = function(start, end) {
 
 oop.inherits(EjsHighlightRules, HtmlHighlightRules);
 
-exports.EjsHighlightRules = EjsHighlightRules;
+export { EjsHighlightRules as EjsHighlightRules };
 
 
-var oop = require("../lib/oop");
-var HtmlMode = require("./html").Mode;
-var JavaScriptMode = require("./javascript").Mode;
-var CssMode = require("./css").Mode;
-var RubyMode = require("./ruby").Mode;
+import * as oop from "../lib/oop.js";
+import { Mode as HtmlMode } from "./html.js";
+import { Mode as JavaScriptMode } from "./javascript.js";
+import { Mode as CssMode } from "./css.js";
+import { Mode as RubyMode } from "./ruby.js";
 
 var Mode = function() {
     HtmlMode.call(this);
@@ -93,5 +91,4 @@ oop.inherits(Mode, HtmlMode);
     this.$id = "ace/mode/ejs";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

@@ -27,13 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
-var dom = require("../lib/dom");
-var oop = require("../lib/oop");
-var event = require("../lib/event");
-var Tooltip = require("../tooltip").Tooltip;
+import * as dom from "../lib/dom.js";
+import * as oop from "../lib/oop.js";
+import * as event from "../lib/event.js";
+import { Tooltip as Tooltip } from "../tooltip.js";
 
 function GutterHandler(mouseHandler) {
     var editor = mouseHandler.editor;
@@ -178,6 +176,4 @@ oop.inherits(GutterTooltip, Tooltip);
 
 
 
-exports.GutterHandler = GutterHandler;
-
-});
+export { GutterHandler as GutterHandler };

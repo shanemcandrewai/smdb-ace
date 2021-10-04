@@ -28,15 +28,13 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var HtmlMode = require("./html").Mode;
-var HtmlCompletions = require("./html_completions").HtmlCompletions;
-var LiquidBehaviour = require("./behaviour/liquid").LiquidBehaviour;
-var LiquidHighlightRules = require("./liquid_highlight_rules").LiquidHighlightRules;
-var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { Mode as HtmlMode } from "./html.js";
+import { HtmlCompletions as HtmlCompletions } from "./html_completions.js";
+import { LiquidBehaviour as LiquidBehaviour } from "./behaviour/liquid.js";
+import { LiquidHighlightRules as LiquidHighlightRules } from "./liquid_highlight_rules.js";
+import { MatchingBraceOutdent as MatchingBraceOutdent } from "./matching_brace_outdent.js";
 
 var Mode = function() {
     this.HighlightRules = LiquidHighlightRules;
@@ -84,5 +82,4 @@ oop.inherits(Mode, TextMode);
     this.snippetFileId = "ace/snippets/liquid";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

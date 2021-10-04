@@ -31,14 +31,12 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var Range = require("./range").Range;
-var RangeList = require("./range_list").RangeList;
-var EditSession = require("./edit_session").EditSession;
-var assert = require("./test/assertions");
+import { Range as Range } from "./range.js";
+import { RangeList as RangeList } from "./range_list.js";
+import { EditSession as EditSession } from "./edit_session.js";
+import * as assert from "./test/assertions.js";
 
 function flatten(rangeList) {
     var points = [];
@@ -51,7 +49,7 @@ function testRangeList(rangeList, points) {
     assert.equal("" + flatten(rangeList), "" + points);
 }
 
-module.exports = {
+export default {
 
     name: "ACE range_list.js",
 

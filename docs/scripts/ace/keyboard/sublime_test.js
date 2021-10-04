@@ -32,18 +32,16 @@ if (typeof process !== "undefined") {
     require("amd-loader");
     require("../test/mockdom");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-require("../multi_select");
+import * as multi_select from "../multi_select.js";
 
-var EditSession = require("./../edit_session").EditSession;
-var Editor = require("./../editor").Editor;
-var Range = require("./../range").Range;
-var MockRenderer = require("./../test/mockrenderer").MockRenderer;
-var assert = require("./../test/assertions");
-var handler = require("./sublime").handler;
+import { EditSession as EditSession } from "./../edit_session.js";
+import { Editor as Editor } from "./../editor.js";
+import { Range as Range } from "./../range.js";
+import { MockRenderer as MockRenderer } from "./../test/mockrenderer.js";
+import * as assert from "./../test/assertions.js";
+import { handler as handler } from "./sublime.js";
 var editor;
 
 function initEditor(docString) {
@@ -52,7 +50,7 @@ function initEditor(docString) {
     editor.setKeyboardHandler(handler);
 }
 
-module.exports = {
+export default {
 
     "test: move by subwords": function() {
         initEditor("\n   abcDefGHKLmn_op ++ xyz$\nt");

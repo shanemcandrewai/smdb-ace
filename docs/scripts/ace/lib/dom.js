@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var useragent = require("./useragent"); 
+import * as useragent from "./useragent.js"; 
 var XHTML_NS = "http://www.w3.org/1999/xhtml";
 
-exports.buildDom = function buildDom(arr, parent, refs) {
+export let buildDom = function buildDom(arr, parent, refs) {
     if (typeof arr == "string" && arr) {
         var txt = document.createTextNode(arr);
         if (parent)
@@ -82,33 +80,33 @@ exports.buildDom = function buildDom(arr, parent, refs) {
     return el;
 };
 
-exports.getDocumentHead = function(doc) {
+export let getDocumentHead = function(doc) {
     if (!doc)
         doc = document;
     return doc.head || doc.getElementsByTagName("head")[0] || doc.documentElement;
 };
 
-exports.createElement = function(tag, ns) {
+export let createElement = function(tag, ns) {
     return document.createElementNS ?
            document.createElementNS(ns || XHTML_NS, tag) :
            document.createElement(tag);
 };
 
-exports.removeChildren = function(element) {
+export let removeChildren = function(element) {
     element.innerHTML = "";
 };
 
-exports.createTextNode = function(textContent, element) {
+export let createTextNode = function(textContent, element) {
     var doc = element ? element.ownerDocument : document;
     return doc.createTextNode(textContent);
 };
 
-exports.createFragment = function(element) {
+export let createFragment = function(element) {
     var doc = element ? element.ownerDocument : document;
     return doc.createDocumentFragment();
 };
 
-exports.hasCssClass = function(el, name) {
+export let hasCssClass = function(el, name) {
     var classes = (el.className + "").split(/\s+/g);
     return classes.indexOf(name) !== -1;
 };
@@ -116,7 +114,7 @@ exports.hasCssClass = function(el, name) {
 /*
 * Add a CSS class to the list of classes on the given node
 */
-exports.addCssClass = function(el, name) {
+export let addCssClass = function(el, name) {
     if (!exports.hasCssClass(el, name)) {
         el.className += " " + name;
     }
@@ -125,7 +123,7 @@ exports.addCssClass = function(el, name) {
 /*
 * Remove a CSS class from the list of classes on the given node
 */
-exports.removeCssClass = function(el, name) {
+export let removeCssClass = function(el, name) {
     var classes = el.className.split(/\s+/g);
     while (true) {
         var index = classes.indexOf(name);
@@ -137,7 +135,7 @@ exports.removeCssClass = function(el, name) {
     el.className = classes.join(" ");
 };
 
-exports.toggleCssClass = function(el, name) {
+export let toggleCssClass = function(el, name) {
     var classes = el.className.split(/\s+/g), add = true;
     while (true) {
         var index = classes.indexOf(name);
@@ -159,7 +157,7 @@ exports.toggleCssClass = function(el, name) {
  * Add or remove a CSS class from the list of classes on the given node
  * depending on the value of <tt>include</tt>
  */
-exports.setCssClass = function(node, className, include) {
+export let setCssClass = function(node, className, include) {
     if (include) {
         exports.addCssClass(node, className);
     } else {
@@ -167,7 +165,7 @@ exports.setCssClass = function(node, className, include) {
     }
 };
 
-exports.hasCssString = function(id, doc) {
+export let hasCssString = function(id, doc) {
     var index = 0, sheets;
     doc = doc || document;
     if ((sheets = doc.querySelectorAll("style"))) {
@@ -177,7 +175,7 @@ exports.hasCssString = function(id, doc) {
     }
 };
 
-exports.importCssString = function importCssString(cssText, id, target) {
+export let importCssString = function importCssString(cssText, id, target) {
     var container = target;
     if (!target || !target.getRootNode) {
         container = document;
@@ -206,10 +204,10 @@ exports.importCssString = function importCssString(cssText, id, target) {
     container.insertBefore(style, container.firstChild);
 };
 
-exports.importCssStylsheet = function(uri, doc) {
+export let importCssStylsheet = function(uri, doc) {
     exports.buildDom(["link", {rel: "stylesheet", href: uri}], exports.getDocumentHead(doc));
 };
-exports.scrollbarWidth = function(document) {
+export let scrollbarWidth = function(document) {
     var inner = exports.createElement("ace_inner");
     inner.style.width = "100%";
     inner.style.minWidth = "0px";
@@ -250,19 +248,19 @@ if (typeof document == "undefined") {
     exports.importCssString = function() {};
 }
 
-exports.computedStyle = function(element, style) {
+export let computedStyle = function(element, style) {
     return window.getComputedStyle(element, "") || {};
 };
 
-exports.setStyle = function(styles, property, value) {
+export let setStyle = function(styles, property, value) {
     if (styles[property] !== value) {
         //console.log("set style", property, styles[property], value);
         styles[property] = value;
     }
 };
 
-exports.HAS_CSS_ANIMATION = false;
-exports.HAS_CSS_TRANSFORMS = false;
+export let HAS_CSS_ANIMATION = false;
+export let HAS_CSS_TRANSFORMS = false;
 exports.HI_DPI = useragent.isWin
     ? typeof window !== "undefined" && window.devicePixelRatio >= 1.5
     : true;
@@ -287,5 +285,3 @@ if (exports.HAS_CSS_TRANSFORMS) {
         element.style.left = Math.round(tx) + "px";
     };
 }
-
-});

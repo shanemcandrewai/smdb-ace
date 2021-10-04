@@ -1,4 +1,3 @@
-define(function(require, exports, module) {
 "use strict";
 
 var commands = [{
@@ -17,8 +16,9 @@ var commands = [{
     readOnly: true
 }];
 
-var Editor = require("../editor").Editor;
-require("../config").defineOptions(Editor.prototype, "editor", {
+import { Editor as Editor } from "../editor.js";
+import * as config from "../config.js"
+config.defineOptions(Editor.prototype, "editor", {
     rtlText: {
         set: function(val) {
             if (val) {
@@ -132,5 +132,3 @@ function clearTextLayer(renderer) {
         style.direction = style.textAlign = style.width = "";
     }
 }
-
-});

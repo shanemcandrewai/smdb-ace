@@ -1,9 +1,8 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var DocCommentHighlightRules = require("./doc_comment_highlight_rules").DocCommentHighlightRules;
-var C_Highlight_File = require("./c_cpp_highlight_rules");
+import * as oop from "../lib/oop.js";
+import { DocCommentHighlightRules as DocCommentHighlightRules } from "./doc_comment_highlight_rules.js";
+import * as C_Highlight_File from "./c_cpp_highlight_rules.js";
 var CHighlightRules = C_Highlight_File.c_cppHighlightRules;
 
 var ObjectiveCHighlightRules = function() {
@@ -326,5 +325,4 @@ var ObjectiveCHighlightRules = function() {
 
 oop.inherits(ObjectiveCHighlightRules, CHighlightRules);
 
-exports.ObjectiveCHighlightRules = ObjectiveCHighlightRules;
-});
+export { ObjectiveCHighlightRules as ObjectiveCHighlightRules };

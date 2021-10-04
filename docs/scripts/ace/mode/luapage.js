@@ -1,10 +1,9 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var HtmlMode = require("./html").Mode;
-var LuaMode = require("./lua").Mode;
-var LuaPageHighlightRules = require("./luapage_highlight_rules").LuaPageHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as HtmlMode } from "./html.js";
+import { Mode as LuaMode } from "./lua.js";
+import { LuaPageHighlightRules as LuaPageHighlightRules } from "./luapage_highlight_rules.js";
 
 var Mode = function() {
     HtmlMode.call(this);
@@ -20,5 +19,4 @@ oop.inherits(Mode, HtmlMode);
     this.$id = "ace/mode/luapage";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

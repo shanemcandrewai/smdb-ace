@@ -27,18 +27,16 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var CssHighlightRules = require("./css_highlight_rules").CssHighlightRules;
-var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
-var WorkerClient = require("../worker/worker_client").WorkerClient;
-var CssCompletions = require("./css_completions").CssCompletions;
-var CssBehaviour = require("./behaviour/css").CssBehaviour;
-var CStyleFoldMode = require("./folding/cstyle").FoldMode;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { CssHighlightRules as CssHighlightRules } from "./css_highlight_rules.js";
+import { MatchingBraceOutdent as MatchingBraceOutdent } from "./matching_brace_outdent.js";
+import { WorkerClient as WorkerClient } from "../worker/worker_client.js";
+import { CssCompletions as CssCompletions } from "./css_completions.js";
+import { CssBehaviour as CssBehaviour } from "./behaviour/css.js";
+import { FoldMode as CStyleFoldMode } from "./folding/cstyle.js";
 
 var Mode = function() {
     this.HighlightRules = CssHighlightRules;
@@ -102,6 +100,4 @@ oop.inherits(Mode, TextMode);
     this.snippetFileId = "ace/snippets/css";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-
-});
+export { Mode as Mode };

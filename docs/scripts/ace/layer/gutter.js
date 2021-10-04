@@ -27,15 +27,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var dom = require("../lib/dom");
-var oop = require("../lib/oop");
-var lang = require("../lib/lang");
-var EventEmitter = require("../lib/event_emitter").EventEmitter;
-var Lines = require("./lines").Lines;
+import * as dom from "../lib/dom.js";
+import * as oop from "../lib/oop.js";
+import * as lang from "../lib/lang.js";
+import { EventEmitter as EventEmitter } from "../lib/event_emitter.js";
+import { Lines as Lines } from "./lines.js";
 
 var Gutter = function(parentEl) {
     this.element = dom.createElement("div");
@@ -446,6 +444,4 @@ function onCreateCell(element) {
     return element;
 }
 
-exports.Gutter = Gutter;
-
-});
+export { Gutter as Gutter };

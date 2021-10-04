@@ -27,17 +27,15 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var CrystalHighlightRules = require("./crystal_highlight_rules").CrystalHighlightRules;
-var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
-var Range = require("../range").Range;
-var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
-var FoldMode = require("./folding/coffee").FoldMode;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { CrystalHighlightRules as CrystalHighlightRules } from "./crystal_highlight_rules.js";
+import { MatchingBraceOutdent as MatchingBraceOutdent } from "./matching_brace_outdent.js";
+import { Range as Range } from "../range.js";
+import { CstyleBehaviour as CstyleBehaviour } from "./behaviour/cstyle.js";
+import { FoldMode as FoldMode } from "./folding/coffee.js";
 
 var Mode = function() {
     this.HighlightRules = CrystalHighlightRules;
@@ -96,5 +94,4 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/crystal";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

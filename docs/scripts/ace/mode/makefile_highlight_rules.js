@@ -1,10 +1,9 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
-var ShHighlightFile = require("./sh_highlight_rules");
+import * as ShHighlightFile from "./sh_highlight_rules.js";
 
 var MakefileHighlightRules = function() {
 
@@ -71,5 +70,4 @@ var MakefileHighlightRules = function() {
 
 oop.inherits(MakefileHighlightRules, TextHighlightRules);
 
-exports.MakefileHighlightRules = MakefileHighlightRules;
-});
+export { MakefileHighlightRules as MakefileHighlightRules };

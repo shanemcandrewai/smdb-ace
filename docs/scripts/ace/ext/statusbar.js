@@ -1,8 +1,7 @@
-define(function(require, exports, module) {
 "use strict";
 /** simple statusbar **/
-var dom = require("../lib/dom");
-var lang = require("../lib/lang");
+import * as dom from "../lib/dom.js";
+import * as lang from "../lib/lang.js";
 
 var StatusBar = function(editor, parentNode) {
     this.element = dom.createElement("div");
@@ -45,6 +44,4 @@ var StatusBar = function(editor, parentNode) {
     };
 }).call(StatusBar.prototype);
 
-exports.StatusBar = StatusBar;
-
-});
+export { StatusBar as StatusBar };

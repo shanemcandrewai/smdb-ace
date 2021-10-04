@@ -17,8 +17,6 @@
 
 
 
-define(function(require, exports, module) {
-
 var PHP = {Constants:{}};
 
 PHP.Constants.T_INCLUDE = 259
@@ -2340,5 +2338,4 @@ PHP.Parser.prototype.yylen = [
 
 
 
-exports.PHP = PHP;
-});
+export { PHP as PHP };

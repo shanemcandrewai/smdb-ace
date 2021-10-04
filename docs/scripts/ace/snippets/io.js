@@ -1,4 +1,3 @@
-define(function(require, exports, module) {
 "use strict";
 
 exports.snippets = [
@@ -64,6 +63,4 @@ exports.snippets = [
         "tabTrigger": "ut"
     }
 ];
-exports.scope = "io";
-
-});
+export { "io" as scope };

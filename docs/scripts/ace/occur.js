@@ -27,15 +27,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("./lib/oop");
-var Range = require("./range").Range;
-var Search = require("./search").Search;
-var EditSession = require("./edit_session").EditSession;
-var SearchHighlight = require("./search_highlight").SearchHighlight;
+import * as oop from "./lib/oop.js";
+import { Range as Range } from "./range.js";
+import { Search as Search } from "./search.js";
+import { EditSession as EditSession } from "./edit_session.js";
+import { SearchHighlight as SearchHighlight } from "./search_highlight.js";
 
 /**
  * @class Occur
@@ -186,6 +184,4 @@ dom.importCssString(".ace_occur-highlight {\n\
     box-shadow: 0 0 4px rgb(60, 120, 70);\n\
 }\n", "incremental-occur-highlighting");
 
-exports.Occur = Occur;
-
-});
+export { Occur as Occur };

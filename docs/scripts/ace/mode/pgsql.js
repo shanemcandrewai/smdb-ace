@@ -28,11 +28,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-
-var oop = require("../lib/oop");
-var TextMode = require("../mode/text").Mode;
-var PgsqlHighlightRules = require("./pgsql_highlight_rules").PgsqlHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "../mode/text.js";
+import { PgsqlHighlightRules as PgsqlHighlightRules } from "./pgsql_highlight_rules.js";
 
 var Mode = function() {
     this.HighlightRules = PgsqlHighlightRules;
@@ -55,5 +53,4 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/pgsql";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

@@ -33,12 +33,10 @@
  * IT MIGHT NOT BE PERFECT ...But it's a good start from an existing *.tmlanguage file. *
  * fileTypes                                                                            *
  ****************************************************************************************/
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var IoHighlightRules = function() {
     // regexp must not have capturing parentheses. Use (?:) instead.
@@ -110,5 +108,4 @@ IoHighlightRules.metaData = { fileTypes: [ 'io' ],
 
 oop.inherits(IoHighlightRules, TextHighlightRules);
 
-exports.IoHighlightRules = IoHighlightRules;
-});
+export { IoHighlightRules as IoHighlightRules };

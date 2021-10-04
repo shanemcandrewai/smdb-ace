@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
-var JavaHighlightRules = require("./java_highlight_rules").JavaHighlightRules;
-var DocCommentHighlightRules = require("./doc_comment_highlight_rules").DocCommentHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
+import { JavaHighlightRules as JavaHighlightRules } from "./java_highlight_rules.js";
+import { DocCommentHighlightRules as DocCommentHighlightRules } from "./doc_comment_highlight_rules.js";
 
 var identifierRe = "[a-zA-Z\\$_\u00a1-\uffff][a-zA-Z\\d\\$_\u00a1-\uffff]*";
 var packageIdentifierRe = "[a-zA-Z\\$_\u00a1-\uffff][\\.a-zA-Z\\d\\$_\u00a1-\uffff]*";
@@ -257,5 +255,4 @@ var DroolsHighlightRules = function() {
 
 oop.inherits(DroolsHighlightRules, TextHighlightRules);
 
-exports.DroolsHighlightRules = DroolsHighlightRules;
-});
+export { DroolsHighlightRules as DroolsHighlightRules };

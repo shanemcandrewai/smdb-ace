@@ -34,15 +34,13 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  *
- */
-define(function(require, exports, module) {
-"use strict";
+ */"use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
-var TexHighlightRules = require("./tex_highlight_rules").TexHighlightRules;
-var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
+import { TexHighlightRules as TexHighlightRules } from "./tex_highlight_rules.js";
+import { MatchingBraceOutdent as MatchingBraceOutdent } from "./matching_brace_outdent.js";
 
 var Mode = function(suppressHighlighting) {
     if (suppressHighlighting)
@@ -67,5 +65,4 @@ oop.inherits(Mode, TextMode);
     this.snippetFileId = "ace/snippets/tex";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

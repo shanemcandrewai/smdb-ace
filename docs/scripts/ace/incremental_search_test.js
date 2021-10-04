@@ -31,20 +31,18 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
 var emacs = require('./keyboard/emacs');
-var EditSession = require("./edit_session").EditSession;
-var Editor = require("./editor").Editor;
-var MockRenderer = require("./test/mockrenderer").MockRenderer;
-var Range = require("./range").Range;
-var MultiSelect = require("./multi_select").MultiSelect;
-var assert = require("./test/assertions");
-var IncrementalSearch = require("./incremental_search").IncrementalSearch;
+import { EditSession as EditSession } from "./edit_session.js";
+import { Editor as Editor } from "./editor.js";
+import { MockRenderer as MockRenderer } from "./test/mockrenderer.js";
+import { Range as Range } from "./range.js";
+import { MultiSelect as MultiSelect } from "./multi_select.js";
+import * as assert from "./test/assertions.js";
+import { IncrementalSearch as IncrementalSearch } from "./incremental_search.js";
 
-require("./multi_select");
+import * as multi_select from "./multi_select.js";
 
 var editor, iSearch;
 function testRanges(str, ranges) {
@@ -66,7 +64,7 @@ function callHighlighterUpdate() {
     return ranges;
 }
 
-module.exports = {
+export default {
 
     name: "ACE incremental_search.js",
 

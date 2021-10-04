@@ -33,15 +33,13 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var assert = require("./../test/assertions");
-var Range = require("../range").Range;
-require("./../test/mockdom");
-var ace = require("../ace");
-var vim = require("./vim");
+import * as assert from "./../test/assertions.js";
+import { Range as Range } from "../range.js";
+import * as mockdom from "./../test/mockdom.js";
+import * as ace from "../ace.js";
+import * as vim from "./vim.js";
 var editor, changes, textarea;
 
 function testSelection(editor, data) {
@@ -116,7 +114,7 @@ function applyEvent(data) {
     editor.resize(true);
 }
 
-module.exports = {
+export default {
     setUp: function() {
         if (!editor) {
             editor = ace.edit(null);

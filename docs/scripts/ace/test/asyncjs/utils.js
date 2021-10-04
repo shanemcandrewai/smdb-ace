@@ -4,9 +4,7 @@
  * MIT Licensed
  */
 
-define(function(require, exports, module) {
-
-var async = require("asyncjs/async")
+import * as async from "asyncjs/async.js"
 
 async.plugin({
     delay: function(delay) {
@@ -60,6 +58,4 @@ async.plugin({
             next()
         })
     }    
-})
-
 })

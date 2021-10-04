@@ -1,11 +1,10 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var HtmlMode = require("./html").Mode;
-var RazorHighlightRules = require("./razor_highlight_rules").RazorHighlightRules;
-var RazorCompletions = require("./razor_completions").RazorCompletions;
-var HtmlCompletions = require("./html_completions").HtmlCompletions;
+import * as oop from "../lib/oop.js";
+import { Mode as HtmlMode } from "./html.js";
+import { RazorHighlightRules as RazorHighlightRules } from "./razor_highlight_rules.js";
+import { RazorCompletions as RazorCompletions } from "./razor_completions.js";
+import { HtmlCompletions as HtmlCompletions } from "./html_completions.js";
 
 var Mode = function() {
     HtmlMode.call(this);
@@ -30,5 +29,4 @@ oop.inherits(Mode, HtmlMode);
     this.snippetFileId = "ace/snippets/razor";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

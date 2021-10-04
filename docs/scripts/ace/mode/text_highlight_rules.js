@@ -27,11 +27,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var lang = require("../lib/lang");
+import * as lang from "../lib/lang.js";
 
 var TextHighlightRules = function() {
 
@@ -233,5 +231,4 @@ var TextHighlightRules = function() {
 
 }).call(TextHighlightRules.prototype);
 
-exports.TextHighlightRules = TextHighlightRules;
-});
+export { TextHighlightRules as TextHighlightRules };

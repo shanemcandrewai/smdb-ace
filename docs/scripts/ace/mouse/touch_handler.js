@@ -27,15 +27,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var MouseEvent = require("./mouse_event").MouseEvent;
-var event = require("../lib/event");
-var dom = require("../lib/dom");
+import { MouseEvent as MouseEvent } from "./mouse_event.js";
+import * as event from "../lib/event.js";
+import * as dom from "../lib/dom.js";
 
-exports.addTouchListeners = function(el, editor) {
+export let addTouchListeners = function(el, editor) {
     var mode = "scroll";
     var startX;
     var startY;
@@ -343,5 +341,3 @@ exports.addTouchListeners = function(el, editor) {
         }, 10);
     }
 };
-
-});

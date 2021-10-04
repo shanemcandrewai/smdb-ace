@@ -1,9 +1,8 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var JavaScriptMode = require("./javascript").Mode;
-var WollokHighlightRules = require("./wollok_highlight_rules").WollokHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as JavaScriptMode } from "./javascript.js";
+import { WollokHighlightRules as WollokHighlightRules } from "./wollok_highlight_rules.js";
 
 var Mode = function() {
     JavaScriptMode.call(this);
@@ -21,6 +20,4 @@ oop.inherits(Mode, JavaScriptMode);
     this.snippetFileId = "ace/snippets/wollok";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
-
+export { Mode as Mode };

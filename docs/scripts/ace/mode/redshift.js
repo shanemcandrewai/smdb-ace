@@ -28,12 +28,10 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-
-var oop = require("../lib/oop");
-var TextMode = require("../mode/text").Mode;
-var RedshiftHighlightRules = require("./redshift_highlight_rules").RedshiftHighlightRules;
-var Range = require("../range").Range;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "../mode/text.js";
+import { RedshiftHighlightRules as RedshiftHighlightRules } from "./redshift_highlight_rules.js";
+import { Range as Range } from "../range.js";
 
 var Mode = function() {
     this.HighlightRules = RedshiftHighlightRules;
@@ -55,5 +53,4 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/redshift";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

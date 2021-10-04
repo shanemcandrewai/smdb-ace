@@ -1,8 +1,7 @@
-define(function(require, exports, module) {
 "use strict";
-var event = require("../lib/event");
+import * as event from "../lib/event.js";
 
-exports.contextMenuHandler = function(e){
+export let contextMenuHandler = function(e){
     var host = e.target;
     var text = host.textInput.getElement();
     if (!host.selection.isEmpty())
@@ -49,8 +48,9 @@ exports.contextMenuHandler = function(e){
     });
 };
 // todo support highlighting with typo.js
-var Editor = require("../editor").Editor;
-require("../config").defineOptions(Editor.prototype, "editor", {
+import { Editor as Editor } from "../editor.js";
+import * as config from "../config.js"
+config.defineOptions(Editor.prototype, "editor", {
     spellcheck: {
         set: function(val) {
             var text = this.textInput.getElement();
@@ -63,6 +63,3 @@ require("../config").defineOptions(Editor.prototype, "editor", {
         value: true
     }
 });
-
-});
-

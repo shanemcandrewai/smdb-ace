@@ -28,12 +28,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+export let isDark = false;
+export { "ace-sqlserver" as cssClass };
+export { cssText } from "../requirejs/text!./sqlserver.css.js"
 
-exports.isDark = false;
-exports.cssClass = "ace-sqlserver";
-exports.cssText = require("../requirejs/text!./sqlserver.css");
-
-var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
 dom.importCssString(exports.cssText, exports.cssClass);
-});

@@ -33,15 +33,13 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-require("../test/mockdom");
-var assert = require("../test/assertions");
-var clipboard = require("../clipboard");
-var setUserAgentForTests = require("./textinput").$setUserAgentForTests;
-var ace = require("../ace");
+import * as mockdom from "../test/mockdom.js";
+import * as assert from "../test/assertions.js";
+import * as clipboard from "../clipboard.js";
+import * as setUserAgentForTests from "./textinput.js".$setUserAgentForTests;
+import * as ace from "../ace.js";
 var editor, changes, textarea, copiedValue;
 
 var MouseEvent = function(type, opts) {
@@ -96,7 +94,7 @@ function sendEvent(type, data) {
     editor.resize(true);
 }
 
-module.exports = {
+export default {
     setUp: function() {
         if (editor) this.tearDown();
         

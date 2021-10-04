@@ -27,18 +27,16 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var event = require("../lib/event");
-var UA = require("../lib/useragent");
-var net = require("../lib/net");
-var ace = require("../ace");
+import * as event from "../lib/event.js";
+import * as UA from "../lib/useragent.js";
+import * as net from "../lib/net.js";
+import * as ace from "../ace.js";
 
-require("../theme/textmate");
+import * as textmate from "../theme/textmate.js";
 
-module.exports = exports = ace;
+export default exports = ace;
 
 /*
  * Returns the CSS property of element.
@@ -155,7 +153,7 @@ function setupContainer(element, getValue) {
     return container;
 }
 
-exports.transformTextarea = function(element, options) {
+export let transformTextarea = function(element, options) {
     var isFocused = element.autofocus || document.activeElement == element;
     var session;
     var container = setupContainer(element, function() {
@@ -517,5 +515,3 @@ exports.defaultOptions = {
     useSoftTabs:        "true",
     showInvisibles:     "false"
 };
-
-});

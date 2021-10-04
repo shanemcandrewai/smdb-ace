@@ -27,13 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var RSTHighlightRules = require("./rst_highlight_rules").RSTHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { RSTHighlightRules as RSTHighlightRules } from "./rst_highlight_rules.js";
 
 var Mode = function() {
     this.HighlightRules = RSTHighlightRules;
@@ -47,6 +45,4 @@ oop.inherits(Mode, TextMode);
     this.snippetFileId = "ace/snippets/rst";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-
-});
+export { Mode as Mode };

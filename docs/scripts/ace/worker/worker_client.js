@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var net = require("../lib/net");
-var EventEmitter = require("../lib/event_emitter").EventEmitter;
-var config = require("../config");
+import * as oop from "../lib/oop.js";
+import * as net from "../lib/net.js";
+import { EventEmitter as EventEmitter } from "../lib/event_emitter.js";
+import * as config from "../config.js";
 
 function $workerBlob(workerUrl) {
     // workerUrl can be protocol relative
@@ -259,9 +257,7 @@ var UIWorkerClient = function(topLevelNamespaces, mod, classname) {
     return workerClient;
 };
 
-exports.UIWorkerClient = UIWorkerClient;
-exports.WorkerClient = WorkerClient;
-exports.createWorker = createWorker;
+export { UIWorkerClient as UIWorkerClient };
+export { WorkerClient as WorkerClient };
+export { createWorker as createWorker };
 
-
-});

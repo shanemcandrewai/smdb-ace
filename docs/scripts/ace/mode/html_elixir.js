@@ -28,16 +28,14 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var HtmlElixirHighlightRules = require("./html_elixir_highlight_rules").HtmlElixirHighlightRules;
-var HtmlMode = require("./html").Mode;
-var JavaScriptMode = require("./javascript").Mode;
-var CssMode = require("./css").Mode;
-var ElixirMode = require("./elixir").Mode;
+import * as oop from "../lib/oop.js";
+import { HtmlElixirHighlightRules as HtmlElixirHighlightRules } from "./html_elixir_highlight_rules.js";
+import { Mode as HtmlMode } from "./html.js";
+import { Mode as JavaScriptMode } from "./javascript.js";
+import { Mode as CssMode } from "./css.js";
+import { Mode as ElixirMode } from "./elixir.js";
 
 var Mode = function() {
     HtmlMode.call(this);   
@@ -55,5 +53,4 @@ oop.inherits(Mode, HtmlMode);
     this.$id = "ace/mode/html_elixir";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

@@ -1,20 +1,18 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var assert = require("assert");
-var highlighter = require("./static_highlight");
-var EditSession = require("../edit_session").EditSession;
-var JavaScriptMode = require("../mode/javascript").Mode;
-var TextMode = require("../mode/text").Mode;
-var dom = require("../lib/dom");
-var config = require("../config");
+import * as assert from "assert.js";
+import * as highlighter from "./static_highlight.js";
+import { EditSession as EditSession } from "../edit_session.js";
+import { Mode as JavaScriptMode } from "../mode/javascript.js";
+import { Mode as TextMode } from "../mode/text.js";
+import * as dom from "../lib/dom.js";
+import * as config from "../config.js";
 
 // Execution ORDER: test.setUpSuite, setUp, testFn, tearDown, test.tearDownSuite
-module.exports = {
+export default {
     timeout: 10000,
 
     "test loading in node": function(next) {

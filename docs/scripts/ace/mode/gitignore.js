@@ -1,10 +1,8 @@
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var GitignoreHighlightRules = require("./gitignore_highlight_rules").GitignoreHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { GitignoreHighlightRules as GitignoreHighlightRules } from "./gitignore_highlight_rules.js";
 
 var Mode = function() {
     this.HighlightRules = GitignoreHighlightRules;
@@ -17,5 +15,4 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/gitignore";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

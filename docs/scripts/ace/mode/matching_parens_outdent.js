@@ -27,11 +27,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var Range = require("../range").Range;
+import { Range as Range } from "../range.js";
 
 var MatchingParensOutdent = function() {};
 
@@ -70,5 +68,4 @@ var MatchingParensOutdent = function() {};
 
 }).call(MatchingParensOutdent.prototype);
 
-exports.MatchingParensOutdent = MatchingParensOutdent;
-});
+export { MatchingParensOutdent as MatchingParensOutdent };

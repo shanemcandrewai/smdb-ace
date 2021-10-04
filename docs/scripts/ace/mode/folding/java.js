@@ -1,9 +1,8 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../../lib/oop");
-var CStyleFoldMode = require("./cstyle").FoldMode;
-var Range = require("../../range").Range;
+import * as oop from "../../lib/oop.js";
+import { FoldMode as CStyleFoldMode } from "./cstyle.js";
+import { Range as Range } from "../../range.js";
 
 var FoldMode = exports.FoldMode = function() {};
 oop.inherits(FoldMode, CStyleFoldMode);
@@ -53,5 +52,3 @@ oop.inherits(FoldMode, CStyleFoldMode);
     };
 
 }).call(FoldMode.prototype);
-
-});

@@ -33,8 +33,6 @@
  *  8. Set up Vim to work as a keymap for CodeMirror.
  *  9. Ex command implementations.
  */
-
-define(function(require, exports, module) {
   'use strict';
 
   function log() {
@@ -6622,4 +6620,3 @@ dom.importCssString(".normal-mode .ace_cursor{\
   exports.handler.defaultKeymap = defaultKeymap;
   exports.handler.actions = actions;
   exports.Vim = Vim;
-});

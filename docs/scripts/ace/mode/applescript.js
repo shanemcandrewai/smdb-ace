@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var AppleScriptHighlightRules = require("./applescript_highlight_rules").AppleScriptHighlightRules;
-var FoldMode = require("./folding/cstyle").FoldMode;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { AppleScriptHighlightRules as AppleScriptHighlightRules } from "./applescript_highlight_rules.js";
+import { FoldMode as FoldMode } from "./folding/cstyle.js";
 
 var Mode = function() {
     this.HighlightRules = AppleScriptHighlightRules;
@@ -50,5 +48,4 @@ oop.inherits(Mode, TextMode);
     // Extra logic goes here.
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

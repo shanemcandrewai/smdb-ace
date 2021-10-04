@@ -31,14 +31,12 @@
  if (typeof process !== "undefined") {
     require("amd-loader");
  }
-
-define(function(require, exports, module) {
 "use strict";
 
-var Tokenizer = require("./tokenizer").Tokenizer;
-var assert = require("./test/assertions");
+import { Tokenizer as Tokenizer } from "./tokenizer.js";
+import * as assert from "./test/assertions.js";
 
-module.exports = {
+export default {
     "test: createSplitterRegexp" : function() {
         var t = new Tokenizer({});
         var re = t.createSplitterRegexp("(a)(b)(?=[x)(])");

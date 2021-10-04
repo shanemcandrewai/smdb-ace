@@ -1,7 +1,4 @@
-define(function(require, exports, module) {
 "use strict";
 
-exports.snippetText = require("../requirejs/text!./sh.snippets");
-exports.scope = "sh";
-
-});
+export { snippetText } from "../requirejs/text!./sh.snippets.js"
+export { "sh" as scope };

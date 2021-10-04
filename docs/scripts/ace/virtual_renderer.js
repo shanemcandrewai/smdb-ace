@@ -27,25 +27,23 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("./lib/oop");
-var dom = require("./lib/dom");
-var config = require("./config");
-var GutterLayer = require("./layer/gutter").Gutter;
-var MarkerLayer = require("./layer/marker").Marker;
-var TextLayer = require("./layer/text").Text;
-var CursorLayer = require("./layer/cursor").Cursor;
-var HScrollBar = require("./scrollbar").HScrollBar;
-var VScrollBar = require("./scrollbar").VScrollBar;
-var RenderLoop = require("./renderloop").RenderLoop;
-var FontMetrics = require("./layer/font_metrics").FontMetrics;
-var EventEmitter = require("./lib/event_emitter").EventEmitter;
-var editorCss = require("./requirejs/text!./css/editor.css");
+import * as oop from "./lib/oop.js";
+import * as dom from "./lib/dom.js";
+import * as config from "./config.js";
+import { Gutter as GutterLayer } from "./layer/gutter.js";
+import { Marker as MarkerLayer } from "./layer/marker.js";
+import { Text as TextLayer } from "./layer/text.js";
+import { Cursor as CursorLayer } from "./layer/cursor.js";
+import { HScrollBar as HScrollBar } from "./scrollbar.js";
+import { VScrollBar as VScrollBar } from "./scrollbar.js";
+import { RenderLoop as RenderLoop } from "./renderloop.js";
+import { FontMetrics as FontMetrics } from "./layer/font_metrics.js";
+import { EventEmitter as EventEmitter } from "./lib/event_emitter.js";
+// import * as editorCss from "./requirejs/text!./css/editor.css.js";
 
-var useragent = require("./lib/useragent");
+import * as useragent from "./lib/useragent.js";
 var HIDE_TEXTAREA = useragent.isIE;
 
 dom.importCssString(editorCss, "ace_editor.css");
@@ -1879,5 +1877,4 @@ config.defineOptions(VirtualRenderer.prototype, "renderer", {
     }
 });
 
-exports.VirtualRenderer = VirtualRenderer;
-});
+export { VirtualRenderer as VirtualRenderer };

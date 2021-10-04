@@ -27,16 +27,14 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "no use strict";
 
-var lang = require("./lib/lang");
-var oop = require("./lib/oop");
-var net = require("./lib/net");
-var AppConfig = require("./lib/app_config").AppConfig;
+import * as lang from "./lib/lang.js";
+import * as oop from "./lib/oop.js";
+import * as net from "./lib/net.js";
+import { AppConfig as AppConfig } from "./lib/app_config.js";
 
-module.exports = exports = new AppConfig();
+export default exports = new AppConfig();
 
 var global = (function() {
     return this || typeof window != "undefined" && window;
@@ -54,28 +52,28 @@ var options = {
     sharedPopups: false
 };
 
-exports.get = function(key) {
+export let get = function(key) {
     if (!options.hasOwnProperty(key))
         throw new Error("Unknown config key: " + key);
 
     return options[key];
 };
 
-exports.set = function(key, value) {
+export let set = function(key, value) {
     if (options.hasOwnProperty(key))
         options[key] = value;
     else if (this.setDefaultValue("", key, value) == false)
         throw new Error("Unknown config key: " + key);
 };
 
-exports.all = function() {
+export let all = function() {
     return lang.copyObject(options);
 };
 
 exports.$modes = {};
 
 // module loading
-exports.moduleUrl = function(name, component) {
+export let moduleUrl = function(name, component) {
     if (options.$moduleUrls[name])
         return options.$moduleUrls[name];
 
@@ -103,12 +101,12 @@ exports.moduleUrl = function(name, component) {
     return path + component + sep + base + this.get("suffix");
 };
 
-exports.setModuleUrl = function(name, subst) {
+export let setModuleUrl = function(name, subst) {
     return options.$moduleUrls[name] = subst;
 };
 
 exports.$loading = {};
-exports.loadModule = function(moduleName, onLoad) {
+export let loadModule = function(moduleName, onLoad) {
     var module, moduleType;
     if (Array.isArray(moduleName)) {
         moduleType = moduleName[0];
@@ -214,12 +212,10 @@ function init(packaged) {
             exports.set(key, scriptOptions[key]);
 }
 
-exports.init = init;
+export { init as init };
 
 function deHyphenate(str) {
     return str.replace(/-(.)/g, function(m, m1) { return m1.toUpperCase(); });
 }
 
-exports.version = "1.4.12";
-
-});
+export { "1.4.12" as version };

@@ -27,11 +27,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var event = require("./lib/event");
+import * as event from "./lib/event.js";
 
 /** 
  *
@@ -85,5 +83,4 @@ var RenderLoop = function(onRender, win) {
 
 }).call(RenderLoop.prototype);
 
-exports.RenderLoop = RenderLoop;
-});
+export { RenderLoop as RenderLoop };

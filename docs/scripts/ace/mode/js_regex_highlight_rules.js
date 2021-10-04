@@ -1,8 +1,7 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var escape = "\\\\(?:u[\\da-fA-F]{4}|x[\\da-fA-F]{2}|.)";
 var quantifier = "({\\d+\\b,?\\d*}|[+*?])(\\??)";
@@ -90,5 +89,4 @@ var JsRegexHighlightRules = function() {
 
 oop.inherits(JsRegexHighlightRules, TextHighlightRules);
 
-exports.JsRegexHighlightRules = JsRegexHighlightRules;
-});
+export { JsRegexHighlightRules as JsRegexHighlightRules };

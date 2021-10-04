@@ -31,11 +31,9 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var EditSession = require("./../edit_session").EditSession,
+import { EditSession as EditSession } from "./../edit_session.js",
     Editor = require("./../editor").Editor,
     MockRenderer = require("./../test/mockrenderer").MockRenderer,
     assert = require("./../test/assertions"),
@@ -48,7 +46,7 @@ function initEditor(docString) {
     editor = new Editor(new MockRenderer(), doc);
 }
 
-module.exports = {
+export default {
 
     "test: adding a new keyboard handler does not remove the default handler": function() {
         initEditor('abc');

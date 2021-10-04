@@ -27,12 +27,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
 var $cancelT;
-module.exports = { 
+export default { 
     lineMode: false,
     pasteCancelled: function() {
         if ($cancelT && $cancelT > Date.now() - 50)
@@ -43,5 +41,3 @@ module.exports = {
         $cancelT = Date.now();
     }
 };
-
-});

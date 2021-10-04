@@ -31,16 +31,14 @@
  if (typeof process !== "undefined") {
      require("amd-loader");
  }
-
-define(function(require, exports, module) {
 "use strict";
 
-var EditSession = require("./edit_session").EditSession;
-var JavaScriptMode = require("./mode/javascript").Mode;
-var TokenIterator = require("./token_iterator").TokenIterator;
-var assert = require("./test/assertions");
+import { EditSession as EditSession } from "./edit_session.js";
+import { Mode as JavaScriptMode } from "./mode/javascript.js";
+import { TokenIterator as TokenIterator } from "./token_iterator.js";
+import * as assert from "./test/assertions.js";
 
-module.exports = {
+export default {
     "test: token iterator initialization in JavaScript document" : function() {
         var lines = [
             "function foo(items) {",

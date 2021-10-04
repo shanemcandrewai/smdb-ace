@@ -27,16 +27,14 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var Renderer = require("../virtual_renderer").VirtualRenderer;
-var Editor = require("../editor").Editor;
-var Range = require("../range").Range;
-var event = require("../lib/event");
-var lang = require("../lib/lang");
-var dom = require("../lib/dom");
+import { VirtualRenderer as Renderer } from "../virtual_renderer.js";
+import { Editor as Editor } from "../editor.js";
+import { Range as Range } from "../range.js";
+import * as event from "../lib/event.js";
+import * as lang from "../lib/lang.js";
+import * as dom from "../lib/dom.js";
 
 var $singleLineEditor = function(el) {
     var renderer = new Renderer(el);
@@ -369,8 +367,5 @@ dom.importCssString("\
     color: #c1c1c1;\
 }", "autocompletion.css");
 
-exports.AcePopup = AcePopup;
+export { AcePopup as AcePopup };
 exports.$singleLineEditor = $singleLineEditor;
-});
-
-

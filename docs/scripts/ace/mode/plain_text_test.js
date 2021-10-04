@@ -31,15 +31,13 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var EditSession = require("../edit_session").EditSession;
-var PlainTextMode = require("./plain_text").Mode;
-var assert = require("../test/assertions");
+import { EditSession as EditSession } from "../edit_session.js";
+import { Mode as PlainTextMode } from "./plain_text.js";
+import * as assert from "../test/assertions.js";
 
-module.exports = {
+export default {
     setUp : function() {
         this.mode = new PlainTextMode();
     },

@@ -31,20 +31,18 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var EditSession = require("./edit_session").EditSession;
-var Editor = require("./editor").Editor;
-var MockRenderer = require("./test/mockrenderer").MockRenderer;
-var Range = require("./range").Range;
-var assert = require("./test/assertions");
-var Occur = require("./occur").Occur;
-var occurStartCommand = require("./commands/occur_commands").occurStartCommand;
+import { EditSession as EditSession } from "./edit_session.js";
+import { Editor as Editor } from "./editor.js";
+import { MockRenderer as MockRenderer } from "./test/mockrenderer.js";
+import { Range as Range } from "./range.js";
+import * as assert from "./test/assertions.js";
+import { Occur as Occur } from "./occur.js";
+import { occurStartCommand as occurStartCommand } from "./commands/occur_commands.js";
 var editor, occur;
 
-module.exports = {
+export default {
 
     name: "ACE occur.js",
 

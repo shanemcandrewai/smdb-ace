@@ -1,9 +1,8 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var JavaScriptMode = require("./javascript").Mode;
-var GroovyHighlightRules = require("./groovy_highlight_rules").GroovyHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as JavaScriptMode } from "./javascript.js";
+import { GroovyHighlightRules as GroovyHighlightRules } from "./groovy_highlight_rules.js";
 
 var Mode = function() {
     JavaScriptMode.call(this);
@@ -20,5 +19,4 @@ oop.inherits(Mode, JavaScriptMode);
     this.$id = "ace/mode/groovy";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

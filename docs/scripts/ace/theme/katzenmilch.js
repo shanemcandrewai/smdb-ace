@@ -28,12 +28,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+export let isDark = false;
+export { "ace-katzenmilch" as cssClass };
+export { cssText } from "../requirejs/text!./katzenmilch.css.js"
 
-exports.isDark = false;
-exports.cssClass = "ace-katzenmilch";
-exports.cssText = require("../requirejs/text!./katzenmilch.css");
-
-var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
 dom.importCssString(exports.cssText, exports.cssClass);
-});

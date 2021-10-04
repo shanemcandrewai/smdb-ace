@@ -27,17 +27,15 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var XmlMode = require("./xml").Mode;
-var JavaScriptMode = require("./javascript").Mode;
-var SvgHighlightRules = require("./svg_highlight_rules").SvgHighlightRules;
-var MixedFoldMode = require("./folding/mixed").FoldMode;
-var XmlFoldMode = require("./folding/xml").FoldMode;
-var CStyleFoldMode = require("./folding/cstyle").FoldMode;
+import * as oop from "../lib/oop.js";
+import { Mode as XmlMode } from "./xml.js";
+import { Mode as JavaScriptMode } from "./javascript.js";
+import { SvgHighlightRules as SvgHighlightRules } from "./svg_highlight_rules.js";
+import { FoldMode as MixedFoldMode } from "./folding/mixed.js";
+import { FoldMode as XmlFoldMode } from "./folding/xml.js";
+import { FoldMode as CStyleFoldMode } from "./folding/cstyle.js";
 
 var Mode = function() {
     XmlMode.call(this);
@@ -65,5 +63,4 @@ oop.inherits(Mode, XmlMode);
     this.$id = "ace/mode/svg";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

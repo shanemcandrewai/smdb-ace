@@ -32,21 +32,19 @@ if (typeof process !== "undefined") {
     require("amd-loader");
     require("./test/mockdom");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-require("./multi_select");
-var assert = require("./test/assertions");
-var Range = require("./range").Range;
-var Editor = require("./editor").Editor;
-var EditSession = require("./edit_session").EditSession;
-var MockRenderer = require("./test/mockrenderer").MockRenderer;
-var UndoManager = require("./undomanager").UndoManager;
+import * as multi_select from "./multi_select.js";
+import * as assert from "./test/assertions.js";
+import { Range as Range } from "./range.js";
+import { Editor as Editor } from "./editor.js";
+import { EditSession as EditSession } from "./edit_session.js";
+import { MockRenderer as MockRenderer } from "./test/mockrenderer.js";
+import { UndoManager as UndoManager } from "./undomanager.js";
 
 var editor, session, undoManager;
 
-module.exports = {
+export default {
 
     name: "ACE undoManager.js",
     setUp: function() {

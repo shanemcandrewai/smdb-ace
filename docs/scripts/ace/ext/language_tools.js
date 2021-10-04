@@ -27,17 +27,15 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var snippetManager = require("../snippets").snippetManager;
-var Autocomplete = require("../autocomplete").Autocomplete;
-var config = require("../config");
-var lang = require("../lib/lang");
-var util = require("../autocomplete/util");
+import { snippetManager as snippetManager } from "../snippets.js";
+import { Autocomplete as Autocomplete } from "../autocomplete.js";
+import * as config from "../config.js";
+import * as lang from "../lib/lang.js";
+import * as util from "../autocomplete/util.js";
 
-var textCompleter = require("../autocomplete/text_completer");
+import * as textCompleter from "../autocomplete/text_completer.js";
 var keyWordCompleter = {
     getCompletions: function(editor, session, pos, prefix, callback) {
         if (session.$mode.completer) {
@@ -91,18 +89,18 @@ var snippetCompleter = {
 
 var completers = [snippetCompleter, textCompleter, keyWordCompleter];
 // Modifies list of default completers
-exports.setCompleters = function(val) {
+export let setCompleters = function(val) {
     completers.length = 0;
     if (val) completers.push.apply(completers, val);
 };
-exports.addCompleter = function(completer) {
+export let addCompleter = function(completer) {
     completers.push(completer);
 };
 
 // Exports existing completer so that user can construct his own set of completers.
-exports.textCompleter = textCompleter;
-exports.keyWordCompleter = keyWordCompleter;
-exports.snippetCompleter = snippetCompleter;
+export { textCompleter as textCompleter };
+export { keyWordCompleter as keyWordCompleter };
+export { snippetCompleter as snippetCompleter };
 
 var expandSnippet = {
     name: "expandSnippet",
@@ -169,8 +167,9 @@ var doLiveAutocomplete = function(e) {
     }
 };
 
-var Editor = require("../editor").Editor;
-require("../config").defineOptions(Editor.prototype, "editor", {
+import { Editor as Editor } from "../editor.js";
+import * as config from "../config.js"
+config.defineOptions(Editor.prototype, "editor", {
     enableBasicAutocompletion: {
         set: function(val) {
             if (val) {
@@ -213,5 +212,4 @@ require("../config").defineOptions(Editor.prototype, "editor", {
         },
         value: false
     }
-});
 });

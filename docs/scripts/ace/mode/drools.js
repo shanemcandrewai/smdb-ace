@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var DroolsHighlightRules = require("./drools_highlight_rules").DroolsHighlightRules;
-var DroolsFoldMode = require("./folding/drools").FoldMode;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { DroolsHighlightRules as DroolsHighlightRules } from "./drools_highlight_rules.js";
+import { FoldMode as DroolsFoldMode } from "./folding/drools.js";
 
 var Mode = function() {
     this.HighlightRules = DroolsHighlightRules;
@@ -50,7 +48,4 @@ oop.inherits(Mode, TextMode);
     this.snippetFileId = "ace/snippets/drools";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-
-});
-
+export { Mode as Mode };

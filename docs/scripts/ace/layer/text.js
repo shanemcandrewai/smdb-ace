@@ -27,15 +27,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var dom = require("../lib/dom");
-var lang = require("../lib/lang");
-var Lines = require("./lines").Lines;
-var EventEmitter = require("../lib/event_emitter").EventEmitter;
+import * as oop from "../lib/oop.js";
+import * as dom from "../lib/dom.js";
+import * as lang from "../lib/lang.js";
+import { Lines as Lines } from "./lines.js";
+import { EventEmitter as EventEmitter } from "../lib/event_emitter.js";
 
 var Text = function(parentEl) {
     this.dom = dom; 
@@ -649,6 +647,4 @@ var Text = function(parentEl) {
     this.destroy = function() {};
 }).call(Text.prototype);
 
-exports.Text = Text;
-
-});
+export { Text as Text };

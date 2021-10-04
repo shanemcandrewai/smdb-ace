@@ -1,4 +1,3 @@
-define(function(require, exports, module) {
 	'use strict';
 
 	var XMLReader = require('./sax'),
@@ -256,5 +255,3 @@ function appendElement (hander,node) {
 return {
 		DOMParser: DOMParser
 	 };
-});
-

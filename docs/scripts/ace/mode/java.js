@@ -1,10 +1,9 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var JavaScriptMode = require("./javascript").Mode;
-var JavaHighlightRules = require("./java_highlight_rules").JavaHighlightRules;
-var JavaFoldMode = require("./folding/java").FoldMode;
+import * as oop from "../lib/oop.js";
+import { Mode as JavaScriptMode } from "./javascript.js";
+import { JavaHighlightRules as JavaHighlightRules } from "./java_highlight_rules.js";
+import { FoldMode as JavaFoldMode } from "./folding/java.js";
 
 var Mode = function() {
     JavaScriptMode.call(this);
@@ -23,5 +22,4 @@ oop.inherits(Mode, JavaScriptMode);
     this.snippetFileId = "ace/snippets/java";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

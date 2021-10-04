@@ -30,13 +30,11 @@
 
 if (typeof process !== "undefined")
     require("amd-loader");
-
-define(function(require, exports, module) {
 "use strict";
 
-var CoffeeMode = require("../coffee").Mode;
-var EditSession = require("../../edit_session").EditSession;
-var assert = require("../../test/assertions");
+import { Mode as CoffeeMode } from "../coffee.js";
+import { EditSession as EditSession } from "../../edit_session.js";
+import * as assert from "../../test/assertions.js";
 function testFoldWidgets(array) {
     var session = array.filter(function(_, i){return i % 2 == 1;});
     session = new EditSession(session);
@@ -75,7 +73,7 @@ function testFoldWidgets(array) {
         assert.equal(pos.column, w);
     }
 }
-module.exports = {
+export default {
     "test: coffee script indentation based folding": function() {
        testFoldWidgets([
             '>,1,l,l',         ' ## indented comment',

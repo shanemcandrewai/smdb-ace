@@ -28,8 +28,6 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-
-define(function(require, exports, module) {
     "use strict";
 
     var oop = require("../lib/oop");
@@ -57,4 +55,3 @@ define(function(require, exports, module) {
     }).call(Mode.prototype);
 
     exports.Mode = Mode;
-});

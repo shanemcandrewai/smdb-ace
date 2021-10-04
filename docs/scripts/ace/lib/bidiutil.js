@@ -27,8 +27,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
 var ArabicAlefBetIntervalsBegine = ['\u0621', '\u0641'];
@@ -307,23 +305,26 @@ function _isArabicDiacritics( ch ) {
 }
 
 /* Strong LTR character (0 - even), regular width */
-exports.L = L;
+export { L as L };
 /* Strong RTL character (1 - odd), Bidi width */
-exports.R = R;
+export { R as R };
 /* European digit (2 - even), regular width */
-exports.EN = EN;
+export { EN as EN };
 /* Neutral RTL-by-context character (3 - odd), regular width */
-exports.ON_R = 3;
+export let ON_R = 3;
 /* Hindi (Arabic) digit (4 - even), Bidi width */
-exports.AN = 4;
+AN = 4;
+export { AN };
 /* Arabic LamAlef (5 - odd), Half Bidi width */
-exports.R_H = 5;
+export let R_H = 5;
 /* invisible EOL (6 - even), zero width */
-exports.B = 6;
+B = 6
+export { B };
 /* invisible RLE (7 - odd), zero width */
-exports.RLE = 7;
+RLE = 7;
+export { RLE };
 
-exports.DOT = "\xB7";
+export let DOT = "\xB7";
 
 /**
  * Performs text reordering by implementing Unicode Bidi algorithm
@@ -334,7 +335,7 @@ exports.DOT = "\xB7";
  *
  * @return {Object} An object containing logicalFromVisual map and Bidi levels
  **/
-exports.doBidiReorder = function(text, textCharTypes, isRtl) {
+export let doBidiReorder = function(text, textCharTypes, isRtl) {
 	if (text.length < 2)
 		return {};
 		
@@ -382,7 +383,7 @@ exports.doBidiReorder = function(text, textCharTypes, isRtl) {
  *
  * @return {Boolean} 'true' if text contains Bidi characters, otherwise 'false' 
  **/
-exports.hasBidiCharacters = function(text, textCharTypes){
+export let hasBidiCharacters = function(text, textCharTypes){
 	var ret = false;
 	for (var i = 0; i < text.length; i++){
 		textCharTypes[i] = _getCharacterType(text.charAt(i));
@@ -400,12 +401,10 @@ exports.hasBidiCharacters = function(text, textCharTypes){
  *
  * @return {int} visual index (on display) corresponding to logical index
  **/	
-exports.getVisualFromLogicalIdx = function(logIdx, rowMap) {
+export let getVisualFromLogicalIdx = function(logIdx, rowMap) {
 	for (var i = 0; i < rowMap.logicalFromVisual.length; i++) {
 		if (rowMap.logicalFromVisual[i] == logIdx)
 			return i;
 	}
 	return 0;
 };
-
-});

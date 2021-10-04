@@ -1,7 +1,4 @@
-define(function(require, exports, module) {
 "use strict";
 
-exports.snippetText = require("../requirejs/text!./lua.snippets");
-exports.scope = "lua";
-
-});
+export { snippetText } from "../requirejs/text!./lua.snippets.js"
+export { "lua" as scope };

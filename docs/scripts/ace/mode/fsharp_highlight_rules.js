@@ -27,12 +27,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function (require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 var FSharpHighlightRules = function () {
 
     var keywordMapper = this.createKeywordMapper({
@@ -167,5 +165,4 @@ var FSharpHighlightRules = function () {
 
 oop.inherits(FSharpHighlightRules, TextHighlightRules);
 
-exports.FSharpHighlightRules = FSharpHighlightRules;
-});
+export { FSharpHighlightRules as FSharpHighlightRules };

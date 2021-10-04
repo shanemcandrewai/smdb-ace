@@ -29,22 +29,20 @@
  * ***** END LICENSE BLOCK ***** */
 
 // [WIP]
-
-define(function(require, exports, module) {
 "use strict";
-var TokenIterator = require("../token_iterator").TokenIterator;
+import { TokenIterator as TokenIterator } from "../token_iterator.js";
 
 function is(token, type) {
     return token.type.lastIndexOf(type + ".xml") > -1;
 }
 
 // do not indent after singleton tags or <html>
-exports.singletonTags = ["area", "base", "br", "col", "command", "embed", "hr", "html", "img", "input", "keygen", "link", "meta", "param", "source", "track", "wbr"];
+export { ["area", "base", "br", "col", "command", "embed", "hr", "html", "img", "input", "keygen", "link", "meta", "param", "source", "track", "wbr"] as singletonTags };
 
 // insert a line break after block level tags
-exports.blockTags = ["article", "aside", "blockquote", "body", "div", "dl", "fieldset", "footer", "form", "head", "header", "html", "nav", "ol", "p", "script", "section", "style", "table", "tbody", "tfoot", "thead", "ul"];
+export { ["article", "aside", "blockquote", "body", "div", "dl", "fieldset", "footer", "form", "head", "header", "html", "nav", "ol", "p", "script", "section", "style", "table", "tbody", "tfoot", "thead", "ul"] as blockTags };
 
-exports.beautify = function(session) {
+export let beautify = function(session) {
     var iterator = new TokenIterator(session, 0, 0);
     var token = iterator.getCurrentToken();
     var tabString = session.getTabString();
@@ -407,5 +405,3 @@ exports.commands = [{
     },
     bindKey: "Ctrl-Shift-B"
 }];
-
-});

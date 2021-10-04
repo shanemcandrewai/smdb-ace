@@ -28,12 +28,10 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var VerilogHighlightRules = function() {
 var keywords = "always|and|assign|automatic|begin|buf|bufif0|bufif1|case|casex|casez|cell|cmos|config|" +
@@ -110,5 +108,4 @@ var keywords = "always|and|assign|automatic|begin|buf|bufif0|bufif1|case|casex|c
 
 oop.inherits(VerilogHighlightRules, TextHighlightRules);
 
-exports.VerilogHighlightRules = VerilogHighlightRules;
-});
+export { VerilogHighlightRules as VerilogHighlightRules };

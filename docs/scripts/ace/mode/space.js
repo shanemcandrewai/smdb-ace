@@ -1,12 +1,10 @@
-
-define(function(require, exports, module) {
 "use strict";
-var oop = require("../lib/oop");
+import * as oop from "../lib/oop.js";
 // defines the parent mode
-var TextMode = require("./text").Mode;
-var FoldMode = require("./folding/coffee").FoldMode;
+import { Mode as TextMode } from "./text.js";
+import { FoldMode as FoldMode } from "./folding/coffee.js";
 // defines the language specific highlighters and folding rules
-var SpaceHighlightRules = require("./space_highlight_rules").SpaceHighlightRules;
+import { SpaceHighlightRules as SpaceHighlightRules } from "./space_highlight_rules.js";
 var Mode = function() {
     // set everything up
     this.HighlightRules = SpaceHighlightRules;
@@ -18,5 +16,4 @@ oop.inherits(Mode, TextMode);
     
     this.$id = "ace/mode/space";
 }).call(Mode.prototype);
-exports.Mode = Mode;
-});
+export { Mode as Mode };

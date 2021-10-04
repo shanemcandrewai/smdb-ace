@@ -31,16 +31,14 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var EditSession = require("../edit_session").EditSession;
-var Tokenizer = require("../tokenizer").Tokenizer;
-var XmlMode = require("./xml").Mode;
-var assert = require("../test/assertions");
+import { EditSession as EditSession } from "../edit_session.js";
+import { Tokenizer as Tokenizer } from "../tokenizer.js";
+import { Mode as XmlMode } from "./xml.js";
+import * as assert from "../test/assertions.js";
 
-module.exports = {
+export default {
     setUp : function() {
         this.mode = new XmlMode();
     },

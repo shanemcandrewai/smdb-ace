@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
-var HashHandler = require("../keyboard/hash_handler").HashHandler;
-var Editor = require("../editor").Editor;
-var snippetManager = require("../snippets").snippetManager;
-var Range = require("../range").Range;
-var config = require("../config");
+import { HashHandler as HashHandler } from "../keyboard/hash_handler.js";
+import { Editor as Editor } from "../editor.js";
+import { snippetManager as snippetManager } from "../snippets.js";
+import { Range as Range } from "../range.js";
+import * as config from "../config.js";
 var emmet, emmetPath;
 
 /**
@@ -346,8 +344,8 @@ var keymap = {
 };
 
 var editorProxy = new AceEmmetEditor();
-exports.commands = new HashHandler();
-exports.runEmmetCommand = function runEmmetCommand(editor) {
+export { new HashHandler() as commands };
+export let runEmmetCommand = function runEmmetCommand(editor) {
     if (this.action == "expand_abbreviation_with_tab") {
         if (!editor.selection.isEmpty())
             return false;
@@ -392,7 +390,7 @@ for (var command in keymap) {
     });
 }
 
-exports.updateCommands = function(editor, enabled) {
+export let updateCommands = function(editor, enabled) {
     if (enabled) {
         editor.keyBinding.addKeyboardHandler(exports.commands);
     } else {
@@ -400,14 +398,14 @@ exports.updateCommands = function(editor, enabled) {
     }
 };
 
-exports.isSupportedMode = function(mode) {
+export let isSupportedMode = function(mode) {
     if (!mode) return false;
     if (mode.emmetConfig) return true;
     var id = mode.$id || mode;
     return /css|less|scss|sass|stylus|html|php|twig|ejs|handlebars/.test(id);
 };
 
-exports.isAvailable = function(editor, command) {
+export let isAvailable = function(editor, command) {
     if (/(evaluate_math_expression|expand_abbreviation)$/.test(command))
         return true;
     var mode = editor.session.$mode;
@@ -435,7 +433,7 @@ var onChangeMode = function(e, target) {
     exports.updateCommands(editor, enabled);
 };
 
-exports.load = function(cb) {
+export let load = function(cb) {
     if (typeof emmetPath !== "string") {
         config.warn("script for emmet-core is not loaded");
         return false;
@@ -447,7 +445,7 @@ exports.load = function(cb) {
     return true;
 };
 
-exports.AceEmmetEditor = AceEmmetEditor;
+export { AceEmmetEditor as AceEmmetEditor };
 config.defineOptions(Editor.prototype, "editor", {
     enableEmmet: {
         set: function(val) {
@@ -458,11 +456,9 @@ config.defineOptions(Editor.prototype, "editor", {
     }
 });
 
-exports.setCore = function(e) {
+export let setCore = function(e) {
     if (typeof e == "string")
        emmetPath = e;
     else
        emmet = e;
 };
-});
-

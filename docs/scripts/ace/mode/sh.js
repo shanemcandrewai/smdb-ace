@@ -27,16 +27,14 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var ShHighlightRules = require("./sh_highlight_rules").ShHighlightRules;
-var Range = require("../range").Range;
-var CStyleFoldMode = require("./folding/cstyle").FoldMode;
-var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { ShHighlightRules as ShHighlightRules } from "./sh_highlight_rules.js";
+import { Range as Range } from "../range.js";
+import { FoldMode as CStyleFoldMode } from "./folding/cstyle.js";
+import { CstyleBehaviour as CstyleBehaviour } from "./behaviour/cstyle.js";
 
 var Mode = function() {
     this.HighlightRules = ShHighlightRules;
@@ -113,5 +111,4 @@ oop.inherits(Mode, TextMode);
     this.snippetFileId = "ace/snippets/sh";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

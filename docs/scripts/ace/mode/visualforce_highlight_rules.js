@@ -1,10 +1,8 @@
 /* global define */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var HtmlHighlightRules = require("../mode/html_highlight_rules").HtmlHighlightRules;
+import * as oop from "../lib/oop.js";
+import { HtmlHighlightRules as HtmlHighlightRules } from "../mode/html_highlight_rules.js";
 
 function string(options) {
     return {
@@ -101,5 +99,4 @@ var VisualforceHighlightRules = function() {
 
 oop.inherits(VisualforceHighlightRules, HtmlHighlightRules);
 
-exports.VisualforceHighlightRules = VisualforceHighlightRules;
-});
+export { VisualforceHighlightRules as VisualforceHighlightRules };

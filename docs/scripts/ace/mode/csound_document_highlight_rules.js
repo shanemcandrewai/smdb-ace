@@ -1,12 +1,11 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
+import * as oop from "../lib/oop.js";
 
-var CsoundOrchestraHighlightRules = require("./csound_orchestra_highlight_rules").CsoundOrchestraHighlightRules;
-var CsoundScoreHighlightRules = require("./csound_score_highlight_rules").CsoundScoreHighlightRules;
-var HtmlHighlightRules = require("./html_highlight_rules").HtmlHighlightRules;
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import { CsoundOrchestraHighlightRules as CsoundOrchestraHighlightRules } from "./csound_orchestra_highlight_rules.js";
+import { CsoundScoreHighlightRules as CsoundScoreHighlightRules } from "./csound_score_highlight_rules.js";
+import { HtmlHighlightRules as HtmlHighlightRules } from "./html_highlight_rules.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var CsoundDocumentHighlightRules = function() {
 
@@ -65,5 +64,4 @@ var CsoundDocumentHighlightRules = function() {
 
 oop.inherits(CsoundDocumentHighlightRules, TextHighlightRules);
 
-exports.CsoundDocumentHighlightRules = CsoundDocumentHighlightRules;
-});
+export { CsoundDocumentHighlightRules as CsoundDocumentHighlightRules };

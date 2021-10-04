@@ -4,13 +4,11 @@
  * MIT Licensed
  */
 
-define(function(require, exports, module) {
+import * as oop from "ace/lib/oop.js"
+import * as async from "asyncjs/async.js"
+import * as utils from "asyncjs/utils.js"
 
-var oop = require("ace/lib/oop")
-var async = require("asyncjs/async")
-require("asyncjs/utils")
-
-exports.TestGenerator = function(source) {
+export let TestGenerator = function(source) {
     async.Generator.call(this, source)
 }
 
@@ -147,7 +145,7 @@ oop.inherits(exports.TestGenerator, async.Generator)
     
 }).call(exports.TestGenerator.prototype)
 
-exports.testcase = function(testcase, suiteName, timeout) {
+export let testcase = function(testcase, suiteName, timeout) {
     var methods = []
     for (var method in testcase)
         methods.push(method)
@@ -191,5 +189,3 @@ exports.testcase = function(testcase, suiteName, timeout) {
 
     return async.list(tests, exports.TestGenerator)
 }
-
-})

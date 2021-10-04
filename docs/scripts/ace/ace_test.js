@@ -32,14 +32,12 @@ if (typeof process !== "undefined") {
     require("amd-loader");
     require("./test/mockdom");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var ace = require("./ace");
-var assert = require("./test/assertions");
+import * as ace from "./ace.js";
+import * as assert from "./test/assertions.js";
 
-module.exports = {
+export default {
    "test: ace edit" : function() {
         var editor = ace.edit(null, {
             value: "Helo world"

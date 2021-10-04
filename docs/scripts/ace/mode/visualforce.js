@@ -1,13 +1,11 @@
 /* caption: Visualforce; extensions: component,page,vfp */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var HtmlMode = require("./html").Mode;
-var VisualforceHighlightRules = require("./visualforce_highlight_rules").VisualforceHighlightRules;
-var XmlBehaviour = require("./behaviour/xml").XmlBehaviour;
-var HtmlFoldMode = require("./folding/html").FoldMode;
+import * as oop from "../lib/oop.js";
+import { Mode as HtmlMode } from "./html.js";
+import { VisualforceHighlightRules as VisualforceHighlightRules } from "./visualforce_highlight_rules.js";
+import { XmlBehaviour as XmlBehaviour } from "./behaviour/xml.js";
+import { FoldMode as HtmlFoldMode } from "./folding/html.js";
 
 function VisualforceMode() {
     HtmlMode.call(this);
@@ -23,6 +21,4 @@ VisualforceMode.prototype.emmetConfig = {
     profile: "xhtml"
 };
 
-exports.Mode = VisualforceMode;
-
-});
+export { VisualforceMode as Mode };

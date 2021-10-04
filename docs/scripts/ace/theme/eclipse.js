@@ -27,15 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-exports.isDark = false;
-exports.cssText = require("../requirejs/text!./eclipse.css");
+export let isDark = false;
+export { cssText } from "../requirejs/text!./eclipse.css.js"
 
-exports.cssClass = "ace-eclipse";
+export { "ace-eclipse" as cssClass };
 
-var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
 dom.importCssString(exports.cssText, exports.cssClass);
-});

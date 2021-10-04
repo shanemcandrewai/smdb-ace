@@ -27,17 +27,15 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("./lib/oop");
-var lang = require("./lib/lang");
-var EventEmitter = require("./lib/event_emitter").EventEmitter;
+import * as oop from "./lib/oop.js";
+import * as lang from "./lib/lang.js";
+import { EventEmitter as EventEmitter } from "./lib/event_emitter.js";
 
-var Editor = require("./editor").Editor;
-var Renderer = require("./virtual_renderer").VirtualRenderer;
-var EditSession = require("./edit_session").EditSession;
+import { Editor as Editor } from "./editor.js";
+import { VirtualRenderer as Renderer } from "./virtual_renderer.js";
+import { EditSession as EditSession } from "./edit_session.js";
 
 /** 
  * @class Split
@@ -322,5 +320,4 @@ var Split = function(container, theme, splits) {
 
 }).call(Split.prototype);
 
-exports.Split = Split;
-});
+export { Split as Split };

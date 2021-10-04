@@ -32,15 +32,13 @@ if (typeof process !== "undefined") {
     require("amd-loader");
     require("./test/mockdom");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var ace = require("./ace");
-var assert = require("./test/assertions");
-require("./ext/language_tools");
+import * as ace from "./ace.js";
+import * as assert from "./test/assertions.js";
+import * as language_tools from "./ext/language_tools.js";
 
-module.exports = {
+export default {
    "test: highlighting in the popup" : function(done) {
         var editor = ace.edit(null, {
             value: "\narraysort alooooooooooooooooooooooooooooong_word",

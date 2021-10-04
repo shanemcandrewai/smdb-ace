@@ -1,9 +1,8 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
+import * as oop from "../lib/oop.js";
 
-var CsoundPreprocessorHighlightRules = require("./csound_preprocessor_highlight_rules").CsoundPreprocessorHighlightRules;
+import { CsoundPreprocessorHighlightRules as CsoundPreprocessorHighlightRules } from "./csound_preprocessor_highlight_rules.js";
 
 var CsoundScoreHighlightRules = function(embeddedRulePrefix) {
 
@@ -152,5 +151,4 @@ var CsoundScoreHighlightRules = function(embeddedRulePrefix) {
 
 oop.inherits(CsoundScoreHighlightRules, CsoundPreprocessorHighlightRules);
 
-exports.CsoundScoreHighlightRules = CsoundScoreHighlightRules;
-});
+export { CsoundScoreHighlightRules as CsoundScoreHighlightRules };

@@ -27,13 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var MixalHighlightRules = require("./mixal_highlight_rules").MixalHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { MixalHighlightRules as MixalHighlightRules } from "./mixal_highlight_rules.js";
 
 var Mode = function() {
     this.HighlightRules = MixalHighlightRules;
@@ -45,5 +43,4 @@ oop.inherits(Mode, TextMode);
     this.lineCommentStart = "*";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

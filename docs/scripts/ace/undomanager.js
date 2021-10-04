@@ -27,8 +27,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
 /**
@@ -299,7 +297,7 @@ function rearrangeUndoStack(stack, pos) {
     }
 }
 
-var Range = require("./range").Range;
+import { Range as Range } from "./range.js";
 var cmp = Range.comparePoints;
 var comparePoints = Range.comparePoints;
 
@@ -592,6 +590,4 @@ function rebaseRedoStack(redoStack, deltaSets) {
     }
 }
 
-exports.UndoManager = UndoManager;
-
-});
+export { UndoManager as UndoManager };

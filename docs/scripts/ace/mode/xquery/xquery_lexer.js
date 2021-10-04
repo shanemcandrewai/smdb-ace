@@ -1,4 +1,3 @@
-define(function(require, exports, module) {
 module.exports = (function outer (modules, cache, entry) {
     var previousRequire = typeof require == "function" && require;
     function newRequire(name, jumped){
@@ -4225,7 +4224,7 @@ var TokenHandler = function(code) {
     };
 };
 
-exports.Lexer = function(Tokenizer, Rules) {
+export let Lexer = function(Tokenizer, Rules) {
 
     this.tokens = [];
   
@@ -4432,7 +4431,5 @@ var Rules = {
     ]
 };
     
-exports.XQueryLexer = function(){ return new Lexer(XQueryTokenizer, Rules); };
+export let XQueryLexer = function(){ return new Lexer(XQueryTokenizer, Rules); };
 },{"./XQueryTokenizer":"/node_modules/xqlint/lib/lexers/XQueryTokenizer.js","./lexer":"/node_modules/xqlint/lib/lexers/lexer.js"}]},{},["/node_modules/xqlint/lib/lexers/xquery_lexer.js"]);
-
-});

@@ -33,7 +33,7 @@
  */
 
 "use strict";
-module.exports = function(source) { 
+export default function(source) { 
     if (this.fs && this.resourcePath)
         source = this.fs.readFileSync(this.resourcePath).toString("utf8");
     source = source.replace(/\/\*(?:[^*]|[*](?=[^\/]))+\*\//g, "")

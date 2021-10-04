@@ -41,10 +41,8 @@
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  */
-
-define(function(require, exports, module) {
 "use strict";
-var keys = require("../../lib/keys");
+import * as keys from "../../lib/keys.js";
 
 /**
  * Gets a map of keyboard shortcuts to command names for the current platform.
@@ -62,7 +60,7 @@ var keys = require("../../lib/keys");
  * //     {'command' : aCommand, 'key' : 'Control-d'}
  * // ]
  */
-module.exports.getEditorKeybordShortcuts = function(editor) {
+export { getEditorKeybordShortcuts } = function(editor) {
     var KEY_MODS = keys.KEY_MODS;
     var keybindings = [];
     var commandMap = {};
@@ -87,5 +85,3 @@ module.exports.getEditorKeybordShortcuts = function(editor) {
     });
     return keybindings;
 };
-
-});

@@ -27,13 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var JavaScriptHighlightRules = require("./javascript_highlight_rules").JavaScriptHighlightRules;
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { JavaScriptHighlightRules as JavaScriptHighlightRules } from "./javascript_highlight_rules.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var SJSHighlightRules = function() {
     var parent = new JavaScriptHighlightRules({noES6: true});
@@ -229,5 +227,4 @@ var SJSHighlightRules = function() {
 };
 oop.inherits(SJSHighlightRules, TextHighlightRules);
 
-exports.SJSHighlightRules = SJSHighlightRules;
-});
+export { SJSHighlightRules as SJSHighlightRules };

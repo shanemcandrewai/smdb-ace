@@ -27,11 +27,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
 
 var Lines = function(element, canvasHeight) {
     this.element = element;
@@ -151,6 +149,4 @@ var Lines = function(element, canvasHeight) {
     
 }).call(Lines.prototype);
 
-exports.Lines = Lines;
-
-});
+export { Lines as Lines };

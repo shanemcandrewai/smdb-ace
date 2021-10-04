@@ -27,13 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var Mirror = require("../worker/mirror").Mirror;
-var lint = require("./javascript/jshint").JSHINT;
+import * as oop from "../lib/oop.js";
+import { Mirror as Mirror } from "../worker/mirror.js";
+import { JSHINT as lint } from "./javascript/jshint.js";
 
 function startRegex(arr) {
     return RegExp("^(" + arr.join("|") + ")");
@@ -181,5 +179,3 @@ oop.inherits(JavaScriptWorker, Mirror);
     };
 
 }).call(JavaScriptWorker.prototype);
-
-});

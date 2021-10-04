@@ -49,8 +49,6 @@
 /*members "", "\"", "\/", "\\", at, b, call, charAt, f, fromCharCode,
     hasOwnProperty, message, n, name, push, r, t, text
 */
-
-define(function(require, exports, module) {
 "use strict";
 
 // This is a function that can parse a JSON text, producing a JavaScript
@@ -345,4 +343,3 @@ define(function(require, exports, module) {
             return reviver.call(holder, key, value);
         }({'': result}, '') : result;
     };
-});

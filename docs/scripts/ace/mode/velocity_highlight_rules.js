@@ -1,10 +1,9 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var lang = require("../lib/lang");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
-var HtmlHighlightRules = require("./html_highlight_rules").HtmlHighlightRules;
+import * as oop from "../lib/oop.js";
+import * as lang from "../lib/lang.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
+import { HtmlHighlightRules as HtmlHighlightRules } from "./html_highlight_rules.js";
 
 var VelocityHighlightRules = function() {
     HtmlHighlightRules.call(this);
@@ -173,5 +172,4 @@ var VelocityHighlightRules = function() {
 
 oop.inherits(VelocityHighlightRules, TextHighlightRules);
 
-exports.VelocityHighlightRules = VelocityHighlightRules;
-});
+export { VelocityHighlightRules as VelocityHighlightRules };

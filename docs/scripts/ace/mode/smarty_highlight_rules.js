@@ -33,12 +33,10 @@
  * IT MIGHT NOT BE PERFECT ...But it's a good start from an existing *.tmlanguage file. *
  * fileTypes                                                                            *
  ****************************************************************************************/
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var HtmlHighlightRules = require("./html_highlight_rules").HtmlHighlightRules;
+import * as oop from "../lib/oop.js";
+import { HtmlHighlightRules as HtmlHighlightRules } from "./html_highlight_rules.js";
 
 var SmartyHighlightRules = function() {
     HtmlHighlightRules.call(this);
@@ -135,5 +133,4 @@ SmartyHighlightRules.metaData = { fileTypes: [ 'tpl' ],
 
 oop.inherits(SmartyHighlightRules, HtmlHighlightRules);
 
-exports.SmartyHighlightRules = SmartyHighlightRules;
-});
+export { SmartyHighlightRules as SmartyHighlightRules };

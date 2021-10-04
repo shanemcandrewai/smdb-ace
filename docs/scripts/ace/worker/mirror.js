@@ -1,9 +1,8 @@
-define(function(require, exports, module) {
 "use strict";
 
-var Range = require("../range").Range;
-var Document = require("../document").Document;
-var lang = require("../lib/lang");
+import { Range as Range } from "../range.js";
+import { Document as Document } from "../document.js";
+import * as lang from "../lib/lang.js";
     
 var Mirror = exports.Mirror = function(sender) {
     this.sender = sender;
@@ -58,5 +57,3 @@ var Mirror = exports.Mirror = function(sender) {
     };
     
 }).call(Mirror.prototype);
-
-});

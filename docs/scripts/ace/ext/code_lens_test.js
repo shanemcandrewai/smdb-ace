@@ -34,21 +34,19 @@ if (typeof process !== "undefined") {
     require("amd-loader");
     require("../test/mockdom");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var ace = require("../ace");
-var codeLens = require("./code_lens");
-var assert = require("../test/assertions");
-require("./error_marker");
+import * as ace from "../ace.js";
+import * as codeLens from "./code_lens.js";
+import * as assert from "../test/assertions.js";
+import * as error_marker from "./error_marker.js";
 
 function click(node) {
     node.dispatchEvent(new window.CustomEvent("click", {bubbles: true}));
 }
 
 var editor = null;
-module.exports = {
+export default {
     setUp: function() {
         if (editor)
             editor.destroy();

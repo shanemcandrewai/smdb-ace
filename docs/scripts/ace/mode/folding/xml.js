@@ -27,15 +27,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../../lib/oop");
-var lang = require("../../lib/lang");
-var Range = require("../../range").Range;
-var BaseFoldMode = require("./fold_mode").FoldMode;
-var TokenIterator = require("../../token_iterator").TokenIterator;
+import * as oop from "../../lib/oop.js";
+import * as lang from "../../lib/lang.js";
+import { Range as Range } from "../../range.js";
+import { FoldMode as BaseFoldMode } from "./fold_mode.js";
+import { TokenIterator as TokenIterator } from "../../token_iterator.js";
 
 var FoldMode = exports.FoldMode = function(voidElements, optionalEndTags) {
     BaseFoldMode.call(this);
@@ -282,5 +280,3 @@ function is(token, type) {
     };
 
 }).call(FoldMode.prototype);
-
-});

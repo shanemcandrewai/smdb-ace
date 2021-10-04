@@ -27,13 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
   "use strict";
 
-var oop = require("../lib/oop");
-var HtmlMode = require("./html").Mode;
-var NunjucksHighlightRules = require("./nunjucks_highlight_rules").NunjucksHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as HtmlMode } from "./html.js";
+import { NunjucksHighlightRules as NunjucksHighlightRules } from "./nunjucks_highlight_rules.js";
 
 var Mode = function() {
     this.HighlightRules = NunjucksHighlightRules;
@@ -45,5 +43,4 @@ oop.inherits(Mode, HtmlMode);
     this.$id = "ace/mode/nunjucks";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

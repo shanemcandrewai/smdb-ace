@@ -27,8 +27,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
 var propertyMap = {
@@ -205,5 +203,4 @@ var CssCompletions = function() {
 
 }).call(CssCompletions.prototype);
 
-exports.CssCompletions = CssCompletions;
-});
+export { CssCompletions as CssCompletions };

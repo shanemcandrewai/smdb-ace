@@ -28,17 +28,15 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-
-var oop = require("../lib/oop");
-var lang = require("../lib/lang");
-var DocCommentHighlightRules = require("./doc_comment_highlight_rules").DocCommentHighlightRules;
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import * as lang from "../lib/lang.js";
+import { DocCommentHighlightRules as DocCommentHighlightRules } from "./doc_comment_highlight_rules.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 // Syntax highlighting for pl/languages and json.
-var PerlHighlightRules = require("./perl_highlight_rules").PerlHighlightRules;
-var PythonHighlightRules = require("./python_highlight_rules").PythonHighlightRules;
-var JsonHighlightRules = require("./json_highlight_rules").JsonHighlightRules;
-var JavaScriptHighlightRules = require("./javascript_highlight_rules").JavaScriptHighlightRules;
+import { PerlHighlightRules as PerlHighlightRules } from "./perl_highlight_rules.js";
+import { PythonHighlightRules as PythonHighlightRules } from "./python_highlight_rules.js";
+import { JsonHighlightRules as JsonHighlightRules } from "./json_highlight_rules.js";
+import { JavaScriptHighlightRules as JavaScriptHighlightRules } from "./javascript_highlight_rules.js";
 
 var PgsqlHighlightRules = function() {
 
@@ -611,6 +609,4 @@ var PgsqlHighlightRules = function() {
 
 oop.inherits(PgsqlHighlightRules, TextHighlightRules);
 
-exports.PgsqlHighlightRules = PgsqlHighlightRules;
-});
-
+export { PgsqlHighlightRules as PgsqlHighlightRules };

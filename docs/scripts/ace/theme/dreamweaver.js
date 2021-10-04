@@ -27,12 +27,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+export let isDark = false;
+export { "ace-dreamweaver" as cssClass };
+export { cssText } from "../requirejs/text!./dreamweaver.css.js"
 
-define(function(require, exports, module) {
-exports.isDark = false;
-exports.cssClass = "ace-dreamweaver";
-exports.cssText = require("../requirejs/text!./dreamweaver.css");
-
-var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
 dom.importCssString(exports.cssText, exports.cssClass);
-});

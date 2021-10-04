@@ -4,13 +4,11 @@ if (typeof process !== "undefined") {
     require("amd-loader");
     require("./mockdom");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var assert = require("./assertions");
+import * as assert from "./assertions.js";
 
-module.exports = {
+export default {
    "test: getBoundingClientRect" : function() {
         var span = document.createElement("span");
         span.textContent = "x";

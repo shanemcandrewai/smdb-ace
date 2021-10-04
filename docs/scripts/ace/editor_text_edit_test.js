@@ -32,19 +32,17 @@ if (typeof process !== "undefined") {
     require("amd-loader");
     require("./test/mockdom");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var EditSession = require("./edit_session").EditSession;
-var Editor = require("./editor").Editor;
-var JavaScriptMode = require("./mode/javascript").Mode;
-var UndoManager = require("./undomanager").UndoManager;
-var MockRenderer = require("./test/mockrenderer").MockRenderer;
-var assert = require("./test/assertions");
-var whitespace = require("./ext/whitespace");
+import { EditSession as EditSession } from "./edit_session.js";
+import { Editor as Editor } from "./editor.js";
+import { Mode as JavaScriptMode } from "./mode/javascript.js";
+import { UndoManager as UndoManager } from "./undomanager.js";
+import { MockRenderer as MockRenderer } from "./test/mockrenderer.js";
+import * as assert from "./test/assertions.js";
+import * as whitespace from "./ext/whitespace.js";
 
-module.exports = {
+export default {
     "test: delete line from the middle" : function() {
         var session = new EditSession(["a", "b", "c", "d"].join("\n"));
         var editor = new Editor(new MockRenderer(), session);

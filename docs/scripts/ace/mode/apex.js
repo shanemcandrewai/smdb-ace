@@ -1,13 +1,11 @@
 /* caption: Apex; extensions: apex,cls,trigger,tgr */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("../mode/text").Mode;
-var ApexHighlightRules = require("./apex_highlight_rules").ApexHighlightRules;
-var FoldMode = require("../mode/folding/cstyle").FoldMode;
-var CstyleBehaviour = require("../mode/behaviour/cstyle").CstyleBehaviour;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "../mode/text.js";
+import { ApexHighlightRules as ApexHighlightRules } from "./apex_highlight_rules.js";
+import { FoldMode as FoldMode } from "../mode/folding/cstyle.js";
+import { CstyleBehaviour as CstyleBehaviour } from "../mode/behaviour/cstyle.js";
 
 function ApexMode() {
     TextMode.call(this);
@@ -26,6 +24,4 @@ ApexMode.prototype.blockComment = {
     end: "*/"
 };
 
-exports.Mode = ApexMode;
-
-});
+export { ApexMode as Mode };

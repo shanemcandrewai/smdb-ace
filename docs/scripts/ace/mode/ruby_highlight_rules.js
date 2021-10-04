@@ -27,12 +27,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 // exports is for Haml
 var constantOtherSymbol = exports.constantOtherSymbol = {
@@ -638,5 +636,4 @@ var RubyHighlightRules = function() {
 
 oop.inherits(RubyHighlightRules, TextHighlightRules);
 
-exports.RubyHighlightRules = RubyHighlightRules;
-});
+export { RubyHighlightRules as RubyHighlightRules };

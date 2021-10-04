@@ -28,12 +28,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+export { true as isDark };
+export { "ace-pastel-on-dark" as cssClass };
+export { cssText } from "../requirejs/text!./pastel_on_dark.css.js"
 
-exports.isDark = true;
-exports.cssClass = "ace-pastel-on-dark";
-exports.cssText = require("../requirejs/text!./pastel_on_dark.css");
-
-var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
 dom.importCssString(exports.cssText, exports.cssClass);
-});

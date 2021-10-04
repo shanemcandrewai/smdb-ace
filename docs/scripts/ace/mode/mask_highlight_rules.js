@@ -27,19 +27,17 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-exports.MaskHighlightRules = MaskHighlightRules;
+export { MaskHighlightRules as MaskHighlightRules };
 
-var oop = require("../lib/oop");
-var lang = require("../lib/lang");
-var TextRules   = require("./text_highlight_rules").TextHighlightRules;
-var JSRules     = require("./javascript_highlight_rules").JavaScriptHighlightRules;
-var CssRules    = require("./css_highlight_rules").CssHighlightRules;
-var MDRules     = require("./markdown_highlight_rules").MarkdownHighlightRules;
-var HTMLRules   = require("./html_highlight_rules").HtmlHighlightRules;
+import * as oop from "../lib/oop.js";
+import * as lang from "../lib/lang.js";
+import { TextHighlightRules as TextRules } from "./text_highlight_rules.js";
+import { JavaScriptHighlightRules as JSRules } from "./javascript_highlight_rules.js";
+import { CssHighlightRules as CssRules } from "./css_highlight_rules.js";
+import { MarkdownHighlightRules as MDRules } from "./markdown_highlight_rules.js";
+import { HtmlHighlightRules as HTMLRules } from "./html_highlight_rules.js";
 
 var token_TAG       = "keyword.support.constant.language",
     token_COMPO     = "support.function.markup.bold",
@@ -305,5 +303,3 @@ function Token(token, rgx, mix) {
         onMatch: onMatch
     };
 }
-
-});

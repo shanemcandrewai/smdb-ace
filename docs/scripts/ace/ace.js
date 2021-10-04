@@ -33,38 +33,36 @@
  *
  * @class Ace
  **/
-
-define(function(require, exports, module) {
 "use strict";
 
-require("./lib/fixoldbrowsers");
+import * as fixoldbrowsers from "./lib/fixoldbrowsers.js";
 
-var dom = require("./lib/dom");
-var event = require("./lib/event");
+import * as dom from "./lib/dom.js";
+import * as event from "./lib/event.js";
 
-var Range = require("./range").Range;
-var Editor = require("./editor").Editor;
-var EditSession = require("./edit_session").EditSession;
-var UndoManager = require("./undomanager").UndoManager;
-var Renderer = require("./virtual_renderer").VirtualRenderer;
+import { Range as Range } from "./range.js";
+import { Editor as Editor } from "./editor.js";
+import { EditSession as EditSession } from "./edit_session.js";
+import { UndoManager as UndoManager } from "./undomanager.js";
+import { VirtualRenderer as Renderer } from "./virtual_renderer.js";
 
 // The following require()s are for inclusion in the built ace file
-require("./worker/worker_client");
-require("./keyboard/hash_handler");
-require("./placeholder");
-require("./multi_select");
-require("./mode/folding/fold_mode");
-require("./theme/textmate");
-require("./ext/error_marker");
+import * as worker_client from "./worker/worker_client.js";
+import * as hash_handler from "./keyboard/hash_handler.js";
+import * as placeholder from "./placeholder.js";
+import * as multi_select from "./multi_select.js";
+import * as fold_mode from "./mode/folding/fold_mode.js";
+import * as textmate from "./theme/textmate.js";
+import * as error_marker from "./ext/error_marker.js";
 
-exports.config = require("./config");
+export { config } from "./config.js"
 
 /**
  * Provides access to require in packed noconflict mode
  * @param {String} moduleName
  * @returns {Object}
  **/
-exports.require = require;
+// export { require as require };
 
 if (typeof define === "function")
     exports.define = define;
@@ -75,7 +73,7 @@ if (typeof define === "function")
  * @param {Object } options Options for the editor
  *
  **/
-exports.edit = function(el, options) {
+export let edit = function(el, options) {
     if (typeof el == "string") {
         var _id = el;
         el = document.getElementById(_id);
@@ -122,15 +120,14 @@ exports.edit = function(el, options) {
  * @param {TextMode} mode {:modeParam}
  *
  **/
-exports.createEditSession = function(text, mode) {
+export let createEditSession = function(text, mode) {
     var doc = new EditSession(text, mode);
     doc.setUndoManager(new UndoManager());
     return doc;
 };
-exports.Range = Range;
-exports.Editor = Editor;
-exports.EditSession = EditSession;
-exports.UndoManager = UndoManager;
-exports.VirtualRenderer = Renderer;
-exports.version = exports.config.version;
-});
+export { Range as Range };
+export { Editor as Editor };
+export { EditSession as EditSession };
+export { UndoManager as UndoManager };
+export { Renderer as VirtualRenderer };
+// export { exports.config.version as version };

@@ -27,17 +27,15 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
-var oop = require("./lib/oop");
-var EventEmitter = require("./lib/event_emitter").EventEmitter;
-var lang = require("./lib/lang");
-var Range = require("./range").Range;
-var RangeList = require("./range_list").RangeList;
-var HashHandler = require("./keyboard/hash_handler").HashHandler;
-var Tokenizer = require("./tokenizer").Tokenizer;
-var clipboard = require("./clipboard");
+import * as oop from "./lib/oop.js";
+import { EventEmitter as EventEmitter } from "./lib/event_emitter.js";
+import * as lang from "./lib/lang.js";
+import { Range as Range } from "./range.js";
+import { RangeList as RangeList } from "./range_list.js";
+import { HashHandler as HashHandler } from "./keyboard/hash_handler.js";
+import { Tokenizer as Tokenizer } from "./tokenizer.js";
+import * as clipboard from "./clipboard.js";
 
 var VARIABLES = {
     CURRENT_WORD: function(editor) {
@@ -1027,7 +1025,8 @@ var moveRelative = function(point, start) {
 };
 
 
-require("./lib/dom").importCssString("\
+import * as dom from "./lib/dom.js"
+dom.importCssString("\
 .ace_snippet-marker {\
     -moz-box-sizing: border-box;\
     box-sizing: border-box;\
@@ -1036,10 +1035,10 @@ require("./lib/dom").importCssString("\
     position: absolute;\
 }");
 
-exports.snippetManager = new SnippetManager();
+export { new SnippetManager() as snippetManager };
 
 
-var Editor = require("./editor").Editor;
+import { Editor as Editor } from "./editor.js";
 (function() {
     this.insertSnippet = function(content, options) {
         return exports.snippetManager.insertSnippet(this, content, options);
@@ -1048,5 +1047,3 @@ var Editor = require("./editor").Editor;
         return exports.snippetManager.expandWithTab(this, options);
     };
 }).call(Editor.prototype);
-
-});

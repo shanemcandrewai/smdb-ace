@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
-var Behaviour = require("./behaviour").Behaviour;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
+import { Behaviour as Behaviour } from "./behaviour.js";
 
 var Mode = function() {
     this.HighlightRules = TextHighlightRules;
@@ -51,5 +49,4 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/plain_text";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

@@ -28,16 +28,14 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var HtmlRubyHighlightRules = require("./html_ruby_highlight_rules").HtmlRubyHighlightRules;
-var HtmlMode = require("./html").Mode;
-var JavaScriptMode = require("./javascript").Mode;
-var CssMode = require("./css").Mode;
-var RubyMode = require("./ruby").Mode;
+import * as oop from "../lib/oop.js";
+import { HtmlRubyHighlightRules as HtmlRubyHighlightRules } from "./html_ruby_highlight_rules.js";
+import { Mode as HtmlMode } from "./html.js";
+import { Mode as JavaScriptMode } from "./javascript.js";
+import { Mode as CssMode } from "./css.js";
+import { Mode as RubyMode } from "./ruby.js";
 
 var Mode = function() {
     HtmlMode.call(this);   
@@ -55,5 +53,4 @@ oop.inherits(Mode, HtmlMode);
     this.$id = "ace/mode/html_ruby";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

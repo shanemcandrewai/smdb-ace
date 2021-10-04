@@ -1,7 +1,4 @@
-define(function(require, exports, module) {
 "use strict";
 
-exports.snippetText = require("../requirejs/text!./clojure.snippets");
-exports.scope = "clojure";
-
-});
+export { snippetText } from "../requirejs/text!./clojure.snippets.js"
+export { "clojure" as scope };

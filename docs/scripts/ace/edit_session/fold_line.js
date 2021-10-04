@@ -27,11 +27,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var Range = require("../range").Range;
+import { Range as Range } from "../range.js";
 
 /*
  * If an array is passed in, the folds are expected to be sorted already.
@@ -265,5 +263,4 @@ function FoldLine(foldData, folds) {
     };
 }).call(FoldLine.prototype);
 
-exports.FoldLine = FoldLine;
-});
+export { FoldLine as FoldLine };

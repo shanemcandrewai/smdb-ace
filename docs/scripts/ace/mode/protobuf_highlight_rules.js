@@ -1,4 +1,3 @@
-define(function(require, exports, module) {
     "use strict";
 
     var oop = require("../lib/oop");
@@ -62,4 +61,3 @@ define(function(require, exports, module) {
     oop.inherits(ProtobufHighlightRules, TextHighlightRules);
 
     exports.ProtobufHighlightRules = ProtobufHighlightRules;
-});

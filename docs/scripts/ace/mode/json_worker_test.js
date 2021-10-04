@@ -31,15 +31,13 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var assert = require("../test/assertions");
-var Worker = require("./json_worker").JsonWorker;
+import * as assert from "../test/assertions.js";
+import { JsonWorker as Worker } from "./json_worker.js";
 
 
-module.exports = {
+export default {
     setUp : function() {
         this.sender = {
             on: function() {},

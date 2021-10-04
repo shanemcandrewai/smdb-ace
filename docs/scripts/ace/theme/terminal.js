@@ -28,12 +28,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+export { true as isDark };
+export { "ace-terminal-theme" as cssClass };
+export { cssText } from "../requirejs/text!./terminal.css.js"
 
-exports.isDark = true;
-exports.cssClass = "ace-terminal-theme";
-exports.cssText = require("../requirejs/text!./terminal.css");
-
-var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
 dom.importCssString(exports.cssText, exports.cssClass);
-});

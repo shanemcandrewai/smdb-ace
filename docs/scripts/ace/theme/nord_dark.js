@@ -28,13 +28,10 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-
-exports.isDark = true;
-exports.cssClass = "ace-nord-dark";
-exports.cssText = require("../requirejs/text!./nord_dark.css");
+export { true as isDark };
+export { "ace-nord-dark" as cssClass };
+export { cssText } from "../requirejs/text!./nord_dark.css.js"
 exports.$selectionColorConflict = true;
 
-var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
 dom.importCssString(exports.cssText, exports.cssClass);
-});

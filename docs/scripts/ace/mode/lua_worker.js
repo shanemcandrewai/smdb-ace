@@ -27,13 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var Mirror = require("../worker/mirror").Mirror;
-var luaparse = require("../mode/lua/luaparse");
+import * as oop from "../lib/oop.js";
+import { Mirror as Mirror } from "../worker/mirror.js";
+import * as luaparse from "../mode/lua/luaparse.js";
 
 var Worker = exports.Worker = function(sender) {
     Mirror.call(this, sender);
@@ -66,5 +64,3 @@ oop.inherits(Worker, Mirror);
     };
 
 }).call(Worker.prototype);
-
-});

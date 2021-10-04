@@ -27,15 +27,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var PythonHighlightRules = require("./python_highlight_rules").PythonHighlightRules;
-var PythonFoldMode = require("./folding/pythonic").FoldMode;
-var Range = require("../range").Range;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { PythonHighlightRules as PythonHighlightRules } from "./python_highlight_rules.js";
+import { FoldMode as PythonFoldMode } from "./folding/pythonic.js";
+import { Range as Range } from "../range.js";
 
 var Mode = function() {
     this.HighlightRules = PythonHighlightRules;
@@ -111,5 +109,4 @@ oop.inherits(Mode, TextMode);
     this.snippetFileId = "ace/snippets/python";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

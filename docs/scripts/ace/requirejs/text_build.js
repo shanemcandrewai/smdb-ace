@@ -33,13 +33,13 @@
  */
  
 "use strict";
-exports.buildMap = Object.create(null);
-exports.load = function(name, req, onLoad, config) {
+export { Object.create(null) as buildMap };
+export let load = function(name, req, onLoad, config) {
     var buildMap = exports.buildMap;
     buildMap[name] = require('fs').readFileSync(req.toUrl(name), 'utf8');
     onLoad(buildMap[name]);
 };
-exports.write = function(pluginName, moduleName, write, config) {
+export let write = function(pluginName, moduleName, write, config) {
     if (exports.buildMap[moduleName]) {
         var content = exports.jsEscape(exports.buildMap[moduleName]);
         write.asModule(pluginName + "!" + moduleName,
@@ -48,7 +48,7 @@ exports.write = function(pluginName, moduleName, write, config) {
            "';});\n");
     }
 };
-exports.jsEscape = function(content) {
+export let jsEscape = function(content) {
     return content.replace(/(['\\])/g, '\\$1')
         .replace(/[\f]/g, "\\f")
         .replace(/[\b]/g, "\\b")

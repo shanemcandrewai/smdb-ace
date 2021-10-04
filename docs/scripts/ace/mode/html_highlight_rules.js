@@ -27,15 +27,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var lang = require("../lib/lang");
-var CssHighlightRules = require("./css_highlight_rules").CssHighlightRules;
-var JavaScriptHighlightRules = require("./javascript_highlight_rules").JavaScriptHighlightRules;
-var XmlHighlightRules = require("./xml_highlight_rules").XmlHighlightRules;
+import * as oop from "../lib/oop.js";
+import * as lang from "../lib/lang.js";
+import { CssHighlightRules as CssHighlightRules } from "./css_highlight_rules.js";
+import { JavaScriptHighlightRules as JavaScriptHighlightRules } from "./javascript_highlight_rules.js";
+import { XmlHighlightRules as XmlHighlightRules } from "./xml_highlight_rules.js";
 
 var tagMap = lang.createMap({
     a           : 'anchor',
@@ -107,5 +105,4 @@ var HtmlHighlightRules = function() {
 
 oop.inherits(HtmlHighlightRules, XmlHighlightRules);
 
-exports.HtmlHighlightRules = HtmlHighlightRules;
-});
+export { HtmlHighlightRules as HtmlHighlightRules };

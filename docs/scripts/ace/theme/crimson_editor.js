@@ -27,13 +27,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+export let isDark = false;
+export { cssText } from "../requirejs/text!./crimson_editor.css.js"
 
-define(function(require, exports, module) {
-exports.isDark = false;
-exports.cssText = require("../requirejs/text!./crimson_editor.css");
+export { "ace-crimson-editor" as cssClass };
 
-exports.cssClass = "ace-crimson-editor";
-
-var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
 dom.importCssString(exports.cssText, exports.cssClass);
-});

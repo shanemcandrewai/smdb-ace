@@ -1,4 +1,3 @@
-define(function(require, exports, module) {
 module.exports = (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({
 1:[function(_dereq_,module,exports){
 function isScopeMarker(node) {
@@ -293,7 +292,7 @@ Object.defineProperty(ElementStack.prototype, 'length', {
 	}
 });
 
-exports.ElementStack = ElementStack;
+export { ElementStack as ElementStack };
 
 },
 {}],
@@ -481,7 +480,7 @@ EntityParser.replaceEntityNumbers = function(c) {
 	}
 };
 
-exports.EntityParser = EntityParser;
+export { EntityParser as EntityParser };
 
 },
 {"./InputStream":3,"html5-entities":12}],
@@ -596,7 +595,7 @@ InputStream.prototype = {
 	}
 };
 
-exports.InputStream = InputStream;
+export { InputStream as InputStream };
 
 },
 {}],
@@ -779,7 +778,7 @@ StackItem.prototype.isMathMLTextIntegrationPoint = function() {
 	return false;
 };
 
-exports.StackItem = StackItem;
+export { StackItem as StackItem };
 
 },
 {}],
@@ -2346,7 +2345,7 @@ Object.defineProperty(Tokenizer.prototype, 'columnNumber', {
 	}
 });
 
-exports.Tokenizer = Tokenizer;
+export { Tokenizer as Tokenizer };
 
 },
 {"./EntityParser":2,"./InputStream":3}],
@@ -5420,7 +5419,7 @@ function formatMessage(format, args) {
 	});
 }
 
-exports.TreeBuilder = TreeBuilder;
+export { TreeBuilder as TreeBuilder };
 
 },
 {"./ElementStack":1,"./StackItem":4,"./Tokenizer":5,"./constants":7,"./messages.json":8,"assert":13,"events":16}],
@@ -5550,7 +5549,7 @@ exports.ForeignAttributeMap = {
 },
 {}],
 8:[function(_dereq_,module,exports){
-module.exports={
+export default {
 	"null-character":
 		"Null character in input stream, replaced with U+FFFD.",
 	"invalid-codepoint":
@@ -5860,7 +5859,7 @@ Object.defineProperty(SAXParser.prototype, 'errorHandler', {
 	}
 });
 
-exports.SAXParser = SAXParser;
+export { SAXParser as SAXParser };
 
 },
 {"../Tokenizer":5,"./SAXTreeBuilder":10,"./TreeParser":11}],
@@ -6559,7 +6558,7 @@ DTD.prototype.revisit = function(treeParser) {
 	treeParser.endDTD();
 };
 
-exports.SAXTreeBuilder = SAXTreeBuilder;
+export { SAXTreeBuilder as SAXTreeBuilder };
 
 },
 {"../TreeBuilder":6,"util":20}],
@@ -6816,12 +6815,12 @@ NullLexicalHandler.prototype.startCDATA = function() {};
 NullLexicalHandler.prototype.startDTD = function() {};
 NullLexicalHandler.prototype.startEntity = function() {};
 
-exports.TreeParser = TreeParser;
+export { TreeParser as TreeParser };
 
 },
 {}],
 12:[function(_dereq_,module,exports){
-module.exports = {
+export default {
 	"Aacute;": "\u00C1",
 	"Aacute": "\u00C1",
 	"aacute;": "\u00E1",
@@ -9422,7 +9421,7 @@ var objectKeys = Object.keys || function (obj) {
 },
 {"util/":15}],
 14:[function(_dereq_,module,exports){
-module.exports = function isBuffer(arg) {
+export default function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
@@ -9454,7 +9453,7 @@ module.exports = function isBuffer(arg) {
 // USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 var formatRegExp = /%[sdj%]/g;
-exports.format = function(f) {
+export let format = function(f) {
   if (!isString(f)) {
     var objects = [];
     for (var i = 0; i < arguments.length; i++) {
@@ -9496,7 +9495,7 @@ exports.format = function(f) {
 // Mark that a method should not be used.
 // Returns a modified function which warns once by default.
 // If --no-deprecation is set, then it is a no-op.
-exports.deprecate = function(fn, msg) {
+export let deprecate = function(fn, msg) {
   // Allow for deprecating things in the process of starting up.
   if (isUndefined(global.process)) {
     return function() {
@@ -9529,7 +9528,7 @@ exports.deprecate = function(fn, msg) {
 
 var debugs = {};
 var debugEnviron;
-exports.debuglog = function(set) {
+export let debuglog = function(set) {
   if (isUndefined(debugEnviron))
     debugEnviron = process.env.NODE_DEBUG || '';
   set = set.toUpperCase();
@@ -9580,7 +9579,7 @@ function inspect(obj, opts) {
   if (ctx.colors) ctx.stylize = stylizeWithColor;
   return formatValue(ctx, obj, ctx.depth);
 }
-exports.inspect = inspect;
+export { inspect as inspect };
 
 
 // http://en.wikipedia.org/wiki/ANSI_escape_code#graphics
@@ -9884,68 +9883,68 @@ function reduceToSingleString(output, base, braces) {
 function isArray(ar) {
   return Array.isArray(ar);
 }
-exports.isArray = isArray;
+export { isArray as isArray };
 
 function isBoolean(arg) {
   return typeof arg === 'boolean';
 }
-exports.isBoolean = isBoolean;
+export { isBoolean as isBoolean };
 
 function isNull(arg) {
   return arg === null;
 }
-exports.isNull = isNull;
+export { isNull as isNull };
 
 function isNullOrUndefined(arg) {
   return arg == null;
 }
-exports.isNullOrUndefined = isNullOrUndefined;
+export { isNullOrUndefined as isNullOrUndefined };
 
 function isNumber(arg) {
   return typeof arg === 'number';
 }
-exports.isNumber = isNumber;
+export { isNumber as isNumber };
 
 function isString(arg) {
   return typeof arg === 'string';
 }
-exports.isString = isString;
+export { isString as isString };
 
 function isSymbol(arg) {
   return typeof arg === 'symbol';
 }
-exports.isSymbol = isSymbol;
+export { isSymbol as isSymbol };
 
 function isUndefined(arg) {
   return arg === void 0;
 }
-exports.isUndefined = isUndefined;
+export { isUndefined as isUndefined };
 
 function isRegExp(re) {
   return isObject(re) && objectToString(re) === '[object RegExp]';
 }
-exports.isRegExp = isRegExp;
+export { isRegExp as isRegExp };
 
 function isObject(arg) {
   return typeof arg === 'object' && arg !== null;
 }
-exports.isObject = isObject;
+export { isObject as isObject };
 
 function isDate(d) {
   return isObject(d) && objectToString(d) === '[object Date]';
 }
-exports.isDate = isDate;
+export { isDate as isDate };
 
 function isError(e) {
   return isObject(e) &&
       (objectToString(e) === '[object Error]' || e instanceof Error);
 }
-exports.isError = isError;
+export { isError as isError };
 
 function isFunction(arg) {
   return typeof arg === 'function';
 }
-exports.isFunction = isFunction;
+export { isFunction as isFunction };
 
 function isPrimitive(arg) {
   return arg === null ||
@@ -9955,9 +9954,9 @@ function isPrimitive(arg) {
          typeof arg === 'symbol' ||  // ES6 symbol
          typeof arg === 'undefined';
 }
-exports.isPrimitive = isPrimitive;
+export { isPrimitive as isPrimitive };
 
-exports.isBuffer = _dereq_('./support/isBuffer');
+export { _dereq_('./support/isBuffer') as isBuffer };
 
 function objectToString(o) {
   return Object.prototype.toString.call(o);
@@ -9983,7 +9982,7 @@ function timestamp() {
 
 
 // log is just a thin wrapper to console.log that prepends a timestamp
-exports.log = function() {
+export let log = function() {
   console.log('%s - %s', timestamp(), exports.format.apply(exports, arguments));
 };
 
@@ -10001,9 +10000,9 @@ exports.log = function() {
  *     prototype.
  * @param {function} superCtor Constructor function to inherit prototype from.
  */
-exports.inherits = _dereq_('inherits');
+export { _dereq_('inherits') as inherits };
 
-exports._extend = function(origin, add) {
+export let _extend = function(origin, add) {
   // Don't do anything if add isn't an object
   if (!add || !isObject(add)) return origin;
 
@@ -10048,7 +10047,7 @@ function EventEmitter() {
   this._events = this._events || {};
   this._maxListeners = this._maxListeners || undefined;
 }
-module.exports = EventEmitter;
+export default EventEmitter;
 
 // Backwards-compat with node 0.10.x
 EventEmitter.EventEmitter = EventEmitter;
@@ -10418,13 +10417,11 @@ process.chdir = function (dir) {
 },
 {}],
 19:[function(_dereq_,module,exports){
-module.exports=_dereq_(14)
+export default _dereq_(14)
 },
 {}],
 20:[function(_dereq_,module,exports){
-module.exports=_dereq_(15)
+export default _dereq_(15)
 },
 {"./support/isBuffer":19,"/usr/local/lib/node_modules/browserify/node_modules/insert-module-globals/node_modules/process/browser.js":18,"inherits":17}]},{},[9])
 (9)
-
-});

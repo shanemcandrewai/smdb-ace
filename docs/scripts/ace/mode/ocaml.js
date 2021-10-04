@@ -27,15 +27,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var OcamlHighlightRules = require("./ocaml_highlight_rules").OcamlHighlightRules;
-var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
-var Range = require("../range").Range;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { OcamlHighlightRules as OcamlHighlightRules } from "./ocaml_highlight_rules.js";
+import { MatchingBraceOutdent as MatchingBraceOutdent } from "./matching_brace_outdent.js";
+import { Range as Range } from "../range.js";
 
 var Mode = function() {
     this.HighlightRules = OcamlHighlightRules;
@@ -93,6 +91,4 @@ var indenter = /(?:[({[=:]|[-=]>|\b(?:else|try|with))\s*$/;
     this.$id = "ace/mode/ocaml";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
-
+export { Mode as Mode };

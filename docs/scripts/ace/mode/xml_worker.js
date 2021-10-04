@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var lang = require("../lib/lang");
-var Mirror = require("../worker/mirror").Mirror;
-var DOMParser = require("./xml/dom-parser").DOMParser;
+import * as oop from "../lib/oop.js";
+import * as lang from "../lib/lang.js";
+import { Mirror as Mirror } from "../worker/mirror.js";
+import { DOMParser as DOMParser } from "./xml/dom-parser.js";
 
 var Worker = exports.Worker = function(sender) {
     Mirror.call(this, sender);
@@ -88,5 +86,3 @@ oop.inherits(Worker, Mirror);
     };
 
 }).call(Worker.prototype);
-
-});

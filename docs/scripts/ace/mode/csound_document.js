@@ -1,9 +1,8 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var CsoundDocumentHighlightRules = require("./csound_document_highlight_rules").CsoundDocumentHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { CsoundDocumentHighlightRules as CsoundDocumentHighlightRules } from "./csound_document_highlight_rules.js";
 
 var Mode = function() {
     this.HighlightRules = CsoundDocumentHighlightRules;
@@ -15,5 +14,4 @@ oop.inherits(Mode, TextMode);
     this.snippetFileId = "ace/snippets/csound_document";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

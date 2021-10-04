@@ -27,13 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var SqlHighlightRules = require("./sql_highlight_rules").SqlHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { SqlHighlightRules as SqlHighlightRules } from "./sql_highlight_rules.js";
 
 var Mode = function() {
     this.HighlightRules = SqlHighlightRules;
@@ -49,6 +47,4 @@ oop.inherits(Mode, TextMode);
     this.snippetFileId = "ace/snippets/sql";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-
-});
+export { Mode as Mode };

@@ -1,8 +1,7 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var LatexHighlightRules = function() {  
 
@@ -100,6 +99,4 @@ var LatexHighlightRules = function() {
 };
 oop.inherits(LatexHighlightRules, TextHighlightRules);
 
-exports.LatexHighlightRules = LatexHighlightRules;
-
-});
+export { LatexHighlightRules as LatexHighlightRules };

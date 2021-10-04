@@ -27,13 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
   "use strict";
 
-var oop = require("../lib/oop");
-var HtmlMode = require("./html").Mode;
-var SmartyHighlightRules = require("./smarty_highlight_rules").SmartyHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as HtmlMode } from "./html.js";
+import { SmartyHighlightRules as SmartyHighlightRules } from "./smarty_highlight_rules.js";
 
 var Mode = function() {
     HtmlMode.call(this);
@@ -47,5 +45,4 @@ oop.inherits(Mode, HtmlMode);
     this.$id = "ace/mode/smarty";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

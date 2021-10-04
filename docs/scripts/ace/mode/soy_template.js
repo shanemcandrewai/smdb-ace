@@ -28,13 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var HtmlMode = require("./html").Mode;
-var SoyTemplateHighlightRules = require("./soy_template_highlight_rules").SoyTemplateHighlightRules;
+import * as oop from "../lib/oop.js";
+import { Mode as HtmlMode } from "./html.js";
+import { SoyTemplateHighlightRules as SoyTemplateHighlightRules } from "./soy_template_highlight_rules.js";
 
 var Mode = function() {
     HtmlMode.call(this);
@@ -48,5 +46,4 @@ oop.inherits(Mode, HtmlMode);
     this.$id = "ace/mode/soy_template";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

@@ -1,11 +1,10 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var LatexHighlightRules = require("./latex_highlight_rules").LatexHighlightRules;
-var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
-var LatexFoldMode = require("./folding/latex").FoldMode;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { LatexHighlightRules as LatexHighlightRules } from "./latex_highlight_rules.js";
+import { CstyleBehaviour as CstyleBehaviour } from "./behaviour/cstyle.js";
+import { FoldMode as LatexFoldMode } from "./folding/latex.js";
 
 var Mode = function() {
     this.HighlightRules = LatexHighlightRules;
@@ -38,6 +37,4 @@ oop.inherits(Mode, TextMode);
     };
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-
-});
+export { Mode as Mode };

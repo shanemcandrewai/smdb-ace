@@ -27,17 +27,15 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var HighlightRules = require("./json_highlight_rules").JsonHighlightRules;
-var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
-var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
-var CStyleFoldMode = require("./folding/cstyle").FoldMode;
-var WorkerClient = require("../worker/worker_client").WorkerClient;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { JsonHighlightRules as HighlightRules } from "./json_highlight_rules.js";
+import { MatchingBraceOutdent as MatchingBraceOutdent } from "./matching_brace_outdent.js";
+import { CstyleBehaviour as CstyleBehaviour } from "./behaviour/cstyle.js";
+import { FoldMode as CStyleFoldMode } from "./folding/cstyle.js";
+import { WorkerClient as WorkerClient } from "../worker/worker_client.js";
 
 var Mode = function() {
     this.HighlightRules = HighlightRules;
@@ -92,5 +90,4 @@ oop.inherits(Mode, TextMode);
     this.$id = "ace/mode/json";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

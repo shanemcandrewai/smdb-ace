@@ -26,12 +26,10 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * ***** END LICENSE BLOCK ***** */
-define(function(require, exports, module) {
-"use strict";
+ * ***** END LICENSE BLOCK ***** */"use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var VHDLHighlightRules = function() {
 
@@ -110,5 +108,4 @@ var VHDLHighlightRules = function() {
 
 oop.inherits(VHDLHighlightRules, TextHighlightRules);
 
-exports.VHDLHighlightRules = VHDLHighlightRules;
-});
+export { VHDLHighlightRules as VHDLHighlightRules };

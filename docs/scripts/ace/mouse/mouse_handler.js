@@ -27,18 +27,16 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var event = require("../lib/event");
-var useragent = require("../lib/useragent");
-var DefaultHandlers = require("./default_handlers").DefaultHandlers;
-var DefaultGutterHandler = require("./default_gutter_handler").GutterHandler;
-var MouseEvent = require("./mouse_event").MouseEvent;
-var DragdropHandler = require("./dragdrop_handler").DragdropHandler;
-var addTouchListeners = require("./touch_handler").addTouchListeners;
-var config = require("../config");
+import * as event from "../lib/event.js";
+import * as useragent from "../lib/useragent.js";
+import { DefaultHandlers as DefaultHandlers } from "./default_handlers.js";
+import { GutterHandler as DefaultGutterHandler } from "./default_gutter_handler.js";
+import { MouseEvent as MouseEvent } from "./mouse_event.js";
+import { DragdropHandler as DragdropHandler } from "./dragdrop_handler.js";
+import { addTouchListeners as addTouchListeners } from "./touch_handler.js";
+import * as config from "../config.js";
 
 var MouseHandler = function(editor) {
     var _self = this;
@@ -219,5 +217,4 @@ config.defineOptions(MouseHandler.prototype, "mouseHandler", {
 });
 
 
-exports.MouseHandler = MouseHandler;
-});
+export { MouseHandler as MouseHandler };

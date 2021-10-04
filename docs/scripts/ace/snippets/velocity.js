@@ -1,8 +1,5 @@
-define(function(require, exports, module) {
 "use strict";
 
-exports.snippetText = require("../requirejs/text!./velocity.snippets");
-exports.scope = "velocity";
-exports.includeScopes = ["html", "javascript", "css"];
-
-});
+export { snippetText } from "../requirejs/text!./velocity.snippets.js"
+export { "velocity" as scope };
+export { ["html", "javascript", "css"] as includeScopes };

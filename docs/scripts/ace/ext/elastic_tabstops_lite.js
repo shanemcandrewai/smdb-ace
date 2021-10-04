@@ -27,8 +27,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
 var ElasticTabstopsLite = function(editor) {
@@ -294,10 +292,11 @@ var ElasticTabstopsLite = function(editor) {
 
 }).call(ElasticTabstopsLite.prototype);
 
-exports.ElasticTabstopsLite = ElasticTabstopsLite;
+export { ElasticTabstopsLite as ElasticTabstopsLite };
 
-var Editor = require("../editor").Editor;
-require("../config").defineOptions(Editor.prototype, "editor", {
+import { Editor as Editor } from "../editor.js";
+import * as config from "../config.js"
+config.defineOptions(Editor.prototype, "editor", {
     useElasticTabstops: {
         set: function(val) {
             if (val) {
@@ -313,6 +312,4 @@ require("../config").defineOptions(Editor.prototype, "editor", {
             }
         }
     }
-});
-
 });

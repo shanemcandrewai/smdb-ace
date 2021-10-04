@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var SqlServerHighlightRules = require("./sqlserver_highlight_rules").SqlHighlightRules;
-var SqlServerFoldMode = require("./folding/sqlserver").FoldMode;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { SqlHighlightRules as SqlServerHighlightRules } from "./sqlserver_highlight_rules.js";
+import { FoldMode as SqlServerFoldMode } from "./folding/sqlserver.js";
 
 var Mode = function() {
     this.HighlightRules = SqlServerHighlightRules;
@@ -58,6 +56,4 @@ oop.inherits(Mode, TextMode);
     this.snippetFileId = "ace/snippets/sqlserver";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-
-});
+export { Mode as Mode };

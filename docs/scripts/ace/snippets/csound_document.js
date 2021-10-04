@@ -1,7 +1,4 @@
-define(function(require, exports, module) {
 "use strict";
 
-exports.snippetText = require("../requirejs/text!./csound_document.snippets");
-exports.scope = "csound_document";
-
-});
+export { snippetText } from "../requirejs/text!./csound_document.snippets.js"
+export { "csound_document" as scope };

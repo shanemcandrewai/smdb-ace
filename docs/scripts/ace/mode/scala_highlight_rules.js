@@ -1,9 +1,8 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var DocCommentHighlightRules = require("./doc_comment_highlight_rules").DocCommentHighlightRules;
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { DocCommentHighlightRules as DocCommentHighlightRules } from "./doc_comment_highlight_rules.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var ScalaHighlightRules = function() {
 
@@ -161,5 +160,4 @@ var ScalaHighlightRules = function() {
 
 oop.inherits(ScalaHighlightRules, TextHighlightRules);
 
-exports.ScalaHighlightRules = ScalaHighlightRules;
-});
+export { ScalaHighlightRules as ScalaHighlightRules };

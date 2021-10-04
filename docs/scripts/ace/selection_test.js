@@ -31,16 +31,14 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var LineWidgets = require("./line_widgets").LineWidgets;
-var EditSession = require("./edit_session").EditSession;
-var assert = require("./test/assertions");
-var Range = require("./range").Range;
+import { LineWidgets as LineWidgets } from "./line_widgets.js";
+import { EditSession as EditSession } from "./edit_session.js";
+import * as assert from "./test/assertions.js";
+import { Range as Range } from "./range.js";
 
-module.exports = {
+export default {
     createSession : function(rows, cols) {
         var line = new Array(cols + 1).join("a");
         var text = new Array(rows).join(line + "\n") + line;

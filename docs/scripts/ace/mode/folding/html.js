@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../../lib/oop");
-var MixedFoldMode = require("./mixed").FoldMode;
-var XmlFoldMode = require("./xml").FoldMode;
-var CStyleFoldMode = require("./cstyle").FoldMode;
+import * as oop from "../../lib/oop.js";
+import { FoldMode as MixedFoldMode } from "./mixed.js";
+import { FoldMode as XmlFoldMode } from "./xml.js";
+import { FoldMode as CStyleFoldMode } from "./cstyle.js";
 
 var FoldMode = exports.FoldMode = function(voidElements, optionalTags) {
     MixedFoldMode.call(this, new XmlFoldMode(voidElements, optionalTags), {
@@ -44,5 +42,3 @@ var FoldMode = exports.FoldMode = function(voidElements, optionalTags) {
 };
 
 oop.inherits(FoldMode, MixedFoldMode);
-
-});

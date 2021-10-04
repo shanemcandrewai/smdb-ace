@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var ShMode = require("./sh").Mode;
-var DockerfileHighlightRules = require("./dockerfile_highlight_rules").DockerfileHighlightRules;
-var CStyleFoldMode = require("./folding/cstyle").FoldMode;
+import * as oop from "../lib/oop.js";
+import { Mode as ShMode } from "./sh.js";
+import { DockerfileHighlightRules as DockerfileHighlightRules } from "./dockerfile_highlight_rules.js";
+import { FoldMode as CStyleFoldMode } from "./folding/cstyle.js";
 
 var Mode = function() {
     ShMode.call(this);
@@ -48,5 +46,4 @@ oop.inherits(Mode, ShMode);
     this.$id = "ace/mode/dockerfile";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

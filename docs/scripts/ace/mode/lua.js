@@ -27,16 +27,14 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var LuaHighlightRules = require("./lua_highlight_rules").LuaHighlightRules;
-var LuaFoldMode = require("./folding/lua").FoldMode;
-var Range = require("../range").Range;
-var WorkerClient = require("../worker/worker_client").WorkerClient;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { LuaHighlightRules as LuaHighlightRules } from "./lua_highlight_rules.js";
+import { FoldMode as LuaFoldMode } from "./folding/lua.js";
+import { Range as Range } from "../range.js";
+import { WorkerClient as WorkerClient } from "../worker/worker_client.js";
 
 var Mode = function() {
     this.HighlightRules = LuaHighlightRules;
@@ -177,7 +175,4 @@ oop.inherits(Mode, TextMode);
     this.snippetFileId = "ace/snippets/lua";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
-
-
+export { Mode as Mode };

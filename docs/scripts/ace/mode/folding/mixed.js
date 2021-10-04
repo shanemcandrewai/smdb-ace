@@ -27,12 +27,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../../lib/oop");
-var BaseFoldMode = require("./fold_mode").FoldMode;
+import * as oop from "../../lib/oop.js";
+import { FoldMode as BaseFoldMode } from "./fold_mode.js";
 
 var FoldMode = exports.FoldMode = function(defaultMode, subModes) {
     this.defaultMode = defaultMode;
@@ -79,5 +77,3 @@ oop.inherits(FoldMode, BaseFoldMode);
     };
 
 }).call(FoldMode.prototype);
-
-});

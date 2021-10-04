@@ -4,11 +4,9 @@
  * MIT Licensed
  */
 
-define(function(require, exports, module) {
-
 var STOP = exports.STOP = {}
 
-exports.Generator = function(source) {
+export let Generator = function(source) {
     if (typeof source == "function")
         this.source = {
             next: source
@@ -438,7 +436,7 @@ var makeAsync = exports.makeAsync = function(args, fn, context) {
     }
 }
 
-exports.list = function(arr, construct) {
+export let list = function(arr, construct) {
     var construct = construct || exports.Generator
     var i = 0
     var len = arr.length
@@ -451,7 +449,7 @@ exports.list = function(arr, construct) {
     })
 }
 
-exports.values = function(map, construct) {
+export let values = function(map, construct) {
     var values = []
     for (var key in map) 
         values.push(map[key])
@@ -459,7 +457,7 @@ exports.values = function(map, construct) {
     return exports.list(values, construct)
 }
 
-exports.keys = function(map, construct) {
+export let keys = function(map, construct) {
     var keys = []
     for (var key in map) 
         keys.push(key)
@@ -474,7 +472,7 @@ exports.keys = function(map, construct) {
  * range(i, j) returns [i, i+1, i+2, ..., j-1] start (!) defaults to 0.
  * When step is given, it specifies the increment (or decrement).
  */ 
-exports.range = function(start, stop, step, construct) {
+export let range = function(start, stop, step, construct) {
     var construct = construct || exports.Generator
     start = start || 0
     step = step || 1
@@ -495,14 +493,14 @@ exports.range = function(start, stop, step, construct) {
     })
 }
 
-exports.concat = function(first, varargs) {
+export let concat = function(first, varargs) {
     if (arguments.length > 1)
         return first.concat.apply(first, Array.prototype.slice.call(arguments, 1))
     else
         return first
 }
 
-exports.zip = function(first, varargs) {
+export let zip = function(first, varargs) {
     if (arguments.length > 1)
         return first.zip.apply(first, Array.prototype.slice.call(arguments, 1))
     else
@@ -512,7 +510,7 @@ exports.zip = function(first, varargs) {
 }
 
 
-exports.plugin = function(members, constructors) {
+export let plugin = function(members, constructors) {
     if (members) {
         for (var key in members) {
             exports.Generator.prototype[key] = members[key]
@@ -525,5 +523,3 @@ exports.plugin = function(members, constructors) {
         }
     }    
 }
-
-})

@@ -27,12 +27,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var PhpHighlightRules = require("./php_highlight_rules").PhpHighlightRules;
+import * as oop from "../lib/oop.js";
+import { PhpHighlightRules as PhpHighlightRules } from "./php_highlight_rules.js";
 
 var PHPLaravelBladeHighlightRules = function() {
     PhpHighlightRules.call(this);
@@ -196,5 +194,4 @@ var PHPLaravelBladeHighlightRules = function() {
 
 oop.inherits(PHPLaravelBladeHighlightRules, PhpHighlightRules);
 
-exports.PHPLaravelBladeHighlightRules = PHPLaravelBladeHighlightRules;
-});
+export { PHPLaravelBladeHighlightRules as PHPLaravelBladeHighlightRules };

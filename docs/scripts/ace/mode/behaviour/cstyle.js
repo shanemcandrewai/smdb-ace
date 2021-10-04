@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../../lib/oop");
-var Behaviour = require("../behaviour").Behaviour;
-var TokenIterator = require("../../token_iterator").TokenIterator;
-var lang = require("../../lib/lang");
+import * as oop from "../../lib/oop.js";
+import { Behaviour as Behaviour } from "../behaviour.js";
+import { TokenIterator as TokenIterator } from "../../token_iterator.js";
+import * as lang from "../../lib/lang.js";
 
 var SAFE_INSERT_IN_TOKENS =
     ["text", "paren.rparen", "rparen", "paren", "punctuation.operator"];
@@ -403,5 +401,4 @@ CstyleBehaviour.clearMaybeInsertedClosing = function() {
 
 oop.inherits(CstyleBehaviour, Behaviour);
 
-exports.CstyleBehaviour = CstyleBehaviour;
-});
+export { CstyleBehaviour as CstyleBehaviour };

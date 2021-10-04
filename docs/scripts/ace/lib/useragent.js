@@ -27,8 +27,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
 /*
@@ -47,7 +45,7 @@ exports.OS = {
 /*
  * Return an exports.OS constant
  */
-exports.getOS = function() {
+export let getOS = function() {
     if (exports.isMac) {
         return exports.OS.MAC;
     } else if (exports.isLinux) {
@@ -65,13 +63,14 @@ var ua = _navigator.userAgent || "";
 var appName = _navigator.appName || "";
 
 // Is the user using a browser that identifies itself as Windows
-exports.isWin = (os == "win");
+// export { (os == "win") as isWin };
+export let isWin = true;
 
 // Is the user using a browser that identifies itself as Mac OS
-exports.isMac = (os == "mac");
+// export { (os == "mac") as isMac };
 
 // Is the user using a browser that identifies itself as Linux
-exports.isLinux = (os == "linux");
+// export { (os == "linux") as isLinux };
 
 // Windows Store JavaScript apps (aka Metro apps written in HTML5 and JavaScript) do not use the "Microsoft Internet Explorer" string in their user agent, but "MSAppHost" instead.
 exports.isIE = 
@@ -79,31 +78,31 @@ exports.isIE =
     ? parseFloat((ua.match(/(?:MSIE |Trident\/[0-9]+[\.0-9]+;.*rv:)([0-9]+[\.0-9]+)/)||[])[1])
     : parseFloat((ua.match(/(?:Trident\/[0-9]+[\.0-9]+;.*rv:)([0-9]+[\.0-9]+)/)||[])[1]); // for ie
     
-exports.isOldIE = exports.isIE && exports.isIE < 9;
+// export { exports.isIE && exports.isIE < 9 as isOldIE };
 
 // Is this Firefox or related?
-exports.isGecko = exports.isMozilla = ua.match(/ Gecko\/\d+/);
+// export { exports.isMozilla = ua.match(/ Gecko\/\d+/) as isGecko };
+export let isMozilla = true;
+export let isGecko = true;
 
 // Is this Opera 
-exports.isOpera = typeof opera == "object" && Object.prototype.toString.call(window.opera) == "[object Opera]";
+// export { typeof opera == "object" && Object.prototype.toString.call(window.opera) == "[object Opera]" as isOpera };
 
 // Is the user using a browser that identifies itself as WebKit 
-exports.isWebKit = parseFloat(ua.split("WebKit/")[1]) || undefined;
+// export { parseFloat(ua.split("WebKit/")[1]) || undefined as isWebKit };
 
-exports.isChrome = parseFloat(ua.split(" Chrome/")[1]) || undefined;
+// export { parseFloat(ua.split(" Chrome/")[1]) || undefined as isChrome };
 
-exports.isEdge = parseFloat(ua.split(" Edge/")[1]) || undefined;
+// export { parseFloat(ua.split(" Edge/")[1]) || undefined as isEdge };
 
-exports.isAIR = ua.indexOf("AdobeAIR") >= 0;
+// export { ua.indexOf("AdobeAIR") >= 0 as isAIR };
 
-exports.isAndroid = ua.indexOf("Android") >= 0;
+// export { ua.indexOf("Android") >= 0 as isAndroid };
 
-exports.isChromeOS = ua.indexOf(" CrOS ") >= 0;
+// export { ua.indexOf(" CrOS ") >= 0 as isChromeOS };
 
-exports.isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+// export { /iPad|iPhone|iPod/.test(ua) && !window.MSStream as isIOS };
 
-if (exports.isIOS) exports.isMac = true;
+// if (exports.isIOS) exports.isMac = true;
 
-exports.isMobile = exports.isIOS || exports.isAndroid;
-
-});
+// export { exports.isIOS || exports.isAndroid as isMobile };

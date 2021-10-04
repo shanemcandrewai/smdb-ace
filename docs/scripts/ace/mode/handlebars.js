@@ -1,13 +1,11 @@
 /* global define */
-
-define(function(require, exports, module) {
   "use strict";
 
-var oop = require("../lib/oop");
-var HtmlMode = require("./html").Mode;
-var HandlebarsHighlightRules = require("./handlebars_highlight_rules").HandlebarsHighlightRules;
-var HtmlBehaviour = require("./behaviour/html").HtmlBehaviour;
-var HtmlFoldMode = require("./folding/html").FoldMode;
+import * as oop from "../lib/oop.js";
+import { Mode as HtmlMode } from "./html.js";
+import { HandlebarsHighlightRules as HandlebarsHighlightRules } from "./handlebars_highlight_rules.js";
+import { HtmlBehaviour as HtmlBehaviour } from "./behaviour/html.js";
+import { FoldMode as HtmlFoldMode } from "./folding/html.js";
 
 var Mode = function() {
     HtmlMode.call(this);
@@ -22,5 +20,4 @@ oop.inherits(Mode, HtmlMode);
     this.$id = "ace/mode/handlebars";
 }).call(Mode.prototype);
 
-exports.Mode = Mode;
-});
+export { Mode as Mode };

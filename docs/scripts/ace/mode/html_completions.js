@@ -27,11 +27,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var TokenIterator = require("../token_iterator").TokenIterator;
+import { TokenIterator as TokenIterator } from "../token_iterator.js";
 
 var commonAttributes = [
     "accesskey",
@@ -355,5 +353,4 @@ var HtmlCompletions = function() {
 
 }).call(HtmlCompletions.prototype);
 
-exports.HtmlCompletions = HtmlCompletions;
-});
+export { HtmlCompletions as HtmlCompletions };

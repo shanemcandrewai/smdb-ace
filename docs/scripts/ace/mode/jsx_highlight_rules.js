@@ -1,8 +1,7 @@
-define(function(require, exports, module) {
 var oop = require("../lib/oop");
-var lang = require("../lib/lang");
-var DocCommentHighlightRules = require("./doc_comment_highlight_rules").DocCommentHighlightRules;
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as lang from "../lib/lang.js";
+import { DocCommentHighlightRules as DocCommentHighlightRules } from "./doc_comment_highlight_rules.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var JsxHighlightRules = function() {
     var keywords = lang.arrayToMap(
@@ -115,5 +114,4 @@ var JsxHighlightRules = function() {
 
 oop.inherits(JsxHighlightRules, TextHighlightRules);
 
-exports.JsxHighlightRules = JsxHighlightRules;
-});
+export { JsxHighlightRules as JsxHighlightRules };
