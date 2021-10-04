@@ -20,7 +20,7 @@ function get_rules() {
     new Rule(new RegExp(/\n}\);?\s*$/, "g"), "", true, "delete matching });"),
     new Rule(
       new RegExp(/\nrequire\("(?<req_path>.*\/)(?<req_name>.*)"\)/, "g"),
-      '\nimport * as ${found.groups.req_name} from "${found.groups.req_path}${found.groups.req_name}.js"',
+      '\nimport * as $<req_name> from "$<req_path>$<req_name>.js"',
       "",
       "require('req_name')"
     ),
@@ -29,7 +29,7 @@ function get_rules() {
         /\nvar\s+(?<var_name>\w+)\s*=\s*require\("(?<module_name>.*)"\)\.(?<member_name>\w+)/,
         "g"
       ),
-      '\nimport { ${found.groups.member_name} as ${found.groups.var_name} } from "${found.groups.module_name}.js"',
+      '\nimport { $<member_name> as $<var_name> } from "$<module_name>.js"',
       "",
       "var var_name = require('module_name').member"
     ),
@@ -38,7 +38,7 @@ function get_rules() {
         /\nvar\s+(?<var_name>\w+)\s*=\s*require\("(?<module_name>.*)"\)/,
         "g"
       ),
-      '\nimport * as ${found.groups.var_name} from "${found.groups.module_name}.js"',
+      '\nimport * as $<var_name> from "$<module_name>.js"',
       "",
       "var var_name = require('module_name')"
     ),
@@ -47,13 +47,13 @@ function get_rules() {
         /\nexports\.(?<var_name>\w+)\s*=\s*require\("(?<module_name>.*)"\);/,
         "g"
       ),
-      '\nexport { ${found.groups.var_name} } from "${found.groups.module_name}.js"',
+      '\nexport { $<var_name> } from "$<module_name>.js"',
       "",
       "exports.var_nam = require('module_name')"
     ),
     new Rule(
       new RegExp(/\nmodule\.exports\.(?<var_name>\w+)/, "g"),
-      "\nexport { ${found.groups.var_name} }",
+      "\nexport { $<var_name> }",
       "",
       "module.exports = var_name"
     ),
@@ -65,7 +65,7 @@ function get_rules() {
     ),
     new Rule(
       new RegExp(/\nexports\.(?<var_name>\w+)\s=\sfunction/, "g"),
-      "\nexport let ${found.groups.var_name} = function",
+      "\nexport let $<var_name> = function",
       "",
       "exports = var_name"
     ),
@@ -81,21 +81,20 @@ async function* walk(dir) {
 }
 
 function process(file_in, rule) {
-  for (const found of [...file_in.contents.matchAll(rule.regex)]) {
-    console.log("\nchange    :", file_in.change);
-    console.log("rule      :", rule.description);
-    console.log("found     :", JSON.stringify(found[0]));
-    console.log(
-      "replaced  :",
-      JSON.stringify(eval("`" + rule.subst_templ + "`"))
-    );
-    file_in.contents = file_in.contents.replace(
-      found[0],
-      eval("`" + rule.subst_templ + "`")
-    );
-    file_in.change++;
+  // for (const found of [...file_in.contents.matchAll(rule.regex)]) {
+  let found = rule.regex.test(file_in.contents);
+  console.log("\nchange    :", file_in.change);
+  console.log("rule      :", rule.description);
+  console.log("regex     :", rule.regex);
+  console.log("found     :", found);
+
+  if (found) {
+    console.log("replaced  :", JSON.stringify(rule.subst_templ));
+    file_in.contents = file_in.contents.replace(rule.regex, rule.subst_templ);
     file_in.changed = true;
+    file_in.change++;
   }
+  // }
 
   return file_in;
 }
