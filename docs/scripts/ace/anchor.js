@@ -49,7 +49,7 @@ import { EventEmitter as EventEmitter } from "./lib/event_emitter.js";
  * @constructor
  **/
 
-var Anchor = exports.Anchor = function(doc, row, column) {
+export let Anchor = function(doc, row, column) {
     this.$onChange = this.onChange.bind(this);
     this.attach(doc);
     

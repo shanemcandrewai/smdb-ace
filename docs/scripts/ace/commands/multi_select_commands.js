@@ -128,4 +128,4 @@ exports.multiSelectCommands = [{
 }];
 
 import { HashHandler as HashHandler } from "../keyboard/hash_handler.js";
-export { new HashHandler(exports.multiSelectCommands) as keyboardHandler };
+export let keyboardHandler = new HashHandler(exports.multiSelectCommands);

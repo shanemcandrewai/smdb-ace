@@ -30,7 +30,7 @@
 "use strict";
 
 export let isDark = false;
-export { "ace-tm" as cssClass };
+export let cssClass = "ace-tm";
 // export { cssText } from "../requirejs/text!./textmate.css.js"
 exports.$id = "ace/theme/textmate";
 

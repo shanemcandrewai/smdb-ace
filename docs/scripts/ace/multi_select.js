@@ -35,7 +35,8 @@ import { onMouseDown as onMouseDown } from "./mouse/multi_select_handler.js";
 import * as event from "./lib/event.js";
 import * as lang from "./lib/lang.js";
 import * as commands from "./commands/multi_select_commands.js";
-export { commands.defaultCommands.concat(commands.multiSelectCommands) as commands };
+commands = commands.defaultCommands.concat(commands.multiSelectCommands);
+export { commands };
 
 // Todo: session.find or editor.findVolatile that returns range
 import { Search as Search } from "./search.js";

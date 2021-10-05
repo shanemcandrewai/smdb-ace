@@ -11,4 +11,5 @@ for (var i = 0; i < wordChars.length; i += 2) {
         str.push(45, code += wordChars[i + 1]);
 }
 
-export { String.fromCharCode.apply(null, str) as wordChars };
+wordChars = String.fromCharCode.apply(null, str);
+export { wordChars };

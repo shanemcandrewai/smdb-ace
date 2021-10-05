@@ -35,7 +35,7 @@ import * as useragent from "../lib/useragent.js";
 /*
  * Custom Ace mouse event
  */
-var MouseEvent = exports.MouseEvent = function(domEvent, editor) {
+export let MouseEvent = function(domEvent, editor) {
     this.domEvent = domEvent;
     this.editor = editor;
     

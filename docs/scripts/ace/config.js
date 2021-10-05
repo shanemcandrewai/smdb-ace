@@ -218,4 +218,4 @@ function deHyphenate(str) {
     return str.replace(/-(.)/g, function(m, m1) { return m1.toUpperCase(); });
 }
 
-export { "1.4.12" as version };
+export let version = "1.4.12" ;
