@@ -1,10 +1,10 @@
 import * as fs from "fs";
 import path from "path";
 
-function Rule(regex, subst_templ, prev_changed, description) {
+function Rule(regex, subst_templ, precondition, description) {
   this.regex = regex;
   this.subst_templ = subst_templ;
-  this.prev_changed = prev_changed;
+  this.precondition = precondition;
   this.description = description;
 }
 
@@ -16,57 +16,48 @@ function get_rules() {
     // "",
     // "delete matching }) for define;"
     // ),
-    new Rule(new RegExp(/(^|\n)define\(.*\n/, "g"), "", "", "delete define"),
-    new Rule(new RegExp(/\n}\);?\s*$/, "g"), "", true, "delete matching });"),
+    new Rule(/(^|\n)define\(.*\n/g, null, "", "delete define"),
+    new Rule(/\n}\);?\s*$/g, "", true, "delete matching });"),
     new Rule(
-      new RegExp(/\nrequire\("(?<req_path>.*\/)(?<req_name>.*)"\)/, "g"),
+      /\nrequire\("(?<req_path>.*\/)(?<req_name>.*)"\)/g,
       '\nimport * as $<req_name> from "$<req_path>$<req_name>.js"',
       "",
       "require('req_name')"
     ),
     new Rule(
-      new RegExp(
-        /\nvar\s+(?<var_name>\w+)\s*=\s*require\("(?<module_name>.*)"\)\.(?<member_name>\w+)/,
-        "g"
-      ),
+      /\nvar\s+(?<var_name>\w+)\s*=\s*require\("(?<module_name>.*)"\)\.(?<member_name>\w+)/g,
       '\nimport { $<member_name> as $<var_name> } from "$<module_name>.js"',
-      "",
+      null,
       "var var_name = require('module_name').member"
     ),
     new Rule(
-      new RegExp(
-        /\nvar\s+(?<var_name>\w+)\s*=\s*require\("(?<module_name>.*)"\)/,
-        "g"
-      ),
+      /\nvar\s+(?<var_name>\w+)\s*=\s*require\("(?<module_name>.*)"\)/,
       '\nimport * as $<var_name> from "$<module_name>.js"',
-      "",
+      null,
       "var var_name = require('module_name')"
     ),
     new Rule(
-      new RegExp(
-        /\nexports\.(?<var_name>\w+)\s*=\s*require\("(?<module_name>.*)"\);/,
-        "g"
-      ),
+      /\nexports\.(?<var_name>\w+)\s*=\s*require\("(?<module_name>.*)"\);/,
       '\nexport { $<var_name> } from "$<module_name>.js"',
-      "",
+      null,
       "exports.var_nam = require('module_name')"
     ),
     new Rule(
-      new RegExp(/\nmodule\.exports\.(?<var_name>\w+)/, "g"),
+      /\nmodule\.exports\.(?<var_name>\w+)/g,
       "\nexport { $<var_name> }",
-      "",
+      null,
       "module.exports = var_name"
     ),
     new Rule(
-      new RegExp(/\nmodule\.exports\s*=\s*{/, "g"),
+      /\nmodule\.exports\s*=\s*{/g,
       "\nexport {",
-      "",
+      null,
       "module.exports = {"
     ),
     new Rule(
-      new RegExp(/\nexports\.(?<var_name>\w+)\s=\sfunction/, "g"),
+      /\nexports\.(?<var_name>\w+)\s=\sfunction/g,
       "\nexport let $<var_name> = function",
-      "",
+      null,
       "exports = var_name"
     ),
   ];
@@ -81,7 +72,6 @@ async function* walk(dir) {
 }
 
 function process(file_in, rule) {
-  // for (const found of [...file_in.contents.matchAll(rule.regex)]) {
   let found = rule.regex.test(file_in.contents);
   console.log("\nchange    :", file_in.change);
   console.log("rule      :", rule.description);
@@ -94,8 +84,6 @@ function process(file_in, rule) {
     file_in.changed = true;
     file_in.change++;
   }
-  // }
-
   return file_in;
 }
 
@@ -114,7 +102,10 @@ async function main() {
         };
 
         for (const rule of get_rules()) {
-          if (rule.prev_change == null || rule.prev_change == file_in.changed) {
+          if (
+            rule.precondition == null ||
+            rule.precondition == file_in.changed
+          ) {
             file_in = process(file_in, rule);
           }
         }
