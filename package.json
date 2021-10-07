@@ -2,6 +2,7 @@
   "name": "smdb-ace",
   "version": "1.0.0",
   "description": "An editor that saves / loads an encrypted JSON file from the server which has no access to the decryption key",
+  "type": "module",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

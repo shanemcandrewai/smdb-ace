@@ -1,4 +1,5 @@
 import * as ace from "./ace/ace.js";
+// require("ace/ace.js");
 const editor = ace.edit(null, {
   maxLines: 50,
   minLines: 10,
