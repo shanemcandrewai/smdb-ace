@@ -28,15 +28,12 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
-// var oop = require("../../lib/oop");
-import * as oop from "../../lib/oop.js";
-// var Behaviour = require("../behaviour").Behaviour;
-import { Behaviour } from "../behaviour.js";
-// var TokenIterator = require("../../token_iterator").TokenIterator;
-import { TokenIterator } from "../../token_iterator.js";
+var oop = require("../../lib/oop");
+var Behaviour = require("../behaviour").Behaviour;
+var TokenIterator = require("../../token_iterator").TokenIterator;
 var lang = require("../../lib/lang");
 
 var SAFE_INSERT_IN_TOKENS =
@@ -81,7 +78,7 @@ var getWrapped = function(selection, selected, opening, closing) {
     };
 };
 
-export let CstyleBehaviour = function(options) {
+var CstyleBehaviour = function(options) {
     this.add("braces", "insertion", function(state, action, editor, session, text) {
         var cursor = editor.getCursorPosition();
         var line = session.doc.getLine(cursor.row);
@@ -406,5 +403,5 @@ CstyleBehaviour.clearMaybeInsertedClosing = function() {
 
 oop.inherits(CstyleBehaviour, Behaviour);
 
-// exports.CstyleBehaviour = CstyleBehaviour;
-// });
+exports.CstyleBehaviour = CstyleBehaviour;
+});

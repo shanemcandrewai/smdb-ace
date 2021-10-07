@@ -28,37 +28,31 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
-// var dom = require("../lib/dom");
-import * as dom from "../lib/dom.js";
-// var event = require("../lib/event");
-import * as event from "../lib/event.js";
-// var useragent = require("../lib/useragent");
-import * as useragent from "../lib/useragent.js";
+var dom = require("../lib/dom");
+var event = require("../lib/event");
+var useragent = require("../lib/useragent");
 
 var AUTOSCROLL_DELAY = 200;
 var SCROLL_CURSOR_DELAY = 200;
 var SCROLL_CURSOR_HYSTERESIS = 5;
 
-export function DragdropHandler(mouseHandler) {
+function DragdropHandler(mouseHandler) {
 
     var editor = mouseHandler.editor;
 
-    var blankImage = dom.createElement("img");
-    // Safari crashes without image data
-    blankImage.src = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";
-    if (useragent.isOpera)
-        blankImage.style.cssText = "width:1px;height:1px;position:fixed;top:0;left:0;z-index:2147483647;opacity:0;";
+    var dragImage = dom.createElement("div");
+    dragImage.style.cssText = "top:-100px;position:absolute;z-index:2147483647;opacity:0.5";
+    dragImage.textContent = "\xa0";
 
     var exports = ["dragWait", "dragWaitEnd", "startDrag", "dragReadyEnd", "onMouseDrag"];
 
-     exports.forEach(function(x) {
-         mouseHandler[x] = this[x];
+    exports.forEach(function(x) {
+        mouseHandler[x] = this[x];
     }, this);
     editor.on("mousedown", this.onMouseDown.bind(mouseHandler));
-
 
     var mouseTarget = editor.container;
     var dragSelectionMarker, x, y;
@@ -84,15 +78,12 @@ export function DragdropHandler(mouseHandler) {
 
         var dataTransfer = e.dataTransfer;
         dataTransfer.effectAllowed = editor.getReadOnly() ? "copy" : "copyMove";
-        if (useragent.isOpera) {
-            editor.container.appendChild(blankImage);
-            // force layout
-            blankImage.scrollTop = 0;
-        }
-        dataTransfer.setDragImage && dataTransfer.setDragImage(blankImage, 0, 0);
-        if (useragent.isOpera) {
-            editor.container.removeChild(blankImage);
-        }
+        editor.container.appendChild(dragImage);
+
+        dataTransfer.setDragImage && dataTransfer.setDragImage(dragImage, 0, 0);
+        setTimeout(function() {
+            editor.container.removeChild(dragImage);
+        });
         // clear Opera garbage
         dataTransfer.clearData();
         dataTransfer.setData("Text", editor.session.getTextRange());
@@ -422,6 +413,6 @@ function calcDistance(ax, ay, bx, by) {
     return Math.sqrt(Math.pow(bx - ax, 2) + Math.pow(by - ay, 2));
 }
 
-// exports.DragdropHandler = DragdropHandler;
+exports.DragdropHandler = DragdropHandler;
 
-// });
+});

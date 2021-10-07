@@ -28,7 +28,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 var comparePoints = function(p1, p2) {
     return p1.row - p2.row || p1.column - p2.column;
@@ -47,7 +47,7 @@ var comparePoints = function(p1, p2) {
  *
  * @constructor
  **/
-export let Range = function(startRow, startColumn, endRow, endColumn) {
+var Range = function(startRow, startColumn, endRow, endColumn) {
     this.start = {
         row: startRow,
         column: startColumn
@@ -545,5 +545,5 @@ Range.comparePoints = function(p1, p2) {
 };
 
 
-// exports.Range = Range;
-// });
+exports.Range = Range;
+});

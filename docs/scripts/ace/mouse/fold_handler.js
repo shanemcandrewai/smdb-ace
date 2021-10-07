@@ -28,12 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
-// var dom = require("../lib/dom");
-import * as dom from "../lib/dom.js";
+var dom = require("../lib/dom");
 
-export function FoldHandler(editor) {
+function FoldHandler(editor) {
 
     editor.on("click", function(e) {
         var position = e.getDocumentPosition();
@@ -98,6 +97,6 @@ export function FoldHandler(editor) {
     });
 }
 
-// exports.FoldHandler = FoldHandler;
+exports.FoldHandler = FoldHandler;
 
-// });
+});

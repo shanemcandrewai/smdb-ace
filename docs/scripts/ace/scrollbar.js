@@ -28,7 +28,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
 var oop = require("./lib/oop");
@@ -92,7 +92,7 @@ var ScrollBar = function(parent) {
  *
  * @constructor
  **/
-export let VScrollBar = function(parent, renderer) {
+var VScrollBar = function(parent, renderer) {
     ScrollBar.call(this, parent);
     this.scrollTop = 0;
     this.scrollHeight = 0;
@@ -197,7 +197,7 @@ oop.inherits(VScrollBar, ScrollBar);
  *
  * @constructor
  **/
-export let HScrollBar = function(parent, renderer) {
+var HScrollBar = function(parent, renderer) {
     ScrollBar.call(this, parent);
     this.scrollLeft = 0;
 
@@ -283,6 +283,6 @@ exports.ScrollBar = VScrollBar; // backward compatibility
 exports.ScrollBarV = VScrollBar; // backward compatibility
 exports.ScrollBarH = HScrollBar; // backward compatibility
 
-// exports.VScrollBar = VScrollBar;
-// exports.HScrollBar = HScrollBar;
-// });
+exports.VScrollBar = VScrollBar;
+exports.HScrollBar = HScrollBar;
+});

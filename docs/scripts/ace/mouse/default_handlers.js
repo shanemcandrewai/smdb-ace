@@ -28,16 +28,15 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
-// var useragent = require("../lib/useragent");
-import * as useragent from "../lib/useragent.js"
+var useragent = require("../lib/useragent");
 
 var DRAG_OFFSET = 0; // pixels
 var SCROLL_COOLDOWN_T = 550; // milliseconds
 
-export function DefaultHandlers(mouseHandler) {
+function DefaultHandlers(mouseHandler) {
     mouseHandler.$clickSelection = null;
 
     var editor = mouseHandler.editor;
@@ -293,7 +292,7 @@ export function DefaultHandlers(mouseHandler) {
 
 }).call(DefaultHandlers.prototype);
 
-// exports.DefaultHandlers = DefaultHandlers;
+exports.DefaultHandlers = DefaultHandlers;
 
 function calcDistance(ax, ay, bx, by) {
     return Math.sqrt(Math.pow(bx - ax, 2) + Math.pow(by - ay, 2));
@@ -313,4 +312,4 @@ function calcRangeOrientation(range, cursor) {
         return {cursor: range.end, anchor: range.start};
 }
 
-// });
+});

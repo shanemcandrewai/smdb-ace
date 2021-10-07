@@ -28,7 +28,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
 var dom = require("../lib/dom");
@@ -37,7 +37,7 @@ var lang = require("../lib/lang");
 var EventEmitter = require("../lib/event_emitter").EventEmitter;
 var Lines = require("./lines").Lines;
 
-export let Gutter = function(parentEl) {
+var Gutter = function(parentEl) {
     this.element = dom.createElement("div");
     this.element.className = "ace_layer ace_gutter-layer";
     parentEl.appendChild(this.element);
@@ -446,6 +446,6 @@ function onCreateCell(element) {
     return element;
 }
 
-// exports.Gutter = Gutter;
+exports.Gutter = Gutter;
 
-// });
+});

@@ -28,13 +28,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
-// var keys = require("./keys");
-import * as keys from './keys.js'
-// var useragent = require("./useragent");
-import * as useragent from './useragent.js'
+var keys = require("./keys");
+var useragent = require("./useragent");
 
 var pressedKeys = null;
 var ts = 0;
@@ -67,31 +65,31 @@ EventListener.prototype.destroy = function() {
     this.elem = this.type = this.callback = undefined;
 };
 
-export let addListener = function(elem, type, callback, destroyer) {
+var addListener = exports.addListener = function(elem, type, callback, destroyer) {
     elem.addEventListener(type, callback, getListenerOptions());
     if (destroyer)
         destroyer.$toDestroy.push(new EventListener(elem, type, callback));
 };
 
-export let removeListener = function(elem, type, callback) {
+var removeListener = exports.removeListener = function(elem, type, callback) {
     elem.removeEventListener(type, callback, getListenerOptions());
 };
 
 /*
 * Prevents propagation and clobbers the default action of the passed event
 */
-export let stopEvent = function(e) {
-    stopPropagation(e);
-    preventDefault(e);
+exports.stopEvent = function(e) {
+    exports.stopPropagation(e);
+    exports.preventDefault(e);
     return false;
 };
 
-export let stopPropagation = function(e) {
+exports.stopPropagation = function(e) {
     if (e.stopPropagation)
         e.stopPropagation();
 };
 
-export let preventDefault = function(e) {
+exports.preventDefault = function(e) {
     if (e.preventDefault)
         e.preventDefault();
 };
@@ -99,7 +97,7 @@ export let preventDefault = function(e) {
 /*
  * @return {Number} 0 for left button, 1 for middle button, 2 for right button
  */
-export let getButton = function(e) {
+exports.getButton = function(e) {
     if (e.type == "dblclick")
         return 0;
     if (e.type == "contextmenu" || (useragent.isMac && (e.ctrlKey && !e.altKey && !e.shiftKey)))
@@ -109,7 +107,7 @@ export let getButton = function(e) {
     return e.button;
 };
 
-export let capture = function(el, eventHandler, releaseCaptureHandler) {
+exports.capture = function(el, eventHandler, releaseCaptureHandler) {
     var ownerDocument = el && el.ownerDocument || document;
     function onMouseUp(e) {
         eventHandler && eventHandler(e);
@@ -127,7 +125,7 @@ export let capture = function(el, eventHandler, releaseCaptureHandler) {
     return onMouseUp;
 };
 
-export let addMouseWheelListener = function(el, callback, destroyer) {
+exports.addMouseWheelListener = function(el, callback, destroyer) {
     if ("onmousewheel" in el) {
         addListener(el, "mousewheel", function(e) {
             var factor = 8;
@@ -171,7 +169,7 @@ export let addMouseWheelListener = function(el, callback, destroyer) {
     }
 };
 
-export let addMultiMouseDownListener = function(elements, timeouts, eventHandler, callbackName, destroyer) {
+exports.addMultiMouseDownListener = function(elements, timeouts, eventHandler, callbackName, destroyer) {
     var clicks = 0;
     var startX, startY, timer; 
     var eventNames = {
@@ -181,7 +179,7 @@ export let addMultiMouseDownListener = function(elements, timeouts, eventHandler
     };
 
     function onMousedown(e) {
-        if (getButton(e) !== 0) {
+        if (exports.getButton(e) !== 0) {
             clicks = 0;
         } else if (e.detail > 1) {
             clicks++;
@@ -224,7 +222,7 @@ var getModifierHash = function(e) {
     return 0 | (e.ctrlKey ? 1 : 0) | (e.altKey ? 2 : 0) | (e.shiftKey ? 4 : 0) | (e.metaKey ? 8 : 0);
 };
 
-export let getModifierString = function(e) {
+exports.getModifierString = function(e) {
     return keys.KEY_MODS[getModifierHash(e)];
 };
 
@@ -285,7 +283,7 @@ function normalizeCommandKeys(callback, e, keyCode) {
 }
 
 
-export let addCommandKeyListener = function(el, callback, destroyer) {
+exports.addCommandKeyListener = function(el, callback, destroyer) {
     if (useragent.isOldGecko || (useragent.isOpera && !("KeyboardEvent" in window))) {
         // Old versions of Gecko aka. Firefox < 4.0 didn't repeat the keydown
         // event if the user pressed the key for a longer time. Instead, the
@@ -312,7 +310,7 @@ export let addCommandKeyListener = function(el, callback, destroyer) {
 
         addListener(el, "keypress", function(e) {
             if (lastDefaultPrevented && (e.ctrlKey || e.altKey || e.shiftKey || e.metaKey)) {
-                stopEvent(e);
+                exports.stopEvent(e);
                 lastDefaultPrevented = null;
             }
         }, destroyer);
@@ -331,16 +329,15 @@ function resetPressedKeys() {
     pressedKeys = Object.create(null);
 }
 
-export let nextTick;
 if (typeof window == "object" && window.postMessage && !useragent.isOldIE) {
     var postMessageId = 1;
-    nextTick = function(callback, win) {
+    exports.nextTick = function(callback, win) {
         win = win || window;
         var messageName = "zero-timeout-message-" + (postMessageId++);
         
         var listener = function(e) {
             if (e.data == messageName) {
-                stopPropagation(e);
+                exports.stopPropagation(e);
                 removeListener(win, "message", listener);
                 callback();
             }
@@ -351,10 +348,10 @@ if (typeof window == "object" && window.postMessage && !useragent.isOldIE) {
     };
 }
 
-export let $idleBlocked = false;
-export let onIdle = function(cb, timeout) {
+exports.$idleBlocked = false;
+exports.onIdle = function(cb, timeout) {
     return setTimeout(function handler() {
-        if (!$idleBlocked) {
+        if (!exports.$idleBlocked) {
             cb();
         } else {
             setTimeout(handler, 100);
@@ -362,27 +359,27 @@ export let onIdle = function(cb, timeout) {
     }, timeout);
 };
 
-export let $idleBlockId = null;
-export let blockIdle = function(delay) {
-    if ($idleBlockId)
-        clearTimeout($idleBlockId);
+exports.$idleBlockId = null;
+exports.blockIdle = function(delay) {
+    if (exports.$idleBlockId)
+        clearTimeout(exports.$idleBlockId);
         
-    $idleBlocked = true;
-    $idleBlockId = setTimeout(function() {
-        $idleBlocked = false;
+    exports.$idleBlocked = true;
+    exports.$idleBlockId = setTimeout(function() {
+        exports.$idleBlocked = false;
     }, delay || 100);
 };
 
-export let nextFrame = typeof window == "object" && (window.requestAnimationFrame
+exports.nextFrame = typeof window == "object" && (window.requestAnimationFrame
     || window.mozRequestAnimationFrame
     || window.webkitRequestAnimationFrame
     || window.msRequestAnimationFrame
     || window.oRequestAnimationFrame);
 
-if (nextFrame)
-    nextFrame = nextFrame.bind(window);
+if (exports.nextFrame)
+    exports.nextFrame = exports.nextFrame.bind(window);
 else
-    nextFrame = function(callback) {
+    exports.nextFrame = function(callback) {
         setTimeout(callback, 17);
     };
-// });
+});

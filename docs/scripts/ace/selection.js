@@ -28,17 +28,14 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
-// var oop = require("./lib/oop");
-import * as oop from "./lib/oop.js";
-// var lang = require("./lib/lang");
-import * as lang from "./lib/lang.js";
-// var EventEmitter = require("./lib/event_emitter").EventEmitter;
-import { EventEmitter } from "./lib/event_emitter.js"
-// var Range = require("./range").Range;
-import { Range } from './range.js';
+var oop = require("./lib/oop");
+var lang = require("./lib/lang");
+var EventEmitter = require("./lib/event_emitter").EventEmitter;
+var Range = require("./range").Range;
+
 /**
  * Contains the cursor position and the text selection of an edit session.
  *
@@ -63,7 +60,7 @@ import { Range } from './range.js';
  * 
  * @constructor
  **/
-export let Selection = function(session) {
+var Selection = function(session) {
     this.session = session;
     this.doc = session.getDocument();
 
@@ -843,7 +840,6 @@ export let Selection = function(session) {
     this.detach = function() {
         this.lead.detach();
         this.anchor.detach();
-        this.session = this.doc = null;
     };
 
     this.fromOrientedRange = function(range) {
@@ -937,5 +933,5 @@ export let Selection = function(session) {
 
 }).call(Selection.prototype);
 
-// exports.Selection = Selection;
-// });
+exports.Selection = Selection;
+});

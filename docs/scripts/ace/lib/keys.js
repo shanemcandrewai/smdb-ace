@@ -31,11 +31,10 @@ For more information about SproutCore, visit http://www.sproutcore.com
 
 // Most of the following code is taken from SproutCore with a few changes.
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
-// var oop = require("./oop");
-import * as oop from './oop.js'
+var oop = require("./oop");
 
 /*
  * Helper functions and hashes for key handling.
@@ -151,9 +150,9 @@ var Keys = (function() {
 
     return ret;
 })();
-// oop.mixin(exports, Keys);
+oop.mixin(exports, Keys);
 
-export let keyCodeToString = function(keyCode) {
+exports.keyCodeToString = function(keyCode) {
     // Language-switching keystroke in Chrome/Linux emits keyCode 0.
     var keyString = Keys[keyCode];
     if (typeof keyString != "string")
@@ -161,4 +160,4 @@ export let keyCodeToString = function(keyCode) {
     return keyString.toLowerCase();
 };
 
-// });
+});

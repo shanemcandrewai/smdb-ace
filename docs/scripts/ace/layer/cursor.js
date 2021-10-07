@@ -28,13 +28,12 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
-// var dom = require("../lib/dom");
-import * as dom from  "../lib/dom.js"
+var dom = require("../lib/dom");
 
-export let Cursor = function(parentEl) {
+var Cursor = function(parentEl) {
     this.element = dom.createElement("div");
     this.element.className = "ace_layer ace_cursor-layer";
     parentEl.appendChild(this.element);
@@ -63,12 +62,16 @@ export let Cursor = function(parentEl) {
         for (var i = cursors.length; i--; )
             cursors[i].style.animationDuration = this.blinkInterval + "ms";
 
+        this.$isAnimating = true;
         setTimeout(function() {
-            dom.addCssClass(this.element, "ace_animate-blinking");
+            if (this.$isAnimating) {
+                dom.addCssClass(this.element, "ace_animate-blinking");
+            }
         }.bind(this));
     };
     
     this.$stopCssAnimation = function() {
+        this.$isAnimating = false;
         dom.removeCssClass(this.element, "ace_animate-blinking");
     };
 
@@ -139,6 +142,7 @@ export let Cursor = function(parentEl) {
         this.$stopCssAnimation();
 
         if (this.smoothBlinking) {
+            this.$isSmoothBlinking = false;
             dom.removeCssClass(this.element, "ace_smooth-blinking");
         }
         
@@ -150,8 +154,11 @@ export let Cursor = function(parentEl) {
         }
 
         if (this.smoothBlinking) {
-            setTimeout(function(){
-                dom.addCssClass(this.element, "ace_smooth-blinking");
+            this.$isSmoothBlinking = true;
+            setTimeout(function() {
+                if (this.$isSmoothBlinking) {
+                    dom.addCssClass(this.element, "ace_smooth-blinking");
+                }
             }.bind(this));
         }
         
@@ -256,6 +263,6 @@ export let Cursor = function(parentEl) {
 
 }).call(Cursor.prototype);
 
-// exports.Cursor = Cursor;
+exports.Cursor = Cursor;
 
-// });
+});

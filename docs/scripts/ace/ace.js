@@ -34,47 +34,40 @@
  * @class Ace
  **/
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "use strict";
 
-// require("./lib/fixoldbrowsers");
+require("./lib/fixoldbrowsers");
 
-// var dom = require("./lib/dom");
-import * as dom from './lib/dom.js';
-// var event = require("./lib/event");
-import * as event from './lib/event.js';
-// var Range = require("./range").Range;
-import { Range } from './range.js';
-// var Editor = require("./editor").Editor;
-import { Editor } from './editor.js';
-// var EditSession = require("./edit_session").EditSession;
-import { EditSession } from './edit_session.js';
-// var UndoManager = require("./undomanager").UndoManager;
-import { UndoManager } from './undomanager.js';
-// var Renderer = require("./virtual_renderer").VirtualRenderer;
-import { VirtualRenderer as Renderer } from './virtual_renderer.js';
+var dom = require("./lib/dom");
+var event = require("./lib/event");
+
+var Range = require("./range").Range;
+var Editor = require("./editor").Editor;
+var EditSession = require("./edit_session").EditSession;
+var UndoManager = require("./undomanager").UndoManager;
+var Renderer = require("./virtual_renderer").VirtualRenderer;
 
 // The following require()s are for inclusion in the built ace file
-// require("./worker/worker_client");
-// require("./keyboard/hash_handler");
-// require("./placeholder");
-// require("./multi_select");
-// require("./mode/folding/fold_mode");
-// require("./theme/textmate");
-// require("./ext/error_marker");
+require("./worker/worker_client");
+require("./keyboard/hash_handler");
+require("./placeholder");
+require("./multi_select");
+require("./mode/folding/fold_mode");
+require("./theme/textmate");
+require("./ext/error_marker");
 
-// exports.config = require("./config");
-import * as config from './config.js';
+exports.config = require("./config");
 
 /**
  * Provides access to require in packed noconflict mode
  * @param {String} moduleName
  * @returns {Object}
  **/
-// exports.require = require;
+exports.require = require;
 
-// if (typeof define === "function")
-    // exports.define = define;
+if (typeof define === "function")
+    exports.define = define;
 
 /**
  * Embeds the Ace editor into the DOM, at the element provided by `el`.
@@ -82,8 +75,7 @@ import * as config from './config.js';
  * @param {Object } options Options for the editor
  *
  **/
-// exports.edit = function(el, options) {
-	export let edit = function(el, options) {
+exports.edit = function(el, options) {
     if (typeof el == "string") {
         var _id = el;
         el = document.getElementById(_id);
@@ -105,8 +97,7 @@ import * as config from './config.js';
         el.innerHTML = "";
     }
 
-    // var doc = exports.createEditSession(value);
-	var doc = createEditSession(value);
+    var doc = exports.createEditSession(value);
 
     var editor = new Editor(new Renderer(el), doc, options);
 
@@ -131,22 +122,15 @@ import * as config from './config.js';
  * @param {TextMode} mode {:modeParam}
  *
  **/
-// exports.createEditSession = function(text, mode) {
-  export let createEditSession = function(text, mode) {
+exports.createEditSession = function(text, mode) {
     var doc = new EditSession(text, mode);
     doc.setUndoManager(new UndoManager());
     return doc;
 };
-// exports.Range = Range;
-export { Range };
-// exports.Editor = Editor;
-export { Editor };
-// exports.EditSession = EditSession;
-export { EditSession };
-// exports.UndoManager = UndoManager;
-export { UndoManager };
-// exports.VirtualRenderer = Renderer;
-export { Renderer as VirtualRenderer };
-// exports.version = exports.config.version;
-export let version = config.version;
-// });
+exports.Range = Range;
+exports.Editor = Editor;
+exports.EditSession = EditSession;
+exports.UndoManager = UndoManager;
+exports.VirtualRenderer = Renderer;
+exports.version = exports.config.version;
+});

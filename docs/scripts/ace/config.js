@@ -28,20 +28,16 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-// define(function(require, exports, module) {
+define(function(require, exports, module) {
 "no use strict";
 
-// var lang = require("./lib/lang");
-import * as lang from "./lib/lang.js";
-// var oop = require("./lib/oop");
-import * as oop from "./lib/oop.js";
-// var net = require("./lib/net");
-import * as net from "./lib/net.js";
-// var AppConfig = require("./lib/app_config").AppConfig;
-import { AppConfig } from "./lib/app_config.js"
+var lang = require("./lib/lang");
+var oop = require("./lib/oop");
+var net = require("./lib/net");
+var dom = require("./lib/dom");
+var AppConfig = require("./lib/app_config").AppConfig;
 
-// module.exports = exports = new AppConfig();
-export default new AppConfig();
+module.exports = exports = new AppConfig();
 
 var global = (function() {
     return this || typeof window != "undefined" && window;
@@ -56,31 +52,33 @@ var options = {
     suffix: ".js",
     $moduleUrls: {},
     loadWorkerFromBlob: false,
-    sharedPopups: false
+    sharedPopups: false,
+    useStrictCSP: null
 };
 
-export let get = function(key) {
+exports.get = function(key) {
     if (!options.hasOwnProperty(key))
         throw new Error("Unknown config key: " + key);
-
     return options[key];
 };
 
-export let set = function(key, value) {
+exports.set = function(key, value) {
     if (options.hasOwnProperty(key))
         options[key] = value;
     else if (this.setDefaultValue("", key, value) == false)
         throw new Error("Unknown config key: " + key);
+    if (key == "useStrictCSP")
+        dom.useStrictCSP(value);
 };
 
-export let all = function() {
+exports.all = function() {
     return lang.copyObject(options);
 };
 
-export let $modes = {};
+exports.$modes = {};
 
 // module loading
-export let moduleUrl = function(name, component) {
+exports.moduleUrl = function(name, component) {
     if (options.$moduleUrls[name])
         return options.$moduleUrls[name];
 
@@ -108,12 +106,12 @@ export let moduleUrl = function(name, component) {
     return path + component + sep + base + this.get("suffix");
 };
 
-export let setModuleUrl = function(name, subst) {
+exports.setModuleUrl = function(name, subst) {
     return options.$moduleUrls[name] = subst;
 };
 
-export let $loading = {};
-export let loadModule = function(moduleName, onLoad) {
+exports.$loading = {};
+exports.loadModule = function(moduleName, onLoad) {
     var module, moduleType;
     if (Array.isArray(moduleName)) {
         moduleType = moduleName[0];
@@ -124,32 +122,32 @@ export let loadModule = function(moduleName, onLoad) {
         module = require(moduleName);
     } catch (e) {}
     // require(moduleName) can return empty object if called after require([moduleName], callback)
-    if (module && !$loading[moduleName])
+    if (module && !exports.$loading[moduleName])
         return onLoad && onLoad(module);
 
-    if (!$loading[moduleName])
-        $loading[moduleName] = [];
+    if (!exports.$loading[moduleName])
+        exports.$loading[moduleName] = [];
 
-    $loading[moduleName].push(onLoad);
+    exports.$loading[moduleName].push(onLoad);
 
-    if ($loading[moduleName].length > 1)
+    if (exports.$loading[moduleName].length > 1)
         return;
 
     var afterLoad = function() {
         require([moduleName], function(module) {
-            _emit("load.module", {name: moduleName, module: module});
-            var listeners = $loading[moduleName];
-            $loading[moduleName] = null;
+            exports._emit("load.module", {name: moduleName, module: module});
+            var listeners = exports.$loading[moduleName];
+            exports.$loading[moduleName] = null;
             listeners.forEach(function(onLoad) {
                 onLoad && onLoad(module);
             });
         });
     };
 
-    if (!get("packaged"))
+    if (!exports.get("packaged"))
         return afterLoad();
     
-    net.loadScript(moduleUrl(moduleName, moduleType), afterLoad);
+    net.loadScript(exports.moduleUrl(moduleName, moduleType), afterLoad);
     reportErrorIfPathIsNotConfigured();
 };
 
@@ -169,7 +167,7 @@ var reportErrorIfPathIsNotConfigured = function() {
 };
 
 // initialization
-export function init(packaged) {
+function init(packaged) {
     if (!global || !global.document)
         return;
     
@@ -216,15 +214,15 @@ export function init(packaged) {
 
     for (var key in scriptOptions)
         if (typeof scriptOptions[key] !== "undefined")
-            set(key, scriptOptions[key]);
+            exports.set(key, scriptOptions[key]);
 }
 
-// exports.init = init;
+exports.init = init;
 
 function deHyphenate(str) {
     return str.replace(/-(.)/g, function(m, m1) { return m1.toUpperCase(); });
 }
 
-export let version = "1.4.12";
+exports.version = "1.4.13";
 
-// });
+});
