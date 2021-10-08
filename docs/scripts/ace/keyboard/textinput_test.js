@@ -33,12 +33,10 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
 require("../test/mockdom");
-var assert = require("../test/assertions");
+import * as assert from "../test/assertions.js";
 var clipboard = require("../clipboard");
 var setUserAgentForTests = require("./textinput").$setUserAgentForTests;
 var ace = require("../ace");
@@ -96,7 +94,7 @@ function sendEvent(type, data) {
     editor.resize(true);
 }
 
-module.exports = {
+export {
     setUp: function() {
         if (editor) this.tearDown();
         

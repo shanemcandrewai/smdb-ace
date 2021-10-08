@@ -27,8 +27,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
 /*
@@ -47,7 +45,7 @@ exports.OS = {
 /*
  * Return an exports.OS constant
  */
-exports.getOS = function() {
+export let getOS = function() {
     if (exports.isMac) {
         return exports.OS.MAC;
     } else if (exports.isLinux) {
@@ -105,5 +103,3 @@ exports.isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
 if (exports.isIOS) exports.isMac = true;
 
 exports.isMobile = exports.isIOS || exports.isAndroid;
-
-});

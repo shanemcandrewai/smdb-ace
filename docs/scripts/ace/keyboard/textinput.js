@@ -27,11 +27,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var event = require("../lib/event");
+import * as event from "../lib/event.js";
 var useragent = require("../lib/useragent");
 var dom = require("../lib/dom");
 var lang = require("../lib/lang");
@@ -755,4 +753,3 @@ exports.$setUserAgentForTests = function(_isMobile, _isIOS) {
     isMobile = _isMobile;
     isIOS = _isIOS;
 };
-});

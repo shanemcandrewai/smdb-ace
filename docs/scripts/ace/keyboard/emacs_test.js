@@ -32,13 +32,11 @@ if (typeof process !== "undefined") {
     require("amd-loader");
     require("../test/mockdom");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
 require("../multi_select");
 
-var EditSession = require("./../edit_session").EditSession,
+import { EditSession as EditSession } from "./../edit_session.js",
     Editor = require("./../editor").Editor,
     Range = require("./../range").Range,
     MockRenderer = require("./../test/mockrenderer").MockRenderer,
@@ -61,7 +59,7 @@ function pluck(arr, what) {
     return arr.map(function(ea) { return ea[what]; });
 }
 
-module.exports = {
+export {
 
     "test: detach removes emacs commands from command manager": function() {
         initEditor('');

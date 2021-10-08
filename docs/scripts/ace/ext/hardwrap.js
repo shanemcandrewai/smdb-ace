@@ -27,11 +27,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var Range = require("../range").Range;
+import { Range as Range } from "../range.js";
 
 function hardWrap(editor, options) {
     var max = options.column || editor.getOption("printMarginColumn");
@@ -104,5 +102,3 @@ function hardWrap(editor, options) {
 }
 
 exports.hardWrap = hardWrap;
-
-});

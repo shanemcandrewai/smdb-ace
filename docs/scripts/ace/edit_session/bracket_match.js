@@ -27,12 +27,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var TokenIterator = require("../token_iterator").TokenIterator;
-var Range = require("../range").Range;
+import { TokenIterator as TokenIterator } from "../token_iterator.js";
+import { Range as Range } from "../range.js";
 
 
 function BracketMatch() {
@@ -252,5 +250,3 @@ function BracketMatch() {
     };
 }
 exports.BracketMatch = BracketMatch;
-
-});

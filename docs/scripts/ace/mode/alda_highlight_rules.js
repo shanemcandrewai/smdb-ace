@@ -35,8 +35,6 @@
  * IT MIGHT NOT BE PERFECT ...But it's a good start from an existing *.tmlanguage file. *
  * fileTypes                                                                            *
  ****************************************************************************************/
-
-define(function(require, exports, module) {
     "use strict";
     
     var oop = require("../lib/oop");

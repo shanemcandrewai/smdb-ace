@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var Range = require("../range").Range;
-var FoldLine = require("./fold_line").FoldLine;
-var Fold = require("./fold").Fold;
-var TokenIterator = require("../token_iterator").TokenIterator;
+import { Range as Range } from "../range.js";
+import { FoldLine as FoldLine } from "./fold_line.js";
+import { Fold as Fold } from "./fold.js";
+import { TokenIterator as TokenIterator } from "../token_iterator.js";
 
 function Folding() {
     /*
@@ -893,5 +891,3 @@ function Folding() {
 }
 
 exports.Folding = Folding;
-
-});

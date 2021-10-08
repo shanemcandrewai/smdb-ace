@@ -27,13 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var snippetManager = require("../snippets").snippetManager;
-var Autocomplete = require("../autocomplete").Autocomplete;
-var config = require("../config");
+import { snippetManager as snippetManager } from "../snippets.js";
+import { Autocomplete as Autocomplete } from "../autocomplete.js";
+import * as config from "../config.js";
 var lang = require("../lib/lang");
 var util = require("../autocomplete/util");
 
@@ -91,11 +89,11 @@ var snippetCompleter = {
 
 var completers = [snippetCompleter, textCompleter, keyWordCompleter];
 // Modifies list of default completers
-exports.setCompleters = function(val) {
+export let setCompleters = function(val) {
     completers.length = 0;
     if (val) completers.push.apply(completers, val);
 };
-exports.addCompleter = function(completer) {
+export let addCompleter = function(completer) {
     completers.push(completer);
 };
 
@@ -169,7 +167,7 @@ var doLiveAutocomplete = function(e) {
     }
 };
 
-var Editor = require("../editor").Editor;
+import { Editor as Editor } from "../editor.js";
 require("../config").defineOptions(Editor.prototype, "editor", {
     enableBasicAutocompletion: {
         set: function(val) {
@@ -213,5 +211,4 @@ require("../config").defineOptions(Editor.prototype, "editor", {
         },
         value: false
     }
-});
 });

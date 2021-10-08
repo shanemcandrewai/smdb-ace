@@ -27,12 +27,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var Range = require("../range").Range;
-var dom = require("../lib/dom");
+import { Range as Range } from "../range.js";
+import * as dom from "../lib/dom.js";
 
 var Marker = function(parentEl) {
     this.element = dom.createElement("div");
@@ -260,5 +258,3 @@ var Marker = function(parentEl) {
 }).call(Marker.prototype);
 
 exports.Marker = Marker;
-
-});

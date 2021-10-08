@@ -27,15 +27,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var dom = require("../lib/dom");
+import * as dom from "../lib/dom.js";
 var lang = require("../lib/lang");
 var event = require("../lib/event");
 var searchboxCss = require("../requirejs/text!./searchbox.css");
-var HashHandler = require("../keyboard/hash_handler").HashHandler;
+import { HashHandler as HashHandler } from "../keyboard/hash_handler.js";
 var keyUtil = require("../lib/keys");
 
 var MAX_COUNT = 999;
@@ -383,7 +381,7 @@ var SearchBox = function(editor, range, showReplaceForm) {
 
 exports.SearchBox = SearchBox;
 
-exports.Search = function(editor, isReplace) {
+export let Search = function(editor, isReplace) {
     var sb = editor.searchBox || new SearchBox(editor);
     sb.show(editor.session.getTextRange(), isReplace);
 };

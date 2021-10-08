@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
- 
-define(function(require, exports, module) {
-"use strict";
+ "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var CirruHighlightRules = require("./cirru_highlight_rules").CirruHighlightRules;
-var CoffeeFoldMode = require("./folding/coffee").FoldMode;
+import * as oop from "../lib/oop.js";
+import { Mode as TextMode } from "./text.js";
+import { CirruHighlightRules as CirruHighlightRules } from "./cirru_highlight_rules.js";
+import { FoldMode as CoffeeFoldMode } from "./folding/coffee.js";
 
 var Mode = function() {
     this.HighlightRules = CirruHighlightRules;
@@ -49,4 +47,3 @@ oop.inherits(Mode, TextMode);
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
-});

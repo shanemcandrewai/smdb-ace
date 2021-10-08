@@ -31,15 +31,13 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var dom = require("./config");
+import * as dom from "./config.js";
 var config = require("./config");
 var assert = require("./test/assertions");
 
-module.exports = {
+export {
 
     "test: path resolution" : function() {
         config.set("packaged", "true");

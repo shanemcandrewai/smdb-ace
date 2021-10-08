@@ -27,11 +27,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var bidiUtil = require("./lib/bidiutil");
+import * as bidiUtil from "./lib/bidiutil.js";
 var lang = require("./lib/lang");
 var bidiRE = /[\u0590-\u05f4\u0600-\u06ff\u0700-\u08ac\u202B]/;
 
@@ -386,4 +384,3 @@ var BidiHandler = function(session) {
 }).call(BidiHandler.prototype);
 
 exports.BidiHandler = BidiHandler;
-});

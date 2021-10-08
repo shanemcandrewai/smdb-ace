@@ -29,10 +29,8 @@
  * ***** END LICENSE BLOCK ***** */
 
 // [WIP]
-
-define(function(require, exports, module) {
 "use strict";
-var TokenIterator = require("../token_iterator").TokenIterator;
+import { TokenIterator as TokenIterator } from "../token_iterator.js";
 
 function is(token, type) {
     return token.type.lastIndexOf(type + ".xml") > -1;
@@ -44,7 +42,7 @@ exports.singletonTags = ["area", "base", "br", "col", "command", "embed", "hr", 
 // insert a line break after block level tags
 exports.blockTags = ["article", "aside", "blockquote", "body", "div", "dl", "fieldset", "footer", "form", "head", "header", "html", "nav", "ol", "p", "script", "section", "style", "table", "tbody", "tfoot", "thead", "ul"];
 
-exports.beautify = function(session) {
+export let beautify = function(session) {
     var iterator = new TokenIterator(session, 0, 0);
     var token = iterator.getCurrentToken();
     var tabString = session.getTabString();
@@ -411,5 +409,3 @@ exports.commands = [{
     },
     bindKey: "Ctrl-Shift-B"
 }];
-
-});

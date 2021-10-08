@@ -27,12 +27,10 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var RangeList = require("../range_list").RangeList;
-var oop = require("../lib/oop");
+import { RangeList as RangeList } from "../range_list.js";
+import * as oop from "../lib/oop.js";
 /*
  * Simple fold-data struct.
  **/
@@ -137,5 +135,3 @@ function restoreRange(range, anchor) {
     restorePoint(range.start, anchor);
     restorePoint(range.end, anchor);
 }
-
-});

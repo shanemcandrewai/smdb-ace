@@ -32,20 +32,18 @@ if (typeof process !== "undefined") {
     require("amd-loader");
     require("./test/mockdom");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var EditSession = require("./edit_session").EditSession;
-var Editor = require("./editor").Editor;
-var Text = require("./mode/text").Mode;
-var JavaScriptMode = require("./mode/javascript").Mode;
-var CssMode = require("./mode/css").Mode;
-var HtmlMode = require("./mode/html").Mode;
-var MockRenderer = require("./test/mockrenderer").MockRenderer;
-var assert = require("./test/assertions");
+import { EditSession as EditSession } from "./edit_session.js";
+import { Editor as Editor } from "./editor.js";
+import { Mode as Text } from "./mode/text.js";
+import { Mode as JavaScriptMode } from "./mode/javascript.js";
+import { Mode as CssMode } from "./mode/css.js";
+import { Mode as HtmlMode } from "./mode/html.js";
+import { MockRenderer as MockRenderer } from "./test/mockrenderer.js";
+import * as assert from "./test/assertions.js";
 
-module.exports = {
+export {
 
     setUp : function(next) {
         this.session1 = new EditSession(["abc", "def"]);

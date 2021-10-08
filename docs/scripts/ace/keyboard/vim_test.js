@@ -4,15 +4,13 @@ if (typeof process !== "undefined") {
     require("../test/mockdom");
 }
 
-define(function(require, exports, module) {
-
-var EditSession = require("./../edit_session").EditSession;
-var Editor = require("./../editor").Editor;
-var UndoManager = require("./../undomanager").UndoManager;
-var MockRenderer = require("./../test/mockrenderer").MockRenderer;
-var JavaScriptMode = require("./../mode/javascript").Mode;
-var VirtualRenderer = require("./../virtual_renderer").VirtualRenderer;
-var assert = require("./../test/assertions");
+import { EditSession as EditSession } from "./../edit_session.js";
+import { Editor as Editor } from "./../editor.js";
+import { UndoManager as UndoManager } from "./../undomanager.js";
+import { MockRenderer as MockRenderer } from "./../test/mockrenderer.js";
+import { Mode as JavaScriptMode } from "./../mode/javascript.js";
+import { VirtualRenderer as VirtualRenderer } from "./../virtual_renderer.js";
+import * as assert from "./../test/assertions.js";
 var keys = require("./../lib/keys");
 var vim = require("./vim");
 var isAce = true;

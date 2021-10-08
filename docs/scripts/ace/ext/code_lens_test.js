@@ -34,11 +34,9 @@ if (typeof process !== "undefined") {
     require("amd-loader");
     require("../test/mockdom");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var ace = require("../ace");
+import * as ace from "../ace.js";
 var codeLens = require("./code_lens");
 var assert = require("../test/assertions");
 require("./error_marker");
@@ -48,7 +46,7 @@ function click(node) {
 }
 
 var editor = null;
-module.exports = {
+export {
     setUp: function() {
         if (editor)
             editor.destroy();

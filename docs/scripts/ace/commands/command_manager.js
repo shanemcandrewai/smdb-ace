@@ -1,9 +1,8 @@
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var MultiHashHandler = require("../keyboard/hash_handler").MultiHashHandler;
-var EventEmitter = require("../lib/event_emitter").EventEmitter;
+import * as oop from "../lib/oop.js";
+import { MultiHashHandler as MultiHashHandler } from "../keyboard/hash_handler.js";
+import { EventEmitter as EventEmitter } from "../lib/event_emitter.js";
 
 /**
  * @class CommandManager
@@ -117,5 +116,3 @@ oop.inherits(CommandManager, MultiHashHandler);
 }).call(CommandManager.prototype);
 
 exports.CommandManager = CommandManager;
-
-});

@@ -33,12 +33,10 @@
  * IT MIGHT NOT BE PERFECT ...But it's a good start from an existing *.tmlanguage file. *
  * fileTypes                                                                            *
  ****************************************************************************************/
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var AutoHotKeyHighlightRules = function() {
     var autoItKeywords = 'And|ByRef|Case|Const|ContinueCase|ContinueLoop|Default|Dim|Do|Else|ElseIf|EndFunc|EndIf|EndSelect|EndSwitch|EndWith|Enum|Exit|ExitLoop|False|For|Func|Global|If|In|Local|Next|Not|Or|ReDim|Return|Select|Step|Switch|Then|To|True|Until|WEnd|While|With|' +       
@@ -106,4 +104,3 @@ AutoHotKeyHighlightRules.metaData = { name: 'AutoHotKey',
 oop.inherits(AutoHotKeyHighlightRules, TextHighlightRules);
 
 exports.AutoHotKeyHighlightRules = AutoHotKeyHighlightRules;
-});

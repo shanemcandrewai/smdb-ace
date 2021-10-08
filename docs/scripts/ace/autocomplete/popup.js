@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var Renderer = require("../virtual_renderer").VirtualRenderer;
-var Editor = require("../editor").Editor;
-var Range = require("../range").Range;
-var event = require("../lib/event");
+import { VirtualRenderer as Renderer } from "../virtual_renderer.js";
+import { Editor as Editor } from "../editor.js";
+import { Range as Range } from "../range.js";
+import * as event from "../lib/event.js";
 var lang = require("../lib/lang");
 var dom = require("../lib/dom");
 
@@ -371,6 +369,3 @@ dom.importCssString("\
 
 exports.AcePopup = AcePopup;
 exports.$singleLineEditor = $singleLineEditor;
-});
-
-

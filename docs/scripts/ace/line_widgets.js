@@ -27,11 +27,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var dom = require("./lib/dom");
+import * as dom from "./lib/dom.js";
 
 function LineWidgets(session) {
     this.session = session;
@@ -388,9 +386,3 @@ function LineWidgets(session) {
 
 
 exports.LineWidgets = LineWidgets;
-
-});
-
-
-    
-

@@ -1,4 +1,3 @@
-define(function(require, exports, module) {
 "use strict";
 
 var modes = [];
@@ -241,10 +240,8 @@ for (var name in supportedModes) {
     modes.push(mode);
 }
 
-module.exports = {
+export {
     getModeForPath: getModeForPath,
     modes: modes,
     modesByName: modesByName
 };
-
-});

@@ -27,21 +27,19 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("./lib/oop");
+import * as oop from "./lib/oop.js";
 var lang = require("./lib/lang");
-var BidiHandler = require("./bidihandler").BidiHandler;
+import { BidiHandler as BidiHandler } from "./bidihandler.js";
 var config = require("./config");
-var EventEmitter = require("./lib/event_emitter").EventEmitter;
-var Selection = require("./selection").Selection;
-var TextMode = require("./mode/text").Mode;
-var Range = require("./range").Range;
-var Document = require("./document").Document;
-var BackgroundTokenizer = require("./background_tokenizer").BackgroundTokenizer;
-var SearchHighlight = require("./search_highlight").SearchHighlight;
+import { EventEmitter as EventEmitter } from "./lib/event_emitter.js";
+import { Selection as Selection } from "./selection.js";
+import { Mode as TextMode } from "./mode/text.js";
+import { Range as Range } from "./range.js";
+import { Document as Document } from "./document.js";
+import { BackgroundTokenizer as BackgroundTokenizer } from "./background_tokenizer.js";
+import { SearchHighlight as SearchHighlight } from "./search_highlight.js";
 
 /**
  * Stores all the data about [[Editor `Editor`]] state providing easy way to change editors state.
@@ -2567,4 +2565,3 @@ config.defineOptions(EditSession.prototype, "session", {
 });
 
 exports.EditSession = EditSession;
-});

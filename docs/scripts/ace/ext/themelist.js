@@ -38,8 +38,6 @@
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  */
-
-define(function(require, exports, module) {
 "use strict";
 
 var themeData = [
@@ -101,6 +99,3 @@ exports.themes = themeData.map(function(data) {
     exports.themesByName[name] = theme;
     return theme;
 });
-
-});
-

@@ -31,19 +31,17 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var EventEmitter = require("./event_emitter").EventEmitter;
+import * as oop from "../lib/oop.js";
+import { EventEmitter as EventEmitter } from "./event_emitter.js";
 var assert = require("../test/assertions");
 
 var Emitter = function() {};
 
 oop.implement(Emitter.prototype, EventEmitter);
 
-module.exports = {
+export {
     "test: dispatch event with no data" : function() {
         var emitter = new Emitter();
 

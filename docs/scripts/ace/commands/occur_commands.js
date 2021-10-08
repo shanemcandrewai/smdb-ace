@@ -28,9 +28,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-
-var config = require("../config"),
+import * as config from "../config.js",
     Occur = require("../occur").Occur;
 
 // These commands can be installed in a normal command handler to start occur:
@@ -67,7 +65,7 @@ var occurCommands = [{
     readOnly: true
 }];
 
-var HashHandler = require("../keyboard/hash_handler").HashHandler;
+import { HashHandler as HashHandler } from "../keyboard/hash_handler.js";
 var oop = require("../lib/oop");
 
 
@@ -106,5 +104,3 @@ OccurKeyboardHandler.uninstallFrom = function(editor) {
 };
 
 exports.occurStartCommand = occurStartCommand;
-
-});

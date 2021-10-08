@@ -27,14 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("./lib/oop");
-var Range = require("./range").Range;
-var Search = require("./search").Search;
-var SearchHighlight = require("./search_highlight").SearchHighlight;
+import * as oop from "./lib/oop.js";
+import { Range as Range } from "./range.js";
+import { Search as Search } from "./search.js";
+import { SearchHighlight as SearchHighlight } from "./search_highlight.js";
 var iSearchCommandModule = require("./commands/incremental_search_commands");
 var ISearchKbd = iSearchCommandModule.IncrementalSearchKeyboardHandler;
 
@@ -297,7 +295,7 @@ var commands = require("./commands/command_manager");
 }).call(commands.CommandManager.prototype);
 
 // incremental search config option
-var Editor = require("./editor").Editor;
+import { Editor as Editor } from "./editor.js";
 require("./config").defineOptions(Editor.prototype, "editor", {
     useIncrementalSearch: {
         set: function(val) {
@@ -309,6 +307,4 @@ require("./config").defineOptions(Editor.prototype, "editor", {
             this._emit('incrementalSearchSettingChanged', {isEnabled: val});
         }
     }
-});
-
 });

@@ -33,12 +33,10 @@
  * IT MIGHT NOT BE PERFECT ...But it's a good start from an existing *.tmlanguage file. *
  * fileTypes                                                                            *
  ****************************************************************************************/
-
-define(function(require, exports, module) {
 "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+import * as oop from "../lib/oop.js";
+import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
 
 var AssemblyX86HighlightRules = function() {
     // regexp must not have capturing parentheses. Use (?:) instead.
@@ -111,4 +109,3 @@ AssemblyX86HighlightRules.metaData = { fileTypes: [ 'asm' ],
 oop.inherits(AssemblyX86HighlightRules, TextHighlightRules);
 
 exports.AssemblyX86HighlightRules = AssemblyX86HighlightRules;
-});

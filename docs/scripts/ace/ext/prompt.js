@@ -49,19 +49,17 @@
  * @param {Function} options.onCancel       Function called when Esc|Shift-Esc is pressed.
  * @param {Function} callback               Function called after done.
  * */
-
-define(function(require, exports, module) {
 "use strict";
 
-var Range = require("../range").Range;
-var dom = require("../lib/dom");
+import { Range as Range } from "../range.js";
+import * as dom from "../lib/dom.js";
 var shortcuts = require("../ext/menu_tools/get_editor_keyboard_shortcuts");
-var FilteredList= require("../autocomplete").FilteredList;
+import { FilteredList as FilteredList } from "../autocomplete.js";
 var AcePopup = require('../autocomplete/popup').AcePopup;
 var $singleLineEditor = require('../autocomplete/popup').$singleLineEditor;
-var UndoManager = require("../undomanager").UndoManager;
-var Tokenizer = require("../tokenizer").Tokenizer;
-var overlayPage = require("./menu_tools/overlay_page").overlayPage;
+import { UndoManager as UndoManager } from "../undomanager.js";
+import { Tokenizer as Tokenizer } from "../tokenizer.js";
+import { overlayPage as overlayPage } from "./menu_tools/overlay_page.js";
 var modelist = require("./modelist");
 var openPrompt;
 
@@ -512,5 +510,3 @@ dom.importCssString(".ace_prompt_container {\
 
 
 exports.prompt = prompt;
-
-});

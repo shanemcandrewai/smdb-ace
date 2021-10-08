@@ -27,8 +27,6 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
 function throwDeltaError(delta, errorText){
@@ -71,7 +69,7 @@ function validateDelta(docLines, delta) {
         throwDeltaError(delta, "delta.range must match delta lines");
 }
 
-exports.applyDelta = function(docLines, delta, doNotValidate) {
+export let applyDelta = function(docLines, delta, doNotValidate) {
     // disabled validation since it breaks autocompletion popup
     // if (!doNotValidate)
     //    validateDelta(docLines, delta);
@@ -105,4 +103,3 @@ exports.applyDelta = function(docLines, delta, doNotValidate) {
             break;
     }
 };
-});

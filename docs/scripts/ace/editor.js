@@ -27,28 +27,26 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
-
-define(function(require, exports, module) {
 "use strict";
 
 require("./lib/fixoldbrowsers");
 
-var oop = require("./lib/oop");
+import * as oop from "./lib/oop.js";
 var dom = require("./lib/dom");
 var lang = require("./lib/lang");
 var useragent = require("./lib/useragent");
-var TextInput = require("./keyboard/textinput").TextInput;
-var MouseHandler = require("./mouse/mouse_handler").MouseHandler;
-var FoldHandler = require("./mouse/fold_handler").FoldHandler;
-var KeyBinding = require("./keyboard/keybinding").KeyBinding;
-var EditSession = require("./edit_session").EditSession;
-var Search = require("./search").Search;
-var Range = require("./range").Range;
-var EventEmitter = require("./lib/event_emitter").EventEmitter;
-var CommandManager = require("./commands/command_manager").CommandManager;
-var defaultCommands = require("./commands/default_commands").commands;
+import { TextInput as TextInput } from "./keyboard/textinput.js";
+import { MouseHandler as MouseHandler } from "./mouse/mouse_handler.js";
+import { FoldHandler as FoldHandler } from "./mouse/fold_handler.js";
+import { KeyBinding as KeyBinding } from "./keyboard/keybinding.js";
+import { EditSession as EditSession } from "./edit_session.js";
+import { Search as Search } from "./search.js";
+import { Range as Range } from "./range.js";
+import { EventEmitter as EventEmitter } from "./lib/event_emitter.js";
+import { CommandManager as CommandManager } from "./commands/command_manager.js";
+import { commands as defaultCommands } from "./commands/default_commands.js";
 var config = require("./config");
-var TokenIterator = require("./token_iterator").TokenIterator;
+import { TokenIterator as TokenIterator } from "./token_iterator.js";
 
 var clipboard = require("./clipboard");
 
@@ -3038,4 +3036,3 @@ var relativeNumberRenderer = {
 };
 
 exports.Editor = Editor;
-});

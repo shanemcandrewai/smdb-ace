@@ -1,8 +1,7 @@
-define(function(require, exports, module) {
 "use strict";
 
-var HashHandler = require("../keyboard/hash_handler").HashHandler;
-var config = require("../config");
+import { HashHandler as HashHandler } from "../keyboard/hash_handler.js";
+import * as config from "../config.js";
 
 exports.handler = new HashHandler();
 exports.handler.$id = "ace/keyboard/vscode";
@@ -315,6 +314,4 @@ exports.handler.addCommands([{
     if (command)
         command.bindKey = binding.bindKey;
     exports.handler.bindKey(binding.bindKey, command || binding.name);
-});
-
 });

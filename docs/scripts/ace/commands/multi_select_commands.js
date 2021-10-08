@@ -28,8 +28,6 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-
 // commands to enter multiselect mode
 exports.defaultCommands = [{
     name: "addCursorAbove",
@@ -129,7 +127,5 @@ exports.multiSelectCommands = [{
     isAvailable: function(editor) {return editor && editor.inMultiSelectMode;}
 }];
 
-var HashHandler = require("../keyboard/hash_handler").HashHandler;
+import { HashHandler as HashHandler } from "../keyboard/hash_handler.js";
 exports.keyboardHandler = new HashHandler(exports.multiSelectCommands);
-
-});
