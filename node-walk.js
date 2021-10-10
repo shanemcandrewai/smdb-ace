@@ -28,18 +28,18 @@ function initLogger() {
 }
 
 async function* walk(dir) {
-  for await (const d of await opendir(dir)) { // eslint-disable-line no-restricted-syntax
-    const entry = join(dir, d.name);
-    if (d.isDirectory()) yield* walk(entry);
-    else if (d.isFile()) yield (entry);
+  for await (const dirFile of await opendir(dir)) { // eslint-disable-line no-restricted-syntax
+    const entry = join(dir, dirFile.name);
+    if (dirFile.isDirectory()) yield* walk(entry);
+    else if (dirFile.isFile()) yield (entry);
   }
 }
 
 async function main() {
   initLogger();
   logger.info('start logger');
-  for await (const p of walk('docs/scripts/ace/test')) { // eslint-disable-line no-restricted-syntax
-    logger.info(p);
+  for await (const filePath of walk('docs/scripts/ace/test')) { // eslint-disable-line no-restricted-syntax
+    logger.info(filePath);
   }
 }
 main().catch((error) => {
