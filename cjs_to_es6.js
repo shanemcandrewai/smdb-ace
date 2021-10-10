@@ -3,11 +3,9 @@ import { argv } from 'process';
 import { join } from 'path';
 import winston from 'winston';
 
-const createLogger = winston.createLogger; // eslint-disable-line prefer-destructuring
-const format = winston.format; // eslint-disable-line prefer-destructuring
-const transports = winston.transports; // eslint-disable-line prefer-destructuring
+const { createLogger, format, transports } = winston;
 
-const rootDir = 'docs/scripts/ace';
+const rootDir = 'docs/scripts/ace/test';
 
 const logger = createLogger({
   level: 'info',
@@ -32,14 +30,13 @@ function initLogger() {
   }
 }
 
-async function* walk(dirpath) {
-  // const dir = await opendir(dirpath);
-  logger.info(`walk ${dirpath}`);
-  for (const d of await opendir(dirpath)) { // eslint-disable-line no-restricted-syntax
-    logger.info(`walk inner ${d.name}`);
-    const entry = join(dirpath, d.name);
-    if (d.isDirectory()) yield* walk(entry);
-    if (d.isFile()) yield entry;
+async function* walk(dir) {
+  logger.info(`walk ${dir}`);
+  for await (const dirFile of await opendir(dir)) { // eslint-disable-line no-restricted-syntax
+    logger.info(`walk inner ${dirFile}`);
+    const entry = join(dir, dirFile.name);
+    if (dirFile.isDirectory()) yield* walk(entry);
+    else if (dirFile.isFile()) yield (entry);
   }
 }
 
@@ -78,21 +75,12 @@ async function main() {
       });
   } else {
     logger.info('argv.length !== 3');
-    try {
-      for await (const filePath of walk(rootDir)) { // eslint-disable-line no-restricted-syntax
-        logger.error(`walk : ${filePath}`);
-      }
-    } catch (e) {
-      logger.error(`walk failed: ${e.message}`);
+    for await (const filePath of walk(rootDir)) { // eslint-disable-line no-restricted-syntax
+      logger.info(filePath);
     }
-    // logger.info('walk ', filePath);
-    // }
-    // assume ace directory
-    // walk(rootDir);
-    // .catch((e) => {
-    // logger.error(`walk failed: ${e.message}`);
-    // });
   }
 }
 
-main();
+main().catch((error) => {
+  logger.error(error);
+});
