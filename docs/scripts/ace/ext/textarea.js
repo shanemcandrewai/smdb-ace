@@ -27,9 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "use strict";
 
-import * as event from "../lib/event.js";
+var event = require("../lib/event");
 var UA = require("../lib/useragent");
 var net = require("../lib/net");
 var ace = require("../ace");
@@ -151,7 +153,7 @@ function setupContainer(element, getValue) {
     return container;
 }
 
-export let transformTextarea = function(element, options) {
+exports.transformTextarea = function(element, options) {
     var isFocused = element.autofocus || document.activeElement == element;
     var session;
     var container = setupContainer(element, function() {
@@ -513,3 +515,5 @@ exports.defaultOptions = {
     useSoftTabs:        "true",
     showInvisibles:     "false"
 };
+
+});

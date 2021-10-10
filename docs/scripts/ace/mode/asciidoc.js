@@ -27,12 +27,14 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "use strict";
 
-import * as oop from "../lib/oop.js";
-import { Mode as TextMode } from "./text.js";
-import { AsciidocHighlightRules as AsciidocHighlightRules } from "./asciidoc_highlight_rules.js";
-import { FoldMode as AsciidocFoldMode } from "./folding/asciidoc.js";
+var oop = require("../lib/oop");
+var TextMode = require("./text").Mode;
+var AsciidocHighlightRules = require("./asciidoc_highlight_rules").AsciidocHighlightRules;
+var AsciidocFoldMode = require("./folding/asciidoc").FoldMode;
 
 var Mode = function() {
     this.HighlightRules = AsciidocHighlightRules;
@@ -59,3 +61,4 @@ oop.inherits(Mode, TextMode);
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
+});

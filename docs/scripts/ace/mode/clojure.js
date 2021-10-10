@@ -27,12 +27,14 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "use strict";
 
-import * as oop from "../lib/oop.js";
-import { Mode as TextMode } from "./text.js";
-import { ClojureHighlightRules as ClojureHighlightRules } from "./clojure_highlight_rules.js";
-import { MatchingParensOutdent as MatchingParensOutdent } from "./matching_parens_outdent.js";
+var oop = require("../lib/oop");
+var TextMode = require("./text").Mode;
+var ClojureHighlightRules = require("./clojure_highlight_rules").ClojureHighlightRules;
+var MatchingParensOutdent = require("./matching_parens_outdent").MatchingParensOutdent;
 
 var Mode = function() {
     this.HighlightRules = ClojureHighlightRules;
@@ -125,3 +127,4 @@ oop.inherits(Mode, TextMode);
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
+});

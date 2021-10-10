@@ -1,6 +1,7 @@
+define(function(require, exports, module) {
 "use strict";
 
-import { HashHandler as HashHandler } from "../keyboard/hash_handler.js";
+var HashHandler = require("../keyboard/hash_handler").HashHandler;
 
 function moveBySubWords(editor, direction, extend) {
     var selection = editor.selection;
@@ -416,4 +417,6 @@ exports.handler.addCommands([{
     if (command)
         command.bindKey = binding.bindKey;
     exports.handler.bindKey(binding.bindKey, command || binding.name);
+});
+
 });

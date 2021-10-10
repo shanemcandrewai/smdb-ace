@@ -27,9 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "use strict";
 
-import * as lang from "../lib/lang.js";
+var lang = require("../lib/lang");
 
 // based on http://www.freehackers.org/Indent_Finder
 exports.$detectIndentation = function(lines, fallback) {
@@ -103,7 +105,7 @@ exports.$detectIndentation = function(lines, fallback) {
         return {ch: " ", length: tabLength};
 };
 
-export let detectIndentation = function(session) {
+exports.detectIndentation = function(session) {
     var lines = session.getLines(0, 1000);
     var indent = exports.$detectIndentation(lines) || {};
 
@@ -120,7 +122,7 @@ export let detectIndentation = function(session) {
  * options.trimEmpty trim empty lines too
  * options.keepCursorPosition do not trim whitespace before the cursor
  */
-export let trimTrailingSpace = function(session, options) {
+exports.trimTrailingSpace = function(session, options) {
     var doc = session.getDocument();
     var lines = doc.getAllLines();
     
@@ -157,7 +159,7 @@ export let trimTrailingSpace = function(session, options) {
     }
 };
 
-export let convertIndentation = function(session, ch, len) {
+exports.convertIndentation = function(session, ch, len) {
     var oldCh = session.getTabString()[0];
     var oldLen = session.getTabSize();
     if (!len) len = oldLen;
@@ -241,3 +243,5 @@ exports.commands = [{
         indent.ch && editor.session.setUseSoftTabs(indent.ch == " ");
     }
 }];
+
+});

@@ -27,10 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "use strict";
 
-import * as oop from "../../lib/oop.js";
-import { XmlBehaviour as XmlBehaviour } from "../behaviour/xml.js";
+var oop = require("../../lib/oop");
+var XmlBehaviour = require("../behaviour/xml").XmlBehaviour;
 
 var HtmlBehaviour = function () {
 
@@ -41,3 +43,4 @@ var HtmlBehaviour = function () {
 oop.inherits(HtmlBehaviour, XmlBehaviour);
 
 exports.HtmlBehaviour = HtmlBehaviour;
+});

@@ -27,10 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "no use strict";
 
-import * as oop from "./oop.js";
-import { EventEmitter as EventEmitter } from "./event_emitter.js";
+var oop = require("./oop");
+var EventEmitter = require("./event_emitter").EventEmitter;
 
 var optionsProvider = {
     setOptions: function(optList) {
@@ -161,3 +163,5 @@ var AppConfig = function() {
 }).call(AppConfig.prototype);
 
 exports.AppConfig = AppConfig;
+
+});

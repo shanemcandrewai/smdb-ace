@@ -42,8 +42,10 @@
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  */
+
+define(function(require, exports, module) {
 "use strict";
-import { OptionPanel as OptionPanel } from "./options.js";
+var OptionPanel = require("./options").OptionPanel;
 var overlayPage = require('./menu_tools/overlay_page').overlayPage;
 /**
  * This displays the settings menu if it is not already being shown.
@@ -69,9 +71,10 @@ function showSettingsMenu(editor) {
  *  to the editor with appropriate keyboard shortcuts.
  * @param {ace.Editor} editor An instance of the Editor.
  */
-export { init } = function() {
+module.exports.init = function() {
     var Editor = require("../editor").Editor;
     Editor.prototype.showSettingsMenu = function() {
         showSettingsMenu(this);
     };
 };
+});

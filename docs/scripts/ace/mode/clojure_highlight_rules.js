@@ -27,10 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "use strict";
 
-import * as oop from "../lib/oop.js";
-import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
+var oop = require("../lib/oop");
+var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
 
 
@@ -195,3 +197,4 @@ var ClojureHighlightRules = function() {
 oop.inherits(ClojureHighlightRules, TextHighlightRules);
 
 exports.ClojureHighlightRules = ClojureHighlightRules;
+});

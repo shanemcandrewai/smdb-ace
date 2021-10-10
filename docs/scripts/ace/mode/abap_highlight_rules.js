@@ -36,10 +36,12 @@
  * "  Maintainer: Marius Piedallu van Wyk <lailoken@gmail.com>
  * " Last Change: 2012 Oct 23
  */
+
+define(function(require, exports, module) {
 "use strict";
 
-import * as oop from "../lib/oop.js";
-import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
+var oop = require("../lib/oop");
+var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
 var AbapHighlightRules = function() {
 
@@ -129,3 +131,4 @@ var AbapHighlightRules = function() {
 oop.inherits(AbapHighlightRules, TextHighlightRules);
 
 exports.AbapHighlightRules = AbapHighlightRules;
+});

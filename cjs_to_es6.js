@@ -17,7 +17,7 @@ const logger = createLogger({
 
 async function* walk(dir) {
   for await (const dirFile of await opendir(dir)) { // eslint-disable-line no-restricted-syntax
-    logger.info(`walk inner ${dirFile.name}`);
+    logger.info(`walk inner: ${dirFile.name}`);
     const entry = join(dir, dirFile.name);
     if (dirFile.isDirectory()) yield* walk(entry);
     else if (dirFile.isFile()) yield (entry);
@@ -25,7 +25,7 @@ async function* walk(dir) {
 }
 
 function processContents(fileIn) {
-  logger.info('process file contents');
+  logger.info(`process file contents: ${fileIn.filepath}`);
   return fileIn;
 }
 
@@ -43,6 +43,7 @@ async function processFile(filepath) {
 
   if (fileIn.changed) {
     await writeFile(filepath, fileIn.contents);
+    logger.info(`write file: ${fileIn.filepath}`);
   }
 }
 

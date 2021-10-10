@@ -27,12 +27,14 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "use strict";
 
-import * as oop from "../lib/oop.js";
-import { Mode as TextMode } from "./text.js";
-import { AdaHighlightRules as AdaHighlightRules } from "./ada_highlight_rules.js";
-import { Range as Range } from "../range.js";
+var oop = require("../lib/oop");
+var TextMode = require("./text").Mode;
+var AdaHighlightRules = require("./ada_highlight_rules").AdaHighlightRules;
+var Range = require("../range").Range;
 
 var Mode = function() {
     this.HighlightRules = AdaHighlightRules;
@@ -98,3 +100,6 @@ oop.inherits(Mode, TextMode);
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
+
+});
+

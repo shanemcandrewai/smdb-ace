@@ -27,14 +27,16 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "use strict";
 
-import * as dom from "../lib/dom.js";
+var dom = require("../lib/dom");
 require("../incremental_search");
 var iSearchCommandModule = require("../commands/incremental_search_commands");
 
 
-import { HashHandler as HashHandler } from "./hash_handler.js";
+var HashHandler = require("./hash_handler").HashHandler;
 exports.handler = new HashHandler();
 
 exports.handler.isEmacs = true;
@@ -171,7 +173,7 @@ var $resetMarkMode = function(e) {
     e.editor.session.$emacsMark = null;
 };
 
-import { KEY_MODS as keys } from "../lib/keys.js";
+var keys = require("../lib/keys").KEY_MODS;
 var eMods = {C: "ctrl", S: "shift", M: "alt", CMD: "command"};
 var combinations = ["C-S-M-CMD",
                     "S-M-CMD", "C-M-CMD", "C-S-CMD", "C-S-M",
@@ -646,3 +648,5 @@ exports.killRing = {
         return this.get();
     }
 };
+
+});

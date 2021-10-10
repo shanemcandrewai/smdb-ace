@@ -27,10 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "use strict";
 
-import * as oop from "../lib/oop.js";
-import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
+var oop = require("../lib/oop");
+var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
 var AsciidocHighlightRules = function() {
     var identifierRe = "[a-zA-Z\u00a1-\uffff]+\\b";
@@ -229,3 +231,4 @@ var AsciidocHighlightRules = function() {
 oop.inherits(AsciidocHighlightRules, TextHighlightRules);
 
 exports.AsciidocHighlightRules = AsciidocHighlightRules;
+});

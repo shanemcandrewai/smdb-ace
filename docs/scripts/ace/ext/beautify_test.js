@@ -1,16 +1,18 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
+
+define(function(require, exports, module) {
 "use strict";
 
-import * as assert from "assert.js";
-import { EditSession as EditSession } from "../edit_session.js";
+var assert = require("assert");
+var EditSession = require("../edit_session").EditSession;
 var beautify = require("./beautify");
-import { Mode as PHPMode } from "../mode/php.js";
-import { Mode as CSSMode } from "../mode/css.js";
+var PHPMode = require("../mode/php").Mode;
+var CSSMode = require("../mode/css").Mode;
 
 // Execution ORDER: test.setUpSuite, setUp, testFn, tearDown, test.tearDownSuite
-export {
+module.exports = {
     timeout: 10000,
 
     "test beautify first line empty": function() {

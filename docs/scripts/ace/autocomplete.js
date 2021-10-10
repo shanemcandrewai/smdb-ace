@@ -27,14 +27,16 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "use strict";
 
-import { HashHandler as HashHandler } from "./keyboard/hash_handler.js";
-import { AcePopup as AcePopup } from "./autocomplete/popup.js";
-import * as util from "./autocomplete/util.js";
+var HashHandler = require("./keyboard/hash_handler").HashHandler;
+var AcePopup = require("./autocomplete/popup").AcePopup;
+var util = require("./autocomplete/util");
 var lang = require("./lib/lang");
 var dom = require("./lib/dom");
-import { snippetManager as snippetManager } from "./snippets.js";
+var snippetManager = require("./snippets").snippetManager;
 var config = require("./config");
 
 var Autocomplete = function() {
@@ -585,3 +587,5 @@ var FilteredList = function(array, filterText) {
 
 exports.Autocomplete = Autocomplete;
 exports.FilteredList = FilteredList;
+
+});

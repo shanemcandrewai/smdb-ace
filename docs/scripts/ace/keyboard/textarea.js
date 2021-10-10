@@ -27,9 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "use strict";
 
-import { HashHandler as HashHandler } from "./hash_handler.js";
+var HashHandler = require("./hash_handler").HashHandler;
 exports.handler = new HashHandler();
 
 [{
@@ -82,3 +84,5 @@ exports.handler = new HashHandler();
     exports.handler.bindKey(bindKey, k.command);
 });
 exports.handler.$id = "ace/keyboard/textarea";
+
+});

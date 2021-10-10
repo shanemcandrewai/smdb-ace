@@ -28,7 +28,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-import { Editor as Editor } from "../editor.js";
+define(function(require, exports, module) {
+
+var Editor = require("../editor").Editor;
 
 require("../config").defineOptions(Editor.prototype, "editor", {
     enableLinking: {
@@ -81,3 +83,5 @@ function onClick(e) {
         editor._emit("linkClick", {position: docPos, token: token});
     }
 }
+
+});

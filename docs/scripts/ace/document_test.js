@@ -31,13 +31,15 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
+
+define(function(require, exports, module) {
 "use strict";
 
-import { Document as Document } from "./document.js";
-import { Range as Range } from "./range.js";
-import * as assert from "./test/assertions.js";
+var Document = require("./document").Document;
+var Range = require("./range").Range;
+var assert = require("./test/assertions");
 
-export {
+module.exports = {
 
     "test: insert text in line" : function() {
         var doc = new Document(["12", "34"]);

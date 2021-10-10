@@ -9,6 +9,8 @@
     Copyright (c) 2009, 280 North Inc. http://280north.com/
     MIT License. http://github.com/280north/narwhal/blob/master/README.md
 */
+
+define(function(require, exports, module) {
 "use strict";
 
 /*global Element*/
@@ -21,3 +23,5 @@ if (typeof Element != "undefined" && !Element.prototype.remove) {
     });
 }
 
+
+});

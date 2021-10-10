@@ -28,10 +28,12 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-import * as config from "../config.js";
+define(function(require, exports, module) {
+
+var config = require("../config");
 var oop = require("../lib/oop");
-import { HashHandler as HashHandler } from "../keyboard/hash_handler.js";
-import { occurStartCommand as occurStartCommand } from "./occur_commands.js";
+var HashHandler = require("../keyboard/hash_handler").HashHandler;
+var occurStartCommand = require("./occur_commands").occurStartCommand;
 
 // These commands can be installed in a normal key handler to start iSearch:
 exports.iSearchStartCommands = [{
@@ -208,3 +210,5 @@ oop.inherits(IncrementalSearchKeyboardHandler, HashHandler);
 
 
 exports.IncrementalSearchKeyboardHandler = IncrementalSearchKeyboardHandler;
+
+});

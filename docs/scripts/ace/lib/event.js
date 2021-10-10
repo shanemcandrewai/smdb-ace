@@ -27,9 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "use strict";
 
-import * as keys from "./keys.js";
+var keys = require("./keys");
 var useragent = require("./useragent");
 
 var pressedKeys = null;
@@ -76,18 +78,18 @@ var removeListener = exports.removeListener = function(elem, type, callback) {
 /*
 * Prevents propagation and clobbers the default action of the passed event
 */
-export let stopEvent = function(e) {
+exports.stopEvent = function(e) {
     exports.stopPropagation(e);
     exports.preventDefault(e);
     return false;
 };
 
-export let stopPropagation = function(e) {
+exports.stopPropagation = function(e) {
     if (e.stopPropagation)
         e.stopPropagation();
 };
 
-export let preventDefault = function(e) {
+exports.preventDefault = function(e) {
     if (e.preventDefault)
         e.preventDefault();
 };
@@ -95,7 +97,7 @@ export let preventDefault = function(e) {
 /*
  * @return {Number} 0 for left button, 1 for middle button, 2 for right button
  */
-export let getButton = function(e) {
+exports.getButton = function(e) {
     if (e.type == "dblclick")
         return 0;
     if (e.type == "contextmenu" || (useragent.isMac && (e.ctrlKey && !e.altKey && !e.shiftKey)))
@@ -105,7 +107,7 @@ export let getButton = function(e) {
     return e.button;
 };
 
-export let capture = function(el, eventHandler, releaseCaptureHandler) {
+exports.capture = function(el, eventHandler, releaseCaptureHandler) {
     var ownerDocument = el && el.ownerDocument || document;
     function onMouseUp(e) {
         eventHandler && eventHandler(e);
@@ -123,7 +125,7 @@ export let capture = function(el, eventHandler, releaseCaptureHandler) {
     return onMouseUp;
 };
 
-export let addMouseWheelListener = function(el, callback, destroyer) {
+exports.addMouseWheelListener = function(el, callback, destroyer) {
     if ("onmousewheel" in el) {
         addListener(el, "mousewheel", function(e) {
             var factor = 8;
@@ -167,7 +169,7 @@ export let addMouseWheelListener = function(el, callback, destroyer) {
     }
 };
 
-export let addMultiMouseDownListener = function(elements, timeouts, eventHandler, callbackName, destroyer) {
+exports.addMultiMouseDownListener = function(elements, timeouts, eventHandler, callbackName, destroyer) {
     var clicks = 0;
     var startX, startY, timer; 
     var eventNames = {
@@ -220,7 +222,7 @@ var getModifierHash = function(e) {
     return 0 | (e.ctrlKey ? 1 : 0) | (e.altKey ? 2 : 0) | (e.shiftKey ? 4 : 0) | (e.metaKey ? 8 : 0);
 };
 
-export let getModifierString = function(e) {
+exports.getModifierString = function(e) {
     return keys.KEY_MODS[getModifierHash(e)];
 };
 
@@ -281,7 +283,7 @@ function normalizeCommandKeys(callback, e, keyCode) {
 }
 
 
-export let addCommandKeyListener = function(el, callback, destroyer) {
+exports.addCommandKeyListener = function(el, callback, destroyer) {
     if (useragent.isOldGecko || (useragent.isOpera && !("KeyboardEvent" in window))) {
         // Old versions of Gecko aka. Firefox < 4.0 didn't repeat the keydown
         // event if the user pressed the key for a longer time. Instead, the
@@ -347,7 +349,7 @@ if (typeof window == "object" && window.postMessage && !useragent.isOldIE) {
 }
 
 exports.$idleBlocked = false;
-export let onIdle = function(cb, timeout) {
+exports.onIdle = function(cb, timeout) {
     return setTimeout(function handler() {
         if (!exports.$idleBlocked) {
             cb();
@@ -358,7 +360,7 @@ export let onIdle = function(cb, timeout) {
 };
 
 exports.$idleBlockId = null;
-export let blockIdle = function(delay) {
+exports.blockIdle = function(delay) {
     if (exports.$idleBlockId)
         clearTimeout(exports.$idleBlockId);
         
@@ -380,3 +382,4 @@ else
     exports.nextFrame = function(callback) {
         setTimeout(callback, 17);
     };
+});

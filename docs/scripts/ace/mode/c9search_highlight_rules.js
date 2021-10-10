@@ -27,11 +27,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "use strict";
 
-import * as oop from "../lib/oop.js";
+var oop = require("../lib/oop");
 var lang = require("../lib/lang");
-import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
+var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
 function safeCreateRegexp(source, flag) {
     try {
@@ -187,3 +189,5 @@ var C9SearchHighlightRules = function() {
 oop.inherits(C9SearchHighlightRules, TextHighlightRules);
 
 exports.C9SearchHighlightRules = C9SearchHighlightRules;
+
+});

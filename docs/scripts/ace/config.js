@@ -27,13 +27,15 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "no use strict";
 
-import * as lang from "./lib/lang.js";
+var lang = require("./lib/lang");
 var oop = require("./lib/oop");
 var net = require("./lib/net");
 var dom = require("./lib/dom");
-import { AppConfig as AppConfig } from "./lib/app_config.js";
+var AppConfig = require("./lib/app_config").AppConfig;
 
 module.exports = exports = new AppConfig();
 
@@ -54,13 +56,13 @@ var options = {
     useStrictCSP: null
 };
 
-export let get = function(key) {
+exports.get = function(key) {
     if (!options.hasOwnProperty(key))
         throw new Error("Unknown config key: " + key);
     return options[key];
 };
 
-export let set = function(key, value) {
+exports.set = function(key, value) {
     if (options.hasOwnProperty(key))
         options[key] = value;
     else if (this.setDefaultValue("", key, value) == false)
@@ -69,14 +71,14 @@ export let set = function(key, value) {
         dom.useStrictCSP(value);
 };
 
-export let all = function() {
+exports.all = function() {
     return lang.copyObject(options);
 };
 
 exports.$modes = {};
 
 // module loading
-export let moduleUrl = function(name, component) {
+exports.moduleUrl = function(name, component) {
     if (options.$moduleUrls[name])
         return options.$moduleUrls[name];
 
@@ -104,12 +106,12 @@ export let moduleUrl = function(name, component) {
     return path + component + sep + base + this.get("suffix");
 };
 
-export let setModuleUrl = function(name, subst) {
+exports.setModuleUrl = function(name, subst) {
     return options.$moduleUrls[name] = subst;
 };
 
 exports.$loading = {};
-export let loadModule = function(moduleName, onLoad) {
+exports.loadModule = function(moduleName, onLoad) {
     var module, moduleType;
     if (Array.isArray(moduleName)) {
         moduleType = moduleName[0];
@@ -222,3 +224,5 @@ function deHyphenate(str) {
 }
 
 exports.version = "1.4.13";
+
+});

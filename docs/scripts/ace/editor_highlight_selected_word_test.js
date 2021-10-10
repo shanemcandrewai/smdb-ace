@@ -32,12 +32,14 @@ if (typeof process !== "undefined") {
     require("amd-loader");
     require("./test/mockdom");
 }
+
+define(function(require, exports, module) {
 "use strict";
 
-import { EditSession as EditSession } from "./edit_session.js";
-import { Editor as Editor } from "./editor.js";
-import { MockRenderer as MockRenderer } from "./test/mockrenderer.js";
-import * as assert from "./test/assertions.js";
+var EditSession = require("./edit_session").EditSession;
+var Editor = require("./editor").Editor;
+var MockRenderer = require("./test/mockrenderer").MockRenderer;
+var assert = require("./test/assertions");
 
 var lipsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
              "Mauris at arcu mi, eu lobortis mauris. Quisque ut libero eget " +
@@ -70,7 +72,7 @@ function callHighlighterUpdate(session, firstRow, lastRow) {
     return rangeCount;
 }
 
-export {
+module.exports = {
     setUp: function(next) {
         this.session = new EditSession(lipsum);
         this.editor = new Editor(new MockRenderer(), this.session);

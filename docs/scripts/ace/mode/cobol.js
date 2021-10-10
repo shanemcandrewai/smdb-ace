@@ -27,11 +27,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "use strict";
 
-import * as oop from "../lib/oop.js";
-import { Mode as TextMode } from "./text.js";
-import { CobolHighlightRules as CobolHighlightRules } from "./cobol_highlight_rules.js";
+var oop = require("../lib/oop");
+var TextMode = require("./text").Mode;
+var CobolHighlightRules = require("./cobol_highlight_rules").CobolHighlightRules;
 
 var Mode = function() {
     this.HighlightRules = CobolHighlightRules;
@@ -47,3 +49,5 @@ oop.inherits(Mode, TextMode);
 }).call(Mode.prototype);
 
 exports.Mode = Mode;
+
+});

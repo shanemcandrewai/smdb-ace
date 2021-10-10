@@ -4,10 +4,12 @@
  * @license RequireJS text 0.25.0 Copyright (c) 2010-2011, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
  * see: http://github.com/jrburke/requirejs for details
- */"use strict";
-import * as dom from "./dom.js";
+ */
+define(function(require, exports, module) {
+"use strict";
+var dom = require("./dom");
 
-export let get = function (url, callback) {
+exports.get = function (url, callback) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.onreadystatechange = function () {
@@ -20,7 +22,7 @@ export let get = function (url, callback) {
     xhr.send(null);
 };
 
-export let loadScript = function(path, callback) {
+exports.loadScript = function(path, callback) {
     var head = dom.getDocumentHead();
     var s = document.createElement('script');
 
@@ -40,8 +42,10 @@ export let loadScript = function(path, callback) {
  * Convert a url into a fully qualified absolute URL
  * This function does not work in IE6
  */
-export let qualifyURL = function(url) {
+exports.qualifyURL = function(url) {
     var a = document.createElement('a');
     a.href = url;
     return a.href;
 };
+
+});

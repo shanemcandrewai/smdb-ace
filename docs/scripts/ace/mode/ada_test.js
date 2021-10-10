@@ -31,13 +31,15 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
+
+define(function(require, exports, module) {
 "use strict";
 
-import { EditSession as EditSession } from "../edit_session.js";
-import { Mode as AdaMode } from "./ada.js";
-import * as assert from "../test/assertions.js";
+var EditSession = require("../edit_session").EditSession;
+var AdaMode = require("./ada").Mode;
+var assert = require("../test/assertions");
 
-export {
+module.exports = {
     setUp : function() {
         this.mode = new AdaMode();
     },

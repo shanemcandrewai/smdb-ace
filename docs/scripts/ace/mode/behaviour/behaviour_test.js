@@ -32,21 +32,23 @@ if (typeof process !== "undefined") {
     require("amd-loader");
     require("../../test/mockdom");
 }
+
+define(function(require, exports, module) {
 "use strict";
 
 require("../../multi_select");
-import * as assert from "../../test/assertions.js";
-import { Range as Range } from "../../range.js";
-import { Editor as Editor } from "../../editor.js";
-import { UndoManager as UndoManager } from "../../undomanager.js";
-import { EditSession as EditSession } from "../../edit_session.js";
-import { MockRenderer as MockRenderer } from "../../test/mockrenderer.js";
-import { Mode as JavaScriptMode } from "../javascript.js";
-import { Mode as RustMode } from "../rust.js";
-import { Mode as XMLMode } from "../xml.js";
-import { Mode as HTMLMode } from "../html.js";
-import { Mode as CSSMode } from "../css.js";
-import { Mode as MarkdownMode } from "../markdown.js";
+var assert = require("../../test/assertions");
+var Range = require("../../range").Range;
+var Editor = require("../../editor").Editor;
+var UndoManager = require("../../undomanager").UndoManager;
+var EditSession = require("../../edit_session").EditSession;
+var MockRenderer = require("../../test/mockrenderer").MockRenderer;
+var JavaScriptMode = require("../javascript").Mode;
+var RustMode = require("../rust").Mode;
+var XMLMode = require("../xml").Mode;
+var HTMLMode = require("../html").Mode;
+var CSSMode = require("../css").Mode;
+var MarkdownMode = require("../markdown").Mode;
 var editor;
 var exec = function(name, times, args) {
     do {
@@ -57,7 +59,7 @@ var testRanges = function(str) {
     assert.equal(editor.selection.getAllRanges() + "", str + "");
 };
 
-export {
+module.exports = {
     "test: cstyle": function() {
         function testValue(line) {
             assert.equal(editor.getValue(), Array(4).join(line + "\n"));

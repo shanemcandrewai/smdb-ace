@@ -41,6 +41,8 @@
  *  Matthew Christopher Kastor-Inare III </a><br />
  *  ☭ Hial Atropa!! ☭
  */
+
+define(function(require, exports, module) {
     "use strict";
     var Editor = require("../editor").Editor;
     /**
@@ -80,3 +82,5 @@
             }
         }]);
     };
+
+});

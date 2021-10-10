@@ -33,18 +33,20 @@
  *
  * @class Ace
  **/
+
+define(function(require, exports, module) {
 "use strict";
 
 require("./lib/fixoldbrowsers");
 
-import * as dom from "./lib/dom.js";
+var dom = require("./lib/dom");
 var event = require("./lib/event");
 
-import { Range as Range } from "./range.js";
-import { Editor as Editor } from "./editor.js";
-import { EditSession as EditSession } from "./edit_session.js";
-import { UndoManager as UndoManager } from "./undomanager.js";
-import { VirtualRenderer as Renderer } from "./virtual_renderer.js";
+var Range = require("./range").Range;
+var Editor = require("./editor").Editor;
+var EditSession = require("./edit_session").EditSession;
+var UndoManager = require("./undomanager").UndoManager;
+var Renderer = require("./virtual_renderer").VirtualRenderer;
 
 // The following require()s are for inclusion in the built ace file
 require("./worker/worker_client");
@@ -55,7 +57,7 @@ require("./mode/folding/fold_mode");
 require("./theme/textmate");
 require("./ext/error_marker");
 
-export { config } from "./config.js"
+exports.config = require("./config");
 
 /**
  * Provides access to require in packed noconflict mode
@@ -73,7 +75,7 @@ if (typeof define === "function")
  * @param {Object } options Options for the editor
  *
  **/
-export let edit = function(el, options) {
+exports.edit = function(el, options) {
     if (typeof el == "string") {
         var _id = el;
         el = document.getElementById(_id);
@@ -120,7 +122,7 @@ export let edit = function(el, options) {
  * @param {TextMode} mode {:modeParam}
  *
  **/
-export let createEditSession = function(text, mode) {
+exports.createEditSession = function(text, mode) {
     var doc = new EditSession(text, mode);
     doc.setUndoManager(new UndoManager());
     return doc;
@@ -131,3 +133,4 @@ exports.EditSession = EditSession;
 exports.UndoManager = UndoManager;
 exports.VirtualRenderer = Renderer;
 exports.version = exports.config.version;
+});

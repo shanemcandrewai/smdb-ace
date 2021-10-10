@@ -27,11 +27,13 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "use strict";
 
-import * as lang from "../lib/lang.js";
+var lang = require("../lib/lang");
 var config = require("../config");
-import { Range as Range } from "../range.js";
+var Range = require("../range").Range;
 
 function bindKey(win, mac) {
     return {win: win, mac: mac};
@@ -906,3 +908,5 @@ for (var i = 1; i < 9; i++) {
         readOnly: true
     });
 }
+
+});

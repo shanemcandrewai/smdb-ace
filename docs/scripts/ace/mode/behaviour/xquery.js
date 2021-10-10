@@ -26,7 +26,9 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * ***** END LICENSE BLOCK ***** */"use strict";
+ * ***** END LICENSE BLOCK ***** */
+define(function(require, exports, module) {
+"use strict";
 
   var oop = require("../../lib/oop");
   var Behaviour = require('../behaviour').Behaviour;
@@ -87,3 +89,4 @@ function hasType(token, type) {
   oop.inherits(XQueryBehaviour, Behaviour);
 
   exports.XQueryBehaviour = XQueryBehaviour;
+});

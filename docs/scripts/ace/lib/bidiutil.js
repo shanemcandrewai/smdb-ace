@@ -27,6 +27,8 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "use strict";
 
 var ArabicAlefBetIntervalsBegine = ['\u0621', '\u0641'];
@@ -332,7 +334,7 @@ exports.DOT = "\xB7";
  *
  * @return {Object} An object containing logicalFromVisual map and Bidi levels
  **/
-export let doBidiReorder = function(text, textCharTypes, isRtl) {
+exports.doBidiReorder = function(text, textCharTypes, isRtl) {
 	if (text.length < 2)
 		return {};
 		
@@ -380,7 +382,7 @@ export let doBidiReorder = function(text, textCharTypes, isRtl) {
  *
  * @return {Boolean} 'true' if text contains Bidi characters, otherwise 'false' 
  **/
-export let hasBidiCharacters = function(text, textCharTypes){
+exports.hasBidiCharacters = function(text, textCharTypes){
 	var ret = false;
 	for (var i = 0; i < text.length; i++){
 		textCharTypes[i] = _getCharacterType(text.charAt(i));
@@ -398,10 +400,12 @@ export let hasBidiCharacters = function(text, textCharTypes){
  *
  * @return {int} visual index (on display) corresponding to logical index
  **/	
-export let getVisualFromLogicalIdx = function(logIdx, rowMap) {
+exports.getVisualFromLogicalIdx = function(logIdx, rowMap) {
 	for (var i = 0; i < rowMap.logicalFromVisual.length; i++) {
 		if (rowMap.logicalFromVisual[i] == logIdx)
 			return i;
 	}
 	return 0;
 };
+
+});

@@ -27,9 +27,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "use strict";
-import { LineWidgets as LineWidgets } from "../line_widgets.js";
-import * as event from "../lib/event.js";
+var LineWidgets = require("../line_widgets").LineWidgets;
+var event = require("../lib/event");
 var lang = require("../lib/lang");
 var dom = require("../lib/dom");
 
@@ -122,7 +124,7 @@ function clearCodeLensWidgets(session) {
     });
 }
 
-export let setLenses = function(session, lenses) {
+exports.setLenses = function(session, lenses) {
     var firstRow = Number.MAX_VALUE;
 
     clearCodeLensWidgets(session);
@@ -209,17 +211,17 @@ function detachFromEditor(editor) {
         editor.container.removeEventListener("click", editor.$codeLensClickHandler);
 }
 
-export let registerCodeLensProvider = function(editor, codeLensProvider) {
+exports.registerCodeLensProvider = function(editor, codeLensProvider) {
     editor.setOption("enableCodeLens", true);
     editor.codeLensProviders.push(codeLensProvider);
     editor.$updateLensesOnInput();
 };
 
-export let clear = function(session) {
+exports.clear = function(session) {
     exports.setLenses(session, null);
 };
 
-import { Editor as Editor } from "../editor.js";
+var Editor = require("../editor").Editor;
 require("../config").defineOptions(Editor.prototype, "editor", {
     enableCodeLens: {
         set: function(val) {
@@ -255,3 +257,5 @@ dom.importCssString("\
     color: #4e94ce;\
 }\
 ", "codelense.css", false);
+
+});

@@ -8,6 +8,8 @@
 
  ***********************************************************************************************/
 
+
+define(function (require, exports, module) {
     "use strict";
 
     var oop = require("../lib/oop");
@@ -109,3 +111,4 @@
     oop.inherits(ABCHighlightRules, TextHighlightRules);
 
     exports.ABCHighlightRules = ABCHighlightRules;
+});

@@ -27,10 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "use strict";
 
-import * as oop from "../lib/oop.js";
-import { TextHighlightRules as TextHighlightRules } from "./text_highlight_rules.js";
+var oop = require("../lib/oop");
+var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
 var AdaHighlightRules = function() {
 var keywords = "abort|else|new|return|abs|elsif|not|reverse|abstract|end|null|accept|entry|select|" +
@@ -88,3 +90,4 @@ var keywords = "abort|else|new|return|abs|elsif|not|reverse|abstract|end|null|ac
 oop.inherits(AdaHighlightRules, TextHighlightRules);
 
 exports.AdaHighlightRules = AdaHighlightRules;
+});

@@ -1,11 +1,12 @@
+define(function(require, exports, module) {
 "use strict";
 
 require("./menu_tools/overlay_page");
 
-import * as dom from "../lib/dom.js";
+var dom = require("../lib/dom");
 var oop = require("../lib/oop");
 var config = require("../config");
-import { EventEmitter as EventEmitter } from "../lib/event_emitter.js";
+var EventEmitter = require("../lib/event_emitter").EventEmitter;
 var buildDom = dom.buildDom;
 
 var modelist = require("./modelist");
@@ -363,3 +364,5 @@ var OptionPanel = function(editor, element) {
 }).call(OptionPanel.prototype);
 
 exports.OptionPanel = OptionPanel;
+
+});

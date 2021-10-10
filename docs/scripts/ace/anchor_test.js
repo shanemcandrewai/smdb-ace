@@ -31,14 +31,16 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
+
+define(function(require, exports, module) {
 "use strict";
 
-import { Document as Document } from "./document.js";
-import { Anchor as Anchor } from "./anchor.js";
-import { Range as Range } from "./range.js";
-import * as assert from "./test/assertions.js";
+var Document = require("./document").Document;
+var Anchor = require("./anchor").Anchor;
+var Range = require("./range").Range;
+var assert = require("./test/assertions");
 
-export {
+module.exports = {
 
     "test create anchor" : function() {
         var doc = new Document("juhu");

@@ -27,17 +27,19 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "use strict";
 
-export let last = function(a) {
+exports.last = function(a) {
     return a[a.length - 1];
 };
 
-export let stringReverse = function(string) {
+exports.stringReverse = function(string) {
     return string.split("").reverse().join("");
 };
 
-export let stringRepeat = function (string, count) {
+exports.stringRepeat = function (string, count) {
     var result = '';
     while (count > 0) {
         if (count & 1)
@@ -52,15 +54,15 @@ export let stringRepeat = function (string, count) {
 var trimBeginRegexp = /^\s\s*/;
 var trimEndRegexp = /\s\s*$/;
 
-export let stringTrimLeft = function (string) {
+exports.stringTrimLeft = function (string) {
     return string.replace(trimBeginRegexp, '');
 };
 
-export let stringTrimRight = function (string) {
+exports.stringTrimRight = function (string) {
     return string.replace(trimEndRegexp, '');
 };
 
-export let copyObject = function(obj) {
+exports.copyObject = function(obj) {
     var copy = {};
     for (var key in obj) {
         copy[key] = obj[key];
@@ -68,7 +70,7 @@ export let copyObject = function(obj) {
     return copy;
 };
 
-export let copyArray = function(array){
+exports.copyArray = function(array){
     var copy = [];
     for (var i=0, l=array.length; i<l; i++) {
         if (array[i] && typeof array[i] == "object")
@@ -79,7 +81,7 @@ export let copyArray = function(array){
     return copy;
 };
 
-export let deepCopy = function deepCopy(obj) {
+exports.deepCopy = function deepCopy(obj) {
     if (typeof obj !== "object" || !obj)
         return obj;
     var copy;
@@ -99,7 +101,7 @@ export let deepCopy = function deepCopy(obj) {
     return copy;
 };
 
-export let arrayToMap = function(arr) {
+exports.arrayToMap = function(arr) {
     var map = {};
     for (var i=0; i<arr.length; i++) {
         map[arr[i]] = 1;
@@ -108,7 +110,7 @@ export let arrayToMap = function(arr) {
 
 };
 
-export let createMap = function(props) {
+exports.createMap = function(props) {
     var map = Object.create(null);
     for (var i in props) {
         map[i] = props[i];
@@ -119,7 +121,7 @@ export let createMap = function(props) {
 /*
  * splice out of 'array' anything that === 'value'
  */
-export let arrayRemove = function(array, value) {
+exports.arrayRemove = function(array, value) {
   for (var i = 0; i <= array.length; i++) {
     if (value === array[i]) {
       array.splice(i, 1);
@@ -127,15 +129,15 @@ export let arrayRemove = function(array, value) {
   }
 };
 
-export let escapeRegExp = function(str) {
+exports.escapeRegExp = function(str) {
     return str.replace(/([.*+?^${}()|[\]\/\\])/g, '\\$1');
 };
 
-export let escapeHTML = function(str) {
+exports.escapeHTML = function(str) {
     return ("" + str).replace(/&/g, "&#38;").replace(/"/g, "&#34;").replace(/'/g, "&#39;").replace(/</g, "&#60;");
 };
 
-export let getMatchOffsets = function(string, regExp) {
+exports.getMatchOffsets = function(string, regExp) {
     var matches = [];
 
     string.replace(regExp, function(str) {
@@ -149,7 +151,7 @@ export let getMatchOffsets = function(string, regExp) {
 };
 
 /* deprecated */
-export let deferredCall = function(fcn) {
+exports.deferredCall = function(fcn) {
     var timer = null;
     var callback = function() {
         timer = null;
@@ -184,7 +186,7 @@ export let deferredCall = function(fcn) {
 };
 
 
-export let delayedCall = function(fcn, defaultTimeout) {
+exports.delayedCall = function(fcn, defaultTimeout) {
     var timer = null;
     var callback = function() {
         timer = null;
@@ -218,3 +220,4 @@ export let delayedCall = function(fcn, defaultTimeout) {
 
     return _self;
 };
+});

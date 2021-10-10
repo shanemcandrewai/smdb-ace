@@ -28,12 +28,14 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-import * as oop from "../lib/oop.js";
+define(function(require, exports, module) {
+
+var oop = require("../lib/oop");
 var dom = require("../lib/dom");
 var lang = require("../lib/lang");
 var event = require("../lib/event");
 var useragent = require("../lib/useragent");
-import { EventEmitter as EventEmitter } from "../lib/event_emitter.js";
+var EventEmitter = require("../lib/event_emitter").EventEmitter;
 
 var CHAR_COUNT = 256;
 var USE_OBSERVER = typeof ResizeObserver == "function";
@@ -229,3 +231,5 @@ var FontMetrics = exports.FontMetrics = function(parentEl) {
     };
     
 }).call(FontMetrics.prototype);
+
+});

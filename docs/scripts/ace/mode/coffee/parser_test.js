@@ -31,9 +31,11 @@
 if (typeof process !== "undefined") {
     require("amd-loader");
 }
+
+define(function(require, exports, module) {
 "use strict";
 
-import * as assert from "../../test/assertions.js";
+var assert = require("../../test/assertions");
 var coffee = require("./coffee");
 
 function assertLocation(e, sl, sc, el, ec) {
@@ -52,7 +54,7 @@ function parse(str) {
     }
 }
 
-export {
+module.exports = {
     "test parse valid coffee script": function() {
         coffee.compile("square = (x) -> x * x");
     },

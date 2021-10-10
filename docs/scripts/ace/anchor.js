@@ -27,10 +27,12 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  * ***** END LICENSE BLOCK ***** */
+
+define(function(require, exports, module) {
 "use strict";
 
-import * as oop from "./lib/oop.js";
-import { EventEmitter as EventEmitter } from "./lib/event_emitter.js";
+var oop = require("./lib/oop");
+var EventEmitter = require("./lib/event_emitter").EventEmitter;
 
 /**
  *
@@ -221,3 +223,5 @@ var Anchor = exports.Anchor = function(doc, row, column) {
     };
 
 }).call(Anchor.prototype);
+
+});

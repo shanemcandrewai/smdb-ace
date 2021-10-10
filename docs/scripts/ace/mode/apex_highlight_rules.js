@@ -28,11 +28,13 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+
+define(function(require, exports, module) {
 "use strict";
 
-import * as oop from "../lib/oop.js";
-import { TextHighlightRules as TextHighlightRules } from "../mode/text_highlight_rules.js";
-import { DocCommentHighlightRules as DocCommentHighlightRules } from "../mode/doc_comment_highlight_rules.js";
+var oop = require("../lib/oop");
+var TextHighlightRules = require("../mode/text_highlight_rules").TextHighlightRules;
+var DocCommentHighlightRules = require("../mode/doc_comment_highlight_rules").DocCommentHighlightRules;
 
 var ApexHighlightRules = function() {
     var mainKeywordMapper = this.createKeywordMapper({
@@ -256,3 +258,4 @@ var ApexHighlightRules = function() {
 oop.inherits(ApexHighlightRules, TextHighlightRules);
 
 exports.ApexHighlightRules = ApexHighlightRules;
+});
