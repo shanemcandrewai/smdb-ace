@@ -8,11 +8,10 @@ const { createLogger, format, transports } = winston;
 const rootDir = 'docs/scripts/ace/test';
 
 const logger = createLogger({
-  transports: [
+  transports:
     new transports.Console({
       format: format.combine(format.colorize(), format.simple()),
     }),
-  ],
 });
 
 async function* walk(dir) {
@@ -26,12 +25,17 @@ async function* walk(dir) {
 
 function processContents(fileIn) {
   logger.info(`process file contents: ${fileIn.filepath}`);
-  return fileIn;
+  const fileOut = fileIn;
+  fileOut.changed = true;
+  return fileOut;
 }
 
 async function processFile(filepath) {
-  const results = await readFile(filepath);
+  const results = await readFile(filepath).catch((error) => {
+    logger.error(`readFile: ${error}`);
+  });
 
+  logger.error(`xxx ${filepath}`);
   let fileIn = {
     filepath,
     changed: false,
@@ -42,7 +46,9 @@ async function processFile(filepath) {
   fileIn = processContents(fileIn);
 
   if (fileIn.changed) {
-    await writeFile(filepath, fileIn.contents);
+    await writeFile(filepath, fileIn.contents).catch((error) => {
+      logger.error(error);
+    });
     logger.info(`write file: ${fileIn.filepath}`);
   }
 }
@@ -51,11 +57,9 @@ async function main() {
   logger.info('start logger');
 
   if (argv.length === 3) {
+    logger.info(`file name passed: ${argv[2]}`);
     // Input file passed as command-line argument
-    processFile(argv[2])
-      .catch((e) => {
-        logger.error(`processFile failed: ${e.message}`);
-      });
+    processFile(argv[2]);
   } else {
     logger.info('argv.length !== 3');
     for await (const filePath of walk(rootDir)) { // eslint-disable-line no-restricted-syntax
