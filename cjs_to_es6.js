@@ -15,11 +15,11 @@ const logger = createLogger({
 });
 
 async function* walk(dir) {
-  for await (const dirFile of await opendir(dir)) { // eslint-disable-line no-restricted-syntax
-    logger.info(`walk inner: ${dirFile.name}`);
-    const entry = join(dir, dirFile.name);
-    if (dirFile.isDirectory()) yield* walk(entry);
-    else if (dirFile.isFile()) yield (entry);
+  for await (const dirNode of await opendir(dir)) { // eslint-disable-line no-restricted-syntax
+    logger.info(`walk node: ${dirNode.name}`);
+    const entry = join(dir, dirNode.name);
+    if (dirNode.isDirectory()) yield* walk(entry);
+    else if (dirNode.isFile()) yield (entry);
   }
 }
 
@@ -31,11 +31,8 @@ function processContents(fileIn) {
 }
 
 async function processFile(filepath) {
-  const results = await readFile(filepath).catch((error) => {
-    logger.error(`readFile: ${error}`);
-  });
+  const results = await readFile(filepath);
 
-  logger.error(`xxx ${filepath}`);
   let fileIn = {
     filepath,
     changed: false,
@@ -46,24 +43,19 @@ async function processFile(filepath) {
   fileIn = processContents(fileIn);
 
   if (fileIn.changed) {
-    await writeFile(filepath, fileIn.contents).catch((error) => {
-      logger.error(error);
-    });
+    await writeFile(filepath, fileIn.contents);
     logger.info(`write file: ${fileIn.filepath}`);
   }
 }
 
 async function main() {
-  logger.info('start logger');
-
   if (argv.length === 3) {
-    logger.info(`file name passed: ${argv[2]}`);
     // Input file passed as command-line argument
-    processFile(argv[2]);
+    await processFile(argv[2]);
   } else {
     logger.info('argv.length !== 3');
     for await (const filePath of walk(rootDir)) { // eslint-disable-line no-restricted-syntax
-      processFile(filePath);
+      await processFile(filePath);
     }
   }
 }
