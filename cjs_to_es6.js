@@ -2,10 +2,11 @@ import { readFile, writeFile, opendir } from 'fs/promises';
 import { argv } from 'process';
 import { join } from 'path';
 import winston from 'winston';
+import esprima from 'esprima';
 
 const { createLogger, format, transports } = winston;
 
-const defaultNode = 'docs/scripts/ace/test';
+const defaultNode = 'docs/scripts/ace/ace.js';
 
 const logger = createLogger({
   transports:
@@ -26,7 +27,9 @@ async function* walk(dir) {
 function processContents(fileIn) {
   logger.info(`process file contents: ${fileIn.filepath}`);
   const fileOut = fileIn;
-  fileOut.changed = false;
+  fileOut.contents = JSON.stringify(esprima.parseScript(fileIn.contents), null, 4);
+  logger.info(`esprima: ${fileOut.contents}`);
+  fileOut.changed = true;
   return fileOut;
 }
 
@@ -59,6 +62,7 @@ async function main() {
   }
 }
 
-main().catch((error) => {
-  logger.error(error);
-});
+main();
+// main().catch((error) => {
+// logger.error(error);
+// });
