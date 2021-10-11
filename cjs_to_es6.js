@@ -5,7 +5,7 @@ import winston from 'winston';
 
 const { createLogger, format, transports } = winston;
 
-const rootDir = 'docs/scripts/ace/test';
+const defaultNode = 'docs/scripts/ace/test';
 
 const logger = createLogger({
   transports:
@@ -26,7 +26,7 @@ async function* walk(dir) {
 function processContents(fileIn) {
   logger.info(`process file contents: ${fileIn.filepath}`);
   const fileOut = fileIn;
-  fileOut.changed = true;
+  fileOut.changed = false;
   return fileOut;
 }
 
@@ -49,14 +49,13 @@ async function processFile(filepath) {
 }
 
 async function main() {
-  if (argv.length === 3) {
-    // Input file passed as command-line argument
-    await processFile(argv[2]);
-  } else {
-    logger.info('argv.length !== 3');
-    for await (const filePath of walk(rootDir)) { // eslint-disable-line no-restricted-syntax
+  try {
+    // eslint-disable-next-line no-restricted-syntax
+    for await (const filePath of walk(argv[2] || defaultNode)) {
       await processFile(filePath);
     }
+  } catch {
+    await processFile(argv[2] || defaultNode);
   }
 }
 
