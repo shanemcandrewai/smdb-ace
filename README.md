@@ -14,10 +14,6 @@ Express / Node
 
 [express-session / connect-redis](https://github.com/expressjs/session#compatible-session-stores)
 
-#### Embedded JSON editor
-
-[Ace](https://ace.c9.io)
-
 #### Front end symmetric encryption
 
 [crypto-js](https://github.com/brix/crypto-js)
@@ -45,8 +41,6 @@ Express / Node
     node app.js
 
 [Local URL](http://localhost:3000)
-
-##### [Ace editor](https://ace.c9.io)
 
 ###### [build docs/scripts/dist/main.js ](https://webpack.js.org/guides/getting-started/#using-a-configuration)
 
